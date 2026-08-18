@@ -1,0 +1,71 @@
+\theory{Transcendental number theory}{Which numbers are not roots of any nonzero polynomial with rational coefficients, and how can we prove that fact?}{Transcendental number theory studies numbers beyond algebraic equations. It proves transcendence, algebraic independence, and quantitative lower bounds for polynomial expressions and linear forms in logarithms.}{Number theory, Diophantine approximation, special constants, exponential equations, cryptography, and arithmetic geometry.}{Algebraic independence, Diophantine approximation, and lower bounds for logarithmic forms distinguish numbers beyond polynomial equations.}
+
+\paragraph{Definitions and history}
+An algebraic number is a root of a nonzero polynomial with rational coefficients. A number that is not algebraic is transcendental. A set is algebraically independent over a field when no nonzero polynomial relation with coefficients in that field holds among its members \cite{trans_ref1}.
+
+Liouville constructed transcendental numbers in the nineteenth century and proved that algebraic numbers cannot be approximated too well by rationals. Cantor showed that algebraic numbers are countable while real numbers are uncountable, so almost every real number is transcendental, although proving a particular constant transcendental can be very difficult \cite{trans_ref2}.
+
+\end{historylist}
+\section*{3. Theory}
+\subsection*{Core theory}
+\paragraph{Major theorems}
+Liouville's theorem says that an algebraic number of degree $d\geq2$ cannot satisfy
+\[
+\left|\alpha-\frac pq\right|<\frac1{q^{d+\epsilon}}
+\]
+for infinitely many rationals $p/q$. Thus a number with exceptionally good rational approximations is transcendental.
+
+The Lindemann--Weierstrass theorem implies that $\pi$ is transcendental: if $i\pi$ were algebraic and nonzero, then $e^{i\pi}$ would be transcendental, contradicting $e^{i\pi}=-1$. The Gelfond--Schneider theorem says that if $a$ is algebraic and not $0$ or $1$, and $b$ is irrational algebraic, then every value of $a^b$ is transcendental. Hence $2^{\sqrt2}$ and $e^\pi$ are transcendental \cite{trans_ref3}.
+
+Alan Baker developed powerful lower bounds for linear forms in logarithms of algebraic numbers. These results solve or bound many Diophantine equations and give effective transcendence measures \cite{trans_ref4}.
+
+\paragraph{Open problems and methods}
+The theory asks whether constants such as Euler's constant, zeta values, and many combinations of logarithms are rational, algebraic, or transcendental. Auxiliary functions, Diophantine approximation, interpolation determinants, and height estimates are common tools. Algebraic independence is much harder than individual transcendence.
+
+\section*{4. Important theorems and results}
+\begin{enumerate}[leftmargin=*,itemsep=0.35em]
+\item \textbf{Liouville criterion.} Exceptionally good rational approximation can force transcendence.
+
+\item \textbf{Lindemann--Weierstrass theorem.} Linear independence of distinct algebraic exponents implies strong transcendence results for exponentials.
+
+\item \textbf{Gelfond--Schneider theorem.} Algebraic $a\ne0,1$ raised to an irrational algebraic power is transcendental.
+
+\item \textbf{Baker's theorem.} Nonzero linear forms in logarithms of algebraic numbers have explicit lower bounds.
+
+\item \textbf{Cantor's cardinality result.} Almost all real numbers are transcendental because algebraic numbers are countable.
+
+The results give increasingly strong ways to prove that a number is not algebraic. Liouville supplies an approximation test, Lindemann--Weierstrass controls exponentials, Gelfond--Schneider treats algebraic powers, and Baker gives quantitative lower bounds for logarithmic expressions. Cantor's argument proves abundance rather than identifying a particular number: it shows that algebraic numbers form a countable exceptional set inside the uncountable real line.
+\end{enumerate}
+\noindent\emph{Source for these results:} \cite{trans_ref1}.
+
+\theoryapplications
+\theoryconnections{transcendental_number_theory}{%
+\item Number theory supplies algebraic numbers and polynomial equations, while complex analysis studies exponential and logarithmic functions that cannot be captured by polynomial identities.
+\item Diophantine approximation measures how closely a number can be approached by rationals or algebraic numbers, and heights measure the arithmetic complexity of those approximants.
+\item Lower bounds for linear forms in logarithms then prevent an equation from having infinitely many unexpectedly close solutions \cite{trans_ref1,trans_ref4}.
+}{%
+\item The theory helps exponential Diophantine equations by proving that expressions such as powers and logarithms cannot cancel too accurately.
+\item It helps arithmetic geometry bound rational points on curves and distinguish algebraic from transcendental parameters.
+\item Results about constants such as $e$ and $\pi$ also explain why certain exact numerical coincidences cannot arise from polynomial relations with rational coefficients \cite{trans_ref1,trans_ref2}.
+}
+\section*{7. Sample Questions}
+\emph{Exercise reference:} \cite{trans_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
+\begin{enumerate}[leftmargin=*,itemsep=0.9em]
+\item \textbf{Exercise 1. Why is every rational number algebraic?} The rational number $p/q$ is a root of $qx-p=0$.
+
+\item \textbf{Exercise 2. Why is $\sqrt2$ algebraic but not rational?} It is a root of $x^2-2$, so algebraic; the parity proof shows no rational number squares to $2$.
+
+\item \textbf{Exercise 3. Why is $\pi$ transcendental?} Lindemann's theorem implies that if a nonzero algebraic number $\alpha$ is used in $e^\alpha$, the result cannot be the required algebraic value of $e^{i\pi}=-1$ when $\alpha=i\pi$ is assumed algebraic.
+
+\item \textbf{Exercise 4. Why does countability not identify a particular transcendental number?} It proves that almost all reals are transcendental, but a randomly described real may not have a proof attached to its identity.
+
+\item \textbf{Exercise 5. What does algebraic independence mean for two numbers?} It means no nonzero polynomial $P(x,y)$ with coefficients in the base field satisfies $P(\alpha,\beta)=0$.
+
+\end{enumerate}
+\section*{8. References}
+\begin{thebibliography}{9}
+\bibitem{trans_ref1} A. Baker, \emph{Transcendental Number Theory}.
+\bibitem{trans_ref2} E. B. Burger and R. Tubbs, \emph{Making Transcendence Transparent}.
+\bibitem{trans_ref3} S. Lang, \emph{Introduction to Transcendental Numbers}.
+\bibitem{trans_ref4} A. Baker and G. Wustholz, \emph{Logarithmic Forms and Diophantine Geometry}.
+\end{thebibliography}

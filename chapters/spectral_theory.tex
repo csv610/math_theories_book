@@ -1,0 +1,76 @@
+\theory{Spectral theory}{How can the eigenvalue and eigenvector ideas of matrices be extended to differential operators and infinite-dimensional spaces?}{Spectral theory studies the spectrum of an operator, the values for which it lacks an inverse, and decomposes an operator into simpler modes. The spectrum may contain ordinary eigenvalues and continuous parts, so infinite-dimensional systems need more than a list of eigenvectors.}{Differential equations, quantum mechanics, vibrations, Fourier analysis, integral equations, spectral geometry, and engineering.}{Spectra and functional calculus decompose operators into modes that govern differential equations, vibrations, and quantum observables.}
+
+\paragraph{The idea and history}
+For a matrix, eigenvectors are directions that are only stretched, and eigenvalues are the stretching factors. David Hilbert developed an infinite-dimensional version while studying quadratic forms and infinitely many variables. Erhard Schmidt and Frigyes Riesz developed Hilbert-space foundations; von Neumann developed spectral theory for operators used in quantum mechanics \cite{spectral_ref1}.
+
+The term spectrum was introduced in the mathematical setting before quantum mechanics connected it with atomic spectra. Hilbert was surprised that a theory developed from pure mathematical interest would explain physical energy levels \cite{spectral_ref2}.
+
+\end{historylist}
+\section*{3. Theory}
+\subsection*{Core theory}
+\paragraph{Spectrum and resolvent}
+For an operator $T$, the spectrum $\sigma(T)$ is the set of complex numbers $\lambda$ for which $T-\lambda I$ has no bounded inverse. Every eigenvalue belongs to the spectrum, but the spectrum can contain values that are not eigenvalues. The complement is the resolvent set, where the inverse exists and varies analytically with $\lambda$.
+
+On a Hilbert space, self-adjoint operators have real spectrum. Their spectrum may contain discrete eigenvalues or a continuous part. The multiplication operator $(Tf)(x)=xf(x)$ on square-integrable functions has every point in an interval in its spectrum even though no nonzero function is concentrated at one point \cite{spectral_ref3}.
+
+\paragraph{The spectral theorem}
+The finite-dimensional spectral theorem says a Hermitian matrix is unitarily diagonalizable. In an infinite-dimensional Hilbert space, a self-adjoint or normal operator is represented by a spectral measure:
+\[
+T=\int_{\sigma(T)}\lambda\,dE(\lambda).
+\]
+Functions of $T$ are defined by the same calculus, so expressions such as $e^{tT}$ and square roots can be constructed from the spectrum.
+
+For compact self-adjoint operators, the nonzero spectrum consists of eigenvalues with finite multiplicity that can accumulate only at zero. Their eigenvectors form an orthonormal basis of the relevant closure. This generalizes principal-axis decomposition and explains why integral equations can be solved by modes \cite{spectral_ref1}.
+
+\paragraph{Applications}
+The vibration of a string, membrane, or drum becomes an eigenvalue problem for a differential operator. Frequencies are spectral values and eigenfunctions are normal modes. The question Can one hear the shape of a drum? asks how much geometric information is encoded by the spectrum.
+
+In quantum mechanics, a self-adjoint operator represents an observable; its spectrum gives possible measurement values. In Fourier analysis, translation-invariant operators are diagonalized by frequency modes. In engineering, spectral radius and eigenvalues determine stability of discrete-time systems. Sturm--Liouville theory gives a powerful one-dimensional model for boundary-value problems \cite{spectral_ref4}.
+
+\section*{4. Important theorems and results}
+\begin{enumerate}[leftmargin=*,itemsep=0.35em]
+\item \textbf{Spectral theorem.} Self-adjoint and normal operators on Hilbert spaces admit spectral-measure representations.
+
+\item \textbf{Compact-operator theorem.} A compact self-adjoint operator has an orthonormal eigen-expansion with only possible accumulation at zero.
+
+\item \textbf{Spectral mapping theorem.} For suitable functions $f$, the spectrum of $f(T)$ is $f(\sigma(T))$.
+
+\item \textbf{Spectral-radius formula.} For a bounded operator, the spectral radius satisfies $r(T)=\lim_{n\to\infty}\|T^n\|^{1/n}$.
+
+\item \textbf{Resolvent analyticity.} The inverse $(T-\lambda I)^{-1}$ is analytic on the resolvent set.
+
+\item \textbf{Weyl's alternative.} For singular Sturm--Liouville endpoints, limit-point and limit-circle behavior determine the necessary boundary conditions.
+\end{enumerate}
+\noindent\emph{Source for these results:} \cite{spectral_ref1}.
+
+\theoryapplications
+\theoryconnections{spectral_theory}{%
+\item Linear algebra begins with eigenvalues of a matrix; spectral theory asks the same question for operators on spaces of functions.
+\item Hilbert-space geometry supplies orthogonality and convergence, functional analysis controls unbounded operators, and complex analysis studies the resolvent where an inverse exists.
+\item Differential equations enter because boundary conditions select the eigenfunctions that can be combined to represent a solution \cite{spectral_ref1,spectral_ref2}.
+}{%
+\item Spectral theory helps vibration analysis by decomposing a structure into normal modes, each with its own frequency.
+\item It helps quantum mechanics because the spectrum of an observable gives possible measurement values, and it helps PDEs because expanding the initial data in eigenfunctions converts evolution into independent scalar equations.
+\item In numerical analysis, computed eigenvalues reveal stability, resonance, and the dominant directions of a large system \cite{spectral_ref1,spectral_ref3}.
+}
+\section*{7. Sample Questions}
+\emph{Exercise reference:} \cite{spectral_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
+\begin{enumerate}[leftmargin=*,itemsep=0.9em]
+\item \textbf{Exercise 1. Find the spectrum of $A=\operatorname{diag}(2,5)$.} The matrix $A-\lambda I$ is invertible unless $\lambda=2$ or $5$, so $\sigma(A)=\{2,5\}$.
+
+\item \textbf{Exercise 2. Why can a spectrum contain a non-eigenvalue?} An operator can fail to have a bounded inverse even when the equation $Tv=\lambda v$ has no nonzero solution. Continuous spectral behavior is the infinite-dimensional example.
+
+\item \textbf{Exercise 3. What are the normal modes of a vibrating string?} They are eigenfunctions of the differential operator with the boundary conditions of the string. Each mode oscillates at its own spectral frequency.
+
+\item \textbf{Exercise 4. Why is the spectrum of a self-adjoint operator real?} If $Tv=\lambda v$ for a nonzero vector, then $\langle Tv,v\rangle=\langle v,Tv\rangle$ forces $\lambda=\overline\lambda$. The full theorem extends this reality to continuous spectrum.
+
+\item \textbf{Exercise 5. How does Fourier analysis diagonalize convolution?} Exponentials are eigenfunctions of translation and convolution. Each frequency is multiplied by the Fourier transform of the kernel, so the operator becomes multiplication in frequency space.
+
+\end{enumerate}
+\section*{8. References}
+\begin{thebibliography}{9}
+\bibitem{spectral_ref1} E. B. Davies, \emph{Spectral Theory and Differential Operators}.
+\bibitem{spectral_ref2} J. Dieudonne, \emph{History of Functional Analysis}.
+\bibitem{spectral_ref3} N. Dunford and J. T. Schwartz, \emph{Linear Operators, Part II}.
+\bibitem{spectral_ref4} G. Teschl, \emph{Mathematical Methods in Quantum Mechanics}.
+\end{thebibliography}

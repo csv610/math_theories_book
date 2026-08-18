@@ -1,0 +1,75 @@
+\theory{Sheaf theory}{How can locally defined information be organized so that compatible local pieces glue into a global object?}{A sheaf assigns data to open regions of a space, restricts data to smaller regions, and requires compatible local data to glue uniquely. Sheaves may contain sets, groups, rings, modules, or vector spaces.}{Topology, algebraic and differential geometry, algebraic geometry, differential equations, cohomology, logic, and number theory.}{Restriction maps and gluing turn compatible local data into global sections and measure the failure when gluing is impossible.}
+
+\paragraph{The problem and history}
+Continuous functions, differentiable functions, vector fields, and solutions of differential equations are naturally defined on open subsets. A restriction map sends data on a large region to data on a smaller one. A presheaf is such an assignment; a sheaf adds the condition that compatible local data determine exactly one global datum \cite{sheaf_ref1}.
+
+The theory grew from cohomology and analytic continuation. Jean Leray introduced sheaf methods in work on fixed-point theorems and partial differential equations. Henri Cartan and Alexander Grothendieck developed sheaf cohomology and its algebraic applications. Grothendieck later generalized open covers to Grothendieck topologies \cite{sheaf_ref2}.
+
+\end{historylist}
+\section*{3. Theory}
+\subsection*{Core theory}
+\paragraph{Definition through an example}
+Let $X$ be a topological space. For each open set $U$, let $\mathcal F(U)$ be the set of data on $U$. If $V\subseteq U$, restriction gives a map $\mathcal F(U)\to\mathcal F(V)$. The sheaf condition says that if $U$ is covered by open sets $U_i$ and sections $s_i\in\mathcal F(U_i)$ agree on overlaps $U_i\cap U_j$, then there is a unique section $s\in\mathcal F(U)$ restricting to every $s_i$.
+
+The sheaf of continuous real-valued functions satisfies this rule: compatible continuous pieces define one continuous function. The sheaf of smooth functions, holomorphic functions, vector fields, and sections of a vector bundle provide richer examples. The constant presheaf may fail to be a sheaf because locally constant choices can behave differently on disconnected regions \cite{sheaf_ref1}.
+
+\paragraph{Morphisms and functors}
+A morphism of sheaves is a collection of maps commuting with restriction. Sheaves of a fixed type on a space form a category. A continuous map $f:X\to Y$ gives a direct image functor $f_*$, which records data on inverse images, and an inverse image functor $f^{-1}$, which transports local data in the other direction. These functors and their derived versions are central to geometry \cite{sheaf_ref3}.
+
+\paragraph{Cohomology and geometry}
+Sheaf cohomology measures the failure of local data to glue globally. Degree zero records global sections. Higher cohomology detects obstructions such as a locally defined function or solution that cannot be chosen consistently over the whole space. It includes familiar topological cohomology and connects local analytic information with global invariants.
+
+Manifolds and schemes can be described using sheaves of rings. Divisors, vector bundles, and differential operators are naturally sheaf-theoretic. D-modules use sheaves of differential operators to study linear differential equations. In algebraic geometry, coherent sheaves package algebraic families and support duality and Riemann--Roch theory \cite{sheaf_ref4}.
+
+\paragraph{Sites, topoi, and arithmetic}
+The Zariski topology on an algebraic variety has very few open sets, so ordinary constant-sheaf cohomology cannot recover the desired information over finite fields. Grothendieck topologies replace open covers by abstract covering families. A category with such coverings is a site, and sheaves on it form a Grothendieck topos.
+
+Etale and l-adic sheaf cohomology supplied the cohomological tools used in the proof of the Weil conjectures. Topoi also connect sheaves with mathematical logic, and sheaf constructions on categories provide flexible foundations for arithmetic geometry \cite{sheaf_ref2}.
+
+\section*{4. Important theorems and results}
+\begin{enumerate}[leftmargin=*,itemsep=0.35em]
+\item \textbf{Sheaf gluing axiom.} Compatible local sections on a cover glue uniquely to a global section.
+
+\item \textbf{Sheafification.} Every presheaf admits a universal sheaf receiving a map from it.
+
+\item \textbf{De Rham theorem.} On a smooth manifold, the cohomology of differential forms agrees with singular cohomology.
+
+\item \textbf{Serre's coherent sheaf theory.} Coherent sheaves connect algebraic functions, vector bundles, and cohomology on projective varieties.
+
+\item \textbf{Grothendieck duality.} Under suitable hypotheses, direct and inverse image operations are related by dualizing functors.
+
+\item \textbf{Etale cohomology.} Sheaf cohomology for the etale topology provides arithmetic invariants unavailable from the Zariski topology alone.
+\end{enumerate}
+\noindent\emph{Source for these results:} \cite{sheaf_ref1}.
+
+\theoryapplications
+\theoryconnections{sheaf_theory}{%
+\item Topology provides open sets and overlaps, while a sheaf assigns data to each open set together with restriction maps to smaller sets.
+\item The gluing rule says that compatible local sections come from one and only one global section.
+\item Algebra decides what the sections are, and homological algebra measures the failure of gluing when the compatibility equations have no global solution \cite{sheaf_ref1,sheaf_ref2}.
+}{%
+\item Sheaf theory helps geometry describe functions, vector fields, and solutions of differential equations that are defined locally but may fail to fit globally.
+\item On a scheme it records regular functions and modules; in arithmetic it organizes information over different localizations; in logic it models varying truth values.
+\item Cohomology turns the failure of gluing into invariants, so a local calculation can reveal a global obstruction \cite{sheaf_ref1,sheaf_ref3}.
+}
+\section*{7. Sample Questions}
+\emph{Exercise reference:} \cite{sheaf_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
+\begin{enumerate}[leftmargin=*,itemsep=0.9em]
+\item \textbf{Exercise 1. Why do continuous functions form a sheaf?} Compatible continuous functions on overlapping open sets agree where they meet, so defining the combined function piece by piece is well defined and continuous.
+
+\item \textbf{Exercise 2. What does the sheaf condition add to a presheaf?} It guarantees existence and uniqueness of a global object from compatible local objects; restriction alone does not guarantee this.
+
+\item \textbf{Exercise 3. What does degree-zero sheaf cohomology represent?} It is the group or set of global sections, because no gluing obstruction remains at degree zero.
+
+\item \textbf{Exercise 4. Why are schemes described by sheaves of rings?} Polynomial coordinates and regular functions vary from one open region to another. A sheaf records those local rings and their compatibility.
+
+\item \textbf{Exercise 5. Why introduce the etale topology?} The Zariski topology has too few opens over finite fields. Etale covers provide enough local information to build useful cohomology.
+
+\end{enumerate}
+\section*{8. References}
+\begin{thebibliography}{9}
+\bibitem{sheaf_ref1} G. E. Bredon, \emph{Sheaf Theory}.
+\bibitem{sheaf_ref2} R. Godement, \emph{Topologie algebrique et theorie des faisceaux}.
+\bibitem{sheaf_ref3} I. Moerdijk and S. Mac Lane, \emph{Sheaves in Geometry and Logic}.
+\bibitem{sheaf_ref4} R. Hartshorne, \emph{Algebraic Geometry}.
+\end{thebibliography}

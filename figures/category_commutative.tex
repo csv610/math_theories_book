@@ -1,0 +1,13 @@
+\begin{tikzpicture}[>=Latex,scale=.9,transform shape,
+  obj/.style={circle,draw,fill=blue!8,inner sep=3pt}]
+\node[obj] (A) at (0,1.5) {$A$};
+\node[obj] (B) at (3,1.5) {$B$};
+\node[obj] (C) at (0,0) {$C$};
+\node[obj] (D) at (3,0) {$D$};
+\draw[->] (A)--node[above] {$f$}(B);
+\draw[->] (A)--node[left] {$g$}(C);
+\draw[->] (B)--node[right] {$h$}(D);
+\draw[->] (C)--node[below] {$k$}(D);
+\node at (1.5,.75) {$h\circ f=k\circ g$};
+\node[align=center] at (1.5,-1) {the diagram commutes: different paths\\give the same result};
+\end{tikzpicture}

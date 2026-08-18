@@ -1,0 +1,81 @@
+\theory{Representation theory}{How can an abstract symmetry be turned into concrete matrices that we can calculate with?}{Representation theory studies groups, algebras, and Lie algebras by letting their elements act as linear transformations on vector spaces. The abstract multiplication law becomes matrix multiplication, so algebraic questions can use linear algebra, geometry, and analysis.}{Fourier and harmonic analysis, quantum mechanics, particle physics, crystallography, number theory, algebraic geometry, and differential equations.}{Group actions on vector spaces translate abstract symmetry into matrices, characters, and decomposable modules.}
+
+\paragraph{The idea and history}
+A group describes reversible symmetries. A representation is a homomorphism $\rho:G\to GL(V)$ satisfying $\rho(gh)=\rho(g)\rho(h)$. It gives each abstract symmetry a matrix acting on a vector space. The same idea applies to associative algebras and Lie algebras \cite{representation_ref1}.
+
+The first systematic examples came from finite groups and characters. Later work connected representations with Lie groups, geometry, number theory, and physics. Hermann Weyl developed important unitary representation methods, while Eugene Wigner used representations of spacetime symmetries to classify physical particles \cite{representation_ref2}.
+
+\end{historylist}
+\section*{3. Theory}
+\subsection*{Core theory}
+\paragraph{Finite groups and characters}
+For a finite group over a field whose characteristic does not divide the group order, Maschke's theorem says every finite-dimensional representation splits into irreducible pieces. An irreducible representation has no nonzero proper invariant subspace. This is analogous to factoring an integer into primes: complicated representations are built from elementary blocks.
+
+The character of a representation is the function $\chi(g)=\operatorname{tr}(\rho(g))$. Characters are constant on conjugacy classes and their inner products detect whether two irreducible representations are equal. Character tables therefore turn group classification questions into manageable calculations \cite{representation_ref1}.
+
+\paragraph{Different settings}
+Representations may be finite- or infinite-dimensional and may be defined over complex numbers, real numbers, finite fields, or $p$-adic fields. Modular representation theory studies the difficult case where the field characteristic divides the group order, so Maschke's theorem fails. Brauer's methods were important in the classification of finite simple groups.
+
+Unitary representations act on Hilbert spaces and preserve inner products. They are central in quantum mechanics, where a symmetry changes a state without changing total probability. Representations of locally compact groups require continuity and measure, connecting the subject with harmonic analysis and operator theory \cite{representation_ref2}.
+
+\paragraph{Lie groups and algebras}
+Continuous symmetries are represented by Lie groups, while their infinitesimal motions are represented by Lie algebras. A Lie algebra has a bilinear bracket satisfying antisymmetry and the Jacobi identity. Differentiating a group representation gives a Lie algebra representation, often reducing a nonlinear symmetry problem to linear algebra.
+
+The representation theory of semisimple Lie algebras uses roots, weights, highest-weight vectors, and Weyl groups. Tensor products describe how combined systems decompose into irreducible systems. This is the mathematical origin of angular momentum addition and the classification of many particle states \cite{representation_ref3}.
+
+\paragraph{Connections and applications}
+Fourier analysis is representation theory for translation groups: complex exponentials are the irreducible modes. Crystallography uses representations of space groups to describe patterns that repeat in a lattice. In quantum mechanics, observables and states transform according to representations of symmetry groups. In number theory, automorphic forms and the Langlands program connect representations with arithmetic information.
+
+Representation theory also connects to invariant theory and the Erlangen view of geometry, in which a geometry is studied through its symmetry group. Category theory generalizes the idea by replacing an algebraic object with a category and a representation with a functor into vector spaces \cite{representation_ref4}.
+
+\section*{4. Important theorems and results}
+\begin{enumerate}[leftmargin=*,itemsep=0.35em]
+\item \textbf{Maschke's theorem.} Finite-dimensional representations of a finite group split into irreducibles when the characteristic does not divide the group order.
+
+\item \textbf{Schur's lemma.} A map between irreducible representations is either zero or an isomorphism; an endomorphism of an irreducible complex representation is scalar.
+
+\item \textbf{Character orthogonality.} Irreducible characters are orthonormal under the class-function inner product.
+
+\item \textbf{Peter--Weyl theorem.} Matrix coefficients of finite-dimensional unitary representations span a dense subspace of square-integrable functions on a compact group.
+
+\item \textbf{Highest-weight classification.} Finite-dimensional irreducible representations of a complex semisimple Lie algebra are classified by dominant integral highest weights.
+
+\item \textbf{Wigner's symmetry principle.} Quantum symmetries are represented by unitary or antiunitary transformations, allowing physical states to be classified by group representations.
+\end{enumerate}
+\noindent\emph{Source for these results:} \cite{representation_ref1}.
+
+\theoryapplications
+\theoryconnections{representation_theory}{%
+\item A group describes how symmetries compose, and a representation realizes each symmetry as a linear map on a vector space.
+\item Linear algebra can then decompose a complicated action into irreducible blocks, while topology and analysis extend the same idea to continuous groups and infinite-dimensional spaces.
+\item The matrices are not a change of subject: they make the abstract action measurable, diagonalizable, and computable \cite{representation_ref1,representation_ref2}.
+}{%
+\item Representation theory helps harmonic analysis by expanding a function into components adapted to symmetry, as Fourier series do for rotations and translations.
+\item In geometry it describes how coordinates change under a group action; in number theory it connects automorphic forms with group representations.
+\item In physics, irreducible representations label elementary types of particles or states because combining symmetries must preserve the allowed transformation laws \cite{representation_ref1,representation_ref3}.
+}
+\section*{7. Sample Questions}
+\emph{Exercise reference:} \cite{representation_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
+\begin{enumerate}[leftmargin=*,itemsep=0.9em]
+\item \textbf{Exercise 1. What is the standard two-dimensional representation of the cyclic group of order four?} Send the generator to rotation by ninety degrees,
+\[
+\rho(g)=\begin{pmatrix}0&-1\\1&0\end{pmatrix}.
+\]
+Then $\rho(g)^4=I$, so the group relation is respected.
+
+\item \textbf{Exercise 2. What is the character of a permutation representation?} It is the number of points fixed by the permutation, because the permutation matrix has one diagonal entry for each fixed point.
+
+\item \textbf{Exercise 3. Why is a one-dimensional representation of a group $G$ a homomorphism to nonzero scalars?} The space is one-dimensional, so every invertible linear map is multiplication by a nonzero scalar. The group law requires $\rho(gh)=\rho(g)\rho(h)$.
+
+\item \textbf{Exercise 4. Why is degeneracy useful in physics?} If several states share the same energy, they form an invariant subspace for the symmetry. Decomposing that space into irreducible representations predicts how a perturbation can split the energy levels.
+
+\item \textbf{Exercise 5. What does Fourier analysis have to do with representation theory?} Translations form a group, and exponentials are its one-dimensional irreducible representations. Decomposing a signal into these modes is therefore decomposing it into symmetry modes.
+
+\end{enumerate}
+\section*{8. References}
+\begin{thebibliography}{9}
+\bibitem{representation_ref1} J.-P. Serre, \emph{Linear Representations of Finite Groups}.
+\bibitem{representation_ref2} B. C. Hall, \emph{Lie Groups, Lie Algebras, and Representations}.
+\bibitem{representation_ref3} W. Fulton and J. Harris, \emph{Representation Theory: A First Course}.
+\bibitem{representation_ref4} P. Etingof et al., \emph{Introduction to Representation Theory}.
+\end{thebibliography}

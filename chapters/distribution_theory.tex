@@ -1,0 +1,179 @@
+\theory{Distribution theory}{How can we differentiate a sharp impulse, a jump, or another object that is not an ordinary smooth function?}{Distribution theory, also called the theory of generalized functions, treats an object by how it acts on a carefully chosen smooth test function. This makes derivatives meaningful for discontinuous and singular data and gives a rigorous language for weak solutions of differential equations.}{Partial differential equations, Green functions, signal processing, wave propagation, quantum physics, image reconstruction, Fourier analysis, and engineering models with point sources or jumps.}{Test functions and weak derivatives extend differentiation and integration to singular objects such as point masses and shocks.}
+
+\paragraph{The problem and its history}
+
+Classical calculus differentiates smooth functions. But a step function jumps, a point source is concentrated at one location, and a wave may have a sharp front. Their ordinary derivatives either do not exist or do not capture the idealized physical behavior. Engineers nevertheless need equations for impulses, point charges, shocks, and boundaries.
+
+Distribution theory replaces the question “what is the value at each point?” with “what is the effect on every smooth probe?” The probe is a test function. A generalized function is a continuous linear rule that takes a test function to a number. This rule can represent an ordinary function, a measure, a point mass, or a derivative of a singular object. \cite{distribution_theory_ref1,distribution_theory_ref2}
+
+Green functions in the nineteenth century used delta-like sources before the theory was formalized. Sergei Sobolev developed related ideas in the study of hyperbolic partial differential equations in the 1930s. Laurent Schwartz created the modern theory in the 1940s and introduced the name distribution, comparing the objects with distributed electrical charge. \cite{distribution_theory_ref3,distribution_theory_ref4}
+
+\end{historylist}
+\section*{3. Theory}
+\subsection*{Core theory}
+\paragraph{Test functions and distributions}
+
+Let $U$ be an open subset of $\mathbb R^n$. A test function $\varphi$ is infinitely differentiable and has compact support: it is zero outside some bounded closed region. The space of such functions is denoted $\mathcal D(U)$. A distribution is a continuous linear functional
+\[
+ T:\mathcal D(U)\longrightarrow\mathbb R
+\]
+or to $\mathbb C$. Its action is written
+\[
+ \langle T,\varphi\rangle.
+\]
+Linearity means
+\[
+ \langle T,a\varphi+b\psi\rangle
+ =a\langle T,\varphi\rangle+b\langle T,\psi\rangle.
+\]
+Continuity means that test functions that converge together with all derivatives produce values that also converge.
+
+Every locally integrable function $f$ defines a distribution:
+\[
+ \langle T_f,\varphi\rangle
+ =\int_U f(x)\varphi(x)\,dx.
+\]
+Two locally integrable functions define the same distribution exactly when they agree almost everywhere. Thus distributions include ordinary functions but are more general. A Radon measure $\mu$ also defines one by
+\[
+ \langle T_\mu,\varphi\rangle=\int_U\varphi\,d\mu.
+\]
+A point mass at the origin gives the Dirac delta:
+\[
+ \langle\delta,\varphi\rangle=\varphi(0).
+\]
+The delta is not an ordinary function, but its action is completely well-defined. \cite{distribution_theory_ref1,distribution_theory_ref5}
+
+\paragraph{Derivatives of distributions}
+
+The derivative is defined by moving the derivative onto the test function:
+\[
+ \langle T',\varphi\rangle=-\langle T,\varphi'\rangle.
+\]
+This is integration by parts without a boundary term, because $\varphi$ vanishes outside a compact set. If $T=T_f$ for a smooth $f$, this gives the ordinary derivative. The definition also gives a derivative when $f$ has a jump or when $T=\delta$.
+
+Let $H$ be the Heaviside step function, equal to zero on the negative half-line and one on the positive half-line. Then
+\[
+ \langle H',\varphi\rangle
+ =-\int_0^\infty\varphi'(x)\,dx
+ =\varphi(0),
+\]
+so $H'=\delta$. Similarly,
+\[
+ \langle\delta',\varphi\rangle=-\varphi'(0).
+\]
+Repeated derivatives are defined in the same way. Every distribution is infinitely differentiable in this generalized sense, even when no classical derivative exists.
+
+This is the key to weak differential equations. Instead of requiring a solution $u$ to have all derivatives pointwise, one asks whether the equation holds after pairing with every test function. Weak solutions can exist for rough initial data and can later be shown to become smooth under additional estimates. \cite{distribution_theory_ref2,distribution_theory_ref6}
+
+\paragraph{Operations, localization, and support}
+
+Distributions can be added and multiplied by numbers, so they form a vector space. They can be multiplied by a smooth function $g$:
+\[
+ \langle gT,\varphi\rangle=\langle T,g\varphi\rangle.
+\]
+Composition with a smooth map is possible under suitable conditions. Restricting a distribution to an open subset makes sense because test functions supported there can be used.
+
+The support of $T$ is the smallest closed set outside which $T$ acts as zero. The delta has support $\{0\}$; a smooth function has support equal to the closure of the region where it is nonzero. Compact support makes many operations, including convolution, easier.
+
+There is an important limitation. There is no product of arbitrary distributions that extends ordinary pointwise multiplication while preserving all familiar algebraic and differential rules. The product $\delta^2$ is not automatically defined. Products can be defined for special pairs, when their singular supports do not collide, or in specialized frameworks such as Colombeau algebras. \cite{distribution_theory_ref1,distribution_theory_ref7}
+
+\paragraph{Tempered distributions and Fourier transforms}
+
+Ordinary distributions use compactly supported test functions. Tempered distributions use Schwartz functions: smooth functions that, together with every derivative, decrease faster than any inverse power of $|x|$. The resulting space is denoted $\mathcal S'(\mathbb R^n)$.
+
+Tempered distributions are important because the Fourier transform maps Schwartz functions to Schwartz functions and therefore extends by duality. A constant function transforms into a delta at zero, while a delta transforms into a constant up to normalization. A periodic wave can be represented by a sum of deltas at discrete frequencies. This makes generalized functions natural for signal processing and spectral analysis.
+
+The Fourier transform changes differentiation into multiplication:
+\[
+ \widehat{\partial_j T}(\xi)=i\xi_j\widehat T(\xi).
+\]
+It changes convolution into multiplication as well. Differential equations with constant coefficients can therefore become algebraic equations in frequency, subject to the conditions needed to interpret the products. \cite{distribution_theory_ref3,distribution_theory_ref8}
+
+\paragraph{Convolution and Green functions}
+
+For suitable distributions $T$ and functions or distributions $S$, convolution combines their effects:
+\[
+ (T*S)(x)=\int T(x-y)S(y)\,dy
+\]
+when the expression makes sense. The delta is the identity for convolution, and convolving with a derivative differentiates the other factor.
+
+A Green function is the response of a differential operator to a point source. If $L G=\delta$, then the solution of $Lu=f$ can often be written as $u=G*f$. Heat flow, electrostatics, wave propagation, and linear circuits all use this idea. The distribution framework permits the point source and the resulting singularity to be handled in one equation.
+
+\paragraph{Distributions beyond ordinary test spaces}
+
+Distributions may be defined on smooth manifolds by using coordinate-independent test densities. Spaces of analytic test functions lead to Sato's hyperfunctions. Analytic functions cannot have nonempty compact support, so the theory has a different structure from ordinary distributions.
+
+Distributions with point support are finite sums of derivatives of the delta. More generally, distributions can be represented locally as derivatives of continuous functions, and tempered distributions can be treated with polynomial growth conditions. These representation results explain why the generalized objects are not arbitrary: they are controlled by ordinary functions after enough integration or differentiation. \cite{distribution_theory_ref1,distribution_theory_ref9}
+
+\paragraph{Applications and dependencies}
+
+Distribution theory depends on integration, linear functionals, topology, Fourier analysis, and differential equations. It helps partial differential equations by defining weak solutions, helps physics by representing point charges and impulses, and helps engineering by modeling ideal switches, shocks, and signals. It also supports Sobolev spaces, where the derivatives in a weak equation are distributions and integrability controls regularity.
+
+In image processing, an edge is close to a derivative of a step and a point feature is close to a delta. In wave equations, a Green function describes how a disturbance travels. In quantum mechanics, position and momentum eigenstates use delta-normalized objects that must be interpreted through test functions. The theory is useful because it lets a model keep idealized features without pretending that they are ordinary smooth graphs.
+
+\section*{4. Important theorems and results}
+\begin{enumerate}[leftmargin=*,itemsep=0.35em]
+
+\item \textbf{Embedding theorem.} Every locally integrable function and every Radon measure defines a distribution by integration against test functions. \cite{distribution_theory_ref1}
+
+\item \textbf{Distributional derivative.} The formula $\langle T',\varphi\rangle=-\langle T,\varphi'\rangle$ extends ordinary differentiation and makes the Heaviside derivative equal to the Dirac delta. \cite{distribution_theory_ref2}
+
+\item \textbf{Fourier duality.} Fourier transformation extends from Schwartz functions to tempered distributions and converts differentiation into multiplication by a frequency variable. \cite{distribution_theory_ref8}
+
+\item \textbf{Point-support theorem.} A distribution supported at one point is a finite linear combination of derivatives of the Dirac delta at that point. \cite{distribution_theory_ref1}
+
+\item \textbf{Schwartz impossibility principle.} No multiplication of all distributions can preserve ordinary multiplication and the usual derivative rules simultaneously. Products must therefore be restricted or generalized with extra structure. \cite{distribution_theory_ref7}
+\end{enumerate}
+
+\theoryapplications
+\theoryconnections{distribution theory}{%
+\item Real analysis supplies integration and convergence, functional analysis supplies topological vector spaces, and Fourier analysis supplies the transform of generalized functions.
+\item Partial differential equations motivate the weak-derivative viewpoint because classical derivatives may not exist.
+}{%
+\item Distribution theory helps PDEs define weak solutions, helps physics represent point sources, and helps harmonic analysis extend Fourier methods beyond ordinary functions.
+\item It makes differentiation continuous in a larger space, so limits of smooth approximations remain usable.
+}
+\section*{7. Sample Questions}
+\emph{Exercise reference:} \cite{distribution_theory_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
+\begin{enumerate}[leftmargin=*,itemsep=0.9em]
+
+\item \textbf{Exercise 1.} What is the value of $\langle\delta,\varphi\rangle$?
+
+\emph{Solution.} It is $\varphi(0)$. The delta does not have ordinary pointwise values; it extracts the value of a test function at the origin.
+
+\item \textbf{Exercise 2.} Show that the derivative of the Heaviside function is $\delta$.
+
+\emph{Solution.} By definition,
+\[
+ \langle H',\varphi\rangle=-\langle H,\varphi'\rangle
+ =-\int_0^\infty\varphi'(x)\,dx=\varphi(0),
+\]
+because $\varphi$ vanishes at infinity. This equals $\langle\delta,\varphi\rangle$.
+
+\item \textbf{Exercise 3.} Why is a locally integrable function automatically a distribution?
+
+\emph{Solution.} Its integral against a compactly supported smooth function exists. Integration is linear in the test function, and convergence of the test functions with their derivatives makes the integrals converge, giving continuity.
+
+\item \textbf{Exercise 4.} What does the support of a distribution mean?
+
+\emph{Solution.} It is the smallest closed set outside which the distribution acts as zero. It records where the generalized object can influence test functions.
+
+\item \textbf{Exercise 5.} Why is $\delta^2$ not automatically meaningful?
+
+\emph{Solution.} The general distribution theory defines addition, derivatives, and multiplication by smooth functions, but singularities can collide in a product. A theorem of Schwartz shows that no universal product can retain every ordinary algebraic and differential rule.
+
+\end{enumerate}
+\section*{8. References}
+
+
+\begin{thebibliography}{9}
+\bibitem{distribution_theory_ref1} L. Schwartz, \emph{Théorie des distributions}, Hermann, 1950--1951.
+\bibitem{distribution_theory_ref2} M. J. Lighthill, \emph{An Introduction to Fourier Analysis and Generalised Functions}, Cambridge University Press, 1958.
+\bibitem{distribution_theory_ref3} R. F. Hoskins, \emph{Generalized Functions}, Ellis Horwood, 1979.
+\bibitem{distribution_theory_ref4} S. Sobolev, \emph{Some Applications of Functional Analysis in Mathematical Physics}, AMS translation.
+\bibitem{distribution_theory_ref5} G. B. Folland, \emph{Real Analysis}, Wiley, 2nd ed., 1999.
+\bibitem{distribution_theory_ref6} L. C. Evans, \emph{Partial Differential Equations}, American Mathematical Society, 2nd ed., 2010.
+\bibitem{distribution_theory_ref7} L. Schwartz, "Sur l'impossibilité de la multiplication des distributions," \emph{Comptes Rendus}, 1954.
+\bibitem{distribution_theory_ref8} M. Reed and B. Simon, \emph{Methods of Modern Mathematical Physics, II: Fourier Analysis, Self-Adjointness}, Academic Press, 1975.
+\bibitem{distribution_theory_ref9} J. J. Duistermaat and J. A. C. Kolk, \emph{Distributions: Theory and Applications}, Birkhäuser, 2010.
+\end{thebibliography}

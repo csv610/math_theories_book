@@ -1,0 +1,123 @@
+\theory{Dynamical systems theory}{How does a state evolve through time, and what long-term behaviors can arise from a simple rule?}{Dynamical systems theory studies a rule that moves a state through a state space. The rule may be a differential equation, a difference equation, a hybrid equation, or a stochastic transition. Instead of seeking an exact formula at every moment, the theory studies equilibria, periodic motion, stability, attractors, chaos, and the dependence on initial conditions.}{Classical mechanics, planetary orbits, electronic circuits, ecology, epidemiology, economics, control, biomechanics, cognitive science, graph networks, and symbolic or topological dynamics.}{State evolution, stability, recurrence, and invariant sets describe qualitative behavior when explicit time-dependent solutions are unavailable.}
+
+\paragraph{The central viewpoint and history}
+
+A dynamical system has a state and a rule for updating it. The state of a pendulum may be its angle and angular velocity; the state of a lake may be the fish population and available food; the state of an economy may include prices, production, and savings. A point in the state space represents one complete snapshot. The evolution rule tells us which point comes next.
+
+Newtonian mechanics supplied the historical roots. Before fast computers, exact solutions were available only for special systems, so mathematicians developed methods for studying qualitative behavior. Modern dynamical systems theory asks questions such as whether a state settles down, whether periodic motion occurs, whether small errors grow, and whether long-term behavior depends on the starting point. \cite{dynamical_systems_theory_ref1,dynamical_systems_theory_ref2}
+
+\end{historylist}
+\section*{3. Theory}
+\subsection*{Core theory}
+\paragraph{Continuous, discrete, and stochastic systems}
+
+A continuous-time system is often written
+\[
+ \dot x=f(x,t),
+\]
+where $x(t)$ is a state vector. A discrete-time system uses
+\[
+ x_{n+1}=F(x_n).
+\]
+Difference equations describe population updates, compound interest, digital filters, and iterated maps. Differential equations describe motion, chemical reactions, circuits, and fluid models.
+
+Some systems use both kinds of time. A hybrid system may flow continuously until it hits a threshold and then jump. Equations on time scales treat continuous and discrete time within one framework. A stochastic system includes random disturbances, so the rule determines a probability distribution of future states rather than one certain trajectory.
+
+The theory does not require the equations to arise from a least-action principle. Classical mechanics is one important source, but biological, economic, and engineered systems may be postulated directly from observations or modeling assumptions.
+
+\paragraph{Equilibria, periodic points, and stability}
+
+An equilibrium or fixed point is a state that does not change. For $\dot x=f(x)$ it satisfies $f(x)=0$; for $x_{n+1}=F(x_n)$ it satisfies $F(x)=x$. An equilibrium is attracting if nearby states move toward it. Its basin of attraction is the set of initial states that eventually approach it.
+
+For the logistic population model
+\[
+ \dot x=x(1-x),
+\]
+the equilibria are $0$ and $1$. A population between zero and one increases toward $1$; a small negative perturbation is physically meaningless but reveals that the stability depends on the chosen state space.
+
+A periodic point returns after a fixed number of steps. Periodic orbits can be attracting, repelling, or neutrally stable. Sharkovskii's theorem gives a remarkable ordering of periods for continuous maps of an interval: the existence of a period-three orbit forces the existence of periodic orbits of every positive integer period. \cite{dynamical_systems_theory_ref3}
+
+\paragraph{Nonlinear behavior and chaos}
+\bookfigure{dynamics_chaos_bifurcation}{Iteration, stability, and parameter changes connect dynamical systems with chaos and bifurcation.}
+
+Linear systems obey superposition, so their response to a sum of inputs is the sum of the separate responses. Nonlinear systems do not. Even a low-dimensional nonlinear equation can produce several attractors, bifurcations, quasiperiodic motion, or deterministic chaos.
+
+Chaos is not randomness in the rule. A deterministic chaotic system has a precisely defined future once the initial state is known, but nearby initial states separate exponentially for a time. The Lorenz system, developed from a simplified atmospheric model, became a famous example. Chaos theory gives formal meanings to sensitive dependence, dense periodic orbits, and topological mixing.
+
+\paragraph{Related mathematical viewpoints}
+
+Arithmetic dynamics studies repeated application of polynomial or rational maps to integer, rational, algebraic, or $p$-adic points. Symbolic dynamics replaces a continuous state by an infinite sequence of symbols and evolves it by the shift map. It can encode complicated systems using a finite alphabet.
+
+Topological dynamics studies qualitative asymptotic properties using open sets and continuity. Ergodic theory adds an invariant measure and asks about long-run averages. Functional analysis studies operators on spaces of functions, which provides tools for infinite-dimensional dynamics and evolution equations.
+
+Graph dynamical systems place variables on vertices of a network and update them according to neighboring states. Projected dynamical systems constrain the motion to a feasible set and connect differential equations with optimization and equilibrium problems. System dynamics describes feedback, delays, stocks, and flows. Complex systems use dynamical models when interactions prevent a simple reduction to independent parts. \cite{dynamical_systems_theory_ref1,dynamical_systems_theory_ref4}
+
+\paragraph{Applications beyond mechanics}
+
+In biomechanics, movement emerges from interacting nervous, muscular, skeletal, respiratory, and perceptual subsystems. In cognitive science, dynamicists model a learner's cognitive state as a trajectory influenced by internal and environmental pressures. Concepts such as self-organization, phase transitions, and attractors have been used to discuss development, including the A-not-B error, although applications must be judged by empirical evidence rather than metaphor alone.
+
+The dynamic approach to second-language development treats acquisition and attrition as parts of one changing system. Language behavior can be nonlinear, adaptive, feedback-sensitive, and dependent on initial conditions. Similar ideas appear in ecology, epidemiology, finance, robotics, neural networks, and climate science.
+
+\paragraph{What the theory depends on and where it is useful}
+
+Dynamical systems theory depends on calculus, differential and difference equations, linear algebra, topology, probability, numerical simulation, and computation. It helps chaos theory by supplying the state-space framework, helps control theory by describing plants and closed loops, helps ergodic theory by providing measure-preserving maps, and helps bifurcation theory by identifying parameter changes in long-term behavior.
+
+Its strength is qualitative prediction when exact formulas are impossible. Its danger is overinterpreting a model: a wrong equation can have the wrong attractor, and numerical trajectories can imitate chaos because of roundoff or because the model is not valid at the scale being studied.
+
+\section*{4. Important theorems and results}
+\begin{enumerate}[leftmargin=*,itemsep=0.35em]
+
+\item \textbf{Existence and uniqueness principle.} Under suitable regularity conditions on $f$, the initial-value problem $\dot x=f(x,t)$ has a unique local solution, making the state rule well-defined. \cite{dynamical_systems_theory_ref2}
+
+\item \textbf{Linearization principle.} Near a hyperbolic equilibrium, the eigenvalues of the linearized system often determine local stability and qualitative behavior. \cite{dynamical_systems_theory_ref1}
+
+\item \textbf{Sharkovskii's theorem.} For continuous interval maps, a period-three orbit implies periodic orbits of every positive period, explaining why a simple map can contain extremely rich behavior. \cite{dynamical_systems_theory_ref3}
+
+\item \textbf{Poincare--Bendixson theorem.} Under its planar hypotheses, a nonempty compact limit set containing only finitely many equilibria is restricted to equilibria, periodic orbits, and connecting orbits; genuinely chaotic attractors require more room or different structure. \cite{dynamical_systems_theory_ref1}
+
+\item \textbf{Lyapunov stability method.} A scalar function that decreases along trajectories can prove stability without solving the differential equation explicitly. \cite{dynamical_systems_theory_ref5}
+\end{enumerate}
+
+\theoryapplications
+\theoryconnections{dynamical systems theory}{%
+\item Differential equations and iteration define the evolution rule, while linear algebra studies the derivative near an equilibrium.
+\item Topology describes invariant and recurrent sets, and probability is added when the state or forcing is random.
+}{%
+\item Dynamical systems helps mechanics, climate models, ecology, epidemiology, control, and economics describe change over time.
+\item Its stability and recurrence results separate robust qualitative behavior from predictions that depend sensitively on uncertain initial data.
+}
+\section*{7. Sample Questions}
+\emph{Exercise reference:} \cite{dynamical_systems_theory_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
+\begin{enumerate}[leftmargin=*,itemsep=0.9em]
+
+\item \textbf{Exercise 1.} Find and classify the equilibria of $\dot x=x(1-x)$.
+
+\emph{Solution.} Equilibria satisfy $x(1-x)=0$, so $x=0$ and $x=1$. The derivative of the right side is $1-2x$. At zero it is positive, so zero is unstable; at one it is negative, so one is locally asymptotically stable.
+
+\item \textbf{Exercise 2.} What is the difference between an equilibrium and a periodic orbit?
+
+\emph{Solution.} An equilibrium remains at one state forever. A periodic orbit returns to its initial state after a positive time or number of steps and generally visits several states in between.
+
+\item \textbf{Exercise 3.} Why can deterministic chaos look random?
+
+\emph{Solution.} The rule contains no random choice, but small uncertainty in the initial state can grow rapidly. After enough time, the observer cannot know which nearby trajectory is the actual one, so the observed sequence appears random.
+
+\item \textbf{Exercise 4.} What is an attractor basin?
+
+\emph{Solution.} It is the set of initial states whose future trajectories approach a particular attractor. If several attractors exist, their basins divide the state space and small parameter or measurement changes can alter the outcome.
+
+\item \textbf{Exercise 5.} Why is simulation not a proof of long-term behavior?
+
+\emph{Solution.} A finite simulation samples one initial condition for one duration with finite precision. It can miss another attractor, a rare transition, numerical instability, or behavior beyond the model's validity. Theorems and error estimates are needed for rigorous conclusions.
+
+\end{enumerate}
+\section*{8. References}
+
+
+\begin{thebibliography}{9}
+\bibitem{dynamical_systems_theory_ref1} S. H. Strogatz, \emph{Nonlinear Dynamics and Chaos}, Westview Press, 2nd ed., 2015.
+\bibitem{dynamical_systems_theory_ref2} L. Perko, \emph{Differential Equations and Dynamical Systems}, Springer, 3rd ed., 2001.
+\bibitem{dynamical_systems_theory_ref3} A. N. Sharkovskii, "Co-existence of cycles of a continuous mapping of the line into itself," \emph{Ukrainian Mathematical Journal}, 1964.
+\bibitem{dynamical_systems_theory_ref4} G. L. Baker and J. P. Gollub, \emph{Chaotic Dynamics}, Cambridge University Press, 1996.
+\bibitem{dynamical_systems_theory_ref5} H. K. Khalil, \emph{Nonlinear Systems}, Prentice Hall, 3rd ed., 2002.
+\end{thebibliography}

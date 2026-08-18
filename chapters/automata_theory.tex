@@ -1,0 +1,173 @@
+\clearpage\chapter{Automata theory}
+\section*{1. Overview}
+\subsection*{Intuitive}
+\paragraph{The problem}
+
+Whenever a rule must be followed one symbol, event, or moment at a time, we can ask whether a small machine can keep track of what matters. A door lock checks a code, a compiler checks a program, a communication protocol checks the order of messages, and a robot controller responds to sensor readings. Automata theory gives a common language for these situations. It replaces the physical machine by a precisely described model, then proves what that model can and cannot remember.
+
+
+The word \emph{automaton} means a self-moving or self-acting device. In mathematics it means an ideal machine whose next action is determined by its present state and its current input. The machine may be tiny, or it may have an unbounded tape. The point is not that a real computer looks exactly like the model. The point is that the model isolates memory, choice, and time so that these can be studied separately.
+
+
+\subsection*{Formal}
+A deterministic finite automaton is a tuple $(Q,\Sigma,\delta,q_0,F)$: $Q$ is a finite set of states, $\Sigma$ an input alphabet, $\delta:Q\times\Sigma\to Q$ the transition function, $q_0$ the initial state, and $F$ the accepting states. Reading a word follows $\delta$ one symbol at a time; the accepted language consists of the words whose final state lies in $F$. Other machines change the available memory, which changes the class of languages they can recognize.
+\section*{2. History}
+\subsection*{Historical development}
+\begin{historylist}
+\paragraph{What problem does the theory solve?}
+
+The central problem is recognition. Given a finite string of symbols, should it be accepted as legal? The symbols might be letters in a word, tokens in a computer program, bits in a message, or events in a safety protocol. A second problem is computation: if the machine is allowed to produce outputs, what transformation does it perform? A third is classification: which tasks can be solved with a given amount and kind of memory?
+
+This classification is valuable because it prevents wasted effort. If a language can be recognized by a finite automaton, a small and fast implementation is possible. If it cannot, no clever rearrangement of a finite-state design will solve the problem; the design needs a stack, a queue, a tape, or another source of memory. The theory therefore explains both successful designs and impossibility results \cite{automata_theory_ref1,automata_theory_ref2}.
+
+Automata theory developed in the middle of the twentieth century from systems theory, mathematical logic, abstract algebra, and the study of computation. Earlier systems theory often used differential equations to describe physical processes. Automata theorists instead used algebraic structures and discrete steps to describe information systems. Finite-state transducers, Turing machines, pushdown automata, and other models were developed by different communities and later brought together.
+
+The 1956 collection \emph{Automata Studies} helped establish the subject as a separate discipline. Work associated with Claude Shannon, W. Ross Ashby, John von Neumann, Marvin Minsky, Edward Moore, and Stephen Kleene connected automata with information, cybernetics, circuits, and regular languages. In the same period Noam Chomsky described a hierarchy connecting formal grammars with machine power. Rabin and Scott proved that nondeterministic finite automata do not recognize more finite-word languages than deterministic finite automata. Myhill and Nerode gave an exact test for regularity and a way to count the states in the smallest finite automaton \cite{automata_theory_ref1,automata_theory_ref3}.
+
+The researchers were asking a foundational question: when we say that a process is mechanical, how much memory and what kind of choice does it need? That question later became central to compiler construction, complexity theory, artificial intelligence, and formal verification.
+
+\end{historylist}
+\section*{3. Theory}
+\subsection*{Core theory}
+\paragraph{The basic machine}
+\bookfigure{automata_computation}{A finite state records only the information needed for the next transition.}
+
+An automaton receives symbols in discrete steps. The allowed symbols form an input alphabet, denoted by $\Sigma$. A finite sequence of symbols is a word; the set of all finite words, including the empty word, is written $\Sigma^*$. The machine has states. A state is a compact record of the past that the machine has decided is relevant.
+
+At each step, a transition rule receives the current state and the next input symbol and specifies the next state. A machine that also reports a symbol has an output alphabet $\Gamma$ and an output rule. One general description is the quintuple
+\[
+ M=(\Sigma,\Gamma,Q,\delta,\lambda),
+\]
+where $\Sigma$ is the input alphabet, $\Gamma$ the output alphabet, $Q$ the set of states, $\delta:Q\times\Sigma\to Q$ the next-state rule, and $\lambda:Q\times\Sigma\to\Gamma$ the output rule. If $Q$ is finite, the machine is a finite automaton.
+
+For language recognition, we normally replace the output rule by a designated start state $q_0$ and a set $F$ of accepting states. A run on $a_1a_2\ldots a_n$ is the state sequence $q_0,q_1,\ldots,q_n$ satisfying
+\[
+ q_i=\delta(q_{i-1},a_i).
+\]
+The transition rule extends to whole words by
+\[
+ \overline{\delta}(q,\varepsilon)=q,\qquad
+ \overline{\delta}(q,wa)=\delta(\overline{\delta}(q,w),a).
+\]
+The word is accepted exactly when $\overline{\delta}(q_0,w)$ lies in $F$. The language recognized by the machine is
+\[
+ L=\{w\in\Sigma^*:\overline{\delta}(q_0,w)\in F\}.
+\]
+Thus an automaton is a finite description that may recognize an infinite set of words \cite{automata_theory_ref1,automata_theory_ref4}.
+
+\paragraph{A worked example: even numbers of 1s}
+
+Take $\Sigma=\{0,1\}$. Use two states: $E$ means that the number of 1s read so far is even, and $O$ means that it is odd. Start in $E$ and accept $E$. Reading 0 changes nothing. Reading 1 switches $E$ and $O$. The word 10110 visits
+\[
+ E\longrightarrow O\longrightarrow E\longrightarrow O\longrightarrow E\longrightarrow E,
+\]
+so it is accepted: it contains four 1s. The machine never needs to know the whole word; it only needs the parity of the count. This is the central design principle of finite automata: store exactly the summary that determines every possible future answer.
+
+\paragraph{Finite automata and regular languages}
+
+A deterministic finite automaton (DFA) has exactly one next state for every current state and input symbol. A nondeterministic finite automaton (NFA) may have several possible next states, including choices made without consuming an input symbol in common definitions. An NFA accepts when at least one allowed run reaches an accepting state. Nondeterminism is a convenient description language, not extra power for finite-word recognition: every NFA can be converted into a DFA by letting a DFA state represent the set of NFA states that could currently be active. This is the subset construction.
+
+The languages recognized by finite automata are the \emph{regular languages}. They can equivalently be described by regular expressions and by regular grammars. This equivalence is one form of Kleene's theorem. It explains why a pattern such as
+\[
+ (0+1)^*01
+\]
+can be used by a text-search program: it is a compact notation for a finite machine that searches for a final 01.
+
+Regular languages are closed under union, intersection, complement, concatenation, and repetition. Closure means that after combining two regular descriptions in one of these ways, the result is still regular. Product constructions prove union and intersection; complement is obtained by exchanging accepting and non-accepting states in a complete DFA; concatenation and repetition can be handled with NFAs.
+
+Two proof tools show where finite memory stops being enough. The pumping lemma says that a sufficiently long word in a regular language contains a middle part that can be repeated any number of times while remaining in the language. It is useful for proving that languages such as $\{0^n1^n:n\geq0\}$ are not regular. The Myhill--Nerode theorem is stronger and more exact: a language is regular precisely when it has only finitely many distinguishable prefixes, and the number of equivalence classes is the number of states in its minimal DFA. Two prefixes are distinguishable when some continuation is accepted after one prefix but rejected after the other \cite{automata_theory_ref1,automata_theory_ref3}.
+
+\paragraph{Memory changes the class of problems}
+
+Finite-state machines have bounded memory. A pushdown automaton adds a stack. It can push a symbol when it sees an opening bracket and pop one when it sees the matching closing bracket. Since the stack grows with the input, it can recognize balanced parentheses and the language $\{0^n1^n:n\geq0\}$. Nondeterministic pushdown automata recognize the context-free languages, the class described by context-free grammars. Deterministic pushdown automata recognize a proper subclass: not every context-free language has a deterministic parser.
+
+A queue machine stores symbols first-in, first-out and is Turing-complete. A Turing machine uses a tape, a read--write head, and a finite instruction table. It can move in both directions and use the tape as unbounded working memory. A linear bounded automaton has a tape whose usable portion is bounded by the input length and is associated with context-sensitive languages. Turing machines recognize the recursively enumerable languages when acceptance may occur but rejection may continue forever. This distinction leads to undecidable problems, such as the halting problem.
+
+The hierarchy is not simply a ladder of faster machines. It is a hierarchy of the kinds of languages that can be recognized:
+\[
+\begin{array}{c}
+\text{finite automata: regular languages}\\
+\subset \text{pushdown automata: context-free languages}\\
+\subset \text{linear bounded automata: context-sensitive languages}\\
+\subset \text{Turing machines: recursively enumerable languages}.
+\end{array}
+\]
+Two pushdown stores can simulate a Turing tape, so machines that look only slightly different can have radically different power. Deterministic and nondeterministic Turing machines have the same computability power, although complexity theory studies how much time or space their simulations require \cite{automata_theory_ref2,automata_theory_ref5}.
+
+\section*{4. Important theorems and results}
+\begin{enumerate}[leftmargin=*,itemsep=0.35em]
+
+\item \textbf{Kleene's theorem.} A language is regular exactly when it can be described by a regular expression, recognized by a finite automaton, or generated by a regular grammar. This gives three equivalent ways to design the same finite-memory process.
+
+\item \textbf{DFA--NFA equivalence.} Every nondeterministic finite automaton has an equivalent deterministic finite automaton. The deterministic machine may have more states, because it records sets of possible NFA states, but it accepts exactly the same words.
+
+\item \textbf{Myhill--Nerode theorem.} A language is regular exactly when its prefixes fall into finitely many classes that no continuation can distinguish. The number of classes is the number of states in the minimal DFA. This is both a regularity test and a minimization theorem.
+
+\item \textbf{Pumping lemma.} Every sufficiently long word in a regular language has a repeatable middle part. The lemma proves non-regularity when repeating any possible middle part eventually breaks the language rule.
+
+\item \textbf{Chomsky hierarchy.} Regular, context-free, context-sensitive, and recursively enumerable languages correspond, in broad terms, to finite automata, pushdown automata, linear bounded automata, and Turing machines. The hierarchy explains why adding memory enlarges the class of recognizable problems.
+
+\item \textbf{Church--Turing thesis.} Every effectively calculable step-by-step function can be computed by a Turing machine. This is a foundational claim about the meaning of "algorithm," not a theorem proved from a definition of ordinary calculation.
+\end{enumerate}
+\noindent\emph{Source for these results:} \cite{automata_theory_ref1}.
+
+\section*{5. Applications}
+Automata theory turns repeated rule-based behaviour into a finite state model whenever the required memory can be represented by states and transitions. This makes recognition, parsing, reachability, and verification precise and testable.
+\begin{enumerate}[leftmargin=*,itemsep=0.35em]
+\item \textbf{Compilers.} A finite automaton breaks a character stream into tokens such as identifiers, numbers, and keywords. A parser then uses a grammar or a pushdown-style method to check the nested structure of an expression. Finite memory is enough for local spelling rules, whereas nested parentheses require a stack.
+\item \textbf{Text processing and hardware.} Regular expressions are compiled into finite automata, so a search for a date, an email-like pattern, or a forbidden word becomes a controlled walk through states. A traffic-light controller can be represented by states, and verification can prove that a red light is never followed immediately by a conflicting green light.
+\item \textbf{Language and cellular models.} Context-free grammars model pieces of human language and have been used in artificial intelligence and natural-language processing. Cellular automata model local updates; Conway's Game of Life shows how simple rules can produce moving patterns, growth, and computation.
+\item \textbf{Algebra and number theory.} Certain sets of irreducible polynomials over finite fields form regular languages under repeated composition. Automata can also infer a regular language from examples. These applications work because the automaton gives a finite, testable representation of an otherwise potentially infinite family \cite{automata_theory_ref1,automata_theory_ref7}.
+\end{enumerate}
+
+\noindent\emph{Limitations.} The subject depends on sets, functions, relations, induction, graphs, logic, and basic algebra. A finite automaton cannot recognize patterns that require unbounded memory, such as arbitrarily balanced parentheses; a pushdown automaton or a stronger model is then required. The choice of states and transitions must therefore match the memory and verification question being asked.
+
+
+\theoryconnections{automata_theory}{%
+\item Sets and functions define states and transitions; graphs draw those transitions; formal languages specify which strings are legal.
+\item Logic then states properties of every possible run, and algebra can compress the transition behavior into a finite transformation structure.
+\item For example, a finite automaton checking a binary number divisible by $3$ needs only three states, one for each possible remainder, because reading a digit updates the remainder by a fixed rule \cite{automata_theory_ref1,automata_theory_ref2}.
+}{%
+\item Automata theory helps a compiler turn source text into a syntax tree by recognizing tokens and grammatical structure.
+\item The same transition model checks whether every state of a protocol avoids a forbidden condition, which is the basis of model checking and formal verification.
+\item In digital circuits and cellular automata, the state-update rule is literally an automaton transition, so questions about long computations become questions about reachable states and accepted languages \cite{automata_theory_ref4,automata_theory_ref6}.
+}
+\section*{7. Sample Questions}
+\emph{Exercise reference:} \cite{automata_theory_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
+\begin{enumerate}[leftmargin=*,itemsep=0.9em]
+
+\item \textbf{Exercise 1.} Build a DFA over $\{0,1\}$ that accepts exactly the words with an even number of 1s.
+
+\textbf{Solution.} Use states $E$ and $O$, start at $E$, and accept $E$. On input 0, both states loop. On input 1, use $E\to O$ and $O\to E$. An induction on word length proves that the current state records the parity of the number of 1s.
+
+\item \textbf{Exercise 2.} Is $L=\{0^n1^n:n\geq0\}$ regular?
+
+\textbf{Solution.} No. If $L$ were regular, the pumping lemma would give a pumping length $p$. The word $0^p1^p$ would split as $xyz$ with $|xy|\leq p$ and $|y|>0$, so $y$ consists only of 0s. Pumping $y$ changes the number of 0s but not the number of 1s, producing a word outside $L$, a contradiction.
+
+\item \textbf{Exercise 3.} Convert the NFA for words ending in 01 into a DFA.
+
+\textbf{Solution.} Let the NFA remember whether it has seen no useful suffix, a possible final 0, or the final 01; the NFA may also keep its start possibility alive while scanning. The DFA states are the subsets of these NFA states. Remove unreachable subsets, and mark every subset containing the NFA accepting state. This subset construction preserves acceptance because it records exactly all positions at which the NFA could be.
+
+\item \textbf{Exercise 4.} Explain why a pushdown automaton recognizes balanced parentheses.
+
+\textbf{Solution.} On each opening parenthesis push a marker. On each closing parenthesis pop one marker; reject if the stack is empty. Accept after the input ends only when the stack is empty. The stack records every opening parenthesis not yet matched, so the machine accepts exactly properly nested strings.
+
+\item \textbf{Exercise 5.} What is the difference between recognizing and deciding a language with a Turing machine?
+
+\textbf{Solution.} A recognizer halts and accepts words in the language, but may run forever on words outside it. A decider halts on every word and accepts exactly the words in the language. The halting problem is recognizable in a suitable encoding but not decidable.
+
+\end{enumerate}
+
+\paragraph{Further study}
+
+Start with sets, functions, induction, graphs, and simple logical statements. Then practice drawing finite automata before learning formal definitions. The natural sequence is regular expressions and DFAs, NFAs and minimization, regular-language proofs, context-free grammars and pushdown automata, Turing machines, decidability, and complexity. Sipser is a readable first university text; Hopcroft, Motwani, and Ullman give a traditional treatment; Eilenberg and Arbib develop algebraic and structural viewpoints.
+\section*{8. References}
+\begin{thebibliography}{99}
+\bibitem{automata_theory_ref1} M. Sipser, \emph{Introduction to the Theory of Computation}, 3rd ed., Cengage.
+\bibitem{automata_theory_ref2} J. E. Hopcroft, R. Motwani, and J. D. Ullman, \emph{Introduction to Automata Theory, Languages, and Computation}, 3rd ed., Pearson.
+\bibitem{automata_theory_ref3} J. Myhill, "Finite automata and the representation of events," and A. Nerode, "Linear automaton transformations," in \emph{Automata Studies}, Princeton University Press.
+\bibitem{automata_theory_ref4} S. C. Kleene, "Representation of events in nerve nets and finite automata," in \emph{Automata Studies}, Princeton University Press.
+\bibitem{automata_theory_ref5} J. E. Hopcroft and J. D. Ullman, \emph{Introduction to Automata Theory, Languages, and Computation}, sections on pushdown, infinite-word, and Turing automata.
+\bibitem{automata_theory_ref6} R. Alur, \emph{Principles of Cyber-Physical Systems}, MIT Press.
+\bibitem{automata_theory_ref7} C. D. Manning and H. Schütze, \emph{Foundations of Statistical Natural Language Processing}, MIT Press.
+\end{thebibliography}

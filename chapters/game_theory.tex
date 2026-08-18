@@ -1,0 +1,100 @@
+\theory{Game theory}{How should a decision-maker act when the result depends on what other decision-makers do?}{Game theory models strategic interaction. A game is not necessarily entertainment: it is any situation with players, choices, information, and consequences that depend on several choices at once.}{Economics, business, politics, biology, computer science, artificial intelligence, ethics, and social science.}{Payoff functions, strategies, and equilibrium conditions model how each participant's choice changes the incentives of the others.}
+
+\paragraph{The problem and its history}
+Ordinary optimization asks one person to choose the best action. Strategic optimization is harder because the best action changes when another person changes theirs. Cournot analyzed competition between firms in 1838. Cardano, Pascal, Fermat, Huygens, and Waldegrave had earlier studied games of chance. John von Neumann proved the minimax theorem for two-person zero-sum games; his work with Oskar Morgenstern developed the economics of cooperative games and expected utility. Nash later proved that every finite game has an equilibrium in mixed strategies \cite{game_theory_ref1,game_theory_ref2}.
+
+\end{historylist}
+\section*{3. Theory}
+\subsection*{Core theory}
+\paragraph{How a game is described}
+The players are the decision-makers. Each has a set of actions or strategies. A payoff records the benefit or cost of every combination of choices. In a normal-form game, a payoff matrix lists these outcomes. In an extensive-form game, a decision tree records time order, observations, and information sets.
+
+In a zero-sum game one player's gain is exactly the other's loss. Chess between perfectly matched players is an idealized example. In a non-zero-sum game, both can gain through cooperation or both can lose. A constant-sum game is equivalent to a zero-sum game after adding a dummy account that receives the remaining payoff.
+
+\paragraph{A small payoff matrix}
+Two shops choose either a high or low price. If both choose high, each earns 4. If one chooses low while the other chooses high, the low-price shop earns 6 and the high-price shop earns 1. If both choose low, each earns 2. A shop cannot choose its best price in isolation: it must anticipate the competitor.
+
+A strategy is dominant if it is best regardless of what the other player does. A Nash equilibrium is a collection of strategies in which no player can improve by changing alone. Equilibrium does not mean that the outcome is socially best or fair; it means only that unilateral departure is unattractive.
+
+\paragraph{Important classifications}
+In a simultaneous game, players choose without observing the current choice of others, so a matrix is natural. In a sequential game, earlier actions affect later choices, so a decision tree is natural. Perfect information means every previous action is observed, as in chess. Imperfect information means some actions are hidden, as in poker. Complete information is different: it means that the players know the rules, possible strategies, and payoffs, even if they do not observe every move \cite{game_theory_ref3}.
+
+Cooperative game theory allows binding agreements and studies coalitions. A characteristic function $v(S)$ assigns the total value that a coalition $S$ can create, with $v(\emptyset)=0$. The core consists of allocations that no coalition can improve upon. The Shapley value divides a cooperative surplus according to average marginal contribution.
+
+Bayesian games model incomplete information. Each player has a type, such as a firm's cost or a bidder's valuation, and beliefs about the types of others. A move by nature can represent the unknown type, turning incomplete information into imperfect information. Signaling games study how informed players communicate through actions.
+
+\paragraph{Equilibrium and strategic reasoning}
+A best response is a strategy that maximizes a player's payoff when the other strategies are fixed. Nash equilibrium requires every chosen strategy to be a best response. In sequential games, subgame-perfect equilibrium removes threats that would not be credible after a particular history. Repeated games allow reputation and punishment to support cooperation. Evolutionary games replace perfect rationality by changing frequencies of successful strategies.
+
+Von Neumann's minimax theorem says that in a finite two-player zero-sum game, the maximum guaranteed payoff equals the minimum loss that the opponent can force, once mixed strategies are allowed. The proof uses the Brouwer fixed-point theorem. This is why randomization can be rational: it prevents the opponent from predicting a profitable response.
+
+\paragraph{Uses outside economics}
+Firms use Cournot and Bertrand models to study output and prices, and auctions use Bayesian and mechanism-design models to align private information with efficient outcomes. Governments use games for voting, bargaining, fair division, public choice, and war negotiation. Project managers model investors, contractors, subcontractors, and governments whose decisions affect a common project.
+
+Evolutionary game theory explains why behavior that costs one animal may spread if it benefits relatives. Hamilton's rule is $br>c$, where $c$ is the cost, $b$ the benefit, and $r$ the relatedness. It models kin selection, alarm calls, food sharing, territorial conflict, and the evolution of cooperation \cite{game_theory_ref4}.
+
+Computer scientists use games to model interactive computation, multi-agent systems, online algorithms, auctions, peer-to-peer systems, and security. Yao's principle turns a randomized algorithm into a game between an algorithm and an adversary, producing lower bounds. Game semantics interprets logic through a contest between a verifier and a falsifier. AI uses games for reinforcement learning, autonomous agents, mechanism design, and anticipating other agents.
+
+\paragraph{Alternative representations}
+Different applications need different encodings. Congestion games describe costs that depend on how many users choose a resource. Graphical games record local dependence among players. Timed and continuous games include time or continuous actions. Logic-based game-description languages, Petri-net games, action-graph games, and local-effect games represent structured multi-agent interaction. These descriptions save space when a full payoff table would be enormous \cite{game_theory_ref5}.
+
+\paragraph{What the theory depends on and where it is useful}
+Game theory depends on probability, optimization, linear algebra, fixed-point theorems, and decision theory. It helps economics by making competition explicit, computer science by explaining distributed decisions, biology by modeling selection, and philosophy by analyzing conventions, meaning, signaling, and social norms.
+
+Its main limitation is modeling. Real people may not be perfectly rational, may misunderstand the rules, and may care about fairness rather than only material payoff. Experiments in the centipede, dictator, and guessing games often depart from Nash predictions. Evolutionary and bounded-rationality models address some of this, but no game model replaces careful observation \cite{game_theory_ref2}.
+
+\section*{4. Important theorems and results}
+\begin{enumerate}[leftmargin=*,itemsep=0.35em]
+\item \textbf{Minimax theorem.} Every finite two-person zero-sum game has a value when mixed strategies are allowed.
+
+\item \textbf{Nash existence theorem.} Every finite game has at least one Nash equilibrium in mixed strategies \cite{game_theory_ref1}.
+
+\item \textbf{Backward induction.} In a finite perfect-information game with no chance moves, rational players can solve a subgame-perfect outcome by analyzing the final decisions first.
+
+\item \textbf{Shapley value.} In a cooperative game, averaging a player's marginal contribution over all joining orders gives a fair allocation satisfying standard efficiency, symmetry, dummy-player, and additivity properties.
+
+\item \textbf{Hamilton's rule.} Kin-directed behavior can be favored when its benefit weighted by relatedness exceeds its cost.
+\end{enumerate}
+
+\theoryapplications
+\theoryconnections{game theory}{%
+\item Probability models mixed strategies, optimization studies best responses, and linear algebra handles finite payoff matrices.
+\item Economics supplies utility and incentives, while algorithms and graph theory enter for large games and network interactions.
+}{%
+\item Game theory helps economics, auctions, bargaining, voting, biology, and computer science analyze decisions whose outcomes depend on other decision makers.
+\item Equilibrium is a prediction of mutual consistency, not necessarily a socially best outcome, so the solution concept must match the application.
+}
+\section*{7. Sample Questions}
+\emph{Exercise reference:} \cite{game_theory_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
+\begin{enumerate}[leftmargin=*,itemsep=0.9em]
+\item \textbf{Exercise 1.} What is the difference between a dominant strategy and a Nash equilibrium?
+
+\emph{Solution.} A dominant strategy is best against every opponent action. A Nash equilibrium is a profile in which the chosen actions are mutual best responses. An equilibrium may use strategies that are not dominant.
+
+\item \textbf{Exercise 2.} Why can randomizing be useful in rock-paper-scissors?
+
+\emph{Solution.} Any predictable choice can be exploited: if rock is chosen too often, the opponent chooses paper. Choosing each move with probability one third removes a predictable advantage and is the mixed-strategy equilibrium.
+
+\item \textbf{Exercise 3.} Why is a subgame-perfect equilibrium stronger than Nash equilibrium?
+
+\emph{Solution.} It requires equilibrium behavior after every possible history, not only along the path that occurs. It removes promises or threats that a player would not carry out when the time came.
+
+\item \textbf{Exercise 4.} In Hamilton's rule, what does $r$ represent?
+
+\emph{Solution.} It is the expected fraction of relevant inherited information shared by the actor and recipient. Helping a close relative has a larger $r$ than helping an unrelated individual.
+
+\item \textbf{Exercise 5.} Why might an experiment fail to match a Nash prediction?
+
+\emph{Solution.} Participants may have bounded reasoning, incomplete understanding, social preferences, or concern for fairness. The mathematical equilibrium remains a consequence of the model, but the model may not describe the experiment fully.
+
+\end{enumerate}
+\section*{8. References}
+\addcontentsline{toc}{section}{References}
+
+\begin{thebibliography}{9}
+\bibitem{game_theory_ref1} Martin J. Osborne and Ariel Rubinstein, \emph{A Course in Game Theory}, MIT Press, 1994.
+\bibitem{game_theory_ref2} Robert Gibbons, \emph{Game Theory for Applied Economists}, Princeton University Press, 1992.
+\bibitem{game_theory_ref3} Drew Fudenberg and Jean Tirole, \emph{Game Theory}, MIT Press, 1991.
+\bibitem{game_theory_ref4} John Maynard Smith, \emph{Evolution and the Theory of Games}, Cambridge University Press, 1982.
+\bibitem{game_theory_ref5} Noam Nisan, Tim Roughgarden, Eva Tardos, and Vijay V. Vazirani, eds., \emph{Algorithmic Game Theory}, Cambridge University Press, 2007.
+\end{thebibliography}

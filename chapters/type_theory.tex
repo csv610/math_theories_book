@@ -1,0 +1,68 @@
+\theory{Type theory}{How can a formal system prevent ill-formed constructions by recording what kind of object every expression is?}{Type theory classifies terms by types. Its rules say which terms may be formed, how they compute, and what counts as equality. Through Curry--Howard, types correspond to propositions and terms to proofs or programs.}{Programming languages, proof assistants, constructive mathematics, formal logic, category theory, linguistics, and homotopy theory.}{Typing judgments, dependent types, and normalization connect proofs with programs whose terms can be checked mechanically.}
+
+\paragraph{Origin and history}
+Bertrand Russell developed type hierarchies to avoid paradoxes such as the set of all sets that do not contain themselves. Church's simply typed lambda calculus connected types with functions. Per Martin-Lof developed intuitionistic type theory as a foundation for constructive mathematics. Calculus of constructions underlies proof assistants such as Coq and Lean \cite{type_ref1}.
+
+\end{historylist}
+\section*{3. Theory}
+\subsection*{Core theory}
+\paragraph{Terms, types, and rules}
+A judgment may be written $\Gamma\vdash t:T$, meaning that under assumptions $\Gamma$, term $t$ has type $T$. Function types, product types, sum types, dependent products, and dependent sums are built by formation, introduction, elimination, and computation rules.
+
+The type $A\to B$ is a function from $A$ to $B$. The product $A\times B$ is a pair. The sum $A+B$ records a choice between alternatives. A dependent product $\Pi x:A.P(x)$ expresses a statement for every $x$, while a dependent sum $\Sigma x:A.P(x)$ packages a witness and evidence \cite{type_ref2}.
+
+\paragraph{Logic and computation}
+Under Curry--Howard, a proof of $A\to B$ is a function that turns a proof of $A$ into a proof of $B$. A proof of $A\times B$ is a pair of proofs. A term reduces by computation rules, so a proof can carry an executable witness. Intuitionistic type theory does not automatically include the law of excluded middle, which makes it constructive.
+
+Dependent types let the type of an expression depend on a value. A vector type can record its length, allowing the type checker to reject an out-of-bounds operation before execution. This is why type theory is central to verified programming and proof assistants \cite{type_ref3}.
+
+\paragraph{Homotopy and category theory}
+Homotopy type theory interprets types as spaces, terms as points, and equalities as paths. Univalence treats equivalent types as equal in a controlled sense. Cubical type theory gives computational models of these ideas. Cartesian closed categories model simply typed lambda calculus, while locally cartesian closed categories model dependent type theory \cite{type_ref4}.
+
+\section*{4. Important theorems and results}
+\begin{enumerate}[leftmargin=*,itemsep=0.35em]
+\item \textbf{Curry--Howard correspondence.} Propositions are types, proofs are terms, and proof normalization is computation.
+
+\item \textbf{Strong normalization.} In important typed calculi, every reduction sequence terminates.
+
+\item \textbf{Progress and preservation.} Well-typed programs do not get stuck: they either are values or can take a step, and their types remain unchanged.
+
+\item \textbf{Dependent-type correspondence.} Dependent products model universal quantification and dependent sums model existential quantification.
+
+\item \textbf{Church--Rosser theorem.} If a term reduces in two ways, the resulting terms can be further reduced to a common result in confluent systems.
+
+\item \textbf{Univalence principle.} In homotopy type theory, equivalences between types give paths witnessing equality of types.
+\end{enumerate}
+\noindent\emph{Source for these results:} \cite{type_ref1}.
+
+\theoryapplications
+\theoryconnections{type_theory}{%
+\item Logic supplies propositions and inference, while the lambda calculus supplies functions as executable expressions.
+\item A type records what kind of term a program or proof is allowed to be, so type checking catches an invalid application before it runs.
+\item Proof theory explains normalization, category theory explains composition and universal structure, and computation gives the correspondence between constructing a term and carrying out an algorithm \cite{type_ref1,type_ref2}.
+}{%
+\item Type theory supports programming languages because a compiler can reject a term whose types do not fit, and it supports proof assistants because a checked proof is a typed term.
+\item Dependent types let the type mention a value, such as the length of a vector, so the checker can verify that an operation preserves a specification.
+\item Homotopy type theory extends the same idea by treating paths between objects as mathematical structure \cite{type_ref1,type_ref4}.
+}
+\section*{7. Sample Questions}
+\emph{Exercise reference:} \cite{type_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
+\begin{enumerate}[leftmargin=*,itemsep=0.9em]
+\item \textbf{Exercise 1. What is the type of the identity function?} If $x:A$, then $\lambda x.x$ has type $A\to A$.
+
+\item \textbf{Exercise 2. What does a product type represent?} A term of $A\times B$ contains both an $A$-term and a $B$-term, analogous to a proof of $A$ and $B$.
+
+\item \textbf{Exercise 3. Why are dependent types useful for arrays?} The type can include the length, so concatenation and indexing rules can be checked statically.
+
+\item \textbf{Exercise 4. What is the empty type?} It has no terms. A function from it to any type is valid because no input exists that could violate the rule.
+
+\item \textbf{Exercise 5. Why can type theory formalize mathematics?} Its rules can encode numbers, sets, functions, proofs, and constructions while the checker verifies every term.
+
+\end{enumerate}
+\section*{8. References}
+\begin{thebibliography}{9}
+\bibitem{type_ref1} B. C. Pierce, \emph{Types and Programming Languages}.
+\bibitem{type_ref2} P. Martin-Lof, \emph{Intuitionistic Type Theory}.
+\bibitem{type_ref3} T. Coquand and G. Huet, \emph{The Calculus of Constructions}.
+\bibitem{type_ref4} The Univalent Foundations Program, \emph{Homotopy Type Theory}.
+\end{thebibliography}

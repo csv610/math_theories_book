@@ -1,0 +1,10 @@
+\begin{tikzpicture}[scale=.78,transform shape]
+\draw[thick,blue] plot[smooth] coordinates {(0,0) (.6,1) (1.2,0) (1.8,1) (2.4,0) (3,.9)};
+\draw[thick,red] plot[smooth] coordinates {(0,1) (.6,0) (1.2,1) (1.8,0) (2.4,1) (3,0)};
+\node at (1.5,-.45) {braid word};
+\draw[thick,blue] (5.2,.2) circle (1);
+\draw[thick,red] (5.2,.2) circle (.45);
+\node at (5.2,-1.15) {closure gives a knot/link};
+\draw[->,thick] (3.35,.5)--(4.15,.5);
+\node[align=center] at (2.7,1.55) {moving strands\\cross in order};
+\end{tikzpicture}

@@ -1,0 +1,97 @@
+\theory{Graph theory}{How can relationships among objects be represented, counted, and navigated?}{Graph theory studies vertices joined by edges. It gives a language for networks in which geometry is less important than connection: who is linked to whom, which routes exist, and which patterns must occur.}{Roads, computer networks, social networks, biology, scheduling, search engines, electrical circuits, and algorithms.}{Vertices, edges, paths, and connectivity reduce network questions to finite combinatorial structures that can be counted or searched.}
+
+\paragraph{The idea and its history}
+In a graph, vertices represent objects and edges represent relationships. Edges may be undirected, directed, weighted, colored, or repeated. A graph of a function is a different object; this chapter concerns relational graphs. Leonhard Euler's 1736 analysis of the bridges of Konigsberg is usually regarded as the beginning of graph theory. He showed that the question was not about distances but about the number of times each land region was connected to a bridge.
+
+A walk follows edges and may repeat vertices. A trail does not repeat edges. A path does not repeat vertices. A circuit returns to its starting point, and a connected graph has a path between every pair of vertices. The degree of a vertex is the number of incident edges. A tree is a connected graph with no cycle; it has exactly one path between any two vertices and $n-1$ edges when it has $n$ vertices \cite{graph_theory_ref1,graph_theory_ref2}.
+
+\end{historylist}
+\section*{3. Theory}
+\subsection*{Core theory}
+\paragraph{A concrete network example}
+Suppose a delivery company has warehouses as vertices and roads as edges. A shortest-path algorithm finds the least travel distance. A spanning tree connects every warehouse with no unnecessary cycle; a minimum spanning tree does so at minimum total construction cost. If a road fails, edge connectivity tells how many failures can be tolerated. If one warehouse is a bottleneck, vertex connectivity identifies the vulnerability.
+\bookfigure{graph_network}{A graph represents objects, relationships, and a selected route.}
+
+The same graph supports different questions. Breadth-first search discovers all vertices at increasing distance. Depth-first search detects cycles and builds a traversal tree. Dijkstra's algorithm finds shortest paths with nonnegative weights, while Bellman--Ford allows negative edge weights and detects a negative cycle. A maximum-flow algorithm finds how much material can pass from a source to a sink, and the max-flow min-cut theorem says that this equals the capacity of the narrowest separating cut.
+
+\paragraph{Important graph families}
+Complete graphs join every pair of vertices. Bipartite graphs split vertices into two parts with edges only across the split; they contain no odd cycle. Planar graphs can be drawn without crossings. Trees, forests, cycles, paths, regular graphs, and directed acyclic graphs are basic families. A multigraph permits repeated edges, while a simple graph has neither loops nor repeated edges.
+
+An Eulerian circuit uses every edge exactly once. A connected graph has one precisely when every vertex has even degree. A Hamiltonian cycle visits every vertex exactly once; no equally simple degree test characterizes all Hamiltonian graphs, and deciding whether one exists is computationally difficult. This contrast illustrates why edges and vertices create different kinds of problems.
+
+\paragraph{Coloring and matching}
+A proper vertex coloring assigns different colors to adjacent vertices. The least number is the chromatic number. Scheduling exams with a shared-student conflict graph turns coloring into a timetable problem. A matching is a set of edges with no shared endpoint. In a bipartite job-assignment graph, a matching pairs workers with tasks. Hall's marriage theorem says that a complete matching exists exactly when every group of workers has at least as many neighboring tasks as its size.
+
+Edge coloring assigns colors to edges so adjacent edges differ. Vizing's theorem says that a simple graph needs either $\Delta$ or $\Delta+1$ colors, where $\Delta$ is the maximum degree. The four-color theorem states that every planar map can be colored with at most four colors.
+
+\paragraph{Representing and measuring graphs}
+An adjacency matrix records whether each ordered pair is connected. It makes matrix multiplication useful for counting walks but uses much memory for a sparse graph. An adjacency list stores only neighbors and is efficient for sparse networks. The incidence matrix records which vertices touch which edges.
+
+The degree sequence lists vertex degrees. The adjacency matrix has eigenvalues that reveal expansion, connectivity, and random-walk behavior; this is the subject of spectral graph theory. A graph invariant is a quantity unchanged by relabeling vertices, such as the number of connected components, chromatic number, or degree multiset. Graph isomorphism asks whether two differently labeled graphs have the same structure.
+
+\paragraph{Planarity, surfaces, and geometry}
+Euler's formula for a connected planar graph is $V-E+F=2$, where $F$ counts faces including the outside face. Kuratowski's theorem characterizes nonplanar graphs through subdivisions of $K_5$ and $K_{3,3}$. Topological graph theory studies embeddings on surfaces, while geometric graph theory places vertices in space and uses distances or crossings.
+
+\paragraph{Applications}
+In sociology, acquaintance, influence, rumor, and collaboration graphs support social-network analysis. In biology, vertices can represent habitats and edges migration routes, allowing disease spread and conservation corridors to be studied. Molecular biology uses graphs for metabolic pathways, gene regulation, protein interactions, cell clustering, and connectomics, where neurons are vertices and synapses are edges \cite{graph_theory_ref3}.
+
+Computer networks use routing, spanning trees, flow, and connectivity. Search engines use links and random walks to rank pages. Electrical circuits can be represented by graphs whose cycles encode independent current laws. In operations research, matching, coloring, scheduling, and flow turn practical decisions into combinatorial algorithms.
+
+\paragraph{What the theory depends on and where it is useful}
+Graph theory depends on sets, counting, algorithms, linear algebra, probability, and topology. It supports extremal and Ramsey theory by expressing forbidden patterns, supports control and network science through connectivity, and supports algebra through graph symmetries and group actions.
+
+Its abstraction is a strength but also a limit: a graph may omit geography, time, uncertainty, capacity, or the strength of a relationship. Weighted, temporal, probabilistic, hypergraph, and multilayer models add the missing information.
+
+\section*{4. Important theorems and results}
+\begin{enumerate}[leftmargin=*,itemsep=0.35em]
+\item \textbf{Handshaking lemma.} The sum of all vertex degrees equals twice the number of edges.
+
+\item \textbf{Euler criterion.} A connected graph has an Euler circuit exactly when every vertex has even degree.
+
+\item \textbf{Hall's theorem.} A bipartite graph has a matching covering the left part exactly when every subset of the left part has at least as many neighbors.
+
+\item \textbf{Max-flow min-cut theorem.} The greatest flow from source to sink equals the capacity of a minimum cut.
+
+\item \textbf{Euler's planar formula and four-color theorem.} A connected planar graph satisfies $V-E+F=2$, and every planar graph has chromatic number at most four \cite{graph_theory_ref1}.
+\end{enumerate}
+
+\theoryapplications
+\theoryconnections{graph theory}{%
+\item Set theory supplies vertices and edges, combinatorics supplies counting, and linear algebra supplies adjacency matrices and spectral information.
+\item Algorithms turn graph definitions into practical searches, while probability studies random graphs and uncertain networks.
+}{%
+\item Graph theory helps routing, scheduling, social and biological networks, circuit design, and web search.
+\item It converts a system of pairwise relationships into paths, cuts, matchings, and flows that can guide a concrete design or diagnosis.
+}
+\section*{7. Sample Questions}
+\emph{Exercise reference:} \cite{graph_theory_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
+\begin{enumerate}[leftmargin=*,itemsep=0.9em]
+\item \textbf{Exercise 1.} How many edges does a tree with $20$ vertices have?
+
+\emph{Solution.} Every tree with $n$ vertices has $n-1$ edges, so it has $19$ edges.
+
+\item \textbf{Exercise 2.} Can a connected graph with exactly two odd-degree vertices have an Euler circuit?
+
+\emph{Solution.} No. An Euler circuit requires every vertex to have even degree. Such a graph may have an open Euler trail beginning at one odd vertex and ending at the other.
+
+\item \textbf{Exercise 3.} What does a minimum spanning tree optimize?
+
+\emph{Solution.} It connects every vertex without cycles while minimizing the total weight of selected edges. It does not necessarily minimize the distance between every pair.
+
+\item \textbf{Exercise 4.} When does a bipartite graph have a matching covering every worker?
+
+\emph{Solution.} Hall's condition must hold: every set of workers must collectively be adjacent to at least as many tasks as there are workers in that set.
+
+\item \textbf{Exercise 5.} Why can an adjacency list be better than a matrix?
+
+\emph{Solution.} A sparse graph has few edges compared with all possible pairs. A list stores only existing neighbors, while a matrix stores mostly zeros.
+
+\end{enumerate}
+\section*{8. References}
+\addcontentsline{toc}{section}{References}
+
+\begin{thebibliography}{9}
+\bibitem{graph_theory_ref1} Reinhard Diestel, \emph{Graph Theory}, 5th ed., Springer, 2017.
+\bibitem{graph_theory_ref2} Douglas B. West, \emph{Introduction to Graph Theory}, 2nd ed., Prentice Hall, 2001.
+\bibitem{graph_theory_ref3} Béla Bollobás, \emph{Modern Graph Theory}, Springer, 1998.
+\end{thebibliography}

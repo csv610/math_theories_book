@@ -1,0 +1,115 @@
+\theory{Field theory}{What is a number system in which the four basic arithmetic operations work, and how can one enlarge such a system without losing control of equations?}{Field theory studies fields and their extensions. It explains why some polynomial equations can be solved by familiar numbers, why others require new numbers, and how the symmetries of the solutions reveal the answer.}{Algebraic equations, finite-field arithmetic, coding, cryptography, algebraic geometry, number theory, and mathematical physics.}{Field extensions, minimal polynomials, and splitting fields determine which algebraic operations are possible over a chosen number system.}
+
+\paragraph{Évariste Galois}
+Galois made field extensions and their automorphism groups central to the study of polynomial equations. His correspondence between solvability by radicals and solvability of the associated Galois group explains why some equations admit formulas and others do not.
+
+\paragraph{Richard Dedekind and finite-field researchers}
+Dedekind clarified the arithmetic of field extensions through embeddings, norms, and algebraic integers. The systematic study of finite fields and extension degrees later supplied the exact arithmetic used in coding, cryptography, and algebraic number theory \cite{field_theory_ref1}.
+\end{historylist}
+\section*{3. Theory}
+\subsection*{Core theory}
+\paragraph{What the name means}
+The phrase "field theory" has several meanings. In mathematics it means the study of fields, such as the rational numbers, real numbers, complex numbers, and finite fields. In physics, field theory studies quantities spread through space and time: classical field theory, quantum field theory, and statistical field theory are related physical subjects. A grand unified theory is a proposed physical framework joining interactions. In psychology, Kurt Lewin's field theory studies the interaction of a person and environment, while sociological field theory studies social actors and local social orders. This chapter develops the mathematical meaning while keeping these other uses distinct \cite{field_theory_ref1,field_theory_ref4}.
+
+\paragraph{The basic number system}
+A field is a set of numbers in which addition, subtraction, multiplication, and division by a nonzero number are always possible, and the familiar rules of arithmetic hold. The rational numbers $\mathbb{Q}$ form a field. The real numbers $\mathbb{R}$ and complex numbers $\mathbb{C}$ form larger fields. The integers do not form a field because, for example, $1/2$ is not an integer.
+
+Finite fields also exist. The integers modulo a prime $p$, written $\mathbb{F}_p$, form a field because every nonzero residue has a multiplicative inverse. Modulo $5$, the inverse of $2$ is $3$, since $2\cdot3=6$ has remainder $1$. Arithmetic in finite fields is exact and bounded, which is why it is useful in digital communication and cryptography.
+
+\paragraph{Extensions: making room for new solutions}
+\bookfigure{field_galois_lattice}{A field-extension lattice records how larger number systems contain one another.}
+If a field $K$ is contained in a larger field $L$, then $L/K$ is a field extension. The smallest field containing $K$ and an element $\alpha$ is denoted $K(\alpha)$. If every element of $L$ can be written as a combination of finitely many powers of $\alpha$ with coefficients in $K$, the extension is finite. Its degree $[L:K]$ is the number of independent coefficients required.
+
+The equation $x^2-2=0$ has no rational solution. Adjoining $\sqrt2$ produces $\mathbb{Q}(\sqrt2)$, whose elements have the form $a+b\sqrt2$ with $a,b\in\mathbb{Q}$. Since $(\sqrt2)^2=2$, every higher power reduces to one of the first two powers, so the degree is $2$. This is the controlled way in which algebra enlarges the number system.
+
+An element $\alpha$ is algebraic over $K$ if it satisfies a nonzero polynomial with coefficients in $K$. Among all monic polynomials that vanish at $\alpha$, one of least degree is the minimal polynomial. It is irreducible over $K$ and records all algebraic relations that $\alpha$ has over the base field. If no such polynomial exists, $\alpha$ is transcendental. The number $\pi$ is an important example of a transcendental number over $\mathbb{Q}$.
+
+\paragraph{Splitting fields and symmetries}
+Given a polynomial $f(x)$ over $K$, its splitting field is the smallest extension in which $f$ factors completely into linear factors. For $x^2-2$, the splitting field is $\mathbb{Q}(\sqrt2)$. For $x^3-2$, the field must contain the real cube root of $2$ and the complex cube roots, so it also contains a primitive cube root of unity.
+
+The automorphisms of a splitting field that fix every element of $K$ form its Galois group. An automorphism is a reversible map preserving addition and multiplication. It may permute the roots of the polynomial, but it must preserve every algebraic relation among them. For $x^2-2$, the two automorphisms send $\sqrt2$ to $\sqrt2$ or $-\sqrt2$. The group therefore has two elements.
+
+Galois theory creates a dictionary: intermediate fields between $K$ and a suitable extension correspond to subgroups of the Galois group. Larger subgroups fix smaller fields, and smaller subgroups fix larger fields. The dictionary changes the problem of solving equations into the problem of understanding symmetries. It explains why general equations of degree five cannot be solved by radicals, whereas equations of degrees two, three, and four can.
+
+\paragraph{Separable and normal extensions}
+An algebraic extension is separable when every element has a minimal polynomial with distinct roots. In characteristic zero, every algebraic extension is separable. In positive characteristic, repeated roots can occur. For example, over a field of characteristic $p$, the polynomial $x^p-a$ has derivative zero and may have only one repeated root in a suitable extension.
+
+An extension is normal when every irreducible polynomial over the base field that has one root in the extension splits completely there. A finite extension that is both normal and separable is Galois. The distinction matters because the clean subgroup dictionary belongs to Galois extensions, while inseparable extensions behave differently.
+
+\paragraph{Constructing fields and understanding their size}
+Every field has a characteristic. If adding $1$ repeatedly eventually gives $0$, the characteristic is a prime $p$ and the field contains a copy of $\mathbb{F}_p$. Otherwise its characteristic is zero and it contains a copy of $\mathbb{Q}$. A finite field has exactly $p^n$ elements for a prime $p$ and positive integer $n$, and any two fields with the same number of elements are isomorphic. The multiplicative nonzero elements of a finite field form a cyclic group \cite{field_theory_ref2,field_theory_ref3}.
+
+Field extensions can be built by quotienting a polynomial ring by an irreducible polynomial. For example,
+\[
+\mathbb{Q}[x]/(x^2-2)
+\]
+behaves like $\mathbb{Q}(\sqrt2)$: the class of $x$ acts as $\sqrt2$, and the relation $x^2=2$ is imposed. Finite fields are constructed similarly from $\mathbb{F}_p[x]$ using irreducible polynomials.
+
+\paragraph{Geometry, number theory, and computation}
+Field theory is the algebraic foundation of algebraic geometry. Coordinates of points on a variety form a field or a ring, and extending the field describes new points that become visible after allowing new coordinates. In number theory, number fields are finite extensions of $\mathbb{Q}$; their rings of integers, ideals, places, and Galois groups encode arithmetic information.
+
+Finite fields make arithmetic possible in computers without rounding error. Reed--Solomon codes evaluate polynomials over a finite field and recover the original message when some symbols are corrupted. Elliptic-curve cryptography uses the group of points on an elliptic curve over a finite field; the security comes from the difficulty of reversing a repeated group operation. A field is not itself a cryptosystem or code, but supplies the exact arithmetic on which these systems rely.
+
+\paragraph{What the theory depends on and where it is useful}
+Field theory depends on set-based algebra, polynomial arithmetic, vector spaces, and group theory. It supplies the coefficient systems used by ring theory, representation theory, algebraic geometry, number theory, coding theory, and parts of topology. Galois groups connect field theory to group theory; splitting fields connect it to polynomial equations; finite fields connect it to algorithms.
+
+The theory also has limits. A field extension can tell us that roots exist and how they are related without producing a convenient decimal formula. A polynomial may be solvable by radicals in principle while its expression is too large to use. In positive characteristic, separability and derivative arguments require extra care.
+
+\section*{4. Important theorems and results}
+\begin{enumerate}[leftmargin=*,itemsep=0.35em]
+\item \textbf{Tower law.} If $K\subseteq L\subseteq M$ are finite extensions, then
+\[
+[M:K]=[M:L][L:K].
+\]
+It is the arithmetic rule for counting independent coefficients.
+
+\item \textbf{Primitive element theorem.} Many finite separable extensions can be generated by one element: $L=K(\alpha)$ \cite{field_theory_ref1}.
+
+\item \textbf{Galois correspondence.} For a finite Galois extension, intermediate fields and subgroups of the Galois group correspond in reverse order \cite{field_theory_ref2}.
+
+\item \textbf{Fundamental theorem of algebra.} Every nonconstant complex polynomial factors into linear factors over $\mathbb{C}$; thus $\mathbb{C}$ is algebraically closed.
+
+\item \textbf{Finite-field theorem.} For every prime power $p^n$ there is, up to isomorphism, exactly one field with $p^n$ elements, and its multiplicative group is cyclic \cite{field_theory_ref3}.
+\end{enumerate}
+
+\theoryapplications
+\theoryconnections{field theory}{%
+\item Ring theory supplies polynomial quotients and ideals, linear algebra supplies extension degree, and Galois theory studies the symmetries of normal separable extensions.
+\item Algebraic geometry and number theory provide geometric and arithmetic examples of fields.
+}{%
+\item Field theory helps construct solvable equations, finite fields for coding and cryptography, and coordinate fields in algebraic geometry.
+\item It tells us which operations preserve a problem and when adjoining a new element creates genuinely new solutions.
+}
+\section*{7. Sample Questions}
+\emph{Exercise reference:} \cite{field_theory_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
+\begin{enumerate}[leftmargin=*,itemsep=0.9em]
+\item \textbf{Exercise 1.} Why are the integers not a field?
+
+\emph{Solution.} A field requires every nonzero element to have a multiplicative inverse inside the set. The integer $2$ has inverse $1/2$, which is not an integer.
+
+\item \textbf{Exercise 2.} Describe an element of $\mathbb{Q}(\sqrt2)$.
+
+\emph{Solution.} Every element is $a+b\sqrt2$ with rational $a$ and $b$. Products reduce because $(\sqrt2)^2=2$, so no higher power is needed.
+
+\item \textbf{Exercise 3.} What does a minimal polynomial tell us?
+
+\emph{Solution.} It is the shortest monic polynomial over the base field that vanishes at the element. It gives the basic algebraic relation from which all other polynomial relations follow.
+
+\item \textbf{Exercise 4.} How many elements does $\mathbb{F}_{2^3}$ have, and what is special about its nonzero elements?
+
+\emph{Solution.} It has $2^3=8$ elements. Its seven nonzero elements form a cyclic multiplicative group, so one element generates all seven by repeated multiplication.
+
+\item \textbf{Exercise 5.} Why does Galois theory help solve polynomial equations?
+
+\emph{Solution.} It replaces the complicated expressions for roots by the simpler question of how symmetries permute the roots. The subgroup structure of that symmetry group reveals which intermediate fields and radical operations are possible.
+
+\end{enumerate}
+\section*{8. References}
+\addcontentsline{toc}{section}{References}
+
+\begin{thebibliography}{9}
+\bibitem{field_theory_ref1} David S. Dummit and Richard M. Foote, \emph{Abstract Algebra}, 3rd ed., Wiley, 2004.
+\bibitem{field_theory_ref2} Ian Stewart, \emph{Galois Theory}, 4th ed., Chapman and Hall/CRC, 2015.
+\bibitem{field_theory_ref3} Rudolf Lidl and Harald Niederreiter, \emph{Finite Fields}, 2nd ed., Cambridge University Press, 1997.
+\bibitem{field_theory_ref4} Jean-Pierre Serre, \emph{Local Fields}, Springer, 1979.
+\end{thebibliography}

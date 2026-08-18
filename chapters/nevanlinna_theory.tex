@@ -1,0 +1,108 @@
+\theory{Nevanlinna theory}{How often does a meromorphic function take a value, and how quickly does it grow as the complex plane expands?}{Nevanlinna theory measures the growth of meromorphic functions and balances value distribution against exceptional values. It is a complex-analytic analogue of counting roots of a polynomial.}{Complex analysis, differential equations, Diophantine approximation, holomorphic curves, minimal surfaces, and value-distribution problems.}{Counting functions, proximity functions, and characteristic growth measure how often a meromorphic function takes values.}
+
+\paragraph{Rolf Nevanlinna}
+Nevanlinna developed the theory in 1925 to measure how often a meromorphic function takes a value as the radius of the disk grows. His counting and proximity functions compare zeros and poles with the function's total growth, turning value distribution into quantitative inequalities.
+
+\paragraph{Lars Ahlfors, André Bloch, Henri Cartan, and later contributors}
+They extended value-distribution methods from meromorphic functions to broader complex-analytic settings, including holomorphic curves and several complex variables. Their work explains why exceptional values and ramification can be controlled by growth estimates \cite{nevanlinna_theory_ref1}.
+
+\end{historylist}
+\section*{3. Theory}
+\subsection*{Core theory}
+\paragraph{Counting, proximity, and characteristic}
+Let $n(r,f)$ count poles of $f$ in $|z|\leq r$, with multiplicity. The integrated counting function is
+\[
+N(r,f)=\int_0^r\frac{n(t,f)-n(0,f)}{t}\,dt+n(0,f)\log r.
+\]
+It records how pole counts accumulate with radius. For a value $a$, use $N(r,a,f)=N(r,1/(f-a))$; for $a=\infty$, use $N(r,f)$.
+
+The proximity function $m(r,a,f)$ measures how close $f$ is to $a$ on the circle $|z|=r$, averaged logarithmically. The characteristic
+\[
+T(r,f)=N(r,a,f)+m(r,a,f)+O(1)
+\]
+measures overall growth and is essentially independent of $a$. The Ahlfors--Shimizu version expresses the same growth through spherical area.
+
+\paragraph{First fundamental theorem}
+The first fundamental theorem says that for every $a$ on the Riemann sphere,
+\[
+T(r,f)=N(r,a,f)+m(r,a,f)+O(1).
+\]
+Thus a function's growth is divided between actually taking a value and approaching it on the boundary. Algebraic identities give
+$T(r,fg)\leq T(r,f)+T(r,g)+O(1)$,
+$T(r,1/f)=T(r,f)+O(1)$, and
+$T(r,f^m)=mT(r,f)+O(1)$.
+
+\paragraph{Second fundamental theorem and defects}
+The second fundamental theorem compares several distinct values. Roughly, a nonconstant meromorphic function cannot avoid too many values without paying a growth cost. For distinct $a_1,\ldots,a_q$,
+\[
+(q-2)T(r,f)\leq\sum_{j=1}^q\overline N(r,a_j,f)+S(r,f),
+\]
+where multiplicities are truncated in $\overline N$ and $S$ is small relative to $T$ outside an exceptional set.
+
+The defect $\delta(a,f)$ measures how often $f$ fails to take $a$ compared with the growth expected from the first theorem. The defect relation says the total defect is at most two for a nonconstant meromorphic function in the plane. A value may be omitted completely only in exceptional ways.
+
+\paragraph{Picard and differential equations}
+Using the second theorem with three values, one obtains Picard's theorem: a transcendental entire function takes every complex value, with at most one exception, infinitely often. A meromorphic function has at most two omitted values. The logarithmic derivative lemma controls $m(r,f'/f)$ and supports differential equations involving meromorphic functions.
+
+Nevanlinna theory studies uniqueness questions: if two meromorphic functions take the same values with prescribed multiplicities, when must they be identical? It also treats algebroid functions, holomorphic curves, maps between complex manifolds, quasiregular maps, and minimal surfaces \cite{nevanlinna_theory_ref2}.
+
+\paragraph{What the theory depends on and where it is useful}
+Nevanlinna theory depends on complex analysis, Jensen's formula, harmonic functions, and asymptotic estimates. It helps Diophantine approximation by comparing value distribution with height growth, and helps geometry through holomorphic curves and minimal surfaces.
+
+The estimates usually hold outside exceptional sets of radii and often give asymptotic rather than exact information. The definition of a small error term must be stated carefully.
+
+\section*{4. Important theorems and results}
+\begin{enumerate}[leftmargin=*,itemsep=0.35em]
+\item \textbf{First fundamental theorem.} $T=N+m+O(1)$ for every target value.
+
+\item \textbf{Second fundamental theorem.} A meromorphic function cannot strongly avoid too many distinct values without large growth.
+
+\item \textbf{Defect relation.} The sum of defects of a meromorphic function is at most two.
+
+\item \textbf{Picard theorem.} A transcendental entire function omits at most one complex value; a meromorphic function omits at most two values.
+
+\item \textbf{Logarithmic derivative lemma.} The proximity of $f'/f$ is small compared with $T(r,f)$ outside an exceptional set \cite{nevanlinna_theory_ref3}.
+
+Nevanlinna's characteristic $T(r,f)$ measures the growth of a meromorphic function, while $N$ counts its values and $m$ measures how often values are missed. The first theorem balances these terms; the second limits how many values can be missed; and the defect relation summarizes that limit. Picard's theorem is the sharp qualitative consequence, while the logarithmic derivative lemma supplies a technical estimate used in proving the stronger results.
+\end{enumerate}
+
+\theoryapplications
+\theoryconnections{nevanlinna theory}{%
+\item Complex analysis supplies meromorphic functions and zeros, measure theory supplies angular averages, and asymptotic analysis compares growth terms.
+\item Diophantine approximation and value distribution provide the arithmetic and geometric interpretations.
+}{%
+\item Nevanlinna theory helps complex analysis control how often a meromorphic function takes values and helps arithmetic geometry study rational and integral points.
+\item Its counting and proximity functions turn qualitative value-avoidance questions into quantitative growth estimates.
+}
+\section*{7. Sample Questions}
+\emph{Exercise reference:} \cite{nevanlinna_theory_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
+\begin{enumerate}[leftmargin=*,itemsep=0.9em]
+\item \textbf{Exercise 1.} What does $N(r,f)$ count?
+
+\emph{Solution.} It is an integrated count of poles of $f$ inside the disk of radius $r$, including multiplicity and weighting poles according to their distance from the origin.
+
+\item \textbf{Exercise 2.} What does $T(r,f)$ measure?
+
+\emph{Solution.} It measures total growth, combining how often a value is taken with how close the function comes to that value on the boundary.
+
+\item \textbf{Exercise 3.} How many values can a transcendental entire function omit?
+
+\emph{Solution.} At most one. This is Picard's theorem; omitting two values is impossible for a nonconstant entire transcendental function.
+
+\item \textbf{Exercise 4.} Why are multiplicities sometimes truncated?
+
+\emph{Solution.} Truncation emphasizes distinct target points rather than allowing one highly repeated solution to dominate the count.
+
+\item \textbf{Exercise 5.} What is a defect?
+
+\emph{Solution.} It measures the fraction of expected value-distribution growth missing at a target value. A completely omitted value has maximal defect.
+
+\end{enumerate}
+\section*{8. References}
+\addcontentsline{toc}{section}{References}
+
+\begin{thebibliography}{9}
+\bibitem{nevanlinna_theory_ref1} Rolf Nevanlinna, \emph{Analytic Functions}, Springer, 1970.
+\bibitem{nevanlinna_theory_ref2} Walter K. Hayman, \emph{Meromorphic Functions}, Oxford University Press, 1964.
+\bibitem{nevanlinna_theory_ref3} William K. Hayman, \emph{Subharmonic Functions}, Vols. 1--2, Academic Press, 1976.
+\end{thebibliography}

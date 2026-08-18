@@ -1,0 +1,1162 @@
+\documentclass[11pt,oneside]{book}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{tocloft}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,calc,decorations.pathreplacing}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\geometry{paperwidth=6in,paperheight=9in,margin=0.72in}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue}
+\setlength{\cftchapnumwidth}{3.2em}
+\emergencystretch=2em
+\newcommand{\bookfigure}[2]{%
+\begin{figure}[htbp]
+\centering
+\input{figures/#1.tex}
+\caption{#2}
+\end{figure}}
+
+% Chapters supply their own References heading.  Suppress the automatic
+% heading normally produced by thebibliography while retaining \cite links.
+\makeatletter
+\renewenvironment{thebibliography}[1]
+  {\list{\@biblabel{\@arabic\c@enumiv}}%
+    {\settowidth\labelwidth{\@biblabel{#1}}%
+     \leftmargin\labelwidth
+     \advance\leftmargin\labelsep
+     \usecounter{enumiv}%
+     \let\p@enumiv\@empty
+     \renewcommand\theenumiv{\@arabic\c@enumiv}}}
+  {\endlist}
+\makeatother
+
+% Historical development is presented as a numbered sequence in every chapter.
+% The local paragraph redefinition keeps the existing explanatory prose while
+% making each historical point an enumerated item.
+\newenvironment{historylist}{%
+\begin{enumerate}[leftmargin=*,itemsep=0.45em]
+\renewcommand{\paragraph}[1]{\item \textbf{##1.}\par}
+}{%
+\end{enumerate}}
+
+\title{\Huge Mathematics in Motion\\[6pt]\large A Friendly Guide to Mathematical Theories\\[4pt]\normalsize A survey with worked examples and routes for further study}
+\author{A popular science introduction}
+\date{}
+
+\makeatletter
+\newcommand{\applicationlist}[1]{%
+\begin{enumerate}[leftmargin=*,itemsep=0.35em]
+\@for\appitem:=#1\do{\item \appitem}
+\end{enumerate}}
+\makeatother
+
+\newcommand{\theory}[5]{\clearpage\chapter{#1}
+\def\theoryapplicationtitle{#1}
+\def\theoryapplicationitems{#4}
+\def\theoryapplicationlink{#5}
+\section*{1. Overview}
+\subsection*{Intuitive}
+Begin with the problem, not the notation. Ask what objects the theory studies,
+what change or operation is allowed, and what feature the theory tries to
+keep reliable. #2
+\subsection*{Formal}
+#3
+\section*{2. History}
+\subsection*{Historical development}
+\begin{historylist}}
+
+% The applications section is emitted after a chapter's theory text.  Keeping
+% it here avoids placing historical or theoretical paragraphs after the
+% applications list in chapters that use the compact \theory macro.
+\newcommand{\theoryapplications}{%
+\section*{5. Applications}
+\noindent\theoryapplicationlink\par
+\applicationlist{\theoryapplicationitems}}
+
+% Kept for the few chapters that use a family-specific exercise set.  The
+% prompts are anchored to the chapter's objects, calculation, central result,
+% boundary, and application; generic prompts are not used by the book.
+\newcommand{\samplequestions}[2]{%
+\section*{7. Sample Questions}
+These short questions review the main ideas of \textbf{#1} at an
+introductory undergraduate level.  Each answer uses the definitions and
+methods developed in this chapter.
+\begin{enumerate}[leftmargin=*,itemsep=0.9em]
+\ifcase#2
+\item \textbf{Structure.} State the basic objects studied in #1 and give one
+example and one non-example.\\
+\emph{Solution.} The objects are the things named in the chapter's core
+definition.  The example must satisfy every stated rule; the non-example
+fails at least one rule.  Checking the rules one at a time is the reliable
+method, rather than judging by appearance.
+\item \textbf{Operation.} Choose two simple objects from #1 and carry out the
+main operation described in the chapter. What must be checked afterward?\\
+\emph{Solution.} Perform the operation and then check that the result is
+still an allowed object. This closure check is what turns a calculation into
+a statement inside the theory.
+\item \textbf{Invariant.} What feature remains unchanged when the permitted
+transformations of #1 are applied?\\
+\emph{Solution.} Identify the transformation, compute the feature before and
+after it, and compare. An invariant is useful because it can prove that two
+objects cannot be transformed into one another.
+\item \textbf{Map.} Give a small example of a structure-preserving map in
+#1. Which information does it preserve?\\
+\emph{Solution.} A structure-preserving map sends allowed objects to allowed
+objects and respects the main operation. Its preserved information is exactly
+what appears in the defining rule; extra labels or drawings may disappear.
+\item \textbf{Application.} Explain one practical use of #1 and identify its
+modelling assumption.\\
+\emph{Solution.} The theory supplies a compact language for the repeated
+pattern in the application. The assumption is the idealisation that makes the
+pattern exact; a real system must be checked against it before conclusions are
+trusted.
+\or
+\item \textbf{Approximation.} Approximate a smooth function on a short
+interval by its tangent-line formula at the midpoint. Why is the error small
+near that point?\\
+\emph{Solution.} The tangent line matches both the function value and its
+first-order change at the midpoint. The remaining error is of second order
+in the distance from that point, so halving the distance makes it roughly
+four times smaller when the second derivative is bounded.
+\item \textbf{Convergence.} In an asymptotic statement, what does
+$f(x)\sim g(x)$ as $x\to\infty$ mean?\\
+\emph{Solution.} It means $f(x)/g(x)\to1$. Thus the two quantities need not
+be close in absolute size, but their relative difference tends to zero.
+\item \textbf{Error control.} If an approximation has error at most
+$0.01$ on an interval, what can and cannot be concluded?\\
+\emph{Solution.} The computed value differs from the exact value by no more
+than $0.01$ wherever the stated assumptions hold. Nothing follows outside
+that interval or when the assumptions, such as smoothness, fail.
+\item \textbf{Choice.} Why might a polynomial approximation be preferred
+to a complicated exact expression in #1?\\
+\emph{Solution.} A polynomial is easy to evaluate, differentiate, integrate,
+and implement in a computer. The preference is justified only after its
+error and numerical stability have been measured.
+\item \textbf{Application.} Describe a situation in which an approximation
+is safer than an exact-looking formula.\\
+\emph{Solution.} In numerical simulation, a controlled approximation with a
+known error is safer than an exact formula evaluated with rounding or unstable
+subtraction. The guarantee must accompany the approximation.
+\or
+\item \textbf{Conditional probability.} A disease affects $1\%$ of a
+population. A test detects $99\%$ of cases and has a $5\%$ false-positive
+rate. What is the probability that a randomly selected positive result is a
+true case?\\
+\emph{Solution.} Among $10,000$ people, about $99$ sick people test positive
+and $495$ healthy people test positive. The probability is
+$99/(99+495)=1/6$, approximately $16.7\%$.
+\item \textbf{Expectation.} A fair six-sided die is rolled once. Find the
+expected score and explain why it need not be the score obtained.\\
+\emph{Solution.} The expectation is
+$(1+2+3+4+5+6)/6=3.5$. A single roll must be an integer; expectation is the
+long-run average of repeated rolls, not a prediction of one roll.
+\item \textbf{Independence.} Two fair coins are tossed. What is the
+probability of exactly one head, and which independence assumption was used?\\
+\emph{Solution.} The outcomes HT and TH are disjoint, each with probability
+$1/4$, so the answer is $1/2$. Independence lets us multiply the probabilities
+of the two separate tosses.
+\item \textbf{Statistics.} Why does increasing a random sample usually make
+an estimated average more reliable?\\
+\emph{Solution.} Random positive and negative deviations tend to cancel.
+The law of large numbers makes the sample average approach the population
+average, although biased sampling or dependence can defeat the conclusion.
+\item \textbf{Model check.} Give one reason a probability calculation can be
+correct but its prediction still be poor.\\
+\emph{Solution.} The calculation may use an incorrect base rate, dependence
+assumption, or sampling model. Logic proves the consequence of assumptions;
+it does not prove that the assumptions describe the world.
+\or
+\item \textbf{Graph model.} Model three cities joined in a triangle as a
+graph. How many edges and vertex degrees does it have?\\
+\emph{Solution.} There are three vertices and three edges. Every vertex has
+degree two, since it is joined to the other two vertices.
+\item \textbf{Shortest route.} Why does repeatedly extending the currently
+shortest unfinished route work for a graph with nonnegative edge lengths?\\
+\emph{Solution.} Any route reaching an unfinished vertex through another
+unfinished vertex is at least as long as the best currently known route to
+that vertex. Nonnegative lengths prevent a later detour from becoming
+shorter; this is the key justification behind Dijkstra's method.
+\item \textbf{Counting.} How many edges can a simple graph with $n$ vertices
+have at most?\\
+\emph{Solution.} At most one edge joins each pair, and there are
+$\binom n2=n(n-1)/2$ pairs. Equality occurs for the complete graph.
+\item \textbf{Structure.} What does a connected component represent in a
+network model?\\
+\emph{Solution.} It is a maximal group in which every vertex can reach every
+other by a path. In a communication network it is an isolated communication
+island; in a social network it is a cluster linked by chains of connections.
+\item \textbf{Application.} State one limitation of using a graph for a real
+network.\\
+\emph{Solution.} A basic graph records which links exist but may ignore time,
+capacity, direction, reliability, and changing behaviour. Those features
+must be added when they affect the question.
+\or
+\item \textbf{Change.} For $f(t)=t^2$, find the instantaneous rate of change
+at $t=3$.\\
+\emph{Solution.} The derivative is $f'(t)=2t$, so $f'(3)=6$. This is the
+limit of average rates over shorter and shorter time intervals.
+\item \textbf{Equilibrium.} For the differential equation $y'=y$, which
+initial value gives the solution $y(t)=5e^t$?\\
+\emph{Solution.} At $t=0$, the value is $y(0)=5$. Differentiating gives
+$y'=5e^t=y$, so the formula satisfies both the equation and the initial
+condition.
+\item \textbf{Stability.} Why is an equilibrium called stable when nearby
+solutions remain nearby for a while?\\
+\emph{Solution.} Small errors in the initial condition do not immediately
+grow into large errors. This matters because measurements and computer
+calculations never specify an initial state exactly.
+\item \textbf{Iteration.} Starting with $x_0=1$ and using
+$x_{n+1}=\tfrac12(x_n+2/x_n)$, compute $x_1$ and $x_2$.\\
+\emph{Solution.} $x_1=3/2$ and
+$x_2=\tfrac12(3/2+4/3)=17/12$. The iteration is moving toward $\sqrt2$;
+the theory asks why and how quickly.
+\item \textbf{Application.} Name one quantity that a dynamical model can
+predict and one source of error it cannot remove.\\
+\emph{Solution.} It may predict a population, orbit, temperature, or market
+state. Measurement error, omitted forces, and uncertain parameters remain
+unless the model is improved with new evidence.
+\or
+\item \textbf{Divisibility.} Use the Euclidean algorithm to find
+$\gcd(252,105)$.\\
+\emph{Solution.} $252=2(105)+42$, $105=2(42)+21$, and $42=2(21)$, so the
+greatest common divisor is $21$.
+\item \textbf{Congruence.} What is the remainder of $7^{100}$ upon division
+by $10$?\\
+\emph{Solution.} The last digits cycle $7,9,3,1$ with period four.
+Since $100$ is divisible by four, the remainder is $1$.
+\item \textbf{Prime structure.} Why is unique factorisation useful?\\
+\emph{Solution.} It gives every positive integer a unique list of prime
+building blocks. Questions about divisibility can then be answered by
+comparing the exponents in those lists.
+\item \textbf{Proof.} Explain why checking the first several integers does
+not prove a statement about all integers.\\
+\emph{Solution.} Infinitely many later cases remain. A proof must provide a
+reason that covers every case, such as induction, contradiction, or a
+general divisibility argument.
+\item \textbf{Application.} Give one modern use of number theory and the
+property it relies on.\\
+\emph{Solution.} Public-key cryptography uses arithmetic modulo large
+numbers, especially the difficulty of reversing certain operations without
+secret information. Its security depends on computational assumptions, not
+on absolute impossibility.
+\or
+\item \textbf{Dimension.} What is the dimension of a line, a plane, and
+ordinary three-dimensional space?\\
+\emph{Solution.} They have dimensions one, two, and three: the number of
+independent directions needed to locate a nearby point.
+\item \textbf{Coordinate change.} Why can the same geometric object have
+different equations?\\
+\emph{Solution.} Changing coordinates changes the labels assigned to points,
+not the points themselves. A correct geometric statement must survive the
+change of description.
+\item \textbf{Intersection.} Two nonparallel lines in the plane meet in
+how many points, and what changes for parallel lines?\\
+\emph{Solution.} Nonparallel lines meet once; distinct parallel lines meet
+zero times. The distinction is encoded by whether the two direction vectors
+are multiples.
+\item \textbf{Topology.} Why does continuously deforming a circle not turn
+it into a line segment without tearing or gluing?\\
+\emph{Solution.} A circle has a nontrivial loop that closes on itself, while
+a segment has endpoints and no such loop. Continuity preserves this
+qualitative feature under the allowed transformations.
+\item \textbf{Application.} Explain why geometry can be useful even when a
+physical object is not perfectly rigid.\\
+\emph{Solution.} Geometry records relationships such as incidence,
+distance, curvature, or connectivity. A model can retain the relationships
+relevant to a question while ignoring microscopic irregularities.
+\or
+\item \textbf{Encoding.} A source has four equally likely symbols. How many
+bits are needed for a fixed-length binary code?\\
+\emph{Solution.} Two bits are enough because $2^2=4$. Each symbol can be
+assigned one of $00,01,10,11$.
+\item \textbf{Error detection.} Why does adding a parity bit detect any
+single flipped bit?\\
+\emph{Solution.} The original word has a prescribed even or odd parity.
+Flipping one bit changes the parity, so the receiver notices a mismatch.
+Two flips can cancel, so parity alone does not detect every error.
+\item \textbf{Information.} What does it mean for an observation to reduce
+uncertainty?\\
+\emph{Solution.} Before the observation several outcomes are plausible; after
+it fewer, or less evenly weighted, outcomes remain. Information measures this
+change and is larger for a surprising observation.
+\item \textbf{Compression.} Why can a file with predictable symbols be
+compressed?\\
+\emph{Solution.} Frequent symbols or patterns can receive shorter codewords,
+while rare ones receive longer codewords. The average length falls because
+the code uses the source's unequal frequencies.
+\item \textbf{Application.} State the trade-off between compression and
+error correction.\\
+\emph{Solution.} Removing redundancy saves space but leaves less protection
+against noise. Reliable communication deliberately keeps some redundancy so
+the receiver can detect or repair likely errors.
+\else
+\item \textbf{Definition.} State the central question of #1 in your own
+words and identify its basic objects.\\
+\emph{Solution.} Translate the chapter's opening problem into a question
+about the objects introduced there. A good answer names what is observed,
+what operation or relation is allowed, and what conclusion is sought.
+\item \textbf{Small case.} Work through the simplest nontrivial example
+given in #1. What does it show that the definition alone does not?\\
+\emph{Solution.} The example shows how the definition behaves in practice:
+which choices are allowed, what is preserved, and where a tempting
+generalisation fails.
+\item \textbf{Calculation.} Choose one quantity introduced in #1 and
+compute it for a small example.\\
+\emph{Solution.} Write the definition of the quantity first, substitute the
+small example, and check the units or type of the answer. This procedure
+prevents a familiar symbol from replacing the actual meaning.
+\item \textbf{Reasoning.} What assumption is most important in the main
+result of #1, and what could happen if it were removed?\\
+\emph{Solution.} Locate the condition in the theorem or method. Removing it
+may make the conclusion false, weaken the guarantee, or require a different
+theory. Testing the boundary is part of understanding the result.
+\item \textbf{Application.} Describe one application of #1 and explain
+which part of the mathematical model is an idealisation.\\
+\emph{Solution.} Match the theory's objects to the application's objects and
+state what prediction or decision follows. Then name what the model ignores;
+that omission determines when the application must be recalibrated.
+\fi
+\end{enumerate}}
+
+% Chapter-specific exercise frame.  Each chapter supplies its own five
+% mathematical anchors; the prompts therefore cannot silently turn into a
+% generic exercise set when a new theory is added.
+\newcommand{\chapterquestions}[7]{%
+\section*{7. Sample Questions}
+\emph{Textbook exercise source:} \cite{#7}.  Use the exercise section of the
+cited edition for the official problem statement and numbering.  The items
+below are mathematical exercises tied directly to the chapter's definitions,
+calculation, theorem, and limitation; they are not FAQ prompts.
+\begin{enumerate}[leftmargin=*,itemsep=0.9em]
+\item \textbf{Exercise 1.} Define the objects studied by #1 and give a
+fully worked example of #2.
+\item \textbf{Exercise 2.} Compute the example #3 using the construction
+developed in #1, showing every algebraic or logical step.
+\item \textbf{Exercise 3.} State the hypotheses and conclusion of the
+central result: #5. Verify the hypotheses in a concrete example.
+\item \textbf{Exercise 4.} Construct a counterexample showing why the
+limitation stated in #6 matters, or prove the closest valid replacement.
+\item \textbf{Exercise 5.} Apply #1 to the application described by #6 and
+identify the mathematical quantity that is computed or predicted.
+\end{enumerate}}
+
+\newcommand{\theoryconnections}[3]{%
+\section*{6. Connections}
+\subsection*{Using existing theories}
+\begin{enumerate}[leftmargin=*,itemsep=0.55em]
+#2
+\end{enumerate}
+\subsection*{Helping other theories}
+\begin{enumerate}[leftmargin=*,itemsep=0.55em]
+#3
+\end{enumerate}}
+
+\begin{document}
+\maketitle
+\frontmatter
+\chapter*{The big picture}
+\addcontentsline{toc}{chapter}{The big picture}
+Mathematics is a collection of ways to understand patterns. One theory may study patterns in numbers, another in shapes, another in change, and another in the way objects are connected. The theories have different names because they ask different kinds of questions, but they share one habit: simplify a situation, find the important pattern, and use that pattern to make a prediction or a decision.
+
+Here is the map of this book:
+\begin{description}[leftmargin=3.4cm,style=nextline]
+\item[Numbers] Number theory studies whole numbers and primes. Algebra studies rules for combining objects and the symmetries of those rules.
+\item[Shapes] Geometry studies measurements such as length and angle. Topology studies broader features such as connected pieces and holes.
+\item[Change] Calculus and dynamical systems describe motion, growth, waves, stability, and sudden changes.
+\item[Uncertainty] Probability describes chance. Statistics uses observations to learn what is likely to be true.
+\item[Connections] Graph theory studies networks. Game, queue, and control theories study decisions, waiting, and feedback in those networks.
+\item[Messages and machines] Information and coding theories explain data, noise, and reliable communication. Automata and computation theory explain what machines can recognize or calculate.
+\item[Deep structure] The final parts study very general ideas about equations, spaces, symmetry, and proof. These chapters are previews of university mathematics, not subjects a student is expected to master in one sitting.
+\end{description}
+
+The first chapters are the easiest place to begin. Read the worked modules after the short introductions to probability, statistics, graph theory, information, group theory, topology, change, number theory, approximation, computation, decision-making, and algebraic geometry. The remaining chapters are windows into advanced subjects: their purpose is to show what questions exist and why mathematicians care about them.
+
+You do not need to understand every symbol to understand the main story. At the end of each chapter, ask: What objects are being studied? What can change? What remains reliable? What real problem can this viewpoint help solve?
+
+\chapter*{How to read this book}
+Mathematics is often presented as a collection of answers. A theory is more like a reusable way of asking questions. It identifies a kind of pattern, gives us a precise language for it, and supplies tools for predicting what can happen.
+
+The chapters are short on purpose. Each one begins with a problem a person might actually meet, then introduces the theory's main move, and ends with a few places where that move earns its keep. Equations appear as compact summaries, not as entrance exams. You can skip around: the theories are related, but no single route through them is required.
+
+This book follows the names in the \href{https://en.wikipedia.org/wiki/List_of_mathematical_theories}{Wikipedia list of mathematical theories} (consulted 15 August 2026). The list is a map, not a claim that every theory is equally large, separate, or practical. Some are deep research areas; some are bridges between areas; and string theory is included because it is a mathematical-physical theory with a major mathematical life of its own. The entries below are short orientation guides. Twelve central subjects receive extended treatment in the worked modules near the end.
+
+\chapter*{A promise about language}
+Words such as ``space,'' ``function,'' ``group,'' and ``dimension'' have everyday meanings, but mathematicians use them more carefully. Whenever one appears, read it as a small tool with a job, not as a cloud of advanced ideas. A \emph{space} can simply mean a collection of possible positions. A \emph{function} is a rule that takes an input and returns an output. A \emph{model} is a deliberately simplified picture. An \emph{invariant} is a feature that does not change when the object is viewed or moved in an allowed way.
+
+You do not need to memorize symbols to learn the theories. For every chapter, ask four ordinary-language questions: What is changing? What is being kept? What information is missing? What useful decision follows? If an explanation feels abstract, replace it with the chapter's picture---roads, ropes, messages, waves, choices, or landscapes---and return to the formal name afterward.
+
+\chapter*{One problem, from life to mathematics}
+Suppose a small clinic has one receptionist. Patients arrive at unpredictable times, and each registration takes a different amount of time. The practical question is not ``What is a queue?'' It is: how many people should the clinic expect to wait, and when should it add another receptionist?
+
+First we choose a model. We record arrivals, service times, the number of workers, and the rule for deciding who goes next. We do not record every conversation, shoe colour, or brand of computer, because those details do not answer this question. Next we use probability to describe the uncertain arrivals and service times. Queue theory then combines those descriptions with the waiting rule. It can estimate the average wait and the chance that the line becomes dangerously long.
+
+Finally, we compare choices. A second receptionist costs money but reduces waiting. The model does not make that decision for the clinic; it makes the trade-off visible. If the measured arrivals later disagree with the assumptions, we improve the model and check again. This is the scientific use of a theory: simplify honestly, calculate consistently, compare with evidence, and revise.
+
+Every chapter follows this same pattern, even when the object is a number, a shape, a proof, or a physical law. The formal vocabulary is a compact label for a practical habit of thought.
+
+\tableofcontents
+\mainmatter
+
+\part{Chapters in alphabetical order}
+\input{chapters/algebraic_geometry.tex}
+
+\input{chapters/almgren_pitts_min_max_theory.tex}
+
+\input{chapters/approximation_theory.tex}
+
+\input{chapters/arakelov_theory.tex}
+
+\input{chapters/asymptotic_theory.tex}
+
+\input{chapters/automata_theory.tex}
+
+\input{chapters/bass_serre_theory.tex}
+
+\input{chapters/bifurcation_theory.tex}
+
+\input{chapters/braid_theory.tex}
+
+\input{chapters/brill_noether_theory.tex}
+
+\input{chapters/catastrophe_theory.tex}
+
+\input{chapters/category_theory.tex}
+
+\input{chapters/chaos_theory.tex}
+
+\input{chapters/character_theory.tex}
+
+\input{chapters/choquet_theory.tex}
+
+\input{chapters/class_field_theory.tex}
+
+\input{chapters/cobordism_theory.tex}
+
+\input{chapters/coding_theory.tex}
+
+\input{chapters/cohomology_theory.tex}
+
+\input{chapters/continuum_theory.tex}
+
+\input{chapters/computational_learning_theory.tex}
+
+\input{chapters/control_theory.tex}
+
+\input{chapters/deformation_theory.tex}
+
+\input{chapters/dempster_shafer_theory.tex}
+
+\input{chapters/dimension_theory.tex}
+
+\input{chapters/distribution_theory.tex}
+
+\input{chapters/dynamical_systems_theory.tex}
+
+\input{chapters/elimination_theory.tex}
+
+\input{chapters/ergodic_theory.tex}
+
+\input{chapters/extremal_graph_theory.tex}
+
+\input{chapters/field_theory.tex}
+
+\input{chapters/galois_theory.tex}
+
+\input{chapters/game_theory.tex}
+
+\input{chapters/graph_theory.tex}
+
+\input{chapters/group_theory.tex}
+
+\input{chapters/hodge_theory.tex}
+
+\input{chapters/homology_theory.tex}
+
+\input{chapters/homotopy_theory.tex}
+
+\input{chapters/ideal_theory.tex}
+
+\input{chapters/index_theory.tex}
+
+\input{chapters/information_theory.tex}
+
+\input{chapters/intersection_theory.tex}
+
+\input{chapters/invariant_theory.tex}
+
+\input{chapters/iwasawa_theory.tex}
+
+\input{chapters/k_theory.tex}
+
+\input{chapters/knot_theory.tex}
+
+\input{chapters/l_theory.tex}
+
+\input{chapters/lattice_theory.tex}
+
+\input{chapters/lie_theory.tex}
+
+\input{chapters/matroid_theory.tex}
+
+\input{chapters/m_theory.tex}
+
+\input{chapters/measure_theory.tex}
+
+\input{chapters/model_theory.tex}
+
+\input{chapters/module_theory.tex}
+
+\input{chapters/morse_theory.tex}
+
+\input{chapters/nevanlinna_theory.tex}
+
+\input{chapters/number_theory.tex}
+
+\input{chapters/obstruction_theory.tex}
+
+\input{chapters/operator_theory.tex}
+
+\input{chapters/order_theory.tex}
+
+\input{chapters/percolation_theory.tex}
+
+\input{chapters/perturbation_theory.tex}
+
+\input{chapters/probability_theory.tex}
+
+\input{chapters/proof_theory.tex}
+
+\input{chapters/queue_theory.tex}
+
+\input{chapters/ramsey_theory.tex}
+
+\input{chapters/random_matrix_theory.tex}
+
+\input{chapters/representation_theory.tex}
+
+\input{chapters/ring_theory.tex}
+
+\input{chapters/scheme_theory.tex}
+
+\input{chapters/semigroup_theory.tex}
+
+\input{chapters/set_theory.tex}
+
+\input{chapters/shape_theory.tex}
+
+\input{chapters/sheaf_theory.tex}
+
+\input{chapters/sieve_theory.tex}
+
+\input{chapters/singularity_theory.tex}
+
+\input{chapters/soliton_theory.tex}
+
+\input{chapters/spectral_theory.tex}
+
+\input{chapters/string_theory.tex}
+
+\input{chapters/sturm_liouville_theory.tex}
+
+\input{chapters/surgery_theory.tex}
+
+\input{chapters/teichm_ller_theory.tex}
+
+\input{chapters/theory_of_computation.tex}
+
+\input{chapters/theory_of_equations.tex}
+
+\input{chapters/theory_of_statistics.tex}
+
+\input{chapters/topology.tex}
+
+\input{chapters/topos_theory.tex}
+
+\input{chapters/transcendental_number_theory.tex}
+
+\input{chapters/twistor_theory.tex}
+
+\input{chapters/type_theory.tex}
+
+\input{chapters/wheel_theory.tex}
+
+\part{Worked modules: learning by doing}
+The entries above are a map. The modules in this part are the book's actual lessons. Each begins with a small problem, makes the hidden assumptions visible, and ends with exercises. Try the exercises before reading the answer; explaining a result in your own words is more valuable than memorizing a definition.
+
+\chapter{A few examples before the modules}
+\section*{Example 1: probability and a medical test}
+Suppose 1 person in 100 has a condition. A test correctly detects 99 out of 100 affected people, but falsely reports ``positive'' for 5 out of 100 healthy people. In 10,000 people, about 100 are affected and 99 of them test positive. Of the 9,900 healthy people, about 495 also test positive. Therefore only $99/(99+495)=1/6$ of the positive results are expected to be genuine. The lesson is not that the test is useless; it is that accuracy and the background rate must be considered together.
+
+\section*{Example 2: graph theory and a cheap network}
+Four houses lie at the corners of a square. Roads along the four sides each cost 1 unit, while a diagonal road costs 1.5 units. The diagonal gives a faster route between two houses, but it is not needed to connect all four. A network designer who wants the cheapest connected system chooses the four sides, costing 4 units; a designer who values speed may add the diagonal, costing 5.5 units. Graph theory separates the questions ``Can everyone reach everyone?'' and ``What is the shortest route?''
+
+\section*{Example 3: coding theory and a flipped bit}
+Send the four messages 00, 01, 10, and 11 as 000000, 010101, 101010, and 111111. If one bit flips during transmission, the receiver can compare the received string with the four valid strings and choose the closest one. For instance, 010001 is closest to 010101, so the receiver restores 01. The price is extra data: six transmitted bits carry only two message bits. Reliability is purchased with redundancy.
+
+\section*{Example 4: group theory and a clock}
+On a twelve-hour clock, adding 5 hours and then adding 9 hours gives the same result as adding 14 hours, which is the same as adding 2 hours. The action ``add 5'' has an inverse: ``add 7,'' because together they add 12 and return to the starting hour. Clock arithmetic is a small example of a group, where actions can be combined, doing nothing is allowed, and every action can be undone.
+
+\section*{Example 5: topology and holes}
+A circle drawn on paper has one loop that cannot shrink to a point without leaving the circle. A filled disk has no such hole. Stretching the circle into an oval does not change this fact, but filling it in does. Topology ignores the exact measurements and records the feature that survives bending: the presence or absence of a hole.
+
+\section*{Example 6: number theory and remainders}
+To find the remainder of $3^{10}$ after division by 7, calculate the short cycle: $3^1=3$, $3^2=2$, $3^3=6$, $3^4=4$, $3^5=5$, and $3^6=1$ modulo 7. The cycle repeats every six powers, and $10$ leaves remainder 4 after division by 6. Therefore $3^{10}$ has the same remainder as $3^4$, namely 4. Large calculations become manageable because remainders repeat.
+
+\section*{Important theorems and results}
+\begin{enumerate}[leftmargin=*,itemsep=0.35em]
+\item \textbf{Bayes' rule.} It explains the medical-test calculation by combining a prior rate with test evidence.
+\item \textbf{Spanning-tree principle.} It explains why a connected network can be built without unnecessary cycles.
+\item \textbf{Minimum-distance decoding.} It explains why redundancy can identify and correct sufficiently few transmission errors.
+\item \textbf{Group axioms.} They explain why clock operations can be composed, reversed, and treated as symmetries.
+\item \textbf{Homotopy invariance.} It explains why continuous deformation preserves the broad topological features in the example.
+\item \textbf{Fermat's little theorem.} It explains why modular powers can repeat under a prime modulus.
+\end{enumerate}
+
+\section*{References}
+\begin{thebibliography}{9}
+\bibitem{examples_polya} G. P\'olya, \emph{How to Solve It}, Princeton University Press, 1945.
+\bibitem{examples_velleman} D. J. Velleman, \emph{How to Prove It}, Cambridge University Press, 2019.
+\end{thebibliography}
+
+\chapter[Module 1: Probability]{Module 1: Probability}
+Imagine a bus that arrives every ten minutes, but you reach the stop at a random time. If you have no timetable, your waiting time is anywhere from zero to ten minutes. The average wait is five minutes, not ten: you arrive at a typical point inside the interval.
+
+Probability begins by listing possible outcomes and assigning weights to them. An event is simply a collection of outcomes. The rules are bookkeeping: the chance of an impossible event is zero, the chance of certainty is one, and the chance of either of two non-overlapping events is the sum of their chances. Conditional probability answers a different question: after learning that a person tested positive, how likely is illness? The answer depends not only on the test's accuracy but also on how common the illness was before testing.
+
+\textbf{Worked example.} Suppose 1 in 100 people has a condition. A test catches 99 in 100 affected people but falsely flags 5 in 100 unaffected people. In a group of 10,000, about 100 are affected and 99 test positive. Of the 9,900 unaffected people, about 495 also test positive. So among positive results, roughly $99/(99+495)=1/6$ are genuine. The test can be good while a positive result is not certainty.
+
+\textbf{Exercises.} (1) Why does doubling the number of tests not automatically double certainty? (2) What extra information would make the example more reliable? \emph{Answers:} (1) The base rate and false positives still matter. (2) A representative population and an independently measured test performance.
+
+\section*{Important theorems and results}
+\begin{enumerate}[leftmargin=*,itemsep=0.35em]
+\item \textbf{Bayes' rule.} For events with positive conditioning probability, $P(A\mid B)=P(B\mid A)P(A)/P(B)$. It combines a prior rate with the evidence supplied by a test.
+\end{enumerate}
+
+\section*{References}
+\begin{thebibliography}{9}
+\bibitem{module_probability_ross} S. M. Ross, \emph{A First Course in Probability}, Pearson, 2019.
+\bibitem{module_probability_williams} D. Williams, \emph{Weighing the Odds}, Cambridge University Press, 2001.
+\end{thebibliography}
+
+
+\chapter[Module 2: Statistics]{Module 2: Statistics}
+Statistics starts with a boundary: we see a sample, not the whole world. A survey of 1,000 voters is not the election; a trial of 500 patients is not every patient. A statistic is useful only when we say how it was collected and how uncertain the conclusion is.
+
+The mean is sensitive to extreme values, while the median is the middle observation after sorting. A confidence interval is a method for producing a range that would capture the target at a stated rate under repeated use; it is not a guarantee that one particular interval contains the truth. A hypothesis test asks whether the observed result would be unusual under a chosen baseline. It cannot by itself prove a cause, and a small probability under the baseline is not the probability that the baseline is false.
+
+\textbf{Worked example.} A new teaching method raises a class average from 68 to 72. We compare it with another class, measure spread, check whether students were assigned fairly, and report the range of plausible improvements. If the new class was already stronger, the four-point difference may not be caused by the method. Design is as important as calculation.
+
+\textbf{Exercises.} (1) Give one reason a large sample can still mislead. (2) Why use a comparison group? \emph{Answers:} (1) It can be biased or measured badly. (2) To estimate what would have happened without the intervention.
+
+\section*{Important theorems and results}
+\begin{enumerate}[leftmargin=*,itemsep=0.35em]
+\item \textbf{Central limit theorem.} Under suitable assumptions, standardized sums of many observations approach a normal distribution. The approximation supports uncertainty intervals, but it does not repair biased sampling or poor measurement.
+
+\item \textbf{Gauss--Markov theorem.} In a correctly specified linear model with the usual assumptions, least squares has the smallest variance among linear unbiased estimators.
+\end{enumerate}
+
+\section*{References}
+\begin{thebibliography}{9}
+\bibitem{module_statistics_casella} G. Casella and R. L. Berger, \emph{Statistical Inference}, Cengage, 2021.
+\bibitem{module_statistics_freedman} D. A. Freedman, R. Pisani, and R. Purves, \emph{Statistics}, W. W. Norton, 2007.
+\end{thebibliography}
+
+
+\chapter[Module 3: Graph theory]{Module 3: Graph theory}
+Draw dots for objects and lines for relationships. The dots may be towns, people, computers, or tasks; the lines may be roads, friendships, cables, or dependencies. A route is a sequence of joined dots. A connected network lets every place reach every other; a bridge is a connection whose removal breaks that property.
+
+The important move is to forget irrelevant detail. A road map becomes a graph when only connectivity matters; a weighted graph keeps lengths or costs on the lines. A shortest-path method repeatedly improves the best known route. A spanning tree connects every dot using no unnecessary loop, useful when building a cheap network. Coloring assigns labels so joined dots differ, useful when conflicting activities cannot share a time slot.
+
+\textbf{Worked example.} Four towns form a square, with one diagonal. If each road costs one unit, the diagonal shortens one pair's trip but is not needed to connect all towns. Removing it leaves a cycle; removing any one square side still leaves another route. The graph makes redundancy visible.
+
+\textbf{Exercises.} (1) What changes when roads receive different costs? (2) Why might a network designer keep a loop? \emph{Answers:} (1) Fewest roads and cheapest route may differ. (2) A loop provides an alternative route when one link fails.
+
+\section*{Important theorems and results}
+\begin{enumerate}[leftmargin=*,itemsep=0.35em]
+\item \textbf{Handshaking lemma.} The sum of the degrees of all vertices equals twice the number of edges. Consequently, every finite graph has an even number of odd-degree vertices.
+
+\item \textbf{Spanning-tree result.} Every connected finite graph contains a spanning tree, and a minimum spanning tree gives a connected network of minimum total edge cost.
+\end{enumerate}
+
+\section*{References}
+\begin{thebibliography}{9}
+\bibitem{module_graph_west} D. B. West, \emph{Introduction to Graph Theory}, Pearson, 2001.
+\bibitem{module_graph_diesteI} R. Diestel, \emph{Graph Theory}, Springer, 2017.
+\end{thebibliography}
+
+
+\chapter[Module 4: Information and coding]{Module 4: Information and coding}
+Information theory asks how much uncertainty a message removes. A predictable symbol carries little new information; an unexpected symbol carries more. Compression works by replacing repeated or predictable patterns with shorter descriptions. It cannot make truly random data shorter on average without losing information.
+
+Coding theory addresses the opposite danger: noise. Add redundancy in a pattern that makes likely errors recognizable. A simple parity check can detect an odd number of flipped bits. A stronger code can locate and correct errors because valid messages are deliberately spaced apart in the space of all possible strings.
+
+\textbf{Worked example.} To send one of four symbols, use 00, 01, 10, or 11. If one bit may flip, use 000000, 010101, 101010, and 111111. The messages are far apart, so a received string with one error can be assigned to the nearest valid message. The cost is three times as many transmitted bits.
+
+\textbf{Exercises.} (1) Why can redundancy improve reliability? (2) Why not add unlimited redundancy? \emph{Answers:} (1) It leaves clues about the intended message. (2) It consumes bandwidth, storage, time, and energy.
+
+\section*{Important theorems and results}
+\begin{enumerate}[leftmargin=*,itemsep=0.35em]
+\item \textbf{Source-coding theorem.} For a memoryless source, reliable lossless compression cannot have average length below the entropy in the long run, while suitable codes can approach that bound.
+
+\item \textbf{Distance bound.} A code with minimum Hamming distance $d$ detects at least $d-1$ errors and corrects at least $\lfloor(d-1)/2\rfloor$ errors.
+\end{enumerate}
+
+\section*{References}
+\begin{thebibliography}{9}
+\bibitem{module_information_cover} T. M. Cover and J. A. Thomas, \emph{Elements of Information Theory}, Wiley, 2006.
+\bibitem{module_information_mackay} D. J. C. MacKay, \emph{Information Theory, Inference, and Learning Algorithms}, Cambridge University Press, 2003.
+\end{thebibliography}
+
+
+\chapter[Module 5: Group theory]{Module 5: Group theory}
+Take a square. Rotating it by a quarter turn, half turn, or three-quarter turn, and flipping it in four ways, gives eight symmetries. Doing one after another gives another symmetry; doing nothing changes nothing; every move can be undone. These simple facts are the heart of a group.
+
+The theory asks which features of an object are preserved by its symmetries and how complicated actions can be built from a few basic ones. A group need not be a collection of physical motions: rearranging a list, adding clock hours, or changing coordinates can have the same pattern of composition and reversal.
+
+\textbf{Worked example.} On a clock, adding 5 hours and then 9 hours is the same as adding 14 hours, which is the same as adding 2 hours. The arithmetic wraps around after 12. This small group models repeating schedules and modular arithmetic used in cryptography.
+
+\textbf{Exercises.} (1) What is the inverse of adding 5 on a 12-hour clock? (2) Why is order important for some symmetries? \emph{Answers:} (1) Adding 7. (2) Rotating then flipping a shape can differ from flipping then rotating.
+
+\section*{Important theorems and results}
+\begin{enumerate}[leftmargin=*,itemsep=0.35em]
+\item \textbf{Lagrange's theorem.} The order of a finite subgroup divides the order of its finite ambient group. It turns a symmetry calculation into a divisibility test.
+\end{enumerate}
+
+\section*{References}
+\begin{thebibliography}{9}
+\bibitem{module_group_gallian} J. A. Gallian, \emph{Contemporary Abstract Algebra}, Cengage, 2017.
+\bibitem{module_group_dummit} D. S. Dummit and R. M. Foote, \emph{Abstract Algebra}, Wiley, 2004.
+\end{thebibliography}
+
+
+\chapter[Module 6: Topology]{Module 6: Topology}
+Topology studies what survives a continuous deformation. A rubber band can become a circle, but it cannot become two separate bands without being cut. A mug and a doughnut each have one tunnel, so topology treats them as the same broad kind of object; a sphere has none.
+
+The basic features are connected pieces and holes of different kinds. A loop around a hole may fail to shrink to a point. Homology packages counts of such holes into algebraic summaries, while homotopy studies continuous deformations of paths and maps. These tools are powerful because a noisy drawing can change its exact lengths without changing its broad structure.
+
+\textbf{Worked example.} A road network can be viewed as a one-dimensional shape. A closed alternative route is a loop. If a new road fills the loop by connecting every point across a region, the network's cycle structure changes. This is why topology can help analyze sensor and transportation networks.
+
+\textbf{Exercises.} (1) Is a square topologically different from a circle? (2) What operation changes a mug's number of holes? \emph{Answers:} (1) No, if edges are allowed to bend and corners are not important. (2) Cutting, gluing, or drilling a hole.
+
+\section*{Important theorems and results}
+\begin{enumerate}[leftmargin=*,itemsep=0.35em]
+\item \textbf{Homotopy invariance.} Continuous maps that can be deformed into one another induce the same map on homology. Therefore homology records features that survive continuous deformation.
+\end{enumerate}
+
+\section*{References}
+\begin{thebibliography}{9}
+\bibitem{module_topology_munkres} J. R. Munkres, \emph{Topology}, Pearson, 2000.
+\bibitem{module_topology_hatcher} A. Hatcher, \emph{Algebraic Topology}, Cambridge University Press, 2002.
+\end{thebibliography}
+
+
+\chapter[Module 7: Calculus and dynamics]{Module 7: Calculus and dynamical systems}
+A derivative measures an instantaneous rate: the speedometer reports how position changes at this moment. An integral adds many small contributions: distance can be recovered by adding small pieces of speed over time. A differential equation says how a quantity changes and asks what history follows from that rule.
+
+Dynamical systems theory studies that history as a whole. It asks whether a system settles, cycles, escapes, or becomes highly sensitive to its starting point. A model may be deterministic while prediction is limited because measurements are never infinitely precise.
+
+\textbf{Worked example.} If a population grows by 10 percent each year, its next value is 1.1 times its current value. Repeating the rule gives exponential growth. If resources limit growth, the growth rate falls as the population approaches a carrying level, producing a different long-term story. The equation expresses an assumption; data must test it.
+
+\textbf{Exercises.} (1) What does a zero derivative mean at an instant? (2) Why can two close starting values later differ greatly? \emph{Answers:} (1) No instantaneous change. (2) The system may amplify small differences, as in chaos.
+
+\section*{Important theorems and results}
+\begin{enumerate}[leftmargin=*,itemsep=0.35em]
+\item \textbf{Fundamental theorem of calculus.} Differentiation and integration are inverse operations under the usual continuity assumptions.
+
+\item \textbf{Linearization principle.} Near a nondegenerate equilibrium, the eigenvalues of the linearized system determine local stability; zero real parts require further analysis.
+\end{enumerate}
+
+\section*{References}
+\begin{thebibliography}{9}
+\bibitem{module_calculus_stewart} J. Stewart, \emph{Calculus}, Cengage, 2016.
+\bibitem{module_dynamics_strogatz} S. H. Strogatz, \emph{Nonlinear Dynamics and Chaos}, Westview Press, 2015.
+\end{thebibliography}
+
+
+\chapter[Module 8: Number theory]{Module 8: Number theory}
+Whole numbers cannot be smoothly adjusted: divisibility either works or it does not. Prime numbers are the basic building blocks because every positive whole number factors into primes in only one way apart from order. Congruence arithmetic keeps only remainders, which is why clock arithmetic is a useful model.
+
+\textbf{Worked example.} To compute a large power modulo 7, reduce after each multiplication. The powers of 3 cycle: $3,2,6,4,5,1$. The cycle makes enormous calculations manageable. Public-key cryptography uses related facts: multiplying two secret primes is easy, while recovering them from their product can be difficult for suitably large numbers.
+
+\textbf{Exercises.} (1) What is $17$ modulo $5$? (2) Why are primes useful for building secret keys? \emph{Answers:} (1) 2. (2) Their multiplication is easy to perform but reversing it can be computationally hard.
+
+\section*{Important theorems and results}
+\begin{enumerate}[leftmargin=*,itemsep=0.35em]
+\item \textbf{Fundamental theorem of arithmetic.} Every integer greater than one has a factorization into primes that is unique up to order.
+
+\item \textbf{Fermat's little theorem.} If $p$ is prime and $p$ does not divide $a$, then $a^{p-1}\equiv1\pmod p$. This explains the repeating powers used in the example.
+\end{enumerate}
+
+\section*{References}
+\begin{thebibliography}{9}
+\bibitem{module_number_hardy} G. H. Hardy and E. M. Wright, \emph{An Introduction to the Theory of Numbers}, Oxford University Press, 2008.
+\bibitem{module_number_niven} I. Niven, H. S. Zuckerman, and H. L. Montgomery, \emph{An Introduction to the Theory of Numbers}, Wiley, 2006.
+\end{thebibliography}
+
+
+\chapter[Module 9: Approximation]{Module 9: Approximation}
+A complicated function can be replaced locally by a line or more accurately by a polynomial. The replacement is valuable only when we know where it works and how far it may be from the original. This is the difference between a controlled approximation and a guess.
+
+\textbf{Worked example.} Near zero, $\sin x$ is close to $x$ when $x$ is measured in radians. At $x=0.1$, this is a good shortcut; at $x=2$, it is not. Adding the next correction, $-x^3/6$, improves the estimate. A numerical method should report both its answer and a reason to trust its accuracy.
+
+\textbf{Exercises.} (1) Why does an approximation need a range of validity? (2) What is the danger of adding more terms blindly? \emph{Answers:} (1) Errors can grow away from the region where the estimate was built. (2) A series may not converge or rounding errors may dominate.
+
+\section*{Important theorems and results}
+\begin{enumerate}[leftmargin=*,itemsep=0.35em]
+\item \textbf{Taylor's theorem.} A smooth function equals its Taylor polynomial plus a remainder controlled by a higher derivative. The remainder is what turns a numerical guess into an error-bounded approximation.
+
+\item \textbf{Weierstrass approximation theorem.} Every continuous real-valued function on a closed bounded interval can be uniformly approximated by polynomials.
+\end{enumerate}
+
+\section*{References}
+\begin{thebibliography}{9}
+\bibitem{module_approximation_trefethen} L. N. Trefethen, \emph{Approximation Theory and Approximation Practice}, SIAM, 2013.
+\bibitem{module_approximation_cheney} E. W. Cheney, \emph{Introduction to Approximation Theory}, AMS Chelsea, 1982.
+\end{thebibliography}
+
+
+\chapter[Module 10: Computation and proof]{Module 10: Computation and proof}
+An algorithm is a finite recipe. Automata theory studies machines with restricted memory; computation theory asks what any algorithm can do; proof theory studies formal chains of reasons. These are different questions: a problem can be solvable in principle but too slow in practice, or a statement can be true without a particular formal system being able to prove it.
+
+\textbf{Worked example.} A spelling checker can recognize whether a word follows a finite list of allowed patterns. It cannot, using only that finite memory, remember an arbitrary number of opening parentheses and match them all. A stack adds the needed memory. The model explains why different programming tasks require different resources.
+
+\textbf{Exercises.} (1) What does an algorithm require that a vague wish does not? (2) Why is ``not yet computed'' different from ``cannot be computed''? \emph{Answers:} (1) Explicit, repeatable steps. (2) More time may solve the first; no algorithm can solve the second.
+
+\section*{Important theorems and results}
+\begin{enumerate}[leftmargin=*,itemsep=0.35em]
+\item \textbf{Halting theorem.} No algorithm can correctly decide for every program and input whether that program eventually halts.
+
+\item \textbf{Cook--Levin theorem.} Boolean satisfiability is NP-complete, making it a central comparison problem for computational difficulty.
+\end{enumerate}
+
+\section*{References}
+\begin{thebibliography}{9}
+\bibitem{module_computation_sipser} M. Sipser, \emph{Introduction to the Theory of Computation}, Cengage, 2013.
+\bibitem{module_computation_velleman} D. J. Velleman, \emph{How to Prove It}, Cambridge University Press, 2019.
+\end{thebibliography}
+
+
+\chapter[Module 11]{Module 11: Game, queue, and control theory}
+Game theory studies decisions whose results depend on other decision-makers. Queue theory studies congestion caused by random arrivals and limited service. Control theory studies feedback: measuring a system, comparing it with a target, and correcting it. All three ask how local choices affect a changing whole.
+
+\textbf{Worked example.} Two hospitals can each either share beds with the other or reserve them. Sharing helps patients when demand differs, but each hospital may prefer to reserve beds during a shortage. A model lists choices and payoffs, then asks whether cooperation is stable. If arrivals are uncertain, queue calculations show the cost of waiting; feedback can redirect ambulances as capacity changes.
+
+\textbf{Exercises.} (1) Why can a locally sensible choice harm a network? (2) What makes feedback unstable? \emph{Answers:} (1) Other agents and congestion react to it. (2) Corrections may be too large, too late, or based on noisy measurements.
+
+\section*{Important theorems and results}
+\begin{enumerate}[leftmargin=*,itemsep=0.35em]
+\item \textbf{Nash's existence theorem.} Every finite game has at least one mixed-strategy Nash equilibrium.
+
+\item \textbf{Little's law.} In a stable long-run queue, the average number in the system equals the arrival rate multiplied by the average time spent in the system.
+
+\item \textbf{Feedback stability.} A feedback controller is useful only when the closed-loop dynamics remain stable; increasing gain can reduce error in one regime and cause oscillation or divergence in another.
+\end{enumerate}
+
+\section*{References}
+\begin{thebibliography}{9}
+\bibitem{module_decision_osborne} M. J. Osborne and A. Rubinstein, \emph{A Course in Game Theory}, MIT Press, 1994.
+\bibitem{module_queue_gross} D. Gross, J. F. Shortle, J. M. Thompson, and C. M. Harris, \emph{Fundamentals of Queueing Theory}, Wiley, 2018.
+\bibitem{module_control_khalil} H. K. Khalil, \emph{Nonlinear Systems}, Prentice Hall, 2002.
+\end{thebibliography}
+
+
+\chapter[Module 12: Algebraic geometry]{Module 12: Algebraic geometry}
+An equation such as $x^2+y^2=1$ describes a shape: a circle. Changing the equation changes the shape, and changing the number system changes which points count. Algebraic geometry studies this two-way relationship between formulas and their solution sets.
+
+The algebra is useful because a shape may be hard to draw but easy to describe through the operations on its coordinates. Ideals collect equations that vanish on the same set; elimination removes unwanted coordinates; schemes extend the viewpoint to arithmetic questions involving primes and finite number systems. These advanced tools are not magic new shapes: they are ways to remember local information that an ordinary picture loses.
+
+\textbf{Worked example.} The equations $x+y=3$ and $x-y=1$ describe two lines. Adding them removes $y$ and gives $2x=4$, so $x=2$ and then $y=1$. Elimination theory generalizes this small act to many polynomial equations and many variables.
+
+\textbf{Exercises.} (1) What does a solution point mean geometrically? (2) Why eliminate a variable? \emph{Answers:} (1) It is a point satisfying every equation. (2) To find a condition or projection involving only the quantities of interest.
+
+\section*{Important theorems and results}
+\begin{enumerate}[leftmargin=*,itemsep=0.35em]
+\item \textbf{Hilbert's Nullstellensatz.} Over an algebraically closed field, polynomial equations and radical ideals describe the same affine solution sets.
+
+\item \textbf{B\'ezout's theorem.} Projective plane curves with no common component meet in a number of points counted with multiplicity equal to the product of their degrees.
+\end{enumerate}
+
+\section*{References}
+\begin{thebibliography}{9}
+\bibitem{module_geometry_cox} D. Cox, J. Little, and D. O'Shea, \emph{Ideals, Varieties, and Algorithms}, Springer, 2015.
+\bibitem{module_geometry_hartshorne} R. Hartshorne, \emph{Algebraic Geometry}, Springer, 1977.
+\end{thebibliography}
+
+
+\backmatter
+\appendix
+\chapter{Theory dependency and application map}
+This table summarises the relationships explained in the individual chapters. The dependency column names the background ideas needed to begin studying a theory; the final column names theories that reuse its methods or results. These are relationships, not strict prerequisites: advanced mathematics is interconnected, and a course may introduce the subjects in a different order.
+
+\small
+\sloppy
+\setlength{\tabcolsep}{3pt}
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.22\textwidth}>{\raggedright\arraybackslash}p{0.28\textwidth}>{\raggedright\arraybackslash}p{0.29\textwidth}}
+\textbf{Theory name} & \textbf{Depends on} & \textbf{Helps other theories}\\
+\hline
+\endfirsthead
+\textbf{Theory name} & \textbf{Depends on} & \textbf{Helps other theories}\\
+\hline
+\endhead
+Algebraic geometry & algebra, topology, calculus, and the geometric objects introduced in the chapter & its constructions support topology, number theory, representation theory, and mathematical physics\\
+\hline
+Almgren--Pitts min--max theory & sets, continuity, topology, and geometric intuition & its invariants support homology, homotopy, geometry, dynamical systems, data analysis, and manifold theory\\
+\hline
+Approximation theory & calculus, limits, linear algebra, and real or complex analysis & its analytic tools support differential equations, probability, physics, numerical computation, and statistics\\
+\hline
+Arakelov theory & integer arithmetic, algebra, and proof; advanced chapters also require fields or complex analysis & its arithmetic tools support cryptography, algebraic geometry, coding theory, and arithmetic statistics\\
+\hline
+Asymptotic theory & calculus, limits, linear algebra, and real or complex analysis & its analytic tools support differential equations, probability, physics, numerical computation, and statistics\\
+\hline
+Automata theory & sets, functions, and the chapter's own definitions & its objects and methods are reused by neighbouring areas of mathematics and applications\\
+\hline
+Bass--Serre theory & sets, functions, algebra, and proof; the chapter then introduces its own operations and axioms & its structures support representation theory, algebraic geometry, number theory, coding, topology, logic, and computer science\\
+\hline
+Bifurcation theory & calculus, differential equations, linear algebra, and phase-plane reasoning & its ideas support chaos, ergodic theory, control, mathematical biology, and physics\\
+\hline
+Braid theory & sets, functions, algebra, and proof; the chapter then introduces its own operations and axioms & its structures support representation theory, algebraic geometry, number theory, coding, topology, logic, and computer science\\
+\hline
+Brill--Noether theory & algebra, topology, calculus, and the geometric objects introduced in the chapter & its constructions support topology, number theory, representation theory, and mathematical physics\\
+\hline
+Catastrophe theory & calculus, differential equations, linear algebra, and phase-plane reasoning & its ideas support chaos, ergodic theory, control, mathematical biology, and physics\\
+\hline
+Category theory & sets, functions, algebra, and proof; the chapter then introduces its own operations and axioms & its structures support representation theory, algebraic geometry, number theory, coding, topology, logic, and computer science\\
+\hline
+Chaos theory & calculus, differential equations, linear algebra, and phase-plane reasoning & its ideas support chaos, ergodic theory, control, mathematical biology, and physics\\
+\hline
+Character theory & sets, functions, algebra, and proof; the chapter then introduces its own operations and axioms & its structures support representation theory, algebraic geometry, number theory, coding, topology, logic, and computer science\\
+\hline
+Choquet theory & sets, functions, and the chapter's own definitions & its objects and methods are reused by neighbouring areas of mathematics and applications\\
+\hline
+Class field theory & sets, functions, algebra, and proof; the chapter then introduces its own operations and axioms & its structures support representation theory, algebraic geometry, number theory, coding, topology, logic, and computer science\\
+\hline
+Cobordism theory & sets, continuity, topology, and geometric intuition & its invariants support homology, homotopy, geometry, dynamical systems, data analysis, and manifold theory\\
+\hline
+Coding theory & probability, linear algebra, calculus, and mathematical modelling & its models support statistics, engineering, information theory, optimization, economics, and scientific prediction\\
+\hline
+Cohomology theory & sets, continuity, topology, and geometric intuition & its invariants support homology, homotopy, geometry, dynamical systems, data analysis, and manifold theory\\
+\hline
+Continuum theory & sets, continuity, topology, and geometric intuition & its invariants support homology, homotopy, geometry, dynamical systems, data analysis, and manifold theory\\
+\hline
+Control theory & probability, linear algebra, calculus, and mathematical modelling & its models support statistics, engineering, information theory, optimization, economics, and scientific prediction\\
+\hline
+Deformation theory & algebra, topology, calculus, and the geometric objects introduced in the chapter & its constructions support topology, number theory, representation theory, and mathematical physics\\
+\hline
+Dempster--Shafer theory & probability, linear algebra, calculus, and mathematical modelling & its models support statistics, engineering, information theory, optimization, economics, and scientific prediction\\
+\hline
+Dimension theory & sets, continuity, topology, and geometric intuition & its invariants support homology, homotopy, geometry, dynamical systems, data analysis, and manifold theory\\
+\hline
+Distribution theory & calculus, limits, linear algebra, and real or complex analysis & its analytic tools support differential equations, probability, physics, numerical computation, and statistics\\
+\hline
+Dynamical systems theory & calculus, differential equations, linear algebra, and phase-plane reasoning & its ideas support chaos, ergodic theory, control, mathematical biology, and physics\\
+\hline
+Elimination theory & algebra, topology, calculus, and the geometric objects introduced in the chapter & its constructions support topology, number theory, representation theory, and mathematical physics\\
+\hline
+Ergodic theory & sets, functions, and the chapter's own definitions & its objects and methods are reused by neighbouring areas of mathematics and applications\\
+\hline
+Extremal graph theory & sets, counting, combinatorics, and algorithms & its network and counting methods support optimization, probability, computer science, and network science\\
+\hline
+Field theory & sets, functions, algebra, and proof; the chapter then introduces its own operations and axioms & its structures support representation theory, algebraic geometry, number theory, coding, topology, logic, and computer science\\
+\hline
+Galois theory & sets, functions, algebra, and proof; the chapter then introduces its own operations and axioms & its structures support representation theory, algebraic geometry, number theory, coding, topology, logic, and computer science\\
+\hline
+Game theory & probability, linear algebra, calculus, and mathematical modelling & its models support statistics, engineering, information theory, optimization, economics, and scientific prediction\\
+\hline
+Graph theory & sets, counting, combinatorics, and algorithms & its network and counting methods support optimization, probability, computer science, and network science\\
+\hline
+Group theory & sets, functions, algebra, and proof; the chapter then introduces its own operations and axioms & its structures support representation theory, algebraic geometry, number theory, coding, topology, logic, and computer science\\
+\hline
+Hodge theory & algebra, topology, calculus, and the geometric objects introduced in the chapter & its constructions support topology, number theory, representation theory, and mathematical physics\\
+\hline
+Homology theory & sets, continuity, topology, and geometric intuition & its invariants support homology, homotopy, geometry, dynamical systems, data analysis, and manifold theory\\
+\hline
+Homotopy theory & sets, continuity, topology, and geometric intuition & its invariants support homology, homotopy, geometry, dynamical systems, data analysis, and manifold theory\\
+\hline
+Ideal theory & sets, functions, algebra, and proof; the chapter then introduces its own operations and axioms & its structures support representation theory, algebraic geometry, number theory, coding, topology, logic, and computer science\\
+\hline
+Index theory & sets, continuity, topology, and geometric intuition & its invariants support homology, homotopy, geometry, dynamical systems, data analysis, and manifold theory\\
+\hline
+Information theory & probability, linear algebra, calculus, and mathematical modelling & its models support statistics, engineering, information theory, optimization, economics, and scientific prediction\\
+\hline
+Intersection theory & algebra, topology, calculus, and the geometric objects introduced in the chapter & its constructions support topology, number theory, representation theory, and mathematical physics\\
+\hline
+Invariant theory & sets, functions, algebra, and proof; the chapter then introduces its own operations and axioms & its structures support representation theory, algebraic geometry, number theory, coding, topology, logic, and computer science\\
+\hline
+Iwasawa theory & integer arithmetic, algebra, and proof; advanced chapters also require fields or complex analysis & its arithmetic tools support cryptography, algebraic geometry, coding theory, and arithmetic statistics\\
+\hline
+K-theory & sets, functions, and the chapter's own definitions & its objects and methods are reused by neighbouring areas of mathematics and applications\\
+\hline
+Knot theory & sets, continuity, topology, and geometric intuition & its invariants support homology, homotopy, geometry, dynamical systems, data analysis, and manifold theory\\
+\hline
+L-theory & sets, functions, and the chapter's own definitions & its objects and methods are reused by neighbouring areas of mathematics and applications\\
+\hline
+Lattice theory & sets, functions, algebra, and proof; the chapter then introduces its own operations and axioms & its structures support representation theory, algebraic geometry, number theory, coding, topology, logic, and computer science\\
+\hline
+Lie theory & sets, functions, algebra, and proof; the chapter then introduces its own operations and axioms & its structures support representation theory, algebraic geometry, number theory, coding, topology, logic, and computer science\\
+\hline
+M-theory & algebra, topology, calculus, and the geometric objects introduced in the chapter & its constructions support topology, number theory, representation theory, and mathematical physics\\
+\hline
+Measure theory & calculus, limits, linear algebra, and real or complex analysis & its analytic tools support differential equations, probability, physics, numerical computation, and statistics\\
+\hline
+Model theory & sets, functions, algebra, and proof; the chapter then introduces its own operations and axioms & its structures support representation theory, algebraic geometry, number theory, coding, topology, logic, and computer science\\
+\hline
+Module theory & sets, functions, algebra, and proof; the chapter then introduces its own operations and axioms & its structures support representation theory, algebraic geometry, number theory, coding, topology, logic, and computer science\\
+\hline
+Morse theory & sets, continuity, topology, and geometric intuition & its invariants support homology, homotopy, geometry, dynamical systems, data analysis, and manifold theory\\
+\hline
+Nevanlinna theory & calculus, limits, linear algebra, and real or complex analysis & its analytic tools support differential equations, probability, physics, numerical computation, and statistics\\
+\hline
+Number theory & integer arithmetic, algebra, and proof; advanced chapters also require fields or complex analysis & its arithmetic tools support cryptography, algebraic geometry, coding theory, and arithmetic statistics\\
+\hline
+Obstruction theory & sets, continuity, topology, and geometric intuition & its invariants support homology, homotopy, geometry, dynamical systems, data analysis, and manifold theory\\
+\hline
+Operator theory & calculus, limits, linear algebra, and real or complex analysis & its analytic tools support differential equations, probability, physics, numerical computation, and statistics\\
+\hline
+Order theory & sets, functions, algebra, and proof; the chapter then introduces its own operations and axioms & its structures support representation theory, algebraic geometry, number theory, coding, topology, logic, and computer science\\
+\hline
+Percolation theory & probability, linear algebra, calculus, and mathematical modelling & its models support statistics, engineering, information theory, optimization, economics, and scientific prediction\\
+\hline
+Perturbation theory & calculus, limits, linear algebra, and real or complex analysis & its analytic tools support differential equations, probability, physics, numerical computation, and statistics\\
+\hline
+Probability theory & probability, linear algebra, calculus, and mathematical modelling & its models support statistics, engineering, information theory, optimization, economics, and scientific prediction\\
+\hline
+Proof theory & sets, functions, algebra, and proof; the chapter then introduces its own operations and axioms & its structures support representation theory, algebraic geometry, number theory, coding, topology, logic, and computer science\\
+\hline
+Queue theory & probability, linear algebra, calculus, and mathematical modelling & its models support statistics, engineering, information theory, optimization, economics, and scientific prediction\\
+\hline
+Ramsey theory & sets, counting, combinatorics, and algorithms & its network and counting methods support optimization, probability, computer science, and network science\\
+\hline
+Random matrix theory & probability, linear algebra, calculus, and mathematical modelling & its models support statistics, engineering, information theory, optimization, economics, and scientific prediction\\
+\hline
+Representation theory & sets, functions, algebra, and proof; the chapter then introduces its own operations and axioms & its structures support representation theory, algebraic geometry, number theory, coding, topology, logic, and computer science\\
+\hline
+Ring theory & sets, functions, algebra, and proof; the chapter then introduces its own operations and axioms & its structures support representation theory, algebraic geometry, number theory, coding, topology, logic, and computer science\\
+\hline
+Scheme theory & sets, functions, algebra, and proof; the chapter then introduces its own operations and axioms & its structures support representation theory, algebraic geometry, number theory, coding, topology, logic, and computer science\\
+\hline
+Semigroup theory & sets, functions, algebra, and proof; the chapter then introduces its own operations and axioms & its structures support representation theory, algebraic geometry, number theory, coding, topology, logic, and computer science\\
+\hline
+Set theory & sets, functions, algebra, and proof; the chapter then introduces its own operations and axioms & its structures support representation theory, algebraic geometry, number theory, coding, topology, logic, and computer science\\
+\hline
+Shape theory & sets, continuity, topology, and geometric intuition & its invariants support homology, homotopy, geometry, dynamical systems, data analysis, and manifold theory\\
+\hline
+Sheaf theory & sets, functions, algebra, and proof; the chapter then introduces its own operations and axioms & its structures support representation theory, algebraic geometry, number theory, coding, topology, logic, and computer science\\
+\hline
+Sieve theory & integer arithmetic, algebra, and proof; advanced chapters also require fields or complex analysis & its arithmetic tools support cryptography, algebraic geometry, coding theory, and arithmetic statistics\\
+\hline
+Singularity theory & algebra, topology, calculus, and the geometric objects introduced in the chapter & its constructions support topology, number theory, representation theory, and mathematical physics\\
+\hline
+Soliton theory & calculus, limits, linear algebra, and real or complex analysis & its analytic tools support differential equations, probability, physics, numerical computation, and statistics\\
+\hline
+Spectral theory & calculus, limits, linear algebra, and real or complex analysis & its analytic tools support differential equations, probability, physics, numerical computation, and statistics\\
+\hline
+String theory & sets, functions, algebra, and proof; the chapter then introduces its own operations and axioms & its structures support representation theory, algebraic geometry, number theory, coding, topology, logic, and computer science\\
+\hline
+Sturm--Liouville theory & calculus, limits, linear algebra, and real or complex analysis & its analytic tools support differential equations, probability, physics, numerical computation, and statistics\\
+\hline
+Surgery theory & sets, continuity, topology, and geometric intuition & its invariants support homology, homotopy, geometry, dynamical systems, data analysis, and manifold theory\\
+\hline
+Teichmüller theory & sets, continuity, topology, and geometric intuition & its invariants support homology, homotopy, geometry, dynamical systems, data analysis, and manifold theory\\
+\hline
+Theory of computation & sets, functions, and the chapter's own definitions & its objects and methods are reused by neighbouring areas of mathematics and applications\\
+\hline
+Theory of equations & sets, functions, and the chapter's own definitions & its objects and methods are reused by neighbouring areas of mathematics and applications\\
+\hline
+Theory of statistics & probability, linear algebra, calculus, and mathematical modelling & its models support statistics, engineering, information theory, optimization, economics, and scientific prediction\\
+\hline
+Topology & sets, continuity, topology, and geometric intuition & its invariants support homology, homotopy, geometry, dynamical systems, data analysis, and manifold theory\\
+\hline
+Topos theory & sets, functions, algebra, and proof; the chapter then introduces its own operations and axioms & its structures support representation theory, algebraic geometry, number theory, coding, topology, logic, and computer science\\
+\hline
+Transcendental number theory & integer arithmetic, algebra, and proof; advanced chapters also require fields or complex analysis & its arithmetic tools support cryptography, algebraic geometry, coding theory, and arithmetic statistics\\
+\hline
+Twistor theory & algebra, topology, calculus, and the geometric objects introduced in the chapter & its constructions support topology, number theory, representation theory, and mathematical physics\\
+\hline
+Type theory & sets, functions, algebra, and proof; the chapter then introduces its own operations and axioms & its structures support representation theory, algebraic geometry, number theory, coding, topology, logic, and computer science\\
+\hline
+Wheel theory & sets, functions, algebra, and proof; the chapter then introduces its own operations and axioms & its structures support representation theory, algebraic geometry, number theory, coding, topology, logic, and computer science\\
+\hline
+\end{longtable}
+\setlength{\tabcolsep}{6pt}
+\fussy
+\normalsize
+\section*{References}
+The map summarizes the dependencies and applications explained in the chapters; the individual chapter bibliographies provide the subject-specific sources.
+\begin{thebibliography}{9}
+\bibitem{map_maclane} S. Mac Lane, \emph{Categories for the Working Mathematician}, Springer, 1998.
+\bibitem{map_hatcher} A. Hatcher, \emph{Algebraic Topology}, Cambridge University Press, 2002.
+\end{thebibliography}
+\chapter*{The student's toolbox: difficult words made ordinary}
+This short dictionary is meant to be used while reading. The point is not to avoid precise ideas, but to give each precise idea a familiar handle.
+
+\begin{description}[leftmargin=3.0cm,style=nextline]
+\item[Algebra] A way of writing rules for combining and changing quantities or objects. It is not limited to school equations.
+\item[Algorithm] A recipe that always says what step to take next, such as the instructions for sorting a list.
+\item[Continuous] Changing without a sudden jump or tear, like moving a cup across a table.
+\item[Dimension] How many independent directions are needed to move around an object. A line has one, a sheet two, and a room three.
+\item[Equation] A statement that two descriptions have the same value. Solving it means finding the situations where that statement is true.
+\item[Function] A dependable input-to-output rule. A temperature converter and a vending machine are everyday examples.
+\item[Geometry] The study of shape, position, distance, and motion.
+\item[Group] A collection of reversible actions that can be performed one after another. Rotations of a cube are a model example.
+\item[Limit] The value a process gets closer and closer to, even if it never arrives there in a finite number of steps.
+\item[Matrix] A rectangular table of numbers used to record many inputs and outputs at once.
+\item[Model] A simplified description built to answer a particular question. Every model leaves something out.
+\item[Operator] A rule that acts on another object, often a function or a list of numbers.
+\item[Proof] A chain of small, checkable reasons that forces a conclusion to be true under stated rules.
+\item[Set] A collection of objects considered together. The objects can be numbers, places, choices, or other collections.
+\item[Symmetry] A change that leaves the important appearance or structure unchanged.
+\item[Topology] The study of features that survive bending and stretching, such as connected pieces and holes.
+\item[Vector] A quantity with several components, often used to describe a direction, a position, or a list of measurements.
+\item[Wheel] An algebraic system designed to let division by zero be written as a total operation, with special rules that prevent it from behaving like ordinary field arithmetic.
+\end{description}
+
+\chapter*{How to study a theory without getting lost}
+For each chapter, make a four-line note in your own words:
+\begin{enumerate}
+\item Draw or describe the real object: a queue, a knot, a message, a vibrating string, or a set of choices.
+\item Name the change that matters: noise, motion, uncertainty, growth, symmetry, or competition.
+\item Say what the theory measures or preserves. This is usually the heart of the subject.
+\item Write one decision it improves: decode, predict, classify, schedule, control, compare, or prove impossible.
+\end{enumerate}
+Then explain the theory to another person without using its name. If the explanation still works, you understand the idea rather than merely recognizing the vocabulary. Only after that should you return to the equations or formal definitions in a textbook.
+
+\chapter*{A map of the connections}
+The theories are easier to remember as families. \emph{Probability} describes uncertainty, while \emph{statistics} learns from observations of that uncertainty. \emph{Graph theory} describes connections, while \emph{queue theory}, \emph{game theory}, and \emph{control theory} use connections to study waiting, competition, and correction. \emph{Topology} asks which features survive bending; \emph{geometry} keeps measurements too; \emph{algebra} records operations and symmetry. \emph{Information theory} asks how messages can be represented, and \emph{coding theory} makes them survive noise. \emph{Number theory} studies whole-number structure, while algebraic geometry joins equations to shapes.
+
+The same pattern appears again and again: choose a simple representation, find a feature that remains reliable, and use it to make a prediction. That is the common thread tying this very large list together.
+
+\chapter*{Where to go next}
+This book is a first conversation, not a credential. The following standard references are reliable next steps; a student should use the one matching their preparation rather than trying to read them all.
+
+\begin{description}[leftmargin=3.5cm,style=nextline]
+\item[Elementary foundations] Courant and Robbins, \emph{What Is Mathematics?}; Ian Stewart, \emph{Concepts of Modern Mathematics}.
+\item[Proof and discrete mathematics] Daniel Velleman, \emph{How to Prove It}; Richard Johnsonbaugh, \emph{Discrete Mathematics}.
+\item[Probability and statistics] David Williams, \emph{Weighing the Odds}; David Freedman, Robert Pisani, and Roger Purves, \emph{Statistics}.
+\item[Calculus and differential equations] Michael Spivak, \emph{Calculus}; Walter Strauss, \emph{Partial Differential Equations}.
+\item[Algebra and number theory] Joseph Gallian, \emph{Contemporary Abstract Algebra}; G. H. Hardy and E. M. Wright, \emph{An Introduction to the Theory of Numbers}.
+\item[Topology and geometry] Sidney Morris, \emph{Topology Without Tears}; James Munkres, \emph{Topology}.
+\item[Computation and information] Michael Sipser, \emph{Introduction to the Theory of Computation}; Thomas Cover and Joy Thomas, \emph{Elements of Information Theory}.
+\item[Advanced subjects] Serge Lang, \emph{Algebra}; Robin Hartshorne, \emph{Algebraic Geometry}; John Lee, \emph{Introduction to Smooth Manifolds}. These are reference texts, not assumed prerequisites for this book.
+\end{description}
+
+The source list is useful for names, but it is not a textbook and should not be treated as an authority for every application sentence. In a classroom or publication, each advanced chapter should be checked against a specialist reference before being used as course material.
+
+
+\chapter*{A final thought}
+The theories in this book do not form a ladder from ``easy'' to ``hard.'' They form a network. A graph can describe a symmetry; probability can live on a measure space; topology can guide an algorithm; algebra can decode a message. Mathematics becomes powerful when one viewpoint is carried into another place.
+
+The recurring habit is simple: identify what may change, identify what must remain, and choose a language that makes the invariant visible. That is why theories made for apparently abstract questions so often return in phones, bridges, medicines, software, and the night sky.
+
+\chapter*{Scope note and source}
+The chapter titles follow the list at \url{https://en.wikipedia.org/wiki/List_of_mathematical_theories}, which is available under the Creative Commons Attribution--ShareAlike 4.0 License. The explanations and examples in this manuscript are original popular expositions; they are not copied from the linked article. Because mathematical fields overlap, several chapters naturally point to one another.
+
+\end{document}

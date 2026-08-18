@@ -1,0 +1,97 @@
+\theory{Invariant theory}{Which quantities remain unchanged when a group transforms the object?}{Invariant theory studies functions that do not change under symmetry. It turns classification up to symmetry into the study of invariant rings, orbit spaces, and geometric quotients.}{Algebra, representation theory, algebraic geometry, geometry, robotics, chemistry, mechanics, and moduli spaces.}{Group actions and invariant rings retain polynomial information unchanged by a symmetry and organize quotient or moduli constructions.}
+
+\paragraph{The question and history}
+Suppose a shape is rotated, reflected, or relabeled. Its coordinates change, but some quantities do not. The determinant is unchanged when a matrix is left-multiplied by an element of $SL_n$, and $x+y$ and $xy$ are unchanged when two variables are swapped. Invariant theory asks for all such quantities and whether they distinguish different orbits \cite{invariant_theory_ref1}.
+
+The subject began with George Boole and Arthur Cayley in the nineteenth century, who studied polynomial forms under linear transformations. It later connected to symmetric functions, representation theory, commutative algebra, moduli spaces, and geometric invariant theory. David Mumford's formulation emphasized constructing quotients of varieties by group actions.
+
+\end{historylist}
+\section*{3. Theory}
+\subsection*{Core theory}
+\paragraph{Group actions and invariant rings}
+Let a group $G$ act linearly on a vector space $V$ over a field $k$. The induced action on polynomial functions $k[V]$ is obtained by transforming the input. The invariant ring is
+\[
+k[V]^G=\{f\in k[V]:f(gv)=f(v)\text{ for every }g\in G,v\in V\}.
+\]
+Each invariant is constant along a group orbit. The orbit is the set of positions reachable from one vector by the symmetry.
+
+For the action of $\mathbb Z/2$ sending $(x,y)$ to $(-x,-y)$, the invariant monomials include $x^2$, $xy$, and $y^2$. They generate
+\[
+k[x,y]^{\mathbb Z/2}\cong k[a,b,c]/(ac-b^2).
+\]
+The relation records that $(x^2)(y^2)=(xy)^2$.
+
+\paragraph{Symmetric functions and classical forms}
+Swapping variables leaves the elementary symmetric polynomials unchanged. The fundamental theorem of symmetric polynomials says every symmetric polynomial is a polynomial in these elementary ones. For binary quadratic and higher forms, classical invariant theory finds discriminants, determinants, and other polynomial combinations that survive linear changes of variables.
+
+The discriminant of a polynomial is an invariant of its roots: it vanishes exactly when two roots coincide. In geometry, lengths, angles, areas, and determinants are invariants under different transformation groups. In chemistry, molecular symmetry divides configurations into equivalence classes and predicts allowed transitions.
+
+\paragraph{Hilbert's theorems}
+For a finite group acting over a field whose characteristic does not divide the group order, averaging over the group gives a Reynolds operator. Hilbert proved finite generation results for invariant rings of important groups. The Hilbert--Nagata theorem says that for a linearly reductive group, the invariant ring of a finitely generated algebra is finitely generated \cite{invariant_theory_ref2}.
+
+Finite generation changes an infinite search for invariants into a finite algebraic problem, although finding an explicit generating set may still be difficult. Molien series count invariants by degree for finite groups.
+
+\paragraph{Geometric invariant theory}
+The orbit space of a group action need not be a nice algebraic variety. Orbits may not be closed, and two different orbits may have closures that meet. Geometric invariant theory keeps the good, closed orbits and identifies points whose closures meet. The invariant ring defines a quotient that captures stable information.
+
+This produces moduli spaces of geometric objects: configurations of points, curves, vector bundles, instantons, and monopoles. Stability conditions exclude degenerate configurations that would make the quotient pathological. Symplectic geometry and equivariant topology developed parallel versions of the same quotient idea \cite{invariant_theory_ref3}.
+
+\paragraph{What the theory depends on and where it is useful}
+Invariant theory depends on group actions, polynomial rings, representation theory, commutative algebra, and algebraic geometry. It helps representation theory decompose spaces, geometry classify shapes, and moduli theory build spaces of objects up to change of coordinates.
+
+Invariants need not separate all orbits. Two genuinely different configurations may share every invariant available in a chosen ring, especially when the group is not reductive or the field has special characteristic. One must therefore state what class of objects the invariants classify.
+
+\section*{4. Important theorems and results}
+\begin{enumerate}[leftmargin=*,itemsep=0.35em]
+\item \textbf{Fundamental theorem of symmetric polynomials.} Every symmetric polynomial is a polynomial in the elementary symmetric polynomials.
+
+\item \textbf{Hilbert basis theorem for invariants.} In many reductive settings the invariant ring is finitely generated.
+
+\item \textbf{Noether bound.} For a finite group in nonmodular characteristic, invariants of bounded degree generate the invariant ring.
+
+\item \textbf{Hilbert--Mumford criterion.} Stability in geometric invariant theory can be tested using one-parameter subgroups.
+
+\item \textbf{First fundamental theorem.} For classical groups, specified natural contractions and pairings generate the invariant tensors \cite{invariant_theory_ref4}.
+\end{enumerate}
+
+\theoryapplications
+\theoryconnections{invariant theory}{%
+\item Group actions supply the transformations, ring theory supplies polynomial invariants, and representation theory supplies decompositions into symmetry types.
+\item Algebraic geometry contributes orbit spaces and geometric invariant theory, while combinatorics provides symmetric functions.
+}{%
+\item Invariant theory helps classify objects up to symmetry, construct coordinates for quotient spaces, and analyze tensors in geometry and physics.
+\item An invariant can prove that two objects are different, but a complete classification may require several invariants together.
+}
+\section*{7. Sample Questions}
+\emph{Exercise reference:} \cite{invariant_theory_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
+\begin{enumerate}[leftmargin=*,itemsep=0.9em]
+\item \textbf{Exercise 1.} Why are $x+y$ and $xy$ invariant under swapping $x$ and $y$?
+
+\emph{Solution.} Swapping changes $x+y$ to $y+x$ and $xy$ to $yx$, which are equal in a commutative polynomial ring.
+
+\item \textbf{Exercise 2.} What is an orbit?
+
+\emph{Solution.} It is the set of all points obtainable from one point by applying every element of the acting group.
+
+\item \textbf{Exercise 3.} Why can the discriminant detect repeated roots?
+
+\emph{Solution.} It is a symmetric polynomial in the roots that contains a factor $(r_i-r_j)^2$ for every pair. It vanishes exactly when two roots coincide.
+
+\item \textbf{Exercise 4.} Why is finite generation useful?
+
+\emph{Solution.} It says all invariant polynomials can be built from finitely many basic ones, so classification can be expressed with a finite coordinate system.
+
+\item \textbf{Exercise 5.} Why does geometric invariant theory need stability?
+
+\emph{Solution.} Without stability, different nonclosed orbits can have intersecting closures, so the naive orbit space may fail to be separated or algebraic. Stability selects a well-behaved quotient.
+
+\end{enumerate}
+\section*{8. References}
+\addcontentsline{toc}{section}{References}
+
+\begin{thebibliography}{9}
+\bibitem{invariant_theory_ref1} David Mumford, John Fogarty, and Frances Kirwan, \emph{Geometric Invariant Theory}, 3rd ed., Springer, 1994.
+\bibitem{invariant_theory_ref2} Peter J. Olver, \emph{Classical Invariant Theory}, Cambridge University Press, 1999.
+\bibitem{invariant_theory_ref3} Igor Dolgachev, \emph{Lectures on Invariant Theory}, Cambridge University Press, 2003.
+\bibitem{invariant_theory_ref4} Hermann Weyl, \emph{The Classical Groups}, Princeton University Press, 1939.
+\end{thebibliography}

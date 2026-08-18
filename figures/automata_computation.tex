@@ -1,0 +1,16 @@
+\begin{tikzpicture}[>=Latex,scale=.78,transform shape,
+  state/.style={circle,draw,minimum size=8mm},box/.style={draw,rounded corners,align=center,minimum width=2.1cm,minimum height=.55cm}]
+\node[state] (even) at (0,0) {even};
+\node[state] (odd) at (2.5,0) {odd};
+\draw[->] (even) edge[loop above] node {$0$} (even);
+\draw[->] (odd) edge[loop above] node {$0$} (odd);
+\draw[->] (even) to[bend left] node[above] {$1$} (odd);
+\draw[->] (odd) to[bend left] node[below] {$1$} (even);
+\node[box] (finite) at (5.2,1.25) {finite memory\\regular languages};
+\node[box] (stack) at (5.2,0) {stack memory\\nested syntax};
+\node[box] (tm) at (5.2,-1.25) {unbounded tape\\general computation};
+\draw[->] (odd)--(finite);
+\draw[->] (finite)--(stack);
+\draw[->] (stack)--(tm);
+\node[align=center] at (1.25,-1.15) {state records the\\relevant memory};
+\end{tikzpicture}

@@ -1,0 +1,66 @@
+\theory{Topology}{Which properties of a space survive stretching, bending, and twisting when there is no tearing or gluing?}{Topology studies spaces through open sets, continuity, compactness, connectedness, dimension, holes, and invariants. It ignores exact distances while retaining how parts fit together.}{Analysis, geometry, differential equations, data analysis, dynamical systems, physics, and the classification of manifolds.}{Continuity, open sets, connectedness, and homotopy capture properties unchanged by bending or stretching without tearing.}
+
+\paragraph{The idea and history}
+Topology grew from Euler's solution of the Seven Bridges of Königsberg problem and his polyhedron formula. Listing introduced the term topology; Cantor studied point sets; Fréchet, Hausdorff, and Kuratowski developed metric and general topological spaces. Dennis Sullivan's work illustrates the continuing interaction of algebraic, geometric, and dynamical topology \cite{topology_ref1}.
+
+\end{historylist}
+\section*{3. Theory}
+\subsection*{Core theory}
+\paragraph{Spaces and continuity}
+A topology on a set $X$ is a collection of open sets containing $\varnothing$ and $X$, closed under arbitrary unions and finite intersections. A topological space is a set with such a collection. A metric defines a topology through open balls, but many useful topologies have no preferred distance.
+
+A function is continuous when inverse images of open sets are open. A homeomorphism is a continuous bijection with continuous inverse; it means two spaces have the same topological shape. A homotopy continuously deforms one map into another. Compactness says that every open cover has a finite subcover, and connectedness means the space cannot be split into two disjoint open pieces \cite{topology_ref2}.
+
+\paragraph{Examples and invariants}
+\bookfigure{topology_deformation}{Topology studies features that survive continuous deformation.}
+A circle and a square are homeomorphic, while a circle and two disjoint circles are not connected in the same way. A coffee cup and a torus have one hole each in the relevant sense. The Mobius strip has one side and one boundary component. Euler characteristic, fundamental group, homology, and cohomology turn shape into computable algebra.
+
+General topology studies open sets and convergence. Algebraic topology studies invariants such as homology and homotopy groups. Differential topology studies smooth manifolds, transversality, and tangent spaces. Geometric topology studies knots, manifolds, and embeddings \cite{topology_ref3}.
+
+\section*{4. Important theorems and results}
+\begin{enumerate}[leftmargin=*,itemsep=0.35em]
+\item \textbf{Euler characteristic.} For a finite cell decomposition, $\chi=V-E+F$ is independent of the chosen decomposition.
+
+\item \textbf{Intermediate value theorem.} A continuous real function taking values on both sides of a number takes that value somewhere between.
+
+\item \textbf{Heine--Borel theorem.} A subset of Euclidean space is compact exactly when it is closed and bounded.
+
+\item \textbf{Brouwer fixed-point theorem.} Every continuous map from a closed disk to itself has a fixed point.
+
+\item \textbf{Jordan curve theorem.} A simple closed curve in the plane separates the plane into an inside and an outside.
+
+\item \textbf{Classification of surfaces.} Connected compact surfaces are classified by orientability, genus, and boundary data.
+\end{enumerate}
+\noindent\emph{Source for these results:} \cite{topology_ref1}.
+
+\theoryapplications
+\theoryconnections{topology}{%
+\item Sets and functions define open sets and continuous maps, while analysis explains convergence and compactness.
+\item Geometry contributes spaces with coordinates, and algebra records features that survive continuous deformation.
+\item The central mechanism is to discard measurements such as exact length while retaining relations such as connectedness or the existence of a loop; this makes a stretched rubber band and a circular one equivalent for the questions topology asks \cite{topology_ref1,topology_ref3}.
+}{%
+\item Topology helps manifold theory provide local coordinate neighborhoods, and algebraic topology converts holes and loops into groups and homology.
+\item Dynamical systems use open sets and compactness to control long-term behavior, while functional analysis uses topological vector spaces to define convergence of functions.
+\item In data analysis, a point cloud can be thickened into a shape and its persistent holes can be compared even when the measurements are noisy \cite{topology_ref1,topology_ref4}.
+}
+\section*{7. Sample Questions}
+\emph{Exercise reference:} \cite{topology_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
+\begin{enumerate}[leftmargin=*,itemsep=0.9em]
+\item \textbf{Exercise 1. Why are a circle and a square topologically equivalent?} A continuous bijection can map the boundary of the square once around the circle, and its inverse is continuous.
+
+\item \textbf{Exercise 2. Compute the Euler characteristic of a tetrahedron.} It has $V=4$, $E=6$, and $F=4$, so $\chi=4-6+4=2$, the value for a sphere.
+
+\item \textbf{Exercise 3. Is the interval $[0,1]$ connected?} Yes. If it were split into two nonempty separated open pieces, the order structure of the real line would be contradicted.
+
+\item \textbf{Exercise 4. Why is a continuous image of a compact space compact?} An open cover of the image pulls back to an open cover of the domain; a finite subcover there maps to a finite subcover of the image.
+
+\item \textbf{Exercise 5. What does the fundamental group measure?} It records loops based at a point up to continuous deformation and detects holes such as the central hole of a circle.
+
+\end{enumerate}
+\section*{8. References}
+\begin{thebibliography}{9}
+\bibitem{topology_ref1} J. R. Munkres, \emph{Topology}.
+\bibitem{topology_ref2} S. Willard, \emph{General Topology}.
+\bibitem{topology_ref3} A. Hatcher, \emph{Algebraic Topology}.
+\bibitem{topology_ref4} J. M. Lee, \emph{Introduction to Topological Manifolds}.
+\end{thebibliography}

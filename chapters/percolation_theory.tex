@@ -1,0 +1,73 @@
+\theory{Percolation theory}{When a network is partly blocked or partly damaged, when does a large connected route suddenly appear or disappear?}{Percolation theory studies random connectivity. Sites or links are declared open with a probability, and the theory asks whether open paths form a cluster spanning a region or continuing forever. A critical probability separates a disconnected phase from a connected phase.}{Porous materials, epidemics, ecological habitats, power and transport networks, random graphs, polymer gelation, and the fragmentation of virus shells.}{Random open clusters and connectivity thresholds turn local occupation probabilities into global phase transitions.}
+
+\paragraph{The physical question and history}
+Imagine pouring liquid onto porous rock. Each microscopic passage may be open or blocked. If open passages form a connected route, liquid can travel from the top to the bottom. Percolation theory replaces the complicated material by a lattice or graph and studies the probability that a path exists. The model was introduced by Simon Broadbent and John Hammersley in 1957, after questions about gases and liquids moving through coal and other porous materials \cite{percolation_ref1,percolation_ref2}.
+
+\end{historylist}
+\section*{3. Theory}
+\subsection*{Core theory}
+\paragraph{Sites, bonds, and the critical point}
+In bond percolation, each edge of a graph is open with probability $p$ and closed with probability $1-p$, independently. In site percolation, each vertex is occupied with probability $p$, and an edge can be used only when its endpoints are occupied. The open cluster of a vertex is the set of vertices reachable by open paths.
+
+\[
+p_c=\frac12.
+\]
+
+\paragraph{Phases and observables}
+Below the threshold, open clusters are typically finite and connection probabilities decay rapidly. Above the threshold, a giant or infinite cluster appears while finite clusters remain around it. In two dimensions, duality relates open paths to closed paths in the dual lattice and compares the two phases \cite{percolation_ref1}.
+
+Important observables include the probability that a site belongs to the infinite cluster, the mean cluster size, the correlation length, and the probability of a spanning path across a finite box. Near criticality these quantities often follow power laws such as $\xi\sim|p-p_c|^{-\nu}$. The exponent depends mainly on dimension rather than microscopic details, an idea called universality. Critical clusters are often fractal \cite{percolation_ref2}.
+
+\paragraph{Different models}
+Directed percolation allows paths to move in a preferred direction such as time and is connected with the contact process. Bootstrap percolation activates or removes sites according to the number of active neighbors. First-passage percolation assigns random travel times to edges and studies the fastest route. Invasion percolation grows a cluster by choosing the least costly boundary edge. The Fortuin--Kasteleyn random-cluster model connects percolation with the Ising and Potts models \cite{percolation_ref3}.
+
+\paragraph{How it solves real problems}
+In epidemiology, people or animals are vertices and possible transmissions are edges. Below the transmission threshold, outbreaks usually die out in small clusters; above it, a large outbreak becomes possible. Vaccination or reduced contact can lower the effective connectivity and move a population below the threshold.
+
+In ecology, habitat patches are sites and movement corridors are bonds. A species can persist over a region only if enough patches remain connected. In materials science, enough chemical links connect small polymer molecules into a system-spanning gel. In virology, randomly removing capsid subunits can cross a fragmentation threshold and break a virus shell \cite{percolation_ref4}.
+
+\section*{4. Important theorems and results}
+\begin{enumerate}[leftmargin=*,itemsep=0.35em]
+\item \textbf{Existence of a critical threshold.} Standard infinite lattices have a value $p_c$ separating the phase with no infinite open cluster from the phase with one.
+
+\item \textbf{Kolmogorov zero--one law.} Translation-invariant tail events such as the existence of an infinite cluster have probability zero or one.
+
+\item \textbf{Kesten's square-lattice result.} Bond percolation on the planar square lattice has critical probability $p_c=1/2$.
+
+\item \textbf{Duality principle.} In two dimensions, open crossings and closed crossings in the dual lattice constrain one another.
+
+\item \textbf{Sharpness of the transition.} In standard models, connection probabilities decay exponentially below the threshold, while a macroscopic cluster appears above it.
+\end{enumerate}
+\noindent\emph{Source for these results:} \cite{percolation_ref1}.
+
+\theoryapplications
+\theoryconnections{percolation_theory}{%
+\item Probability assigns independent or correlated open/closed states to edges or sites, while graph theory defines paths and connected components.
+\item The central question is whether local random links create a global crossing or infinite cluster.
+\item Statistical physics explains why a sharp threshold can appear: near a critical density, clusters occur on many scales, so a small change in the probability can change the large-scale behavior \cite{percolation_ref1,percolation_ref2}.
+}{%
+\item Percolation gives network reliability a concrete calculation: a communication network works when its open edges contain a path between two terminals.
+\item The same cluster threshold models whether a disease can spread through a contact graph, whether fluid can pass through a porous material, or whether a random graph contains a giant component.
+\item The theory supplies the bridge from local failure probabilities to a global connectivity prediction \cite{percolation_ref1,percolation_ref3}.
+}
+\section*{7. Sample Questions}
+\emph{Exercise reference:} \cite{percolation_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
+\begin{enumerate}[leftmargin=*,itemsep=0.9em]
+\item \textbf{Exercise 1. What is the expected number of open edges among $100$ independent edges when $p=0.3$?} Linearity of expectation gives $100(0.3)=30$.
+
+\item \textbf{Exercise 2. Why does a square-lattice bond model with $p=0.4$ lie below its threshold?} Its threshold is $1/2$, and $0.4<1/2$, so an infinite open cluster does not occur in the infinite-lattice limit.
+
+\item \textbf{Exercise 3. For a regular tree of degree $4$, what is the threshold?} The formula $p_c=1/(z-1)$ gives $p_c=1/3$.
+
+\item \textbf{Exercise 4. Explain why site and bond percolation are different.} Bond percolation removes connections while keeping vertices. Site percolation removes vertices and all their incident connections, so the same probability can give different connectivity.
+
+\item \textbf{Exercise 5. Why can reducing contacts reduce a large outbreak?} Removing contacts removes bonds and lowers connectivity. If the network crosses below its threshold, large outbreaks become unlikely even though small outbreaks remain possible.
+
+\end{enumerate}
+\section*{8. References}
+\begin{thebibliography}{9}
+\bibitem{percolation_ref1} G. Grimmett, \emph{Percolation}.
+\bibitem{percolation_ref2} D. Stauffer and A. Aharony, \emph{Introduction to Percolation Theory}.
+\bibitem{percolation_ref3} H. Kesten, \emph{Percolation Theory for Mathematicians}.
+\bibitem{percolation_ref4} M. Sahini and M. Sahimi, \emph{Applications of Percolation Theory}.
+\end{thebibliography}

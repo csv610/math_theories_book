@@ -1,0 +1,108 @@
+\theory{Measure theory}{How can length, area, probability, and size be defined consistently for complicated sets?}{Measure theory assigns a nonnegative size to a carefully chosen family of sets and extends finite addition to countably many disjoint pieces. It provides the foundation for modern integration and probability.}{Probability, analysis, ergodic theory, PDEs, geometry, economics, statistics, and mathematical physics.}{Measurable sets, countable additivity, and integration provide a rigorous way to aggregate quantities over irregular or infinite domains.}
+
+\paragraph{Émile Borel and Henri Lebesgue}
+Borel identified useful classes of measurable sets, and Lebesgue constructed an integral that remains stable under limits and handles irregular sets. Their work replaced ad hoc notions of area with countably additive measure and rigorous integration.
+
+\paragraph{Constantin Carathéodory and Andrey Kolmogorov}
+Carathéodory's outer-measure construction gave a systematic route to measurable sets. Kolmogorov built modern probability on measure spaces, making measure theory the common language for integration, probability, and ergodic theory \cite{measure_theory_ref1}.
+\end{historylist}
+\section*{3. Theory}
+\subsection*{Core theory}
+\paragraph{Why ordinary length is not enough}
+Intervals have length, rectangles have area, and boxes have volume. But limits, fractal sets, and irregular regions are not always built from finitely many such pieces. Measure theory replaces a ruler with rules that survive countable approximation. It was developed through the work of Borel, Lebesgue, Carathéodory, and later Kolmogorov \cite{measure_theory_ref1}.
+
+A measure space consists of a set $X$, a sigma-algebra $\Sigma$ of measurable subsets, and a measure $\mu$ satisfying $\mu(\emptyset)=0$ and countable additivity:
+\[
+\mu\left(\bigcup_{n=1}^{\infty}E_n\right)=\sum_{n=1}^{\infty}\mu(E_n)
+\]
+for pairwise disjoint measurable sets. The sigma-algebra is closed under complements and countable unions, ensuring that the operations used in limits remain measurable.
+
+\paragraph{Lebesgue measure}
+Lebesgue measure agrees with ordinary length on intervals: $\mu([a,b])=b-a$. It extends this to a large family of subsets of the real line and higher-dimensional Euclidean space. A set of measure zero may be nonempty, such as a point or the Cantor set, and changing a function on such a set does not change its integral.
+
+The outer-measure construction begins by covering a set with intervals or boxes and taking the infimum of the total lengths or volumes. Carathéodory's criterion selects the measurable sets for which every set splits cleanly with respect to outer measure. This construction explains why some subsets of the real line cannot be assigned a translation-invariant countably additive length without additional assumptions.
+
+\paragraph{Integration}
+The Lebesgue integral first integrates indicator functions, then nonnegative simple functions, and finally general measurable functions by approximation. It can integrate functions with infinitely many discontinuities when the total contribution is controlled. The spaces $L^p$ identify functions that differ only on a null set and use
+\[
+\|f\|_p=\left(\int |f|^p\,d\mu\right)^{1/p}.
+\]
+Lebesgue integration is the natural language for limits of random variables and solutions of PDEs.
+
+\paragraph{Convergence theorems}
+The monotone convergence theorem permits increasing nonnegative approximations to pass through the integral. Fatou's lemma gives a one-sided inequality for lower limits. The dominated convergence theorem permits pointwise convergence under an integrable dominating function:
+\[
+f_n\to f,\quad |f_n|\leq g,\quad \int g<\infty
+\quad\Longrightarrow\quad
+\int f_n\to\int f.
+\]
+These theorems justify exchanging limits and integrals, which is often the decisive step in analysis.
+
+\paragraph{Probability and product spaces}
+Probability is a measure with $\mu(X)=1$. A random variable is a measurable function, and expectation is its Lebesgue integral. Independence is expressed through product measures. Fubini's theorem integrates over a product in either order when absolute integrability holds; Tonelli's theorem gives the corresponding result for nonnegative functions.
+
+Pushforward measure transports a measure through a measurable map. Conditional expectation is the best measurable average given partial information and is the foundation of martingales and modern probability.
+
+\paragraph{Regularity, completeness, and generalizations}
+A complete measure includes every subset of every null set. Regular measures approximate measurable sets from inside by compact sets and from outside by open sets. Signed measures allow cancellation; complex and vector measures support harmonic analysis. Hausdorff measure extends length and area to fractals, while geometric measure theory studies rectifiable sets and minimal surfaces.
+
+Finitely additive contents and charges relax countable additivity and connect to Banach limits and the Stone--Cech compactification, but countable additivity is what makes convergence theorems work \cite{measure_theory_ref2}.
+
+\paragraph{What the theory depends on and where it is useful}
+Measure theory depends on set theory, real analysis, topology, and probability. It helps ergodic theory define invariant averages, distribution theory define weak objects, operator theory build $L^p$ spaces, and geometry measure irregular shapes.
+
+Not every subset is measurable, and an integral depends on the chosen measure. A probability model is useful only when its sample space and measure correspond to the experiment.
+
+\section*{4. Important theorems and results}
+\begin{enumerate}[leftmargin=*,itemsep=0.35em]
+\item \textbf{Carathéodory extension theorem.} A suitable premeasure on simple sets extends to a measure on the generated sigma-algebra.
+
+\item \textbf{Monotone convergence theorem.} Integrals commute with increasing limits of nonnegative measurable functions.
+
+\item \textbf{Dominated convergence theorem.} An integrable bound permits integration after pointwise convergence.
+
+\item \textbf{Fubini--Tonelli theorem.} Under the appropriate nonnegative or integrability hypotheses, product integrals can be computed as iterated integrals.
+
+\item \textbf{Radon--Nikodym theorem.} A measure absolutely continuous with respect to another has a density, generalizing the derivative of one measure with respect to another \cite{measure_theory_ref3}.
+\end{enumerate}
+
+\theoryapplications
+\theoryconnections{measure theory}{%
+\item Set theory supplies sigma-algebras, real analysis supplies limits and integration, and topology supplies regularity and approximation by open and compact sets.
+\item Probability is the normalized case, while functional analysis uses measurable functions as elements of $L^p$ spaces.
+}{%
+\item Measure theory helps probability, PDEs, harmonic analysis, ergodic theory, and geometric measure theory define size and integration beyond finite sums.
+\item Its convergence theorems justify exchanging limits, sums, derivatives, and integrals when the stated hypotheses hold.
+}
+\section*{7. Sample Questions}
+\emph{Exercise reference:} \cite{measure_theory_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
+\begin{enumerate}[leftmargin=*,itemsep=0.9em]
+\item \textbf{Exercise 1.} Why is countable additivity stronger than ordinary finite additivity?
+
+\emph{Solution.} It controls an infinite disjoint decomposition. This is essential when a set or function is approximated by a sequence of simpler pieces.
+
+\item \textbf{Exercise 2.} What does measure zero mean?
+
+\emph{Solution.} The set contributes no size to the measure, although it need not be empty. A function can be changed on a null set without changing its Lebesgue integral.
+
+\item \textbf{Exercise 3.} When can limits pass through an integral?
+
+\emph{Solution.} Monotone or dominated convergence gives standard sufficient conditions. Without such control, pointwise convergence alone is not enough.
+
+\item \textbf{Exercise 4.} Why is a random variable required to be measurable?
+
+\emph{Solution.} Measurability ensures inverse images of measurable outcome sets are measurable, so probabilities and expectations are defined.
+
+\item \textbf{Exercise 5.} What is the Radon--Nikodym theorem used for?
+
+\emph{Solution.} It represents an absolutely continuous measure by a density, allowing one measure to be integrated relative to another.
+
+\end{enumerate}
+\section*{8. References}
+\addcontentsline{toc}{section}{References}
+
+\begin{thebibliography}{9}
+\bibitem{measure_theory_ref1} Paul R. Halmos, \emph{Measure Theory}, Springer, 1950.
+\bibitem{measure_theory_ref2} Gerald B. Folland, \emph{Real Analysis}, 2nd ed., Wiley, 1999.
+\bibitem{measure_theory_ref3} Vladimir I. Bogachev, \emph{Measure Theory}, Springer, 2007.
+\end{thebibliography}

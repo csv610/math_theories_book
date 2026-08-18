@@ -1,0 +1,76 @@
+\theory{Theory of statistics}{How can limited, noisy observations support reliable conclusions about a much larger population or an uncertain process?}{Statistical theory gives mathematical principles for study design, data collection, summarization, inference, prediction, and decisions. It connects probability with optimization and utility so that methods can be compared and their uncertainty quantified.}{Experiments, surveys, medicine, engineering, economics, machine learning, public policy, and scientific data analysis.}{Sampling distributions, estimators, likelihoods, and error control turn data into quantified conclusions about a population.}
+
+\paragraph{Ronald Fisher}
+Fisher developed likelihood-based estimation, analysis of variance, and principles for randomized experimental design. These methods connected data collection with efficient estimation and made experimental uncertainty part of the mathematical model.
+
+\paragraph{Jerzy Neyman and Egon Pearson}
+Neyman and Pearson formalized hypothesis testing through error probabilities and power. Their framework distinguishes the rule used to make a decision from the long-run error guarantees attached to that rule \cite{statistics_ref1,statistics_ref2}.
+\end{historylist}
+\section*{3. Theory}
+\subsection*{Core theory}
+\paragraph{The problem and scope}
+Data are observations from a population or process, often with measurement error and random variation. A statistical model describes how the data could have been generated. Statistical theory asks which questions can be answered, how much information is needed, and how reliable an answer is \cite{statistics_ref1}.
+
+Its tasks include sampling from finite populations, measuring error, describing distributions, estimating parameters, testing hypotheses, predicting outcomes, comparing groups, and reducing dimension. It also studies what happens when assumptions such as independence or a chosen distribution are wrong \cite{statistics_ref2}.
+
+\paragraph{Design before analysis}
+Randomization makes treatment groups comparable and supports probability statements. Experimental design chooses factors, controls, replication, and sample size to estimate treatment effects efficiently. Survey sampling chooses a representative sample while accounting for unequal selection probabilities and nonresponse.
+
+Good design can reduce cost and uncertainty before any formula is applied. Observational studies can estimate associations but usually require stronger assumptions to infer causation. Statistical theory separates the information supplied by the design from conclusions added by a model \cite{statistics_ref3}.
+
+\paragraph{Inference}
+An estimator is a rule that turns data into a parameter estimate. Bias, variance, consistency, and efficiency compare estimators. A confidence interval gives a procedure that covers the true parameter at a stated long-run rate; it is not a probability statement about a fixed parameter after the interval is observed.
+
+Hypothesis testing compares a null model with alternatives. A p-value measures how surprising data would be under the null, while power measures the chance of detecting a specified alternative. Bayesian inference combines a prior distribution with a likelihood to produce a posterior distribution. Decision theory chooses actions by expected loss or utility \cite{statistics_ref4}.
+
+\paragraph{Models and robustness}
+Regression models describe relationships and prediction. Dimension reduction replaces many variables by a smaller informative representation. Model checking examines residuals, dependence, outliers, and calibration. Robust methods reduce sensitivity to incorrect distributional assumptions.
+
+\section*{4. Important theorems and results}
+\begin{enumerate}[leftmargin=*,itemsep=0.35em]
+\item \textbf{Law of large numbers.} Sample averages approach population means under suitable conditions.
+
+\item \textbf{Central limit theorem.} Properly standardized sums often approach a normal distribution, explaining many large-sample intervals.
+
+\item \textbf{Neyman--Pearson lemma.} For testing two simple hypotheses at a fixed error level, the likelihood-ratio test is most powerful.
+
+\item \textbf{Gauss--Markov theorem.} In a linear model with standard assumptions, least squares is the best linear unbiased estimator.
+
+\item \textbf{Sufficiency principle.} A sufficient statistic retains all information about a parameter contained in the sample under the model.
+
+\item \textbf{Bayes theorem.} Posterior odds equal prior odds multiplied by the likelihood ratio.
+\end{enumerate}
+\noindent\emph{Source for these results:} \cite{statistics_ref1}.
+
+\theoryapplications
+\theoryconnections{theory_of_statistics}{%
+\item Probability describes the random mechanism that could produce the data, and statistics reverses that direction to infer unknown features of the mechanism.
+\item Linear algebra makes regression and covariance computable, calculus derives likelihood equations, and optimization chooses parameters that fit the observations.
+\item Decision theory adds the loss of acting on an estimate, so a statistically good answer is judged by consequences as well as by closeness to the data \cite{statistics_ref1,statistics_ref4}.
+}{%
+\item Statistical theory helps an experiment separate a real effect from sampling noise by comparing an estimate with its expected variability.
+\item In medicine it turns trial data into risk estimates, in engineering it monitors failure rates, and in machine learning it controls prediction error on unseen data.
+\item Surveys and public policy depend on the same connection, but only when sampling, missing data, dependence, and the decision costs are modeled explicitly \cite{statistics_ref3,statistics_ref5}.
+}
+\section*{7. Sample Questions}
+\emph{Exercise reference:} \cite{statistics_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
+\begin{enumerate}[leftmargin=*,itemsep=0.9em]
+\item \textbf{Exercise 1. What is the standard error of the mean of $n$ independent observations with variance $\sigma^2$?} The sample mean has variance $\sigma^2/n$, so its standard error is $\sigma/\sqrt n$.
+
+\item \textbf{Exercise 2. Why does randomization help an experiment?} It makes treatment assignment independent of uncontrolled characteristics in expectation, allowing differences in outcomes to be attributed to treatment under the design.
+
+\item \textbf{Exercise 3. Compare a confidence interval and a prediction interval?} A confidence interval estimates an unknown population quantity; a prediction interval also includes the random variation of a future observation and is therefore wider.
+
+\item \textbf{Exercise 4. What does a p-value not mean?} It is not the probability that the null hypothesis is true. It is a probability of data as extreme as observed, calculated assuming the null.
+
+\item \textbf{Exercise 5. Why can a large sample produce a statistically significant but unimportant result?} Standard errors shrink with sample size, so a tiny effect can be detected. Practical importance requires an effect-size and cost or benefit assessment.
+
+\end{enumerate}
+\section*{8. References}
+\begin{thebibliography}{9}
+\bibitem{statistics_ref1} D. R. Cox and D. V. Hinkley, \emph{Theoretical Statistics}.
+\bibitem{statistics_ref2} E. L. Lehmann and J. P. Romano, \emph{Testing Statistical Hypotheses}.
+\bibitem{statistics_ref3} W. G. Cochran, \emph{Sampling Techniques}.
+\bibitem{statistics_ref4} G. Casella and R. L. Berger, \emph{Statistical Inference}.
+\bibitem{statistics_ref5} D. A. Freedman, \emph{Statistical Models: Theory and Practice}.
+\end{thebibliography}

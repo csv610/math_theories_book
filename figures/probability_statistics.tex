@@ -1,0 +1,16 @@
+\begin{tikzpicture}[>=Latex,scale=.82,transform shape]
+\node (start) at (0,0) {model};
+\node (a) at (2.2,1.0) {outcome $A$};
+\node (b) at (2.2,-1.0) {outcome $B$};
+\node (aa) at (4.7,1.45) {data};
+\node (ab) at (4.7,.55) {no data};
+\node (ba) at (4.7,-.55) {data};
+\node (bb) at (4.7,-1.45) {no data};
+\draw[->] (start)--node[above] {$P(A)$}(a);
+\draw[->] (start)--node[below] {$P(B)$}(b);
+\draw[->] (a)--node[above] {$P(D\mid A)$}(aa);
+\draw[->] (a)--node[below] {$P(\bar D\mid A)$}(ab);
+\draw[->] (b)--node[above] {$P(D\mid B)$}(ba);
+\draw[->] (b)--node[below] {$P(\bar D\mid B)$}(bb);
+\node[align=center] at (7.1,0) {observe data\\$\Longrightarrow$ update beliefs\\$P(A\mid D)$};
+\end{tikzpicture}

@@ -1,0 +1,82 @@
+\clearpage\chapter{Probability theory}
+\section*{1. Overview}
+\subsection*{Intuitive}
+\paragraph{The problem that started it}
+People have always faced uncertain outcomes: a harvest may fail, a ship may arrive late, or a game may be won by chance. The important question is not whether one event can be predicted perfectly. It is whether repeated uncertainty has a pattern that can be measured and used for a decision.
+In the sixteenth century, Gerolamo Cardano studied games of chance. In the seventeenth century, Blaise Pascal and Pierre de Fermat exchanged letters about the ``problem of points'': if a game is stopped before either player has won, how should the prize be divided fairly? Their answer turned a quarrel about a game into a method for reasoning about all possible outcomes.
+
+
+\subsection*{Formal}
+A probability space is a triple $(\Omega,\mathcal F,\mathbb P)$, where $\Omega$ is the set of outcomes, $\mathcal F$ is a $\sigma$-algebra of events, and $\mathbb P:\mathcal F\to[0,1]$ satisfies $\mathbb P(\Omega)=1$ and countable additivity on disjoint events. A random variable is a measurable function from $\Omega$ to a numerical space, and its expectation is the probability-weighted average when that average exists.
+\section*{2. History}
+\subsection*{Historical development}
+\begin{historylist}
+\paragraph{The people and the changing idea}
+Christiaan Huygens published an early book on probability in 1657. Pierre-Simon Laplace later developed a broad classical treatment. At first, probability was mainly about finite lists such as dice, cards, and coins. As science began measuring continuously changing quantities, mathematicians needed a framework that could handle intervals, curves, and infinitely many possibilities.
+
+Andrey Kolmogorov supplied the modern foundation in 1933. He described a probability model using three ingredients: a collection of possible outcomes, a selection of events we can ask about, and a rule assigning each event a number from zero to one. The number for the whole collection is one, the number for an impossible event is zero, and disjoint events add. Kolmogorov was not trying to make chance less mysterious; he was making clear which conclusions follow from which assumptions.
+
+\end{historylist}
+\section*{3. Theory}
+\subsection*{Core theory}
+\paragraph{The central idea}
+Imagine rolling a die. The possible outcomes are $1,2,3,4,5,6$. The event ``an even number'' is the smaller collection $\{2,4,6\}$. If the die is fair, its probability is $3/6=1/2$. The same language can describe a weather forecast, except that the list of outcomes is much larger and the probabilities come from observations and models rather than symmetry.
+\bookfigure{probability_statistics}{A probability model starts with possible outcomes, observes data, and updates beliefs.}
+
+Conditional probability is the crucial next step. It asks how the chance of one event changes after we learn another fact. A medical test may be accurate, yet a positive result may still be more likely to be a false alarm when the disease is rare. Independence means that learning one event gives no information about the other; it is an assumption to check, not a synonym for ``far apart.''
+
+\paragraph{Why the method works}
+The rules work because they separate three things that are often confused: what can happen, what information is available, and how strongly each possibility is supported. Once those are stated, two people can calculate the same answer and locate their disagreement. Probability does not promise certainty. Its power is that repeated trials often produce stable averages even when individual trials remain unpredictable.
+
+Two major results explain this stability. The law of large numbers says that averages tend to settle near their expected value as the number of trials grows. The central limit theorem explains why sums of many small, partly independent effects often form a bell-shaped pattern. These are not magic guarantees for a small or biased sample; they are theorems with conditions.
+
+\paragraph{Three small examples}
+\textbf{A bus.} If a bus arrives exactly every ten minutes and a passenger arrives at a random time, the average wait is five minutes. If buses bunch together, the assumption changes and the average wait may be longer.
+
+\textbf{A medical test.} Suppose 1 in 100 people has a condition. A test catches 99 percent of cases but falsely flags 5 percent of healthy people. Among 10,000 people, about 99 sick people test positive, but about 495 healthy people also test positive. A positive result is therefore genuine only about $99/(99+495)=1/6$ of the time. The lesson is to combine test accuracy with the background rate.
+
+\textbf{A repeated game.} A fair coin has expected winnings of zero when heads wins one point and tails loses one. After ten tosses a player may be ahead or behind; the expected value describes the long-run centre, not the result of one evening.
+
+\section*{4. Important theorems and results}
+\begin{enumerate}[leftmargin=*,itemsep=0.35em]
+\item \textbf{Conditional probability.} For events $A$ and $B$ with $P(B)>0$, $P(A\mid B)=P(A\cap B)/P(B)$. It updates the probability of $A$ after the information $B$ is known; it does not assert that $A$ and $B$ are independent.
+
+\item \textbf{Law of large numbers.} Under the usual integrability and independence or dependence-control assumptions, sample averages converge to their expected value. It explains why repeated measurements can stabilize while leaving finite-sample error.
+
+\item \textbf{Central limit theorem.} For suitable independent observations with finite variance, a normalized sum approaches a normal distribution. This result supports approximate intervals and tests, but it is not exact for every sample or valid under arbitrary dependence.
+
+\item \textbf{Bayes' rule.} $P(A\mid B)=P(B\mid A)P(A)/P(B)$ reverses the direction of evidence. It is useful for diagnosis and classification because it combines a likelihood with a base rate.
+
+For two independent fair die rolls, the probability of at least one six is $1-(5/6)^2=11/36$. This small calculation illustrates the larger rule: a probability conclusion is only as reliable as its sample space, dependence assumptions, and data-generating model.\end{enumerate}
+\noindent\emph{Source for these results:} \cite{probability_theory_ref1}.
+
+\section*{5. Applications}
+Probability theory represents uncertainty by specifying possible outcomes, their probabilities, and the rules for updating those probabilities when information changes. Its conclusions are meaningful only when the sample space and dependence assumptions match the situation being modelled.
+\begin{enumerate}[leftmargin=*,itemsep=0.35em]
+\item \textbf{Insurance.} Expected losses and tail probabilities determine premiums and reserves.
+\item \textbf{Medical trials.} Randomization and sampling distributions quantify whether an observed treatment difference could arise by chance.
+\item \textbf{Polling.} A sampling model converts a finite set of responses into an uncertainty range for a larger population.
+\item \textbf{Finance.} Probability models portfolio risk, default, and the effect of rare but costly events.
+\item \textbf{Weather forecasting.} An ensemble of possible atmospheric states represents uncertainty in observations and initial conditions.
+\item \textbf{Queues and networks.} Arrival and service distributions predict waiting times, congestion, and capacity.
+\item \textbf{Genetics.} Probability describes inheritance, mutation, population sampling, and genetic drift.
+\item \textbf{Machine learning.} Probabilistic models represent uncertain labels, predictions, and hidden variables.
+\end{enumerate}
+In each case the model depends on choices: which outcomes were included, whether observations are independent, and whether the past resembles the future. A precise calculation from a badly chosen model is still a bad prediction.
+
+\theoryconnections{probability_theory}{%
+\item Probability theory builds a model by specifying possible outcomes and assigning weights whose total is one.
+\item Counting handles finite equally likely cases, linear algebra organizes joint distributions and conditional expectations, and calculus handles continuous densities and accumulation over infinitely many outcomes.
+\item Independence is a modeling rule that permits multiplication of probabilities; it is not a consequence of two events merely being unrelated in everyday language \cite{probability_theory_ref1,probability_theory_ref2}.
+}{%
+\item Probability supports statistics by describing how data could vary under a proposed model, which makes estimation and testing possible.
+\item It supports engineering through failure probabilities and queue lengths, information theory through entropy and channel noise, and economics through risk and expected utility.
+\item In every application, the theory converts uncertain future outcomes into averages, distributions, or bounds that can guide a decision \cite{probability_theory_ref1,probability_theory_ref3}.
+}
+\chapterquestions{Probability theory}{sample spaces, events, conditional probabilities, and expectations}{the probability of at least one six in two fair die rolls}{$1-(5/6)^2=11/36$ by taking the complement of no six}{conditional probability updates a model after information is observed}{dependent trials cannot be multiplied blindly; probability supports risk and forecasting}{probability_theory_ref1}
+\section*{8. References}
+\begin{thebibliography}{9}
+\bibitem{probability_theory_ref1} D. Williams, \emph{Weighing the Odds}.
+\bibitem{probability_theory_ref2} S. M. Ross, \emph{A First Course in Probability}.
+\bibitem{probability_theory_ref3} A. N. Kolmogorov, \emph{Foundations of the Theory of Probability}.
+\end{thebibliography}

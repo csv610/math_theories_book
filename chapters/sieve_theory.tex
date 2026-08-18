@@ -1,0 +1,74 @@
+\theory{Sieve theory}{How can we estimate the size of a set of integers after removing numbers divisible by selected primes?}{Sieve theory develops weighted versions of the sieve of Eratosthenes. It estimates sifted sets, often primes or almost-primes, without testing every integer.}{Prime distribution, twin-prime questions, almost-primes, bounded gaps, and analytic number theory.}{Inclusion-exclusion over prime divisors produces upper and lower bounds for arithmetic sets that are difficult to count directly.}
+
+\paragraph{The idea and history}
+To find primes up to $X$, cross out multiples of $2$, then $3$, then $5$, and so on. This is the sieve of Eratosthenes. Viggo Brun introduced the word sieve in 1915 and adapted the idea to questions about prime pairs \cite{sieve_ref1}.
+
+Let $\mathcal A$ be a sequence of nonnegative weights and $\mathcal P$ a set of primes. If $P(z)$ is the product of primes in $\mathcal P$ below $z$, a basic sifted sum is
+\[
+S(\mathcal A,\mathcal P,z)=\sum_{\substack{n\\(n,P(z))=1}}a_n.
+\]
+It counts or weights members of $\mathcal A$ not divisible by selected small primes. Weights are useful because the exact prime indicator is hard to handle, while a smooth approximation can be estimated \cite{sieve_ref2}.
+
+\end{historylist}
+\section*{3. Theory}
+\subsection*{Core theory}
+\paragraph{Main sieves and the parity problem}
+The Brun sieve, Selberg sieve, Turan sieve, large sieve, larger sieve, and Goldston--Pintz--Yildirim sieve use different weights and information about residue classes. A sieve often replaces primes by almost-primes, numbers with only a few prime factors, because almost-primes are easier to count.
+
+The parity problem says that ordinary sieve information is poor at distinguishing integers with an odd number of prime factors from integers with an even number. This is why sieve methods alone have difficulty proving the twin prime conjecture, even when they can prove that numbers with two prime factors occur infinitely often \cite{sieve_ref3}.
+
+\paragraph{Major results}
+Brun's theorem proves that the sum of reciprocals of twin-prime pairs converges. Chen's theorem proves that infinitely many primes $p$ have $p+2$ either prime or semiprime. Chen also proved that every sufficiently large even number is a prime plus a prime or semiprime.
+
+The fundamental lemma estimates the number left after a controlled number of sifting steps. It is usually too weak to isolate all primes, but it is powerful for almost-prime results. The Friedlander--Iwaniec theorem proves infinitely many primes of the form $a^2+b^4$. Zhang's theorem proved infinitely many prime pairs within a bounded distance, and Maynard--Tao methods gave stronger bounded-gap results \cite{sieve_ref3,sieve_ref4}.
+
+\paragraph{Applications and limits}
+Sieve estimates combine with the circle method, distribution estimates, and analytic number theory. They count primes in polynomial sequences, control exceptional sets, and provide upper bounds for prime patterns. Factorization algorithms called the quadratic sieve and number-field sieve use related ideas but are distinct computational methods.
+
+\section*{4. Important theorems and results}
+\begin{enumerate}[leftmargin=*,itemsep=0.35em]
+\item \textbf{Fundamental lemma.} Under suitable distribution hypotheses, a sifted set can be estimated after a controlled number of prime exclusions.
+
+\item \textbf{Brun's theorem.} The reciprocal sum over twin primes converges.
+
+\item \textbf{Chen's theorem.} Infinitely many primes have a companion two units away that is prime or semiprime.
+
+\item \textbf{Friedlander--Iwaniec theorem.} Infinitely many primes are represented by $a^2+b^4$.
+
+\item \textbf{Zhang's bounded-gap theorem.} Infinitely many pairs of primes occur within some fixed finite distance.
+
+\item \textbf{Maynard--Tao theorem.} Bounded intervals contain arbitrarily many primes for infinitely many choices of the interval, with a bound depending on the desired number.
+\end{enumerate}
+\noindent\emph{Source for these results:} \cite{sieve_ref1}.
+
+\theoryapplications
+\theoryconnections{sieve_theory}{%
+\item Sieve theory starts with inclusion--exclusion: to count numbers with no forbidden prime divisor, subtract multiples of each prime, add back multiples of pairs, and so on.
+\item Congruences describe which residue classes survive, divisor sums organize the repeated inclusion--exclusion, and analytic estimates control the error created when the calculation is truncated.
+\item The art is to keep enough local information to get a useful global bound without needing to know every prime factor exactly \cite{sieve_ref1,sieve_ref2}.
+}{%
+\item A sieve can upper-bound how many integers represent a sum of primes or have a prescribed pattern of prime factors, even when proving primality itself is out of reach.
+\item This supplies almost-prime results in additive number theory and bounds for prime gaps.
+\item Its output is often an inequality rather than an exact count, because discarded correlations between divisibility conditions are precisely what make a simple sieve tractable \cite{sieve_ref1,sieve_ref3}.
+}
+\section*{7. Sample Questions}
+\emph{Exercise reference:} \cite{sieve_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
+\begin{enumerate}[leftmargin=*,itemsep=0.9em]
+\item \textbf{Exercise 1. What numbers remain after sieving $1$ through $20$ by primes $2$ and $3$?} Remove multiples of $2$ or $3$. The remaining numbers are $1,5,7,11,13,17,19$.
+
+\item \textbf{Exercise 2. Why does a sieve count almost-primes more easily than primes?} Divisibility by small primes can be controlled, but proving that no larger prime factor remains is harder. Allowing a bounded number of factors avoids the final test.
+
+\item \textbf{Exercise 3. Why does the parity problem obstruct?} It obstructs reliably separating numbers with an odd number of prime factors from those with an even number.
+
+\item \textbf{Exercise 4. Why are weights used?} Weighted sums can approximate a difficult prime indicator while interacting well with congruences and averaging.
+
+\item \textbf{Exercise 5. What did Chen's theorem achieve?} It reached near versions of the twin-prime and Goldbach goals by replacing one required prime with a semiprime.
+
+\end{enumerate}
+\section*{8. References}
+\begin{thebibliography}{9}
+\bibitem{sieve_ref1} A. C. Cojocaru and M. R. Murty, \emph{An Introduction to Sieve Methods and Their Applications}.
+\bibitem{sieve_ref2} H. Halberstam and H.-E. Richert, \emph{Sieve Methods}.
+\bibitem{sieve_ref3} J. Friedlander and H. Iwaniec, \emph{Opera de Cribro}.
+\bibitem{sieve_ref4} J. Maynard, \emph{Small Gaps Between Primes}.
+\end{thebibliography}

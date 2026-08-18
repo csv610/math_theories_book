@@ -1,0 +1,93 @@
+\theory{Knot theory}{When are two tangled loops really the same knot, and how can the difference be detected without untangling them physically?}{Knot theory studies embeddings of circles in three-dimensional space up to ambient deformation. Diagrams, Reidemeister moves, knot groups, polynomials, and geometric invariants turn visual tangling into calculable mathematics.}{Topology, DNA and proteins, polymers, quantum topology, statistical mechanics, and topological quantum computation.}{Isotopy classes, knot complements, and invariants distinguish embeddings of circles in three-dimensional space.}
+
+\paragraph{Definition and history}
+A mathematical knot is a copy of a circle embedded in $\mathbb R^3$; its ends are joined, unlike a shoelace. Two knots are equivalent when one can be carried to the other by a continuous family of homeomorphisms of space, with no cutting or passing through itself. The untwisted circle is the unknot; the trefoil is the simplest nontrivial knot \cite{knot_theory_ref1}.
+
+Vandermonde and Gauss studied early topological features, including the linking integral. Lord Kelvin's nineteenth-century idea that atoms might be knotted vortices motivated Peter Tait's knot tables. Dehn, Alexander, Reidemeister, Thurston, Jones, Witten, Kontsevich, and Kauffman later introduced algebraic, geometric, and quantum methods.
+
+\end{historylist}
+\section*{3. Theory}
+\subsection*{Core theory}
+\paragraph{Diagrams and Reidemeister moves}
+\bookfigure{knot_braid}{Knot and braid diagrams turn strand motion into a mathematical object.}
+Project a knot to the plane so that crossings are transverse double points. At each crossing, record which strand passes over the other. Different projections of the same knot look different, so one needs diagram moves that preserve the knot.
+
+Reidemeister's three moves are: create or remove a twist; pull one strand across another; and move a strand across a crossing. Two diagrams represent equivalent knots exactly when a finite sequence of these moves connects them. This gives a finite local language for a global deformation \cite{knot_theory_ref2}.
+
+\paragraph{Invariants}
+A knot invariant gives the same answer for every diagram of an equivalent knot. The knot group is the fundamental group of the complement of the knot. The Alexander polynomial comes from the infinite cyclic cover of the complement. The Jones and Kauffman polynomials use skein relations and connect knot theory to quantum groups and statistical mechanics.
+
+For the Alexander--Conway polynomial of an oriented link, the unknot has value $1$ and a crossing relation has the form $C(L_+)=C(L_-)+zC(L_0)$. Applying it to the trefoil gives $1+z^2$, different from the unknot, so the trefoil is knotted. The polynomial does not distinguish the left and right trefoils, but the Jones polynomial can distinguish their chirality.
+
+\paragraph{Hyperbolic geometry and higher dimensions}
+Most knots are hyperbolic: their complements admit a complete finite-volume hyperbolic metric. Volume, cusp shape, and other hyperbolic data become invariants. Thurston's hyperbolization work connected knot complements to three-dimensional geometry.
+
+A higher-dimensional knot is an $n$-sphere embedded in $(n+2)$-dimensional Euclidean space. Links have several components. Tangles have open ends and model local pieces of knots. Knot multiplication joins two knots; prime knots cannot be decomposed nontrivially, and tables use crossing number to organize examples.
+
+\paragraph{Tabulation and computation}
+The Alexander--Briggs notation records crossing number and index. Dowker--Thistlethwaite codes, Conway notation, and Gauss codes encode diagrams in machine-readable form. More than billions of knots and links have been tabulated. Knot recognition has algorithms, including unknot-recognition algorithms, but their practical complexity remains a major question.
+
+\paragraph{Applications}
+DNA and proteins can become knotted or linked. Tangles model the action of topoisomerase enzymes, and knot invariants can distinguish molecular handedness. Polymer physics studies how knots affect elasticity and entanglement. Jones-polynomial ideas inspired topological quantum computation, where protected information is stored in global braiding patterns \cite{knot_theory_ref3}.
+
+\paragraph{What the theory depends on and where it is useful}
+Knot theory depends on topology, group theory, homology, geometry, and combinatorics. It helps low-dimensional topology through knot complements and three-manifolds, quantum topology through polynomial invariants, and biology through molecular tangles.
+
+No single invariant distinguishes every knot. A successful test may prove two knots different but usually cannot prove they are the same without a complete equivalence algorithm.
+
+\section*{4. Important theorems and results}
+\begin{enumerate}[leftmargin=*,itemsep=0.35em]
+\item \textbf{Reidemeister theorem.} Equivalent knot diagrams are related by the three Reidemeister moves.
+
+\item \textbf{Alexander polynomial.} The Alexander invariant of a knot complement produces a computable polynomial invariant.
+
+\item \textbf{Gordon--Luecke theorem.} A knot in the three-sphere is determined by the homeomorphism type of its complement.
+
+\item \textbf{Thurston hyperbolization.} Many knot complements carry a finite-volume hyperbolic structure.
+
+\item \textbf{Jones polynomial.} A quantum invariant obtained from a skein relation and capable of detecting chirality in examples \cite{knot_theory_ref4}.
+
+The theorems answer three different questions. Reidemeister moves identify when two drawings represent the same knot; polynomial invariants provide computable tests that can distinguish drawings; and the complement theorems show that the surrounding three-dimensional space can determine the knot itself. Hyperbolic geometry adds measurable structure, such as volume, to many knot complements. None of these invariants is a universal quick classifier, so several must often be combined.
+\end{enumerate}
+
+\theoryapplications
+\theoryconnections{knot theory}{%
+\item Topology supplies embeddings and ambient isotopy, group theory supplies knot groups, and algebraic topology supplies homology and covering spaces.
+\item Combinatorics and polynomial algebra turn a knot diagram into invariants that can be computed.
+}{%
+\item Knot theory helps study DNA recombination, polymer entanglement, fluid vortices, and three-dimensional manifolds.
+\item A knot invariant is useful when it separates examples or predicts a property, but one invariant rarely gives a complete classification.
+}
+\section*{7. Sample Questions}
+\emph{Exercise reference:} \cite{knot_theory_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
+\begin{enumerate}[leftmargin=*,itemsep=0.9em]
+\item \textbf{Exercise 1.} Why is the unknot different from a knot tied in a rope?
+
+\emph{Solution.} A mathematical knot is closed: its two ends are joined. A rope can be untied by sliding an end out, while a closed knot cannot use that escape.
+
+\item \textbf{Exercise 2.} What do Reidemeister moves preserve?
+
+\emph{Solution.} They preserve the ambient-isotopy class of the knot, even though they change the planar drawing.
+
+\item \textbf{Exercise 3.} Why can an invariant fail to distinguish knots?
+
+\emph{Solution.} An invariant is a summary. Different knots may produce the same summary, so several invariants or a deeper complement analysis may be needed.
+
+\item \textbf{Exercise 4.} What does the knot group describe?
+
+\emph{Solution.} It describes how loops in the three-dimensional space outside the knot can be combined and deformed.
+
+\item \textbf{Exercise 5.} Why are tangles useful for DNA?
+
+\emph{Solution.} A local DNA operation affects a segment with two ends. Tangle diagrams model that local segment and compare the knot or link before and after the operation.
+
+\end{enumerate}
+\section*{8. References}
+\addcontentsline{toc}{section}{References}
+
+\begin{thebibliography}{9}
+\bibitem{knot_theory_ref1} Colin C. Adams, \emph{The Knot Book}, American Mathematical Society, 2004.
+\bibitem{knot_theory_ref2} W. B. R. Lickorish, \emph{An Introduction to Knot Theory}, Springer, 1997.
+\bibitem{knot_theory_ref3} Dorothy Buck and Erica Flapan, \emph{Topology of Molecular Biology}, World Scientific, 2009.
+\bibitem{knot_theory_ref4} Dale Rolfsen, \emph{Knots and Links}, Publish or Perish, 1976.
+\end{thebibliography}

@@ -1,0 +1,143 @@
+\theory{Ergodic theory}{When can the average seen by one system over a long time equal the average over all possible states?}{Ergodic theory studies statistical properties of deterministic dynamical systems. A measure-preserving transformation moves points without changing total measure, and an ergodic transformation has no invariant region of intermediate measure. For almost every starting point, long-time averages then agree with space averages.}{Statistical mechanics, probability, dynamical systems, harmonic analysis, geometry, Lie groups, number theory, geodesic flows, Markov processes, and recurrence questions.}{Measure-preserving dynamics and invariant averages explain when long trajectories represent the statistical behavior of the whole space.}
+
+\paragraph{The problem and its history}
+
+A gas contains an enormous number of particles, so tracking every trajectory is impossible. A physicist instead measures temperature or pressure, which are averages. Ergodic theory asks when observing one deterministic trajectory for a long time gives the same answer as sampling all states at one time.
+
+The theory is built on measure theory and deterministic dynamics. There is no random noise in the equations; the apparent randomness comes from complicated motion and limited observation. Its early motivation was statistical physics, where the ergodic hypothesis proposed that time averages and ensemble averages should agree. \cite{ergodic_theory_ref1,ergodic_theory_ref2}
+
+\end{historylist}
+\section*{3. Theory}
+\subsection*{Core theory}
+\paragraph{Measure-preserving transformations and ergodicity}
+
+Let $(X,\Sigma,\mu)$ be a probability space and let $T:X\to X$ be measurable. It preserves measure if
+\[
+ \mu(T^{-1}E)=\mu(E)
+\]
+for every measurable set $E$. The transformation is ergodic if every essentially invariant set has measure zero or one:
+\[
+ \mu(T^{-1}E\mathbin{\triangle}E)=0
+ \quad\Longrightarrow\quad
+ \mu(E)\in\{0,1\}.
+\]
+There is no nontrivial region that the dynamics preserves as a separate statistical world.
+
+The oatmeal analogy is useful. A spoonful of syrup is stirred through a bowl without compressing or dilating the material. An ergodic stirring eventually spreads the syrup so thoroughly that a long observation of one small portion reflects the whole bowl. Mixing is stronger: it says that two sets become asymptotically independent. Equidistribution says that visits are distributed according to the measure.
+
+\paragraph{Examples}
+
+Rotation of the circle by an irrational angle,
+\[
+ T(x)=x+\theta\pmod 1,
+\]
+is ergodic. In fact it is uniquely ergodic, minimal, and equidistributed: every orbit visits intervals in the correct proportion. If $\theta=p/q$ is rational, every orbit is periodic with period $q$, so an interval shorter than $1/q$ produces an invariant union with intermediate measure and the map is not ergodic.
+
+A Bernoulli shift moves an infinite sequence of independent symbols one place to the left. It is ergodic, and Kolmogorov's zero--one law explains why tail events have probability zero or one. For torus automorphisms given by an integer matrix, ergodicity is equivalent to having no eigenvalue that is a root of unity.
+
+Hamiltonian systems preserve phase-space volume under Liouville's theorem. A compact energy surface with a nonconstant first integral has invariant subsets of intermediate measure, so it cannot be ergodic on that surface. Completely integrable systems provide an important opposite behavior: many conserved quantities constrain trajectories to lower-dimensional tori. \cite{ergodic_theory_ref2,ergodic_theory_ref3}
+
+\paragraph{Time averages, space averages, and recurrence}
+
+For an integrable observable $f$, the time average along the trajectory starting at $x$ is
+\[
+ \widehat f(x)=\lim_{N\to\infty}
+ \frac1N\sum_{k=0}^{N-1}f(T^kx).
+\]
+The space average on a probability space is
+\[
+ \overline f=\int_Xf\,d\mu.
+\]
+For a general measure-preserving system these may differ. For an ergodic system they agree for almost every starting point.
+
+Poincare's recurrence theorem says that in a finite measure-preserving system, almost every point in a measurable set eventually returns to that set. Recurrence does not mean that the trajectory returns to the exact same point; it returns arbitrarily close or revisits a set. A smaller set has a longer typical recurrence time.
+
+If $A$ is measurable, the time spent in $A$ is the average of its indicator function:
+\[
+ \lim_{N\to\infty}\frac1N\sum_{k=0}^{N-1}\mathbf1_A(T^kx)=\mu(A)
+\]
+for almost every $x$ in an ergodic probability system. The average return time to $A$, when finite, is proportional to $1/\mu(A)$. \cite{ergodic_theory_ref1,ergodic_theory_ref4}
+
+\paragraph{The ergodic theorems}
+
+The Birkhoff pointwise ergodic theorem states that if $f\in L^1(\mu)$ and $T$ preserves $\mu$, then the time average exists almost everywhere. The limit is invariant under $T$ and has the same integral as $f$. If $T$ is ergodic, the invariant limit is constant and equals $\int f\,d\mu$.
+
+In probabilistic form, the Birkhoff--Khinchin theorem identifies the limit with the conditional expectation of $f$ given the sigma-algebra of invariant sets. Ergodicity makes that sigma-algebra trivial, producing the usual expected value.
+
+Von Neumann's mean ergodic theorem gives convergence in Hilbert-space norm. If $U$ is a unitary or isometric operator and $P$ projects onto its fixed vectors, then
+\[
+ \frac1N\sum_{n=0}^{N-1}U^nx\longrightarrow Px
+\]
+in norm. For $Uf=f\circ T$, this says that averages converge to the invariant part of the function. In $L^p$ spaces, ergodic means converge to conditional expectation under the appropriate strong or weak operator topology. \cite{ergodic_theory_ref1,ergodic_theory_ref5}
+
+\paragraph{Flows, geometry, and connected subjects}
+
+A continuous flow is a family $T_t$ satisfying $T_{s+t}=T_sT_t$. Ergodic flows arise from differential equations. Hopf proved ergodicity of geodesic flow on negatively curved surfaces; later work extended this to variable negative curvature and higher-dimensional manifolds.
+
+Geodesic flows on hyperbolic manifolds connect ergodic theory with Lie groups and lattices. Horocycle flows, homogeneous flows, Anosov systems, and Ratner's theorems study how invariant measures and orbits are classified. Harmonic analysis and representation theory provide operators whose spectra reveal mixing and decay of correlations.
+
+Number theory uses ergodic methods for Diophantine approximation, lattice actions, and the distribution of arithmetic orbits. Markov chains and stationary stochastic processes provide probabilistic examples, even though the underlying shift dynamics can be deterministic.
+
+\paragraph{What the theory depends on and where it is useful}
+
+Ergodic theory depends on measure theory, probability, dynamical systems, functional analysis, operator theory, and topology. It helps statistical mechanics by justifying macroscopic averages, helps number theory by translating orbit distribution into measure statements, and helps geometry by analyzing geodesic flows.
+
+The theory is useful when individual trajectories are too complicated but averages are meaningful. It does not say that every deterministic system is ergodic. Conserved quantities, disconnected invariant regions, and stable islands can prevent time and space averages from agreeing.
+
+\section*{4. Important theorems and results}
+\begin{enumerate}[leftmargin=*,itemsep=0.35em]
+
+\item \textbf{Poincare recurrence theorem.} Almost every point of a finite measure-preserving system returns arbitrarily close to its initial region infinitely often. \cite{ergodic_theory_ref1}
+
+\item \textbf{Birkhoff pointwise ergodic theorem.} Time averages of integrable observables exist almost everywhere; in an ergodic system they equal the space average almost everywhere. \cite{ergodic_theory_ref1}
+
+\item \textbf{Von Neumann mean ergodic theorem.} Cesaro averages of a unitary operator converge in Hilbert norm to the orthogonal projection onto its fixed-vector space. \cite{ergodic_theory_ref5}
+
+\item \textbf{Birkhoff--Khinchin formulation.} The pointwise time-average limit is the conditional expectation onto the invariant sigma-algebra; ergodicity makes this sigma-algebra trivial. \cite{ergodic_theory_ref2}
+
+\item \textbf{Kac recurrence principle.} For a measurable set of positive measure in an ergodic probability system, the mean return time is the reciprocal of its measure, under the standard return-time convention. \cite{ergodic_theory_ref4}
+\end{enumerate}
+
+\theoryapplications
+\theoryconnections{ergodic theory}{%
+\item Measure theory supplies measurable spaces and invariant measures, probability supplies random variables and expectations, and analysis supplies convergence in function spaces.
+\item Dynamical systems provides the transformations whose long-run averages are studied.
+}{%
+\item Ergodic theory helps statistical mechanics replace microscopic motion by macroscopic averages, and it helps number theory and dynamics study equidistribution.
+\item The ergodic hypothesis is a substantive modeling or structural condition, not a synonym for randomness.
+}
+\section*{7. Sample Questions}
+\emph{Exercise reference:} \cite{ergodic_theory_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
+\begin{enumerate}[leftmargin=*,itemsep=0.9em]
+
+\item \textbf{Exercise 1.} Why is an irrational rotation of the circle ergodic?
+
+\emph{Solution.} Its orbit never repeats and is equidistributed around the circle. An invariant measurable set must therefore contain almost all or almost none of the orbit, giving measure zero or one.
+
+\item \textbf{Exercise 2.} What is the difference between a time average and a space average?
+
+\emph{Solution.} A time average follows one orbit and averages the observed values. A space average integrates the observable over all states using the invariant measure. Ergodic theorems state when they agree.
+
+\item \textbf{Exercise 3.} What does measure preservation mean?
+
+\emph{Solution.} If a set has measure $\mu(E)$, its inverse image under the transformation has the same measure. The dynamics rearranges mass but does not create or destroy it.
+
+\item \textbf{Exercise 4.} Does recurrence mean a point returns exactly to its starting position?
+
+\emph{Solution.} Usually no. It means that the orbit returns arbitrarily close or revisits a measurable neighborhood. Exact return may be impossible in a continuous state space.
+
+\item \textbf{Exercise 5.} Why does a conserved quantity obstruct ergodicity?
+
+\emph{Solution.} A conserved quantity partitions the phase space into level sets. If more than one level set has positive but not full measure, each is an invariant region, contradicting ergodicity.
+
+\end{enumerate}
+\section*{8. References}
+\addcontentsline{toc}{section}{References}
+
+\begin{thebibliography}{9}
+\bibitem{ergodic_theory_ref1} Peter Walters, \emph{An Introduction to Ergodic Theory}, Springer, 1982.
+\bibitem{ergodic_theory_ref2} I. P. Cornfeld, S. V. Fomin, and Ya. G. Sinai, \emph{Ergodic Theory}, Springer, 1982.
+\bibitem{ergodic_theory_ref3} George D. Birkhoff, "Proof of the ergodic theorem," \emph{Proceedings of the National Academy of Sciences}, 17 (1931), 656--660.
+\bibitem{ergodic_theory_ref4} Patrick Billingsley, \emph{Ergodic Theory and Information}, Wiley, 1965.
+\bibitem{ergodic_theory_ref5} John von Neumann, "Proof of the quasi-ergodic hypothesis," \emph{Proceedings of the National Academy of Sciences}, 18 (1932), 70--82.
+\end{thebibliography}

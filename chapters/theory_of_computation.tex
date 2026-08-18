@@ -1,0 +1,69 @@
+\theory{Theory of computation}{Which problems can an algorithm solve, what resources does it need, and where are the limits of mechanical calculation?}{The theory of computation studies formal models of computation and divides into automata and formal languages, computability, and complexity. It separates impossible problems from solvable ones and efficient algorithms from impractical ones.}{Programming languages, compiler design, algorithms, cryptography, verification, artificial intelligence, and the foundations of mathematics.}{Machine models, reductions, and resource bounds distinguish what can be computed from what is undecidable or infeasible.}
+
+\paragraph{The question and history}
+Pioneers included Alonzo Church, Kurt Gödel, Alan Turing, Stephen Kleene, Emil Post, Rózsa Péter, John von Neumann, and Claude Shannon. Turing machines, lambda calculus, recursive functions, register machines, and rewriting systems are different models with the same broad notion of effective calculation, supporting the Church--Turing thesis \cite{computation_ref1}.
+
+\end{historylist}
+\section*{3. Theory}
+\subsection*{Core theory}
+\paragraph{Automata and languages}
+\bookfigure{automata_computation}{Computation can be viewed as state transitions with increasing memory.}
+Finite automata recognize regular languages, such as strings matching a simple pattern. Pushdown automata recognize context-free languages, which describe nested syntax such as balanced parentheses. Linear-bounded machines recognize context-sensitive languages, and Turing machines recognize recursively enumerable languages. These form the Chomsky hierarchy \cite{computation_ref2}.
+
+\paragraph{Computability}
+A set of natural numbers is decidable if a Turing machine halts and answers yes or no for every input. A function is computable if a machine halts with its value. The halting problem asks whether an arbitrary machine eventually stops on an input. Turing and Church proved that no algorithm decides this for all machines.
+
+Rice's theorem says every nontrivial property of the partial function computed by a machine is undecidable. Matiyasevich's theorem solved Hilbert's tenth problem negatively: no algorithm decides whether an arbitrary Diophantine equation has an integer solution \cite{computation_ref3}.
+
+\paragraph{Complexity}
+Complexity theory studies resources such as time and space as functions of input size. The class P contains problems solvable in polynomial time. NP contains problems whose proposed solutions can be checked in polynomial time. The P versus NP problem asks whether every efficiently checkable problem is efficiently solvable.
+
+Big-O notation suppresses machine-dependent constants and compares growth. Searching an unsorted list takes $O(n)$ steps, while binary search on a sorted list takes $O(\log n)$. Complexity classes, reductions, randomized computation, approximation, and circuit complexity organize the limits of efficient algorithms \cite{computation_ref4}.
+
+\section*{4. Important theorems and results}
+\begin{enumerate}[leftmargin=*,itemsep=0.35em]
+\item \textbf{Church--Turing thesis.} All effectively calculable functions are captured by equivalent formal models such as Turing machines and lambda calculus.
+
+\item \textbf{Halting theorem.} No Turing machine decides whether every machine halts on every input.
+
+\item \textbf{Rice's theorem.} Every nontrivial semantic property of partial computable functions is undecidable.
+
+\item \textbf{Cook--Levin theorem.} Boolean satisfiability is NP-complete.
+
+\item \textbf{Matiyasevich theorem.} Hilbert's tenth problem has no algorithmic solution.
+
+\item \textbf{Space and time hierarchies.} With more time or space, machines can solve strictly more problems in broad formal settings.
+\end{enumerate}
+\noindent\emph{Source for these results:} \cite{computation_ref1}.
+
+\theoryapplications
+\theoryconnections{theory_of_computation}{%
+\item Logic defines what a computation is allowed to mean, discrete mathematics describes finite strings and graphs, and automata give simple machines whose behavior can be proved.
+\item Algorithms provide the procedures being measured, while proof and probability distinguish guaranteed termination from expected performance.
+\item Reductions are the key mechanism: they translate one problem into another while preserving the answer, so a lower bound for the first problem transfers to the second \cite{computation_ref1,computation_ref4}.
+}{%
+\item The theory supports programming languages by defining syntax, semantics, and the limits of what programs can compute.
+\item It supports cryptography through hardness assumptions, verification through formal properties of all executions, and complexity theory through time and space bounds.
+\item Thus a practical program can be judged not only by whether it works on examples, but by whether its specification is decidable and its resources are bounded \cite{computation_ref1,computation_ref2}.
+}
+\section*{7. Sample Questions}
+\emph{Exercise reference:} \cite{computation_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
+\begin{enumerate}[leftmargin=*,itemsep=0.9em]
+\item \textbf{Exercise 1. Why is balanced-parenthesis recognition not regular?} A finite automaton has only finitely many states and cannot remember an arbitrarily large nesting depth. A pushdown automaton uses a stack, which supplies the needed memory.
+
+\item \textbf{Exercise 2. What is undecidable about the halting problem?} It is not merely difficult; no algorithm can always halt and correctly decide whether an arbitrary program halts on an arbitrary input.
+
+\item \textbf{Exercise 3. Why is binary search logarithmic?} Each comparison halves the remaining sorted interval. After $k$ comparisons at most $n/2^k$ entries remain, so $k$ is about $\log_2 n$.
+
+\item \textbf{Exercise 4. What does NP mean?} It means that a proposed solution can be checked in polynomial time. It does not mean that every problem in NP is known to be hard.
+
+\item \textbf{Exercise 5. Why are reductions useful?} A reduction transforms instances of one problem into another. If a known hard problem reduces to a new problem, an efficient algorithm for the new problem would solve the hard one.
+
+\end{enumerate}
+\section*{8. References}
+\begin{thebibliography}{9}
+\bibitem{computation_ref1} M. Sipser, \emph{Introduction to the Theory of Computation}.
+\bibitem{computation_ref2} J. E. Hopcroft, R. Motwani, and J. D. Ullman, \emph{Introduction to Automata Theory, Languages, and Computation}.
+\bibitem{computation_ref3} H. Rogers, \emph{Theory of Recursive Functions and Effective Computability}.
+\bibitem{computation_ref4} S. Arora and B. Barak, \emph{Computational Complexity}.
+\end{thebibliography}

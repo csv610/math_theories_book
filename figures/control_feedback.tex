@@ -1,0 +1,17 @@
+\begin{tikzpicture}[>=Latex,scale=.82,transform shape,
+  box/.style={draw,rounded corners,align=center,minimum width=1.75cm,minimum height=.75cm}]
+\node[align=center] (ref) at (0,0) {desired\\value};
+\node[draw,circle] (sum) at (2,0) {$+$};
+\node[box] (controller) at (4.2,0) {controller};
+\node[box,fill=blue!8] (plant) at (6.8,0) {system\\(plant)};
+\node[align=center] (out) at (9.1,0) {output};
+\node[box] (sensor) at (6.8,-1.6) {sensor};
+\draw[->] (ref)--(sum);
+\draw[->] (sum)--node[above]{error}(controller);
+\draw[->] (controller)--(plant);
+\draw[->] (plant)--(out);
+\draw[->] (out)--(9.1,-1.6)--(sensor);
+\draw[->] (sensor)--(2,-1.6)--(sum);
+\node at (1.7,-1.6) {$-$};
+\node[align=center] at (4.5,-2.25) {measure the output, compare it with the target,\\and correct the input};
+\end{tikzpicture}

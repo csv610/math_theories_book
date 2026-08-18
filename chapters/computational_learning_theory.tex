@@ -1,0 +1,138 @@
+\theory{Computational learning theory}{How much data is needed to learn a concept, and when can a concept be learned efficiently?}{Computational learning theory studies what can be inferred from examples and how much evidence is needed. It asks whether a learner can find a hypothesis that is probably approximately correct, how many samples suffice, and what properties of a concept class determine its learnability.}{Machine learning, statistics, data mining, artificial intelligence, computer vision, natural language processing, bioinformatics, and economics.}{Sample complexity, VC dimension, and Rademacher complexity measure how much data a concept class needs before a learner can generalise reliably.}
+
+\paragraph{The learning problem}
+A learner receives examples of an unknown function $f$ drawn from a fixed but unknown distribution $\mathcal D$ over an instance space $\mathcal X$. The learner chooses a hypothesis $h$ from a hypothesis class $\mathcal H$. The error of $h$ is the probability that $h(x)\neq f(x)$ when $x$ is drawn from $\mathcal D$. The learner does not know $\mathcal D$ or $f$; it sees only a finite sample. The central question is how large that sample must be so that the chosen $h$ has small error with high probability.
+
+\paragraph{Historical development}
+\begin{historylist}
+\paragraph{Origins in psychology and philosophy}
+The problem of learning from examples is older than its mathematical formulation. William of Ockham suggested in the fourteenth century that the simplest explanation consistent with observations is preferred. In the twentieth century, questionnaires about concept acquisition led to early artificial intelligence systems that tried to infer rules from positive and negative examples.
+
+\paragraph{Valiant's PAC framework}
+Leslie Valiant proposed the Probably Approximately Correct model in 1984. He defined learnability as a complexity question: a concept class is learnable when a learner can, from a polynomial number of examples, produce a hypothesis whose error is below a chosen tolerance with high probability. This made learning a topic of computational complexity theory \cite{colt_ref1}.
+
+\paragraph{VC theory}
+Vladimir Vapnik and Alexey Chervonenkis introduced the dimension that bears their name in 1971. The VC dimension measures the largest set of points that a hypothesis class can shatter, meaning it can realize every possible labeling of those points. It controls sample complexity: a class with finite VC dimension needs only finitely many examples to learn, regardless of the distribution.
+
+\paragraph{Online learning and boosting}
+In the 1990s, online learning models received new attention. The weighted majority algorithm and its variants combined weak learners into strong ones. Robert Schapire and Yoav Freund developed AdaBoost, which provably reduces error by combining classifiers that are only slightly better than random guessing. These results connected computational learning theory with practical machine learning \cite{colt_ref3}.
+
+\paragraph{Contemporary directions}
+Modern work extends the PAC framework to distribution-free settings, to classes with infinite VC dimension measured by Rademacher complexity, to agnostic learning where no target concept in the class is assumed, and to statistical learning theory where the emphasis is on generalisation bounds rather than computational efficiency \cite{colt_ref2}.
+
+\end{historylist}
+\section*{3. Theory}
+\subsection*{Core theory}
+\paragraph{The PAC model}
+In the PAC model, the learner receives $m$ independent examples $(x_i,f(x_i))$ drawn from $\mathcal D$. It outputs a hypothesis $h\in\mathcal H$. The hypothesis has error $\operatorname{err}(h)=\Pr_{x\sim\mathcal D}[h(x)\neq f(x)]$. The learner is probably approximately correct when for every $\varepsilon,\delta>0$, it produces $h$ with $\operatorname{err}(h)\leq\varepsilon$ with probability at least $1-\delta$, provided the sample size $m$ is large enough.
+
+The sample complexity is the minimum $m$ that guarantees this. For a finite hypothesis class $\mathcal H$ and a realisable setting where the target $f$ belongs to $\mathcal H$, the bound
+\[
+m\geq\frac{1}{\varepsilon}\left(\ln|\mathcal H|+\ln\frac{1}{\delta}\right)
+\]
+suffices. It follows from a union bound: each bad hypothesis can be eliminated by seeing a counterexample, and the number of hypotheses is $|\mathcal H|$.
+
+\paragraph{VC dimension}
+When $\mathcal H$ is infinite, VC dimension replaces $|\mathcal H|$. A set of points $S=\{x_1,\ldots,x_n\}$ is shattered by $\mathcal H$ when for every subset $T\subseteq S$, there exists $h\in\mathcal H$ such that $h(x_i)=1$ if and only if $x_i\in T$. The VC dimension $\operatorname{VC}(\mathcal H)$ is the largest $n$ for which some set of size $n$ is shattered.
+
+A half-plane in $\mathbb R^2$ has VC dimension three: it can shatter any three non-collinear points but cannot shatter four. The growth function $\Pi_{\mathcal H}(m)$ counts the number of distinct labelings that $\mathcal H$ produces on $m$ points. Sauer's lemma bounds it:
+\[
+\Pi_{\mathcal H}(m)\leq\sum_{i=0}^{\operatorname{VC}(\mathcal H)}\binom{m}{i}\leq\left(\frac{em}{\operatorname{VC}(\mathcal H)}\right)^{\operatorname{VC}(\mathcal H)}.
+\]
+This implies that $\mathcal H$ shatters at most a polynomial number of labelings even when it is infinite, so the sample bound generalises:
+\[
+m\geq C\frac{\operatorname{VC}(\mathcal H)\ln(1/\varepsilon)+\ln(1/\delta)}{\varepsilon^2}
+\]
+examples suffice for PAC learning \cite{colt_ref2}.
+
+\paragraph{Rademacher complexity}
+Rademacher complexity measures the richness of a hypothesis class by how well it can fit random noise. For a sample $S=(x_1,\ldots,x_m)$ and a class $\mathcal H$ of real-valued functions, the empirical Rademacher complexity is
+\[
+\hat{\mathfrak R}_S(\mathcal H)=\mathbb E_\sigma\left[\sup_{h\in\mathcal H}\frac{1}{m}\sum_{i=1}^m\sigma_i h(x_i)\right],
+\]
+where $\sigma_i$ are independent Rademacher random variables taking values $\pm1$ with equal probability. A generalisation bound of the form
+\[
+\operatorname{err}(h)\leq\hat{\operatorname{err}}(h)+2\hat{\mathfrak R}_S(\mathcal H)+\sqrt{\frac{\ln(1/\delta)}{2m}}
+\]
+holds simultaneously for all $h\in\mathcal H$ with probability at least $1-\delta$. When $\mathcal H$ consists of linear classifiers in $\mathbb R^d$ with bounded norm, $\hat{\mathfrak R}_S(\mathcal H)$ is of order $\sqrt{d/m}$, giving a parametric rate even when the class is infinite \cite{colt_ref4}.
+
+\paragraph{Agnostic learning}
+In agnostic learning, the target $f$ may not belong to $\mathcal H$. The best achievable error is
+\[
+\operatorname{err}^*=\inf_{h\in\mathcal H}\operatorname{err}(h).
+\]
+A learner is agnostically PAC when it finds $h$ with $\operatorname{err}(h)\leq\operatorname{err}^*+\varepsilon$ with high probability. The sample complexity depends on the pseudo-dimension of $\mathcal H$, a generalisation of VC dimension for real-valued function classes. Agnostic learning is harder than realisable learning: without the assumption that $f\in\mathcal H$, more examples are needed and the hypothesis class must satisfy additional structural conditions such as convexity or finite metric entropy \cite{colt_ref2}.
+
+\paragraph{Boosting}
+Boosting combines many weak learners, each slightly better than random, into a single strong learner. AdaBoost maintains a distribution over training examples, focusing on those that the current ensemble misclassifies. After $T$ rounds, the combined hypothesis has error
+\[
+\operatorname{err}\leq\prod_{t=1}^T2\sqrt{\varepsilon_t(1-\varepsilon_t)},
+\]
+where $\varepsilon_t$ is the weighted error of the $t$-th weak learner. If each weak learner has error below $1/2-\gamma$, the product decreases exponentially with $T$. Schapire showed that boosting is possible in principle; Freund and Schapire gave a practical algorithm. The connection to margin theory explains why boosting often improves generalisation even when training error reaches zero \cite{colt_ref3}.
+
+\paragraph{Online learning and regret minimization}
+In online learning, examples arrive one at a time and the learner must predict before seeing the label. Regret compares the learner's cumulative loss with the best fixed hypothesis in hindsight. The weighted majority algorithm achieves regret $O(\sqrt{T\ln|\mathcal H|})$ over $T$ rounds. The hedge algorithm and follow-the-regularised-leader extend this to infinite strategy sets. Online-to-batch conversion turns an online algorithm with low regret into a batch learner with good generalisation \cite{colt_ref5}.
+
+\paragraph{Computational efficiency}
+PAC learning requires the hypothesis to have low error, but it does not require the learner to run in polynomial time. Proper PAC learning requires outputting a hypothesis from $\mathcal H$; improper learning allows outputting any computable function. Some classes are efficiently improperly learnable but not efficiently properly learnable. The relationship between computational and statistical complexity remains a central open question: many classes with finite VC dimension are statistically learnable but not known to be computationally learnable in polynomial time \cite{colt_ref1}.
+
+\paragraph{Applications}
+In machine learning, PAC bounds guide model selection and tell practitioners how much data is needed. In natural language processing, VC bounds on recurrent networks help estimate sample requirements. In computational biology, learning theory explains why gene-expression classifiers need many samples when the number of features is large. In economics and game theory, online learning models describe how agents improve strategies through repeated interaction. In computer vision, sample complexity bounds explain the data hunger of deep networks and motivate data augmentation \cite{colt_ref4}.
+
+\paragraph{What the theory depends on and where it is useful}
+Computational learning theory depends on probability, combinatorics, linear algebra, optimisation, and computational complexity. It helps statistics quantify generalisation, machine learning guide model choice, and computer science separate tractable from intractable learning problems. Its bounds are often conservative: they hold for the worst case over distributions, so practical learning may need fewer examples than the theory guarantees.
+
+\section*{4. Important theorems and results}
+\begin{enumerate}[leftmargin=*,itemsep=0.35em]
+\item \textbf{Fundamental theorem of PAC learning.} A finite hypothesis class is PAC learnable if and only if it is finite, and the sample complexity is $\Theta((\ln|\mathcal H|+\ln(1/\delta))/\varepsilon)$ in the realisable case \cite{colt_ref1}.
+
+\item \textbf{VC dimension theorem.} A hypothesis class with VC dimension $d$ is PAC learnable with sample complexity $\Theta((d+\ln(1/\delta))/\varepsilon^2)$ in the realisable case and $\Theta((d+\ln(1/\delta))/\varepsilon^2)$ in the agnostic case \cite{colt_ref2}.
+
+\item \textbf{Sauer's lemma.} The growth function of a class with VC dimension $d$ is bounded by $(em/d)^d$, ensuring that finite VC dimension implies finite sample complexity \cite{colt_ref2}.
+
+\item \textbf{No-free-lunch theorem.} Without assumptions on the target distribution, no learner can guarantee error below $1/2$ for all possible target functions. Every PAC learning result requires either a restricted hypothesis class or a restriction on the data-generating process \cite{colt_ref1}.
+
+\item \textbf{Boosting theorem.} Any weak learner that produces hypotheses with edge $\gamma$ over random guessing can be boosted into a strong learner with arbitrarily small error by running AdaBoost for $O(\ln(1/\varepsilon)/\gamma^2)$ rounds \cite{colt_ref3}.
+\end{enumerate}
+
+\theoryapplications
+\theoryconnections{computational learning theory}{%
+\item Probability supplies concentration inequalities and Rademacher complexity, while statistics provides hypothesis testing and confidence bounds that compare with PAC guarantees.
+\item Computational complexity separates tractable from intractable learning problems, and information theory bounds the rate at which a learner can reduce uncertainty.
+}{%
+\item Computational learning theory helps machine learning estimate how much data is needed, guides model selection, and explains why boosting, regularisation, and margin maximisation work.
+\item It also connects to online optimisation, game theory, and control by analysing how agents improve through repeated interaction and feedback.
+}
+\section*{7. Sample Questions}
+\emph{Exercise reference:} \cite{colt_ref2}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
+\begin{enumerate}[leftmargin=*,itemsep=0.9em]
+\item \textbf{Exercise 1.} Define the PAC learning model and explain the roles of $\varepsilon$ and $\delta$.
+
+\emph{Solution.} In the PAC model, the learner receives $m$ examples of an unknown function drawn from a fixed distribution. It outputs a hypothesis whose error is at most $\varepsilon$ with probability at least $1-\delta$. The parameter $\varepsilon$ controls accuracy and $\delta$ controls confidence.
+
+\item \textbf{Exercise 2.} What is the VC dimension of intervals on the real line?
+
+\emph{Solution.} The VC dimension is $2$. Two points can be shattered: an interval can include either, both, or neither. Three points cannot always be shattered because the middle point cannot be excluded while including both outer points.
+
+\item \textbf{Exercise 3.} How does the no-free-lunch theorem limit what a learner can guarantee?
+
+\emph{Solution.} Without assumptions on the target or the distribution, no learner can achieve error below $1/2$ for all possible target functions. Every positive learning result requires some restriction, such as a finite hypothesis class, a bounded VC dimension, or an assumption that the target belongs to the class.
+
+\item \textbf{Exercise 4.} Explain how AdaBoost reduces error by combining weak learners.
+
+\emph{Solution.} AdaBoost trains a sequence of weak learners on reweighted versions of the training set, focusing on previously misclassified examples. The combined hypothesis has error bounded by a product that decreases exponentially with the number of rounds, provided each weak learner has error below $1/2$.
+
+\item \textbf{Exercise 5.} Why might Rademacher complexity give tighter generalisation bounds than VC dimension?
+
+\emph{Solution.} VC dimension is a worst-case measure that depends only on the hypothesis class, while Rademacher complexity depends on the specific data distribution through the supremum over random labelings. A class that looks rich in the worst case may fit random noise poorly on a particular dataset, so Rademacher-based bounds can be tighter in practice.
+
+\end{enumerate}
+\section*{8. References}
+
+\begin{thebibliography}{9}
+\bibitem{colt_ref1} L. G. Valiant, "A theory of the learnable," \emph{Communications of the ACM}, 27 (1984), 1134--1142.
+\bibitem{colt_ref2} S. Shalev-Shwartz and S. Ben-David, \emph{Understanding Machine Learning: From Theory to Algorithms}, Cambridge University Press, 2014.
+\bibitem{colt_ref3} R. E. Schapire, "The strength of weak learnability," \emph{Machine Learning}, 5 (1990), 197--227.
+\bibitem{colt_ref4} M. Mohri, A. Rostamizadeh, and A. Talwalkar, \emph{Foundations of Machine Learning}, MIT Press, 2018.
+\bibitem{colt_ref5} N. Cesa-Bianchi and G. Lugosi, \emph{Prediction, Learning, and Games}, Cambridge University Press, 2006.
+\end{thebibliography}

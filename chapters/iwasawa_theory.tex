@@ -1,0 +1,96 @@
+\theory{Iwasawa theory}{What happens to arithmetic information when a number field is enlarged through an infinite tower?}{Iwasawa theory studies Galois modules, especially ideal class groups, throughout towers of number fields. A single infinite module records how arithmetic invariants grow at every finite level.}{Cyclotomic fields, class groups, p-adic analysis, p-adic L-functions, elliptic curves, motives, and modern number theory.}{p-adic towers and modules measure how arithmetic invariants grow across infinitely many related number fields.}
+
+\paragraph{History and motivation}
+Kenkichi Iwasawa began the theory in 1959 while studying cyclotomic fields. The p-part of an ideal class group measures a failure of unique factorization and was connected by Kummer to the difficulty of Fermat's Last Theorem. Instead of studying one field at a time, Iwasawa studied an infinite tower and asked for a law governing the class groups at all levels \cite{iwasawa_theory_ref1,iwasawa_theory_ref2}.
+
+\end{historylist}
+\section*{3. Theory}
+\subsection*{Core theory}
+\paragraph{The basic tower}
+Fix a prime $p$. A $\mathbb Z_p$-extension of a number field $F$ is an infinite Galois extension $F_\infty/F$ whose Galois group is the additive group $\mathbb Z_p$. It has finite layers
+\[
+F=F_0\subset F_1\subset F_2\subset\cdots\subset F_\infty
+\]
+with $\operatorname{Gal}(F_n/F)\cong\mathbb Z/p^n\mathbb Z$. The group $\mathbb Z_p$ is the inverse limit of the finite cyclic groups, so the infinite tower is assembled from finite approximations.
+
+For a cyclotomic example, begin with $K=\mathbb Q(\mu_p)$ and adjoin $p^{n+1}$st roots of unity. The union $K_\infty$ has Galois group $\mathbb Z_p$ over the appropriate base. Let $I_n$ be the $p$-primary part of the ideal class group of $K_n$. Norm maps $I_m\to I_n$ form an inverse system, and $I=\varprojlim I_n$ becomes a module over the Iwasawa algebra
+\[
+\Lambda=\mathbb Z_p[[\Gamma]].
+\]
+
+\paragraph{Why the algebra helps}
+If $\Gamma$ is generated topologically by one element, $\Lambda$ behaves like a two-dimensional regular local power-series ring. The structure theorem for finitely generated torsion $\Lambda$-modules describes $I$ through characteristic factors. The resulting invariants, traditionally called $\mu$, $\lambda$, and $\nu$, govern the size of class groups at high levels. In a common form,
+\[
+v_p(|I_n|)=\mu p^n+\lambda n+\nu
+\]
+for all sufficiently large $n$, with conventions depending on the tower.
+
+This formula does not say the class group itself is simple. It says its $p$-adic size eventually follows a predictable pattern. The infinite object is useful because its module structure explains all finite stages simultaneously.
+
+\paragraph{p-adic analysis and the main conjecture}
+Kubota and Leopoldt constructed p-adic L-functions by interpolating special values of Dirichlet L-functions and Bernoulli-number data. Iwasawa's main conjecture says, roughly, that the characteristic power series of an arithmetic $\Lambda$-module agrees with the p-adic L-function, up to the natural notion of equivalence.
+
+Mazur and Wiles proved the main conjecture for $\mathbb Q$ and totally real fields in the 1980s and 1990. Ribet's converse to Herbrand's theorem and Euler systems supplied influential methods. The conjecture connects algebraic growth of class groups with analytic values of L-functions \cite{iwasawa_theory_ref3}.
+
+\paragraph{Generalizations}
+The Galois group may be a higher-dimensional p-adic Lie group rather than $\mathbb Z_p$. Barry Mazur developed Iwasawa theory for abelian varieties. Ralph Greenberg proposed theories for motives. Elliptic-curve Iwasawa theory studies Selmer groups, ranks, and p-adic L-functions; the main conjecture compares a Selmer module with an analytic function.
+
+\paragraph{What the theory depends on and where it is useful}
+Iwasawa theory depends on algebraic number theory, Galois theory, class field theory, p-adic analysis, modules, and L-functions. It helps the study of Fermat-type questions, elliptic curves, special values, and the arithmetic of infinite extensions.
+
+The statements depend strongly on the chosen prime, tower, and module. A main conjecture may be proved in one family but open in another, and the invariants describe asymptotic growth rather than every small finite layer.
+
+\section*{4. Important theorems and results}
+\begin{enumerate}[leftmargin=*,itemsep=0.35em]
+\item \textbf{Iwasawa structure theorem.} Finitely generated torsion modules over the one-variable Iwasawa algebra admit a controlled decomposition up to finite modules.
+
+\item \textbf{Class-number growth formula.} In a $\mathbb Z_p$-tower, p-parts of suitable class groups eventually have valuation $\mu p^n+\lambda n+\nu$.
+
+\item \textbf{Mazur--Wiles main conjecture.} In major cyclotomic cases, the algebraic characteristic element equals the analytic p-adic L-function.
+
+\item \textbf{Herbrand--Ribet theorem.} Divisibility of Bernoulli-number data is related to nontrivial components of class groups.
+
+\item \textbf{Ferrero--Washington theorem.} The $\mu$-invariant vanishes for abelian number fields in the cyclotomic setting \cite{iwasawa_theory_ref4}.
+\end{enumerate}
+
+\theoryapplications
+\theoryconnections{iwasawa theory}{%
+\item Algebraic number theory supplies class groups and units, p-adic analysis supplies local arithmetic, and commutative algebra supplies modules over the Iwasawa algebra.
+\item Galois theory organizes the infinite towers whose arithmetic is compared.
+}{%
+\item Iwasawa theory helps explain the growth of class groups and Selmer groups in infinite extensions.
+\item Its main conjectures connect algebraic modules with p-adic L-functions, linking arithmetic calculations to analytic information.
+}
+\section*{7. Sample Questions}
+\emph{Exercise reference:} \cite{iwasawa_theory_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
+\begin{enumerate}[leftmargin=*,itemsep=0.9em]
+\item \textbf{Exercise 1.} What is a $\mathbb Z_p$-extension?
+
+\emph{Solution.} It is an infinite Galois extension whose Galois group is the additive p-adic integers, with finite cyclic layers of order $p^n$.
+
+\item \textbf{Exercise 2.} Why use an inverse limit of class groups?
+
+\emph{Solution.} Norm maps connect the finite layers. The inverse limit stores all compatible information in one module on which the Iwasawa algebra acts.
+
+\item \textbf{Exercise 3.} What does the growth formula describe?
+
+\emph{Solution.} It describes the eventual p-adic valuation of the size of the class-group part, not the exact group structure at every level.
+
+\item \textbf{Exercise 4.} What is the role of a p-adic L-function?
+
+\emph{Solution.} It is the analytic object that interpolates special arithmetic values and, through the main conjecture, mirrors the algebraic module controlling class-group growth.
+
+\item \textbf{Exercise 5.} Why is Fermat's Last Theorem historically connected to Iwasawa theory?
+
+\emph{Solution.} Kummer identified p-torsion in cyclotomic class groups as an obstruction to a direct proof. Iwasawa studied how this obstruction changes in cyclotomic towers.
+
+\end{enumerate}
+\section*{8. References}
+\addcontentsline{toc}{section}{References}
+
+\begin{thebibliography}{9}
+\bibitem{iwasawa_theory_ref1} Kenkichi Iwasawa, "On Gamma-extensions of algebraic number fields," \emph{Bulletin of the AMS}, 65 (1959), 183--226.
+\bibitem{iwasawa_theory_ref2} Lawrence C. Washington, \emph{Introduction to Cyclotomic Fields}, 2nd ed., Springer, 1997.
+\bibitem{iwasawa_theory_ref3} John Coates and R. Sujatha, \emph{Cyclotomic Fields and Zeta Values}, Springer, 2006.
+\bibitem{iwasawa_theory_ref4} Ralph Greenberg, "Iwasawa theory---past and present," in \emph{Class Field Theory---Its Centenary and Prospect}, 2001.
+\end{thebibliography}

@@ -1,0 +1,92 @@
+\theory{Order theory}{How can we describe precedence, containment, or preference when some pairs can be compared and others cannot?}{Order theory formalizes statements such as less than, comes before, is contained in, or is more specialized than. It studies partially ordered sets, bounds, lattices, order-preserving maps, chains, antichains, and the duality obtained by reversing an order.}{Scheduling, dependency graphs, databases, optimization, type systems, logic, lattice-based algorithms, and the organization of mathematical structures.}{Partial orders, chains, antichains, and lattice operations describe how objects can be compared and combined without numerical coordinates.}
+
+\paragraph{The question and its history}
+The everyday order on numbers compares every pair: either $2<3$, $3<2$, or they are equal. But the subset relation is different. The set of birds and the set of dogs are both subsets of animals, but neither contains the other. Order theory was created to study both situations with one language \cite{order_theory_ref1}.
+
+George Boole, Charles Sanders Peirce, Richard Dedekind, and Ernst Schröder developed early algebraic descriptions of order. Pasch, Peano, Hilbert, and Veblen developed axioms for order in geometry. Bertrand Russell examined order and series in the foundations of mathematics. The modern subject grew because the same patterns appeared in algebra, logic, analysis, geometry, and computer science \cite{order_theory_ref1,order_theory_ref2}.
+
+\end{historylist}
+\section*{3. Theory}
+\subsection*{Core theory}
+\paragraph{Relations and ordered sets}
+A binary relation $\leq$ on a set $P$ is a partial order when it is reflexive ($a\leq a$), antisymmetric (if $a\leq b$ and $b\leq a$, then $a=b$), and transitive (if $a\leq b$ and $b\leq c$, then $a\leq c$). A set with such a relation is a partially ordered set, or poset. A total order additionally requires every pair to be comparable.
+
+The divisibility relation on positive integers is a poset: $a\leq b$ means $a$ divides $b$. The numbers $2$ and $3$ are incomparable, while both divide $6$. A Hasse diagram draws only the immediate comparisons, so it reveals the structure without clutter from transitivity. The subset relation on a power set gives another important example \cite{order_theory_ref1}.
+
+An element can be maximal without being greatest. In the set $\{2,3\}$ under divisibility, both elements are maximal, but neither is greatest. This distinction matters in optimization: a solution can be impossible to improve in its own direction while another incomparable solution is also optimal in a different direction.
+
+\paragraph{Bounds, lattices, and duality}
+An upper bound of $S\subseteq P$ is an element above every member of $S$. The least upper bound, or supremum, is written $\sup S$ or $\bigvee S$. A lower bound and greatest lower bound are written $\inf S$ or $\bigwedge S$. For subsets ordered by inclusion, union is the least upper bound and intersection is the greatest lower bound. For positive integers ordered by divisibility, the least common multiple is the join and the greatest common divisor is the meet \cite{order_theory_ref1}.
+
+Reversing every comparison produces the dual order. Every definition has a dual: upper becomes lower, least becomes greatest, join becomes meet, and chain becomes chain in the reversed picture. A theorem in one order immediately gives a dual theorem. This is a powerful economy of thought because the same proof often works after turning the Hasse diagram upside down \cite{order_theory_ref2}.
+
+A lattice is a poset in which every pair has a meet and a join. A complete lattice has these bounds for every subset. A directed-complete partial order guarantees suprema of directed subsets and is central in domain theory, where a program is approximated by increasingly informative partial computations. Distributive lattices satisfy
+\[
+x\wedge(y\vee z)=(x\wedge y)\vee(x\wedge z).
+\]
+Boolean algebras add complementation and model logical operations and digital circuits; Heyting algebras model constructive logic \cite{order_theory_ref3}.
+
+\paragraph{Functions between orders}
+A function $f:P\to Q$ is monotone when $a\leq b$ implies $f(a)\leq f(b)$. It is order-reflecting when the reverse implication holds, and antitone when it reverses the order. An order embedding preserves and reflects comparisons. An order isomorphism is a bijective order-preserving map whose inverse is also order-preserving.
+
+The successor function on natural numbers is monotone. The complement map on a power set is antitone: if $A\subseteq B$, then $B^c\subseteq A^c$. A closure operator is monotone, extensive ($x\leq f(x)$), and idempotent ($f(f(x))=f(x)$). Examples include taking the span of a set of vectors, the topological closure of a set, and the set of all logical consequences of assumptions \cite{order_theory_ref3}.
+
+A Galois connection is a pair of monotone maps between two ordered sets that are almost inverse in a precise inequality sense. Such pairs explain why taking a set of objects and taking the properties common to those objects are closely related operations. They occur in formal concept analysis, algebra, and the correspondence between subgroups and fixed fields \cite{order_theory_ref4}.
+
+\paragraph{Special subsets and constructions}
+An upper set contains every element above each of its members; a lower set contains everything below. An ideal is a directed lower set, and a filter is its dual. A chain is a subset in which every two elements are comparable. An antichain has no two comparable elements. These concepts are essential in combinatorics, especially when a large poset is decomposed into chains or antichains \cite{order_theory_ref1}.
+
+New orders can be built from old ones. The product order on $P\times Q$ is defined by $(p,q)\leq(p',q')$ exactly when $p\leq p'$ and $q\leq q'$. A disjoint union keeps the original comparisons but adds no comparisons between the two pieces. A strict order is obtained by writing $a<b$ when $a\leq b$ and $a\ne b$.
+
+\paragraph{How the theory solves practical problems}
+In project scheduling, a task is below another task when it must be completed first. A topological sort lists tasks in an order compatible with all dependencies. If two tasks are incomparable, they can be done in parallel. The existence of minimal available tasks is an order-theoretic fact, while the resulting algorithm is used in build systems and course planning.
+
+In type systems, a type may be below another when every value of the first can safely be used where the second is expected. Monotone functions preserve safe substitutions. In databases, sets of records ordered by inclusion form lattices; union combines information and intersection keeps common information. In optimization with several objectives, the Pareto-optimal points form the maximal elements of a partial order, so order theory explains why there need not be one best choice \cite{order_theory_ref3}.
+
+\section*{4. Important theorems and results}
+\begin{enumerate}[leftmargin=*,itemsep=0.35em]
+\item \textbf{Zorn's lemma.} If every chain in a nonempty poset has an upper bound, the poset has a maximal element. It is equivalent to the axiom of choice and is used to prove the existence of bases and maximal ideals.
+
+\item \textbf{Knaster--Tarski fixed-point theorem.} Every monotone map from a complete lattice to itself has a least fixed point and a greatest fixed point.
+
+\item \textbf{Dilworth's theorem.} In a finite poset, the largest antichain has the same size as the smallest number of chains needed to cover the poset.
+
+\item \textbf{Birkhoff representation theorem.} Every finite distributive lattice is isomorphic to the lattice of lower sets of a finite poset.
+
+\item \textbf{Tarski's fixed-point principle.} Monotonicity on a complete lattice guarantees fixed points, turning repeated approximation into a rigorous existence method.
+
+\item \textbf{Galois correspondence.} In suitable algebraic situations, inclusion-reversing correspondences between subobjects and substructures are organized by a Galois connection.
+\end{enumerate}
+\noindent\emph{Source for these results:} \cite{order_theory_ref1}.
+
+\theoryapplications
+\theoryconnections{order_theory}{%
+\item Sets provide the collection of objects and relations say when one object precedes, contains, or is more informative than another.
+\item Transitivity and antisymmetry make comparisons consistent without requiring every pair to be comparable.
+\item When two objects have a least common upper bound or greatest common lower bound, lattice operations combine information; logic and proof use these operations to track implication and approximation \cite{order_theory_ref1,order_theory_ref2}.
+}{%
+\item Order theory helps optimization because feasible solutions can be compared and a monotone improvement process can be shown to have a least or greatest fixed point.
+\item In databases, an order can mean “contains at least this information,” so joins combine records without losing consistency.
+\item In computer science and type theory, recursive definitions are interpreted as fixed points of ordered maps, while combinatorics uses chains and antichains to bound how a finite family can be arranged \cite{order_theory_ref1,order_theory_ref3}.
+}
+\section*{7. Sample Questions}
+\emph{Exercise reference:} \cite{order_theory_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
+\begin{enumerate}[leftmargin=*,itemsep=0.9em]
+\item \textbf{Exercise 1. Find the meet and join of $12$ and $18$ in the divisibility order.} The meet is the greatest common divisor, $\gcd(12,18)=6$. The join is the least common multiple, $\operatorname{lcm}(12,18)=36$.
+
+\item \textbf{Exercise 2. Give two maximal elements that have no greatest element.} In the poset $\{2,3\}$ ordered by divisibility, $2$ and $3$ are both maximal because neither has a larger member in the set divisible by it. There is no greatest element because neither divides the other.
+
+\item \textbf{Exercise 3. Prove that the complement map on a power set is antitone.} If $A\subseteq B$, every element not in $B$ is also not in $A$. Therefore $B^c\subseteq A^c$, which is exactly order reversal.
+
+\item \textbf{Exercise 4. Find the closure of $\{1,2\}$ under taking divisors in the positive integers.} A divisor-closure contains every positive divisor of every selected number. The divisors of $1$ and $2$ are $1$ and $2$, so the closure is $\{1,2\}$.
+
+\item \textbf{Exercise 5. Use monotonicity to find a fixed point.} On the lattice $\mathcal P(\{a,b\})$, define $f(S)=S\cup\{a\}$. Starting at the bottom gives $\varnothing,\{a\},\{a\},\ldots$. Thus the least fixed point is $\{a\}$. The other fixed point is also $\{a\}$, because every set containing $a$ is sent to itself only when it contains no additional change; here $f(\{a,b\})=\{a,b\}$ as well, so the greatest fixed point is $\{a,b\}$.
+
+\end{enumerate}
+\section*{8. References}
+\begin{thebibliography}{9}
+\bibitem{order_theory_ref1} G. Grätzer, \emph{Lattice Theory: Foundation}.
+\bibitem{order_theory_ref2} B. A. Davey and H. A. Priestley, \emph{Introduction to Lattices and Order}.
+\bibitem{order_theory_ref3} G. Grätzer, \emph{General Lattice Theory}.
+\bibitem{order_theory_ref4} G. Birkhoff, \emph{Lattice Theory}.
+\end{thebibliography}

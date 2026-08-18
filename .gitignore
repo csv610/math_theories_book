@@ -1,0 +1,15 @@
+# LaTeX build artifacts
+*.aux
+*.log
+*.out
+*.toc
+*.fdb_latexmk
+*.fls
+*.synctex.gz
+
+# Temporary files
+tmp/
+output/
+scripts/
+fix_*.py
+texput.log

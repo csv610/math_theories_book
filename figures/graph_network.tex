@@ -1,0 +1,14 @@
+\begin{tikzpicture}[>=Latex,scale=.82,transform shape,
+  vertex/.style={circle,draw,fill=blue!10,inner sep=2pt},
+  edge/.style={draw,thick}]
+\node[vertex] (a) at (0,1.4) {$A$};
+\node[vertex] (b) at (2,2.1) {$B$};
+\node[vertex] (c) at (4,1.3) {$C$};
+\node[vertex] (d) at (1.2,-.2) {$D$};
+\node[vertex] (e) at (3.2,-.3) {$E$};
+\draw[edge] (a)--node[above] {2}(b)--node[above] {1}(c);
+\draw[edge] (a)--node[left] {1}(d)--node[below] {2}(e)--node[right] {1}(c);
+\draw[edge,blue,very thick] (a)--(d)--(e)--(c);
+\draw[edge] (b)--(e);
+\node[align=center] at (2,-1.05) {vertices = objects\\edges = relationships\\blue path = chosen route};
+\end{tikzpicture}

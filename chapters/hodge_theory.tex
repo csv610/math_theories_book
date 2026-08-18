@@ -1,0 +1,127 @@
+\theory{Hodge theory}{How can differential equations choose a canonical representative for a topological hole?}{Hodge theory uses a metric and the Laplacian to turn a cohomology class into a unique harmonic differential form. It links topology, geometry, analysis, and algebraic geometry.}{Riemannian geometry, complex projective geometry, algebraic cycles, number theory, and elliptic partial differential equations.}{The metric Laplacian selects harmonic representatives, linking differential equations to cohomology and geometric information.}
+
+\paragraph{History and motivation}
+W. V. D. Hodge developed the theory in the 1930s while studying algebraic geometry. It built on Georges de Rham's discovery that integration of differential forms can calculate topological cohomology. Hodge wanted a higher-dimensional version of the relation between real and imaginary parts of holomorphic differentials on a Riemann surface. His proof was repaired by Hermann Weyl and Kunihiko Kodaira \cite{hodge_theory_ref1,hodge_theory_ref2}.
+
+Topology tells us that a space may have holes, but a cohomology class usually has many differential forms representing it. Hodge theory chooses one special representative by measuring size. This is the same idea as choosing the shortest vector among many vectors that describe the same displacement.
+
+\end{historylist}
+\section*{3. Theory}
+\subsection*{Core theory}
+\paragraph{De Rham cohomology}
+On a smooth manifold $M$, let $\Omega^k(M)$ be the smooth differential $k$-forms. Exterior differentiation gives
+\[
+0\longrightarrow\Omega^0(M)\xrightarrow d\Omega^1(M)\xrightarrow d\cdots\xrightarrow d\Omega^n(M)\longrightarrow0,
+\]
+and $d^2=0$. The $k$th de Rham cohomology is
+\[
+H^k_{\mathrm{dR}}(M)=\ker(d:\Omega^k\to\Omega^{k+1})/
+\operatorname{im}(d:\Omega^{k-1}\to\Omega^k).
+\]
+Closed forms are those with $d\omega=0$; exact forms are derivatives of other forms. Exact forms are treated as zero because their integrals around closed cycles vanish by Stokes' theorem.
+
+De Rham's theorem identifies this analytic construction with singular cohomology with real coefficients:
+\[
+H^k_{\mathrm{dR}}(M)\cong H^k_{\mathrm{sing}}(M;\mathbb R).
+\]
+Thus differential equations can detect the same holes that a topologist sees \cite{hodge_theory_ref3}.
+
+\paragraph{The metric, adjoint, and Laplacian}
+Choose a Riemannian metric. It gives an inner product on forms, and therefore an adjoint $\delta$ to $d$. The Hodge Laplacian is
+\[
+\Delta=d\delta+\delta d.
+\]
+A form is harmonic when $\Delta\omega=0$. On a closed Riemannian manifold, a harmonic form is both closed and coclosed. Hodge's theorem says that every real cohomology class has exactly one harmonic representative. Harmonic forms are kernels of elliptic differential operators, so the cohomology groups are finite-dimensional.
+
+The Hodge decomposition writes every form uniquely as
+\[
+\omega=d\alpha+\delta\beta+\gamma,
+\]
+where $\gamma$ is harmonic. The three pieces are orthogonal: an exact part, a coexact part, and the part that carries the cohomology. This generalizes the Helmholtz decomposition of a vector field into gradient, curl, and harmonic components.
+
+\paragraph{Elliptic complexes}
+The de Rham complex is one example of an elliptic complex, a chain of differential operators between vector bundles whose combined Laplacian is elliptic. Atiyah and Bott extended Hodge's theorem to this setting. The associated Green operator gives
+\[
+\operatorname{Id}=H+\Delta G=H+G\Delta,
+\]
+where $H$ projects onto harmonic sections. The cohomology of the complex is canonically the space of harmonic sections. This framework includes Dolbeault, Dirac, and other complexes \cite{hodge_theory_ref2}.
+
+\paragraph{Complex projective and Kahler manifolds}
+On a complex manifold, a differential form splits into types $(p,q)$, counting holomorphic and antiholomorphic differentials. A compact Kahler manifold has
+\[
+H^r(X;\mathbb C)=\bigoplus_{p+q=r}H^{p,q}(X).
+\]
+The decomposition is independent of the chosen Kahler metric but depends on the complex structure, whereas ordinary cohomology depends only on the underlying topological space. The wedge product respects type:
+\[
+H^{p,q}(X)\smile H^{p',q'}(X)\subseteq H^{p+p',q+q'}(X).
+\]
+For a smooth projective variety, the Hodge pieces agree with coherent sheaf cohomology $H^q(X,\Omega^p)$ \cite{hodge_theory_ref4}.
+
+\paragraph{Algebraic cycles and the Hodge conjecture}
+An algebraic cycle is a formal combination of subvarieties. Its cohomology class has a Hodge type constrained by its complex dimension. The Hodge conjecture proposes that certain rational cohomology classes of type $(p,p)$ arise from algebraic cycles. It is known in special cases but remains open in general.
+
+This explains why Hodge theory matters in algebraic geometry: it turns geometric subvarieties into cohomology classes, then asks whether the converse geometric realization is possible. Poincare duality relates a cycle's homology class to its cohomology class, and integration pairs these classes with differential forms.
+
+\paragraph{Physics and arithmetic}
+Maxwell's equations use differential forms and Laplacian-type operators, so harmonic forms appear naturally in mathematical physics. Hodge theory is also used in gauge theory, Yang--Mills equations, and the study of moduli spaces. Although classical Hodge theory is built over the real and complex numbers, p-adic Hodge theory provides analogous tools for arithmetic geometry and number theory \cite{hodge_theory_ref5}.
+
+\paragraph{What the theory depends on and where it is useful}
+Hodge theory depends on differential forms, cohomology, Riemannian metrics, functional analysis, elliptic PDE, and complex geometry. It helps topology by giving computable representatives, helps algebraic geometry by splitting cohomology into types, and helps number theory through p-adic analogues.
+
+The canonical representative depends on a metric even though the cohomology class does not. The Hodge decomposition is not available for every noncompact manifold or arbitrary complex manifold; compactness, smoothness, and ellipticity supply the required control.
+
+\section*{4. Important theorems and results}
+\begin{enumerate}[leftmargin=*,itemsep=0.35em]
+\item \textbf{de Rham theorem.} Smooth differential forms compute singular cohomology with real coefficients.
+
+\item \textbf{Hodge theorem.} Each real cohomology class on a closed Riemannian manifold has a unique harmonic representative \cite{hodge_theory_ref1}.
+
+\item \textbf{Hodge decomposition.} Every differential form splits orthogonally into exact, coexact, and harmonic parts.
+
+\item \textbf{Kahler decomposition.} On a compact Kahler manifold, complex cohomology splits as the direct sum of the $H^{p,q}$ pieces.
+
+\item \textbf{Hodge index theorem.} The intersection form on a compact Kahler surface has a signature constrained by its Hodge decomposition.
+\end{enumerate}
+
+\theoryapplications
+\theoryconnections{hodge theory}{%
+\item Differential geometry supplies metrics, differential forms, and the Laplacian; topology supplies cohomology; and complex geometry supplies the type decomposition of forms.
+\item Analysis provides elliptic regularity, which turns an analytic equation into finite-dimensional geometric information.
+}{%
+\item Hodge theory helps classify compact manifolds, study algebraic cycles, and compare topology with complex or Kahler geometry.
+\item Harmonic representatives make cohomology classes concrete, while the decomposition constrains which topological patterns can occur.
+}
+\section*{7. Sample Questions}
+\emph{Exercise reference:} \cite{hodge_theory_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
+\begin{enumerate}[leftmargin=*,itemsep=0.9em]
+\item \textbf{Exercise 1.} Why does $d^2=0$ matter?
+
+\emph{Solution.} It says every exact form is closed, so the quotient of closed forms by exact forms is well-defined. Without this cancellation, there would be no cohomology group.
+
+\item \textbf{Exercise 2.} What does harmonic mean for a differential form?
+
+\emph{Solution.} It means the Hodge Laplacian satisfies $\Delta\omega=0$. On a closed manifold this implies that the form is both closed and coclosed.
+
+\item \textbf{Exercise 3.} Why is the harmonic representative called canonical?
+
+\emph{Solution.} Once a metric is chosen, each cohomology class has exactly one harmonic form representing it. There is no further choice among representatives.
+
+\item \textbf{Exercise 4.} What is the purpose of the decomposition $\omega=d\alpha+\delta\beta+\gamma$?
+
+\emph{Solution.} It separates a form into a derivative part, a codifferential part, and a harmonic part. Only the harmonic part survives as the essential cohomology information.
+
+\item \textbf{Exercise 5.} Why does Hodge theory not apply identically to every complex manifold?
+
+\emph{Solution.} The $(p,q)$ splitting and its good behavior require strong compatibility between the metric and complex structure, as in the Kahler condition. General complex manifolds need not have this decomposition.
+
+\end{enumerate}
+\section*{8. References}
+\addcontentsline{toc}{section}{References}
+
+\begin{thebibliography}{9}
+\bibitem{hodge_theory_ref1} W. V. D. Hodge, \emph{The Theory and Applications of Harmonic Integrals}, Cambridge University Press, 1941.
+\bibitem{hodge_theory_ref2} Werner Ballmann, \emph{Lectures on Kahler Manifolds}, European Mathematical Society, 2006.
+\bibitem{hodge_theory_ref3} Georges de Rham, \emph{Differentiable Manifolds}, Springer, 1984.
+\bibitem{hodge_theory_ref4} Claire Voisin, \emph{Hodge Theory and Complex Algebraic Geometry I}, Cambridge University Press, 2002.
+\bibitem{hodge_theory_ref5} James S. Milne, \emph{Lectures on Etale Cohomology}, Princeton University, 1980.
+\end{thebibliography}

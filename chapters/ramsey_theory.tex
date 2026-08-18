@@ -1,0 +1,75 @@
+\theory{Ramsey theory}{How large must a disordered structure be before some organized pattern is unavoidable?}{Ramsey theory studies regular substructures inside large objects. A coloring or arbitrary arrangement may look chaotic, but sufficiently large systems must contain a monochromatic or otherwise structured part.}{Network design, communication, additive number theory, theoretical computer science, geometry, logic, and unavoidable patterns.}{Finite colorings and unavoidable monochromatic patterns turn local choices into universal combinatorial guarantees.}
+
+\paragraph{The question and history}
+Frank Ramsey created the subject while studying a problem in the foundations of mathematics. The modern question asks for the least size that forces a desired configuration, even when the original object is colored or partitioned adversarially \cite{ramsey_ref1}.
+
+\end{historylist}
+\section*{3. Theory}
+\subsection*{Core theory}
+\paragraph{The party example}
+Suppose every pair among six people is labeled friends or strangers. Choose one person. Among the other five, at least three have the same relation to that person. If three are friends with the chosen person, either two of them know each other, creating a triangle of friends, or all three are mutual strangers. The other case is identical. Thus every six-person group contains three mutual friends or three mutual strangers.
+
+In graph language, color every edge of the complete graph on six vertices red or blue. A monochromatic triangle must occur, so $R(3,3)=6$. The number $R(s,t)$ is the least $n$ such that every red-blue coloring of $K_n$ contains a red $K_s$ or a blue $K_t$ \cite{ramsey_ref2}.
+
+\paragraph{Ramsey's theorem and partition regularity}
+For any positive integers $c,n_1,\ldots,n_c$, there is a number $R(n_1,\ldots,n_c)$ such that every coloring of the edges of a complete graph with $c$ colors contains a complete subgraph of size $n_i$ whose edges all have color $i$ for some $i$. This is Ramsey's theorem.
+
+The same idea applies to subsets of integers, arithmetic progressions, matrices, finite sets, and infinite sequences. A statement is partition regular when every finite coloring contains a monochromatic solution of the desired kind. The pigeonhole principle is the simplest example: a large enough collection divided into finitely many boxes has a box containing many objects \cite{ramsey_ref1}.
+
+\paragraph{Major results}
+Van der Waerden's theorem says that every finite coloring of the positive integers contains a monochromatic arithmetic progression of any prescribed finite length. Szemeredi's theorem strengthens this: every subset of the integers with positive density contains arbitrarily long arithmetic progressions. Rado's theorem characterizes many systems of linear equations that are partition regular.
+
+The Hales--Jewett theorem states that a sufficiently high-dimensional word cube, colored with finitely many colors, contains a combinatorial line. The density Hales--Jewett theorem gives a positive-density version. Hindman's theorem, the Folkman theorem, and the Milliken--Taylor theorem provide further partition results \cite{ramsey_ref3}.
+
+\paragraph{What the numbers mean}
+Ramsey results are usually existential: they prove that a desired pattern exists but may not provide an efficient way to find it. The smallest bounds can be enormous, sometimes growing exponentially or according to very fast functions. Improving upper and lower bounds is therefore central. Computer searches settle some small values, but a proof must still cover all colorings \cite{ramsey_ref2}.
+
+\paragraph{Applications}
+In communication networks, a Ramsey bound says how large a system must be before a repeated compatible or incompatible pattern is forced. In theoretical computer science, it controls homogeneous subsets used in lower bounds. In geometry, Erdős--Szekeres results guarantee convex polygons among sufficiently many points. In additive number theory, partition results force arithmetic structure inside apparently random sets.
+
+\section*{4. Important theorems and results}
+\begin{enumerate}[leftmargin=*,itemsep=0.35em]
+\item \textbf{Ramsey's theorem.} Every finite coloring of a sufficiently large complete graph contains a monochromatic complete subgraph of a prescribed size.
+
+\item \textbf{The party theorem.} $R(3,3)=6$.
+
+\item \textbf{Van der Waerden's theorem.} Every finite coloring of the positive integers contains arbitrarily long monochromatic arithmetic progressions.
+
+\item \textbf{Szemeredi's theorem.} A subset of the integers with positive upper density contains arbitrarily long arithmetic progressions.
+
+\item \textbf{Hales--Jewett theorem.} Every finite coloring of a sufficiently large word cube contains a monochromatic combinatorial line.
+
+\item \textbf{Rado's theorem.} A matrix criterion characterizes partition regularity for many finite systems of homogeneous linear equations.
+\end{enumerate}
+\noindent\emph{Source for these results:} \cite{ramsey_ref1}.
+
+\theoryapplications
+\theoryconnections{ramsey_theory}{%
+\item Combinatorics counts the possible configurations, graph theory represents pairwise relationships, and logic states the pattern that must be forced.
+\item Probability supplies a powerful existence argument: if every random coloring has a positive chance of containing the desired monochromatic pattern, then at least one such coloring exists.
+\item Number theory contributes additive patterns such as arithmetic progressions, where the same principle applies to sums rather than edges \cite{ramsey_ref1,ramsey_ref2}.
+}{%
+\item Ramsey theory gives extremal graph theory a language for the unavoidable structure inside a large network.
+\item In additive combinatorics it proves that a sufficiently large set of integers contains a prescribed pattern, while in theoretical computer science it explains why large combinatorial objects can contain regular substructures that algorithms may search for.
+\item The point is not to find the pattern efficiently in every case, but to prove that disorder has a definite limit \cite{ramsey_ref1,ramsey_ref3}.
+}
+\section*{7. Sample Questions}
+\emph{Exercise reference:} \cite{ramsey_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
+\begin{enumerate}[leftmargin=*,itemsep=0.9em]
+\item \textbf{Exercise 1. Why does $R(3,3)\leq6$?} Pick a vertex in a red-blue coloring of $K_6$. At least three incident edges share a color. If an edge among those three has that color, it forms a monochromatic triangle; otherwise the three selected vertices form a triangle of the other color.
+
+\item \textbf{Exercise 2. Why can five people avoid three mutual friends and three mutual strangers?} Color the edges of a suitable five-vertex cycle and its complementary cycle with different colors. Neither color contains a triangle, so six is necessary.
+
+\item \textbf{Exercise 3. What does van der Waerden's theorem guarantee for a three-coloring and length four?} It guarantees a monochromatic arithmetic progression of four terms, although it does not identify the progression from the statement alone.
+
+\item \textbf{Exercise 4. Why does a positive-density set differ from an infinite set?} An infinite set may become increasingly sparse and have density zero. Szemeredi's theorem needs positive density, which prevents the set from thinning too quickly.
+
+\item \textbf{Exercise 5. What is the main limitation of an existential Ramsey proof?} It proves that a desired substructure exists but may give a huge bound and no practical search algorithm.
+
+\end{enumerate}
+\section*{8. References}
+\begin{thebibliography}{9}
+\bibitem{ramsey_ref1} R. L. Graham, B. L. Rothschild, and J. H. Spencer, \emph{Ramsey Theory}.
+\bibitem{ramsey_ref2} R. Graham and S. Butler, \emph{Rudiments of Ramsey Theory}.
+\bibitem{ramsey_ref3} B. M. Landman and A. Robertson, \emph{Ramsey Theory on the Integers}.
+\end{thebibliography}

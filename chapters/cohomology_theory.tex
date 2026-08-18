@@ -1,0 +1,159 @@
+\theory{Cohomology theory}{How can we turn local measurements into algebraic information about a whole space?}{Cohomology assigns groups, rings, and other algebraic objects to spaces. A cohomology class records a pattern that is locally consistent but may fail to come from a simpler global choice. This makes cohomology a language for holes, twists, gluing obstructions, fields, and characteristic numbers.}{Algebraic topology, differential geometry, algebraic geometry, topology of manifolds, gauge theory, physics, and the classification of bundles and global structures.}{Cocycles, coboundaries, and cup products convert local compatibility data into global algebraic invariants.}
+
+\paragraph{The central idea and history}
+
+Suppose a surface looks ordinary in every small neighborhood but has a global twist. A strip made by joining the ends of a rectangle with one half-turn is a Mobius strip. Locally it looks like a rectangle, but globally it is not a cylinder. Cohomology records the obstruction to choosing one consistent description all the way around.
+
+The word comes from homology, which counts holes using chains. Cohomology reverses the arrows: instead of building geometric pieces, it studies functions or measurements on those pieces. The theory grew from topology in the nineteenth and early twentieth centuries and became a central tool in geometry and algebra. Singular cohomology, de Rham cohomology, sheaf cohomology, and generalized cohomology theories now share a common pattern. \cite{cohomology_theory_ref1,cohomology_theory_ref4}
+
+The advantage is computability. A difficult shape is replaced by groups and a product operation. A continuous map between spaces produces a map in the opposite direction on cohomology, so geometric relationships become algebraic equations that can be calculated.
+
+\end{historylist}
+\section*{3. Theory}
+\subsection*{Core theory}
+\paragraph{Cochains, coboundaries, and classes}
+
+A cochain complex is a sequence of groups or vector spaces
+\[
+ C^0\xrightarrow{d^0}C^1\xrightarrow{d^1}C^2\xrightarrow{d^2}\cdots
+\]
+in which two consecutive arrows compose to zero:
+\[
+ d^{n+1}d^n=0.
+\]
+The map $d$ is called the coboundary operator. An element in $\ker d^n$ is a cocycle; it satisfies the consistency condition. An element in $\operatorname{im}d^{n-1}$ is a coboundary; it came from a simpler object one degree earlier. The $n$th cohomology group is
+\[
+ H^n(C^\bullet)=\ker(d^n)/\operatorname{im}(d^{n-1}).
+\]
+Thus cohomology keeps consistent data and identifies two data sets when their difference is an elementary change.
+
+For differential forms, the operator is ordinary differentiation. A form is closed when its derivative is zero and exact when it is the derivative of another form. Every exact form is closed, but a closed form need not be exact if the space has a hole. The quotient of closed forms by exact forms is de Rham cohomology.
+
+On a circle, a periodic function has derivative with integral zero over one complete turn. The form $d\theta$ is closed but has integral $2\pi$, so it is not exact on the circle. Every one-form $g(\theta)d\theta$ differs from an exact form by a constant multiple of $d\theta$. Hence
+\[
+ H^0(S^1,\mathbb R)\cong\mathbb R,\qquad
+ H^1(S^1,\mathbb R)\cong\mathbb R,
+\]
+and higher groups vanish. The first group records the one independent circular direction. \cite{cohomology_theory_ref2,cohomology_theory_ref3}
+
+\paragraph{Singular cohomology and functoriality}
+
+For a topological space $X$, singular homology uses continuous maps from standard simplices into $X$. The groups of formal sums of these simplices form a chain complex with boundary maps. Singular cochains are homomorphisms from the chain groups to a coefficient group $A$. Dualizing the boundary maps gives coboundary maps, and their kernels modulo images define
+\[
+ H^n(X;A).
+\]
+The coefficient group matters. Integer coefficients can detect torsion, while real or rational coefficients may simplify calculations and ignore some finite information.
+
+A continuous map $f:X\to Y$ induces a pullback
+\[
+ f^*:H^n(Y;A)\longrightarrow H^n(X;A).
+\]
+The direction reverses because a measurement on $Y$ can be evaluated after sending a point of $X$ to $Y$. Homotopic maps induce the same pullback, so cohomology is a topological invariant rather than an accidental feature of coordinates.
+
+The cohomology groups usually form a graded-commutative ring under the cup product. Classes in degrees $p$ and $q$ multiply to a class in degree $p+q$. The product stores how different holes and measurements interact, which is why the cohomology ring can distinguish spaces with the same groups. \cite{cohomology_theory_ref1,cohomology_theory_ref5}
+
+\paragraph{Computing cohomology}
+
+The Mayer--Vietoris sequence breaks a space into overlapping parts. If $X=U\cup V$, the cohomology of $U$, $V$, and $U\cap V$ fit into a long exact sequence containing the cohomology of $X$. This is the algebraic version of solving a global problem by comparing local pieces.
+
+Relative cohomology $H^n(X,Y;A)$ measures what remains in $X$ after treating a subspace $Y$ as trivial. It fits into a long exact sequence with $H^n(X)$ and $H^n(Y)$. The universal coefficient theorem relates cohomology to homology:
+\[
+0\to \operatorname{Ext}^1_{\mathbb Z}(H_{n-1}(X;\mathbb Z),A)
+\to H^n(X;A)
+\to \operatorname{Hom}_{\mathbb Z}(H_n(X;\mathbb Z),A)
+\to0.
+\]
+Over a field, this reduces to the dual of homology as a vector space.
+
+The diagonal in $X\times X$ is another important object. Its cohomology class encodes the identity map and is used in intersection theory and fixed-point formulas. The cap product pairs cohomology classes with homology classes, allowing a measurement to be evaluated on a geometric cycle. \cite{cohomology_theory_ref1,cohomology_theory_ref2}
+
+\paragraph{Poincare duality and characteristic classes}
+
+For a closed oriented $n$-manifold $M$, Poincare duality pairs degree $k$ cohomology with degree $n-k$ homology. Geometrically, a $k$-dimensional measurement corresponds to an $(n-k)$-dimensional complementary cycle. For an oriented surface, the class of a loop is paired with a class recording how another loop intersects it.
+
+Characteristic classes are cohomology classes attached to vector bundles. A vector bundle assigns a vector space to every point in a continuous way, as the tangent planes of a surface do. Stiefel--Whitney, Chern, and Pontryagin classes detect whether a bundle can be oriented, trivialized, or given additional structure. Their products and evaluations give characteristic numbers that obstruct two manifolds or bundles from being equivalent.
+
+These classes connect cohomology to geometry. The Euler class detects zeros of vector fields; Chern classes measure twisting of complex bundles; Pontryagin classes enter the signature theorem. In physics, gauge fields are connections on bundles and their global charges are expressed through characteristic classes. \cite{cohomology_theory_ref3,cohomology_theory_ref6}
+
+\paragraph{Sheaf cohomology and algebraic geometry}
+
+A sheaf assigns local data to each open region and specifies how data restricts to smaller regions. Sections may exist on every small patch but fail to glue consistently on the whole space. Sheaf cohomology measures exactly this failure. Degree zero records global sections; higher groups record increasingly subtle gluing obstructions.
+
+This idea is fundamental in algebraic geometry. A line bundle may be locally described by one formula on each chart, while transition functions on overlaps twist the charts together. Sheaf cohomology determines whether the bundle has global sections and counts them through Euler characteristics. It also appears in complex analysis, where the existence of a global solution to a local analytic problem becomes a cohomology question.
+
+Cohomology of varieties includes singular, de Rham, etale, crystalline, and other theories. They use different kinds of coefficients and different geometric information, but they aim at the same kind of invariant: a computable record of global structure. \cite{cohomology_theory_ref4,cohomology_theory_ref7}
+
+\paragraph{Axioms and generalized theories}
+
+Ordinary cohomology satisfies the Eilenberg--Steenrod axioms: homotopy invariance, exactness, excision, additivity, and a dimension condition. If the dimension condition is removed, generalized or extraordinary cohomology theories appear. K-theory, cobordism, and stable cohomotopy are examples. They detect structure that ordinary cohomology cannot.
+
+Eilenberg--Mac Lane spaces provide a bridge between cohomology and homotopy. A degree-$n$ cohomology class can be represented by a homotopy class of maps into a suitable space $K(A,n)$. This gives a topological meaning to what otherwise looks like an algebraic quotient.
+
+Cohomology theories are also used in group cohomology, Lie algebra cohomology, cyclic and Hochschild cohomology, Galois cohomology, and mathematical physics. The same pattern persists: consistent objects are divided by trivial changes, and the remainder records an obstruction or invariant. \cite{cohomology_theory_ref4,cohomology_theory_ref8}
+
+\paragraph{What the theory depends on and where it is useful}
+
+Cohomology depends on algebraic groups, linear maps, chain complexes, topology, differential forms, and integration. It helps homology by supplying dual measurements, helps homotopy theory by converting maps into algebraic invariants, and helps geometry by expressing twisting and intersection in equations.
+
+In topology, the cohomology ring distinguishes spaces that have identical numbers of holes but different ways for those holes to interact. In differential geometry, de Rham cohomology turns global questions about differential equations into integrals. In algebraic geometry, sheaf cohomology controls global sections and the geometry of bundles. In physics, characteristic classes express quantized charges and obstructions to global gauge choices. The theory is useful precisely because local formulas are easy to write while global consistency is hard.
+
+\section*{4. Important theorems and results}
+\begin{enumerate}[leftmargin=*,itemsep=0.35em]
+
+\item \textbf{Cochain-complex definition.} For $d^{n+1}d^n=0$, the quotient $\ker d^n/\operatorname{im}d^{n-1}$ is the $n$th cohomology group. It measures consistent data modulo elementary changes. \cite{cohomology_theory_ref1}
+
+\item \textbf{Homotopy invariance.} Homotopic continuous maps induce the same map on cohomology. Therefore cohomology depends on the homotopy type of a space. \cite{cohomology_theory_ref2}
+
+\item \textbf{Mayer--Vietoris sequence.} The cohomology of a union can be calculated from the cohomology of two pieces and their intersection through a long exact sequence. \cite{cohomology_theory_ref2}
+
+\item \textbf{Poincare duality.} For a closed oriented $n$-manifold, degree $k$ cohomology and degree $n-k$ homology are paired by evaluation on the fundamental class. \cite{cohomology_theory_ref3}
+
+\item \textbf{de Rham theorem.} The cohomology of smooth differential forms on a manifold is naturally isomorphic to its singular cohomology with real coefficients. \cite{cohomology_theory_ref6}
+\end{enumerate}
+
+\theoryapplications
+\theoryconnections{cohomology theory}{%
+\item Algebraic topology supplies chains and boundaries, linear algebra turns them into kernels and quotients, and category theory explains functoriality and long exact sequences.
+\item Differential geometry supplies de Rham forms, while algebraic geometry supplies sheaves and derived constructions.
+}{%
+\item Cohomology helps topology detect holes, helps geometry solve global extension problems, and helps number theory organize arithmetic information.
+\item Its functorial maps and duality statements let different theories transfer local calculations into global conclusions.
+}
+\section*{7. Sample Questions}
+\emph{Exercise reference:} \cite{cohomology_theory_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
+\begin{enumerate}[leftmargin=*,itemsep=0.9em]
+
+\item \textbf{Exercise 1.} Why is every exact differential form closed?
+
+\emph{Solution.} If $\omega=df$, then $d\omega=d(df)=0$ because applying the exterior derivative twice gives zero. Hence exact forms lie inside the closed forms.
+
+\item \textbf{Exercise 2.} Why is $d\theta$ on a circle not exact?
+
+\emph{Solution.} If it were $df$ for a globally defined periodic function, its integral around the circle would be $f(2\pi)-f(0)=0$. But $\int_0^{2\pi}d\theta=2\pi$. Therefore it is closed but not exact and represents a nonzero class.
+
+\item \textbf{Exercise 3.} What does a pullback do to a cohomology class?
+
+\emph{Solution.} A map $f:X\to Y$ takes a measurement or differential form defined on $Y$ and evaluates it after applying $f$. This produces a class on $X$, giving $f^*:H^n(Y)\to H^n(X)$.
+
+\item \textbf{Exercise 4.} What information does the cup product add?
+
+\emph{Solution.} It records how classes in different degrees combine. Two spaces may have the same cohomology groups but different products, so the ring structure can distinguish their global geometry.
+
+\item \textbf{Exercise 5.} What is a gluing obstruction?
+
+\emph{Solution.} It is local data that is compatible on overlaps but cannot be produced by one global choice. Sheaf cohomology records the obstruction and can show whether a global section, solution, or bundle trivialization exists.
+
+\end{enumerate}
+\section*{8. References}
+
+
+\begin{thebibliography}{9}
+\bibitem{cohomology_theory_ref1} A. Hatcher, \emph{Algebraic Topology}, Cambridge University Press, 2002.
+\bibitem{cohomology_theory_ref2} J. R. Munkres, \emph{Elements of Algebraic Topology}, Addison-Wesley, 1984.
+\bibitem{cohomology_theory_ref3} J. Milnor and J. Stasheff, \emph{Characteristic Classes}, Princeton University Press, 1974.
+\bibitem{cohomology_theory_ref4} R. Bott and L. W. Tu, \emph{Differential Forms in Algebraic Topology}, Springer, 1982.
+\bibitem{cohomology_theory_ref5} E. H. Spanier, \emph{Algebraic Topology}, Springer, 1966.
+\bibitem{cohomology_theory_ref6} F. Warner, \emph{Foundations of Differentiable Manifolds and Lie Groups}, Springer, 1983.
+\bibitem{cohomology_theory_ref7} R. Hartshorne, \emph{Algebraic Geometry}, Springer, 1977.
+\bibitem{cohomology_theory_ref8} K. S. Brown, \emph{Cohomology of Groups}, Springer, 1982.
+\end{thebibliography}

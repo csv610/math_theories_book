@@ -1,0 +1,166 @@
+\clearpage\chapter{Catastrophe theory}
+\section*{1. Overview}
+\subsection*{Intuitive}
+\paragraph{The problem}
+
+Catastrophe theory studies sudden changes produced by smooth changes in control parameters. It is a special part of bifurcation theory for systems whose stable state can be described as a minimum of a smooth potential. The visible jump is not the whole story: in a larger parameter space, the jump lies on a geometric surface of folds, cusps, and higher singularities.
+
+
+
+\subsection*{Formal}
+Let $V(x;u)$ be a smooth potential, with state variable $x$ and control parameters $u$. Equilibria satisfy $V_x(x;u)=0$; a one-dimensional equilibrium is locally stable when $V_{xx}(x;u)>0$. A fold or other catastrophe occurs when equilibrium and degeneracy equations such as $V_x=V_{xx}=0$ hold. Coordinate changes and additions that do not alter the local equilibrium structure lead to normal forms such as the fold and cusp.
+\section*{2. History}
+\subsection*{Historical development}
+\begin{historylist}
+\paragraph{History and scope}
+
+René Thom developed catastrophe theory in the 1960s, and Christopher Zeeman popularized it in the 1970s. Thom was looking for a classification of stable singularities in problems where a system follows a potential downhill. The theory became influential because it promised a small list of local forms that could explain many sudden transitions.
+
+Catastrophe theory is a branch of bifurcation theory and a special case of singularity theory. It asks how the qualitative shape of equilibrium solutions depends on control parameters. Its scope is narrower than the public language of catastrophe suggests: it assumes a suitable potential and local stability structure. Broad claims in biology and social science were criticized in the late 1970s for unsupported assumptions, so modern use requires a clear model, measured parameters, and checks against alternatives \cite{catastrophe_theory_ref1,catastrophe_theory_ref3}.
+
+\end{historylist}
+\section*{3. Theory}
+\subsection*{Core theory}
+\paragraph{Potential dynamics}
+
+Let $x$ be an active state variable and $u$ a vector of control parameters. The model is
+\[
+ \dot x=-\frac{\partial V(u,x)}{\partial x}.
+\]
+Equilibria satisfy $V_x=0$. A local minimum of $V$ is stable because small displacements increase the potential and the dynamics move back; a local maximum is unstable.
+
+A catastrophe occurs at a degenerate critical point where
+\[
+ V_x=0,\qquad V_{xx}=0,
+\]
+and possibly higher derivatives vanish too. Expand $V$ in a Taylor series around that point. If the degeneracy is structurally stable, smooth changes of coordinates transform the expansion into a standard normal form. The control parameters unfold the singularity and produce surfaces in parameter space separating different numbers or types of equilibria.
+
+\paragraph{Elementary catastrophes}
+
+When there are at most two active variables and at most four control parameters, there are seven generic elementary structures.
+
+\textbf{Fold $A_2$.} A one-variable potential can be written as
+\[
+ V=x^3+ax.
+\]
+The equilibrium equation is $3x^2+a=0$. For $a<0$ there is a stable and an unstable equilibrium; they meet at $a=0$ and disappear for $a>0$. This is the saddle-node tipping point.
+
+\textbf{Cusp $A_3$.} Use
+\[
+ V=\frac{x^4}{4}+\frac{a x^2}{2}+bx.
+\]
+Equilibria satisfy $x^3+ax+b=0$. The discriminant curve separates a region with three equilibria from a region with one. Inside the cusp, two minima are separated by a maximum. A slow parameter change can follow one minimum until it ends at a fold, then jump to the other.
+
+\textbf{Swallowtail $A_4$.} A standard form is
+\[
+ V=x^5+ax^3+bx^2+cx.
+\]
+Two minima and two maxima can meet at one parameter value. Fold surfaces and cusp curves organize the transition.
+
+\textbf{Butterfly $A_5$.} A standard form is
+\[
+ V=x^6+ax^4+bx^3+cx^2+dx.
+\]
+Depending on controls, there can be three, two, or one local minima. Fold, cusp, and swallowtail structures meet at the butterfly point.
+
+\paragraph{Umbilic catastrophes}
+
+When two active state variables are needed, corank-two degeneracies produce umbilic catastrophes.
+
+\textbf{Hyperbolic umbilic $D_4^+$.}
+\[
+ V=x^3+y^3+axy+bx+cy.
+\]
+
+\textbf{Elliptic umbilic $D_4^-$.}
+\[
+ V=\frac{x^3}{3}-xy^2+a(x^2+y^2)+bx+cy.
+\]
+
+\textbf{Parabolic umbilic $D_5$.}
+\[
+ V=x^2y+y^4+ax^2+by^2+cx+dy.
+\]
+
+Umbilic catastrophes occur in the focal surfaces of optics and in the geometry of nearly spherical surfaces. Thom suggested that hyperbolic and elliptic umbilics model wave breaking and the creation of hair-like structures; the mathematical classification is independent of whether a particular physical interpretation is correct.
+
+\paragraph{Arnold's notation and Lie-theoretic connection}
+
+Vladimir Arnold organized elementary catastrophes using the ADE notation. $A_0$ is a nonsingular point and $A_1$ a nondegenerate extremum. $A_2,A_3,A_4,A_5$ are fold, cusp, swallowtail, and butterfly; $A_k$ continues the one-variable sequence. $D_4^-$ and $D_4^+$ are elliptic and hyperbolic umbilics, $D_5$ is parabolic umbilic, and $D_k$, $E_6$, $E_7$, and $E_8$ represent further simple singularities.
+
+The labels echo the ADE classification of simple Lie groups and singularities. The connection is not merely a naming coincidence: symmetry and deformation theory organize both the critical-point geometry and the associated algebraic structures \cite{catastrophe_theory_ref4}.
+
+\paragraph{Optics and visible caustics}
+
+Light rays reflected or refracted by a surface form caustics, bright envelopes where many rays concentrate. A fold caustic is the edge of a rainbow or the bright line at the bottom of a swimming pool. Wave effects resolve the geometric singularity into an Airy-function diffraction pattern.
+
+A cusp caustic has a Pearcey-function diffraction pattern. Higher catastrophes such as swallowtails and butterflies can also occur. Their stability explains why similar bright edges and focal shapes survive small changes in the water droplet or reflecting surface.
+
+\section*{4. Important theorems and results}
+\begin{enumerate}[leftmargin=*,itemsep=0.35em]
+
+\item \textbf{Structural stability.} A stable singularity persists under small perturbations, up to a smooth change of coordinates. This is why elementary catastrophes can organize nearby behavior.
+
+\item \textbf{Fold classification.} The generic one-parameter creation or destruction of two equilibria is represented by the fold or saddle-node normal form.
+
+\item \textbf{Cusp classification.} The generic two-control unfolding of a one-variable degenerate equilibrium is organized by the cusp surface and its fold curves.
+
+\item \textbf{ADE classification.} Simple stable singularities are organized by the families $A$, $D$, and $E$, including the seven elementary catastrophes in the low-dimensional range.
+
+\item \textbf{Optical caustic theorem.} Generic ray envelopes have stable fold and cusp singularities, with Airy and Pearcey diffraction patterns after wave effects are included.
+\end{enumerate}
+\noindent\emph{Source for these results:} \cite{catastrophe_theory_ref1}.
+
+\section*{5. Applications}
+Catastrophe theory classifies stable local changes in equilibria as control parameters vary. Its normal forms are useful when a model has justified state variables, control parameters, and a potential or equivalent local structure.
+\begin{enumerate}[leftmargin=*,itemsep=0.35em]
+\item \textbf{Mechanics.} Catastrophe models describe buckling and the loss of a stable equilibrium.
+\item \textbf{Optics.} They classify caustics, where many rays focus into a fold or cusp.
+\item \textbf{Fluid and wave problems.} Folds and cusps describe envelopes, focusing, and changes in wave patterns.
+\item \textbf{Economics, biology, and social science.} Catastrophe models have been proposed for regime changes, but their use is credible only when a potential, state variables, and control parameters are justified.
+\end{enumerate}
+
+\noindent\emph{Limitations.} The theory depends on calculus, differential equations, bifurcation theory, singularity theory, Taylor expansion, topology, and smooth changes of variables. It supports local dynamical classification, optics, nonlinear mechanics, phase transitions, and model reduction. It does not by itself predict the timing of a real landslide or prove that a social system has only a few states. Unmodeled variables, noise, hysteresis, and non-equilibrium dynamics can invalidate a potential description.
+
+
+\theoryconnections{catastrophe_theory}{%
+\item Calculus finds equilibria by setting the derivative of a potential or dynamical law to zero, and Taylor expansion removes unimportant higher-order details near a degenerate equilibrium.
+\item Singularity theory classifies the resulting local shapes, while bifurcation theory tracks how the shape changes as control parameters move.
+\item Topology explains why folds, cusps, and umbilics are stable patterns under small perturbations, not accidental drawings \cite{catastrophe_theory_ref1,catastrophe_theory_ref4}.
+}{%
+\item In optics, a caustic is the envelope of many rays and can form a fold or cusp; the normal form predicts the bright pattern without tracing every ray individually.
+\item In mechanics and fluid models, the same normal forms describe a sudden change between equilibria.
+\item These conclusions require justified state variables, control parameters, and potential structure; a visually similar graph alone is not evidence for a catastrophe model \cite{catastrophe_theory_ref2,catastrophe_theory_ref3}.
+}
+\section*{7. Sample Questions}
+\emph{Exercise reference:} \cite{catastrophe_theory_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
+\begin{enumerate}[leftmargin=*,itemsep=0.9em]
+
+\item \textbf{Exercise 1.} Find the equilibria of the cusp potential $V=x^4/4+ax^2/2+bx$.
+
+\textbf{Solution.} Set $V_x=x^3+ax+b=0$. The number of real equilibria changes when the cubic has a repeated root, so solve also $V_{xx}=3x^2+a=0$. Eliminating $a$ and $b$ gives the cusp discriminant parametrically by $a=-3x^2$, $b=2x^3$.
+
+\item \textbf{Exercise 2.} What happens at a fold catastrophe?
+
+\textbf{Solution.} A stable minimum and an unstable maximum approach, merge into a degenerate equilibrium, and disappear. Following the stable branch then produces a sudden jump to another available state.
+
+\item \textbf{Exercise 3.} Why is the potential derivative used for equilibria?
+
+\textbf{Solution.} Equilibria are points where $\dot x=0$. Since $\dot x=-V_x$, this means $V_x=0$. Stability is determined by whether the critical point is a local minimum or maximum.
+
+\item \textbf{Exercise 4.} Name the three umbilic catastrophes.
+
+\textbf{Solution.} Hyperbolic umbilic $D_4^+$, elliptic umbilic $D_4^-$, and parabolic umbilic $D_5$. They involve two active state variables.
+
+\item \textbf{Exercise 5.} Why are catastrophe models not automatically explanations of social behavior?
+
+\textbf{Solution.} The classification assumes a smooth potential and carefully selected state and control variables. If those assumptions are not supported, the fitted normal form can be a metaphor rather than a predictive model.
+
+\end{enumerate}
+\section*{8. References}
+\begin{thebibliography}{99}
+\bibitem{catastrophe_theory_ref1} V. I. Arnold, \emph{Bifurcation Theory and Catastrophe Theory}.
+\bibitem{catastrophe_theory_ref2} T. Poston and I. Stewart, \emph{Catastrophe Theory and Its Applications}.
+\bibitem{catastrophe_theory_ref3} R. S. Zahler and H. J. Sussmann, "Claims and accomplishments of applied catastrophe theory," \emph{Nature}.
+\bibitem{catastrophe_theory_ref4} V. I. Arnold, S. M. Gusein-Zade, and A. N. Varchenko, \emph{Singularities of Differentiable Maps}.
+\end{thebibliography}

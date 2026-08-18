@@ -1,0 +1,78 @@
+\theory{Set theory}{How can mathematics describe collections, compare different sizes of infinity, and build numbers and structures from simple membership rules?}{Set theory studies sets and membership. It provides a language and foundation for most mathematics, while also investigating infinite sizes, ordinals, axioms, paradoxes, descriptive hierarchies, large cardinals, and independence.}{Foundations, analysis, algebra, topology, computer science, formal semantics, logic, and the study of infinity.}{Membership, union, power sets, and cardinality specify the foundations from which mathematical collections are constructed.}
+
+\paragraph{The idea and history}
+A set is a collection of objects, and membership is written $x\in A$. The empty set has no members. From sets we build pairs, products, functions, relations, numbers, spaces, and algebraic structures. Richard Dedekind and Georg Cantor initiated modern set theory in the 1870s; Cantor is commonly regarded as its founder \cite{set_ref1}.
+
+Cantor compared sizes by one-to-one correspondences. The natural numbers and even numbers have the same cardinality because $n\mapsto2n$ is a bijection. The real numbers are uncountable: no list can contain every real number. This discovery made infinity a mathematical object rather than merely an endless process \cite{set_ref2}.
+
+\end{historylist}
+\section*{3. Theory}
+\subsection*{Core theory}
+\paragraph{Operations and cardinality}
+The power set $\mathcal P(A)$ contains every subset of $A$. Cantor's theorem says there is no bijection from $A$ onto $\mathcal P(A)$; the power set is strictly larger. A diagonal argument constructs a subset missing from any proposed list.
+
+Cardinal numbers measure size. Finite cardinals behave like ordinary counting numbers; $\aleph_0$ is the size of the natural numbers. Ordinals measure order type: $\omega$ is the first infinite ordinal, followed by $\omega+1$, $\omega+2$, and so on. Cardinal and ordinal arithmetic differ because order matters for ordinals \cite{set_ref3}.
+
+\paragraph{Axioms and paradoxes}
+Naive set formation leads to contradictions. Russell's paradox considers the collection of all sets that do not contain themselves. If it contains itself, it should not; if it does not, it should. Other paradoxes include Cantor's paradox and the Burali--Forti paradox.
+
+Zermelo--Fraenkel set theory, usually ZF, avoids these contradictions through axioms such as extensionality, pairing, union, power set, infinity, separation, replacement, foundation, and choice when AC is included. The axiom of choice says that a family of nonempty sets has a choice function. It is equivalent over ZF to Zorn's lemma and the well-ordering theorem \cite{set_ref1}.
+
+\paragraph{The set-theoretic universe}
+The cumulative hierarchy builds sets in stages. Start with the empty set, take power sets and unions repeatedly, and at limit stages take unions of earlier stages. The resulting von Neumann universe is written $V$. Each set has a rank, measuring the stage at which it appears.
+
+The constructible universe $L$ is an inner model built using definable subsets. Forcing, introduced by Paul Cohen, constructs models in which selected statements differ in truth value. Cohen proved that the continuum hypothesis and the axiom of choice have independence phenomena relative to ZF and ZFC. Thus axioms can leave some questions undecided \cite{set_ref4}.
+
+\paragraph{Areas of study and applications}
+Descriptive set theory studies definable subsets of the real line and Polish spaces through the Borel and projective hierarchies. Effective descriptive set theory connects these classes with recursion theory. Large-cardinal theory studies strong forms of infinity and their consistency strength. Set theory also supplies the formal basis for graphs, manifolds, rings, vector spaces, relations, and databases.
+
+Category theory offers a different foundation: it emphasizes objects and relationships rather than membership. Set theory and category theory inform one another, but they organize mathematics in different ways \cite{set_ref5}.
+
+\section*{4. Important theorems and results}
+\begin{enumerate}[leftmargin=*,itemsep=0.35em]
+\item \textbf{Cantor's theorem.} For every set $A$, $|\mathcal P(A)|>|A|$.
+
+\item \textbf{Cantor diagonal theorem.} The real numbers are uncountable.
+
+\item \textbf{Well-ordering theorem.} Every set can be well ordered, assuming the axiom of choice.
+
+\item \textbf{Zorn's lemma.} A nonempty poset in which every chain has an upper bound has a maximal element.
+
+\item \textbf{Löwenheim--Skolem phenomena.} First-order theories with infinite models have models of many cardinalities, showing that formal descriptions do not determine one intended universe.
+
+\item \textbf{Independence results.} Some statements, including the continuum hypothesis, cannot be decided by the standard axioms without additional assumptions, relative to consistency results.
+\end{enumerate}
+\noindent\emph{Source for these results:} \cite{set_ref1}.
+
+\theoryapplications
+\theoryconnections{set_theory}{%
+\item Set theory supplies a common way to collect objects, form products, and define functions and relations.
+\item Logic specifies which collections and constructions are allowed, while proof checks that an operation preserves the required membership rules.
+\item For example, a function is a set of ordered pairs with exactly one output for each input; this definition lets algebra, analysis, and computer science use the same concept without relying on a picture \cite{set_ref1,set_ref2}.
+}{%
+\item Set theory helps algebra and analysis build numbers, spaces, sequences, and functions from explicit objects.
+\item It lets probability define a sample space and measurable events, and lets computer science describe data types and infinite computations.
+\item Category theory then studies the maps between these constructions, while foundational results identify which collections can be formed without contradiction \cite{set_ref1,set_ref3}.
+}
+\section*{7. Sample Questions}
+\emph{Exercise reference:} \cite{set_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
+\begin{enumerate}[leftmargin=*,itemsep=0.9em]
+\item \textbf{Exercise 1. Why do the natural numbers and even numbers have equal size?} The map $n\mapsto2n$ is one-to-one and onto the even numbers, so the two infinite sets have the same cardinality.
+
+\item \textbf{Exercise 2. Why is $\mathcal P(\{a,b\})$ larger than $\{a,b\}$?} The power set has four members: $\varnothing,\{a\},\{b\},\{a,b\}$. There are more subsets than original elements.
+
+\item \textbf{Exercise 3. Give the diagonal idea for showing that binary sequences cannot be listed.} From a proposed list, create a sequence whose $n$th digit differs from the $n$th digit of the $n$th listed sequence. The new sequence differs from every listed one.
+
+\item \textbf{Exercise 4. Compare an ordinal and a cardinal?} A cardinal measures how many objects there are. An ordinal measures the order in which objects occur. Two different ordered sets can have the same cardinal but different ordinal types.
+
+\item \textbf{Exercise 5. Why was an axiomatic system needed?} Unrestricted language about all collections creates self-reference paradoxes. Axioms restrict set formation so that ordinary mathematics can be developed without those contradictions.
+
+\end{enumerate}
+\section*{8. References}
+\begin{thebibliography}{9}
+\bibitem{set_ref1} P. Halmos, \emph{Naive Set Theory}.
+\bibitem{set_ref2} J. W. Dauben, \emph{Georg Cantor: His Mathematics and Philosophy of the Infinite}.
+\bibitem{set_ref3} T. Jech, \emph{Set Theory}.
+\bibitem{set_ref4} A. Kanamori, \emph{The Higher Infinite}.
+\bibitem{set_ref5} S. Awodey, \emph{Category Theory}.
+\end{thebibliography}

@@ -1,0 +1,114 @@
+\clearpage\chapter{Approximation theory}
+\section*{1. Overview}
+\subsection*{Intuitive}
+\paragraph{The problem}
+Many mathematical rules are easy to write but hard to calculate. The exact curve of a bridge under load, the path of a spacecraft, or the brightness of a pixel may be described by an equation that has no convenient answer. A computer must replace the exact object with a simpler one. The danger is obvious: a fast answer is not useful if nobody knows how far it may be wrong.
+Approximation theory asks how to make a simpler replacement and measure its error. It is not the same as guessing. An approximation is a controlled substitute: we know what was simplified, why the substitute should be close, and where the guarantee stops applying.
+
+
+\subsection*{Formal}
+Let $f$ belong to a normed function space and let $A_N$ be a finite-dimensional family of approximants, such as polynomials of degree at most $N$. Approximation chooses $p_N\in A_N$ to make an error norm small, for example $\|f-p_N\|_\infty$ for worst-case error or $\|f-p_N\|_2$ for mean-square error. The approximation problem is therefore an optimization problem together with an error estimate; the estimate is valid only on the stated domain and under the stated regularity assumptions.
+\section*{2. History}
+\subsection*{Historical development}
+\begin{historylist}
+\paragraph{The people and the historical problem}
+The subject grew from several needs rather than one invention. Isaac Newton and Joseph-Louis Lagrange developed polynomial methods for replacing complicated functions near points. Joseph Fourier showed that repeating signals could be built from simple waves, leading to a powerful way to approximate sound, heat, and images.
+
+In the nineteenth century, Pafnuty Chebyshev studied the best possible approximations and asked how to keep the largest error as small as possible. Karl Weierstrass proved a remarkable existence result: every continuous function on a closed interval can be approximated as closely as desired by polynomials. Sergei Bernstein later gave an explicit construction that made the theorem more concrete.
+
+These mathematicians were not merely looking for shorter formulas. They were trying to understand whether complicated continuous behavior could be captured by finite calculations, and whether ``close'' could be made precise.
+
+\end{historylist}
+\section*{3. Theory}
+\subsection*{Core theory}
+\paragraph{The central idea}
+Suppose we want to approximate $\sqrt{2}$. The decimal $1.4142$ is useful only after we say what error is acceptable. Since $(1.4142)^2=1.99996164$, its square is less than 2 by about $0.00003836$. The approximation has a measurable error, not just a pleasant appearance.
+
+For a function, we choose a simpler family: straight lines, polynomials, splines, or trigonometric waves. We then choose a rule for judging closeness. Sometimes we care about the largest error anywhere; sometimes we care about average error; sometimes we care more about errors in a particular region. Different choices produce different ``best'' approximations.
+
+\paragraph{Why the method works}
+The method works because it turns an impossible demand---calculate every detail exactly---into a controlled question: how much detail is enough for this purpose? A theorem can bound the error, and computation can refine the approximation until the bound is acceptable. The key is to keep the error visible rather than hide it behind many decimal places.
+
+For example, near zero the curve $\sin x$ is close to the straight line $x$. Adding the correction $-x^3/6$ gives a better estimate. At $x=0.1$, the first approximation is already close; at $x=2$, the same shortcut is poor. An approximation always comes with a region and a level of accuracy.
+
+\paragraph{Optimal polynomials and the equioscillation idea}
+
+Suppose the degree $N$ and interval $[a,b]$ are fixed. A best uniform polynomial is the polynomial $P$ that minimizes
+\[
+ \max_{a\leq x\leq b}|P(x)-f(x)|.
+\]
+The equioscillation theorem gives a practical certificate for this choice. Under the usual continuity assumptions, the error $P-f$ reaches the same magnitude with alternating signs at at least $N+2$ ordered points. For a fourth-degree polynomial, the ideal error therefore has six alternating extrema. Two of these points may be the endpoints.
+
+This pattern explains why merely matching $N+1$ data points is not generally optimal. Interpolation forces agreement at selected points, but it may leave a large error between them. A minimax polynomial distributes its unavoidable error more evenly. If a competing degree-$N$ polynomial were strictly closer at all $N+2$ alternating extrema, the difference of the two polynomials would change sign at least $N+1$ times. The intermediate value theorem would then give too many zeros for a nonzero degree-$N$ polynomial. Thus no competitor can improve the worst error \cite{approximation_theory_ref1,approximation_theory_ref2}.
+
+For a concrete library problem, a degree-four polynomial for $\exp x$ on $[-1,1]$ can be chosen so that its error repeatedly touches $+\varepsilon$ and $-\varepsilon$. The same idea applies to $\log x$ on $[2,4]$. The numerical value of $\varepsilon$ depends on the function and interval; the important design fact is that the largest errors are balanced rather than concentrated at one end.
+
+\paragraph{Chebyshev expansion}
+
+The Chebyshev polynomials are defined by
+\[
+ T_n(\cos\theta)=\cos(n\theta).
+\]
+They satisfy $T_0(x)=1$, $T_1(x)=x$, and
+\[
+ T_{n+1}(x)=2xT_n(x)-T_{n-1}(x).
+\]
+On $[-1,1]$ they oscillate between $-1$ and $1$. In particular, $T_{N+1}$ has $N+2$ alternating extrema, exactly the geometry suggested by the equioscillation theorem.
+
+For a sufficiently smooth function, write a generalized Fourier expansion
+\[
+ f(x)\sim\sum_{k=0}^{\infty}c_kT_k(x).
+\]
+Stopping after $T_N$ gives a degree-$N$ polynomial. If the coefficients decrease rapidly, the first omitted term is larger than the sum of the later terms, so the truncated expansion is close to the minimax polynomial. It can be slightly better in some parts of the interval and slightly worse in others; near-optimal is not identical to optimal. The method is particularly effective for $\exp x$ and other analytic functions, while singularities or endpoint difficulty slow coefficient decay \cite{approximation_theory_ref4,approximation_theory_ref5}.
+
+Chebyshev approximation also supplies Clenshaw--Curtis quadrature. The integral is approximated by sampling the function at Chebyshev-related points, expanding the sampled values, and integrating the polynomial expansion. Thus a representation chosen to control approximation error also gives an efficient numerical integration rule.
+
+\paragraph{Remez's algorithm: finding the minimax polynomial}
+
+The Remez algorithm turns the equioscillation condition into an iteration. For a degree-$N$ polynomial choose $N+2$ ordered test points $x_0,\ldots,x_{N+1}$. Require
+\[
+ P(x_i)-f(x_i)=(-1)^i\varepsilon.
+\]
+Since $P(x)=P_0+P_1x+\cdots+P_Nx^N$, these are $N+2$ linear equations in the $N+1$ coefficients and the unknown error size $\varepsilon$. Solve them to obtain a polynomial whose error alternates at the selected points.
+
+The selected interior points may not yet be true maxima or minima of the error. Compute the derivative of $P-f$, move each interior point toward a nearby zero of that derivative using Newton's method, and solve the alternating linear system again. Continue until the error has the same alternating magnitude at actual extrema. Good initial points are the extrema of $T_{N+1}$ because the final error has a similar shape.
+
+The method needs evaluations of $f$, $f'$, and often $f''$ to high precision. The computation should use more precision than the final answer requests, since errors in the test points and coefficients can hide the final alternation. For well-behaved functions, convergence is quadratic near the solution: an error of roughly $10^{-15}$ can become roughly $10^{-30}$ after a further iteration. Remez is therefore both a numerical algorithm and a direct demonstration of the optimal-polynomial theorem \cite{approximation_theory_ref1,approximation_theory_ref6,approximation_theory_ref7}.
+
+\section*{4. Important theorems and results}
+\begin{enumerate}[leftmargin=*,itemsep=0.35em]
+\item \textbf{Central result.} Weierstrass approximation says continuous functions on a closed interval can be uniformly approximated by polynomials.
+
+\item \textbf{Taylor error bound.} A Taylor polynomial has a remainder controlled by a bound on the next derivative. This explains when a local approximation is trustworthy and why an error estimate must accompany numerical simulation or signal processing.
+
+Weierstrass gives existence but not an efficient construction or a useful finite-degree error bound. Taylor's theorem gives a local construction with a remainder estimate, while minimax and Chebyshev methods choose an approximation that controls the largest error on an interval. The choice of theorem therefore depends on whether the goal is existence, computation, or a uniform error guarantee.\end{enumerate}
+\noindent\emph{Source for these results:} \cite{approximation_theory_ref1}.
+
+\section*{5. Applications}
+Approximation theory replaces a difficult function or model by a simpler one while estimating the error introduced by that replacement. The approximation is useful only when its domain, error bound, and numerical stability are known.
+\begin{enumerate}[leftmargin=*,itemsep=0.35em]
+\item \textbf{Computer graphics.} A curved object can be displayed as many small triangles. More triangles usually make the object look smoother, but the program must decide where extra triangles matter most.
+\item \textbf{Signal compression.} A sound wave can be represented by its important frequencies. Removing tiny components saves storage, but produces distortion. The best method depends on whether a listener or a scientific instrument will judge the result.
+\item \textbf{Engineering.} Engineers may replace a complicated physical system with a smaller model before testing a bridge or aircraft. The approximation is useful only after checking that neglected effects are smaller than the safety margin.
+\item \textbf{Numerical equations.} Differential equations describing weather or fluid motion are often solved on a grid. The grid is an approximation to continuous space; making it finer can improve accuracy but also increases computation.
+\end{enumerate}
+\noindent\emph{Limitations.} An approximation can fail outside its intended range, near a sharp corner, or when small errors are amplified by a later calculation. More terms do not always help: rounding error, instability, or a divergent series can make a longer calculation worse.
+\theoryconnections{approximation_theory}{%
+\item Calculus supplies Taylor expansions and error estimates, while linear algebra turns approximation into a finite problem of choosing coefficients.
+\item Norms and limits say what it means for an approximation to be close, and real or complex analysis proves when the error decreases.
+\item For example, interpolation replaces an unknown curve by the polynomial through measured points, while least squares chooses the polynomial whose total squared error is smallest; the choice of norm determines what “best” means \cite{approximation_theory_ref1,approximation_theory_ref2}.
+}{%
+\item Approximation theory helps differential equations by replacing an infinite-dimensional solution with finitely many basis coefficients, which produces finite-element and spectral methods.
+\item It helps signal processing by retaining the important frequencies and suppressing numerical noise, and it helps statistics by replacing a complicated relationship with a controlled model.
+\item Its error bounds tell the downstream subject whether the numerical answer is trustworthy \cite{approximation_theory_ref1,approximation_theory_ref6}.
+}
+\chapterquestions{Approximation theory}{approximants, norms, and approximation error}{approximating $e^x$ near 0 by $1+x+x^2/2$}{the Taylor polynomial has remainder controlled by a bound on the next derivative}{Weierstrass approximation says continuous functions on a closed interval can be uniformly approximated by polynomials}{an approximation outside its error range is unsafe; numerical simulation and signal processing use controlled error}{approximation_theory_ref1}
+\section*{8. References}
+\begin{thebibliography}{9}
+\bibitem{approximation_theory_ref1} L. N. Trefethen, \emph{Approximation Theory and Approximation Practice}.
+\bibitem{approximation_theory_ref2} G. B. Folland, \emph{Real Analysis}.
+\bibitem{approximation_theory_ref4} T. J. Rivlin, \emph{Chebyshev Polynomials: From Approximation Theory to Algebra and Number Theory}.
+\bibitem{approximation_theory_ref5} G. Szegő, \emph{Orthogonal Polynomials}.
+\bibitem{approximation_theory_ref6} N. J. Higham, \emph{Accuracy and Stability of Numerical Algorithms}.
+\bibitem{approximation_theory_ref7} N. I. Achieser, \emph{Theory of Approximation}.
+\end{thebibliography}

@@ -1,0 +1,95 @@
+\theory{Queueing theory}{How many servers, machines, or communication channels are needed so that waiting remains acceptable without wasting capacity?}{Queueing theory models arrivals, service, waiting discipline, and departures as random processes. It predicts queue lengths, waiting times, utilization, throughput, and the probability of delay.}{Telephone networks, Internet routers, hospitals, factories, shops, traffic systems, call centers, cloud computing, and project management.}{Arrival and service processes determine waiting-time distributions, utilization, stability, and capacity in a stochastic system.}
+
+\paragraph{The problem and history}
+Every queue has arrivals, one or more servers, a waiting area, a service rule, and departures. The same structure describes a supermarket line, packets entering a router, patients entering an emergency department, and jobs sent to a processor. The goal is to calculate distributions and averages that support capacity decisions \cite{queue_ref1}.
+
+Agner Krarup Erlang created the subject while studying incoming calls at the Copenhagen Telephone Exchange. He modeled arrivals by a Poisson process and solved early single- and multiple-server systems. Pollaczek, Khinchin, Kendall, and Kingman developed major later results. Kleinrock applied queueing models to message switching and packet networks \cite{queue_ref2,queue_ref3}.
+
+\end{historylist}
+\section*{3. Theory}
+\subsection*{Core theory}
+\paragraph{Building a model}
+An arrival process describes when customers or jobs appear. A Poisson process with rate $\lambda$ has independent arrivals and exponentially distributed interarrival times. The service process describes how long a server takes; exponential service is denoted by M, deterministic service by D, and a general distribution by G. Kendall's notation writes a queue as A/S/$c$, where $c$ is the number of servers. M/M/1 has Poisson arrivals, exponential service, and one server.
+
+The queue may have finite or infinite capacity, a finite or infinite customer population, and different disciplines. First-come first-served is common, but priority, last-come first-served, processor sharing, and random selection also occur. A customer may abandon the queue or be blocked when no buffer is free \cite{queue_ref1,queue_ref4}.
+
+\paragraph{The M/M/1 queue}
+Let arrivals occur at rate $\lambda$ and service at rate $\mu$. The traffic intensity is
+\[
+\rho=\frac{\lambda}{\mu}.
+\]
+For an unlimited queue to have a steady state, $\rho<1$ is required. If $\rho\geq1$, work arrives as fast as or faster than it can be processed.
+
+When $\rho<1$, the probability of finding $n$ customers in the system is
+\[
+P(N=n)=(1-\rho)\rho^n,\qquad n=0,1,2,\ldots.
+\]
+The mean number in the system is $L=\rho/(1-\rho)$, and the mean time in the system is $W=1/(\mu-\lambda)$. The mean number waiting is $L_q=\rho^2/(1-\rho)$ and the mean waiting time is $W_q=\rho/(\mu-\lambda)$ \cite{queue_ref1}.
+
+\paragraph{Little's law and networks}
+Little's law states
+\[
+L=\lambda W,
+\]
+where $L$ is the long-run average number in the system, $\lambda$ is throughput, and $W$ is the average time spent in the system. If a website completes $600$ requests per minute and the average request takes $0.2$ minutes, the average number in the system is $120$.
+
+Queueing networks connect several nodes by routing rules. One may seek an equilibrium distribution, but transient behavior matters when a hospital faces a sudden surge or a computer system starts after a failure. Product-form networks have equilibrium probabilities that factor into contributions from individual nodes \cite{queue_ref2,queue_ref3}.
+
+\paragraph{Multiple servers and variability}
+An M/M/c queue has $c$ identical servers. Adding a server usually reduces delay, but the benefit depends on utilization and variability. Deterministic service is less disruptive than highly variable service with the same mean. The Pollaczek--Khinchin formula for an M/G/1 queue makes the effect of service-time variance explicit.
+
+Kingman's approximation for a G/G/1 queue shows that mean waiting grows with utilization, arrival variability, and service variability. This explains why a system operating at ninety-nine percent capacity can be much worse than one operating at eighty percent: random bursts have nowhere to go \cite{queue_ref4,queue_ref5}.
+
+\paragraph{How it solves real problems}
+In a hospital, arrivals vary by hour and service times vary by patient. A model estimates the probability of a long wait under one staffing plan, then compares it with plans using another doctor or a fast-treatment stream. The output is a tradeoff between cost, congestion, and service quality.
+
+In a router, packets arrive and compete for a finite buffer. If the service rate is too low, the buffer fills and packets are dropped. Queueing analysis estimates delay and loss, helping engineers choose link speeds and buffer sizes. In cloud computing, the same calculation determines how many virtual machines are needed for a target response time \cite{queue_ref2}.
+
+\section*{4. Important theorems and results}
+\begin{enumerate}[leftmargin=*,itemsep=0.35em]
+\item \textbf{Erlang formulas.} Erlang's loss and delay formulas give blocking and waiting probabilities in telephone and multi-server systems.
+
+\item \textbf{M/M/1 stationary distribution.} When $\rho<1$, $P(N=n)=(1-\rho)\rho^n$.
+
+\item \textbf{Little's law.} In a stable long-run system, $L=\lambda W$.
+
+\item \textbf{Pollaczek--Khinchin formula.} The M/G/1 mean waiting time depends on the first two moments of service time, so variability increases delay.
+
+\item \textbf{Kingman's formula.} For G/G/1 queues, mean waiting is approximately proportional to $\rho/(1-\rho)$ and to the sum of arrival and service variability.
+
+\item \textbf{Birth--death balance.} A single queue can be represented by transitions from $n$ to $n+1$ at arrival rate and from $n$ to $n-1$ at service rate.
+\end{enumerate}
+\noindent\emph{Source for these results:} \cite{queue_ref1}.
+
+\theoryapplications
+\theoryconnections{queue_theory}{%
+\item Probability describes random arrivals and service times, while a stochastic process records how the number of waiting jobs changes through time.
+\item In a memoryless model, the current queue length is enough to predict the next transition, producing a Markov chain and balance equations.
+\item Operations research then turns the resulting waiting-time and utilization formulas into a staffing or capacity decision \cite{queue_ref1,queue_ref2}.
+}{%
+\item Queueing theory helps a call center choose how many agents are needed to keep waiting time below a target, and helps a data center decide how much service capacity prevents overload.
+\item The same calculation estimates traffic congestion, hospital beds, factory buffers, and network delay.
+\item Its distinctive contribution is to show the cost of variability: even when average arrival and service rates are equal, random bursts can make the queue grow without bound \cite{queue_ref1,queue_ref3}.
+}
+\section*{7. Sample Questions}
+\emph{Exercise reference:} \cite{queue_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
+\begin{enumerate}[leftmargin=*,itemsep=0.9em]
+\item \textbf{Exercise 1. An M/M/1 queue has $\lambda=3$ jobs per hour and $\mu=5$ jobs per hour. Is it stable?} Yes. $\rho=3/5=0.6<1$. The mean number in the system is $L=\rho/(1-\rho)=1.5$.
+
+\item \textbf{Exercise 2. For the same queue, find the mean time in the system.} $W=1/(\mu-\lambda)=1/2$ hour, or thirty minutes. Little's law confirms $L=\lambda W=3(0.5)=1.5$.
+
+\item \textbf{Exercise 3. If a system has $L=20$ jobs and throughput $\lambda=4$ jobs per minute, what is $W$?} Little's law gives $W=L/\lambda=20/4=5$ minutes.
+
+\item \textbf{Exercise 4. Why is $\rho=1.1$ unsafe for an unlimited queue?} The server processes only $\mu$ jobs per unit time while arrivals occur at $1.1\mu$. The backlog grows on average, so no finite steady-state mean exists.
+
+\item \textbf{Exercise 5. Why does service-time variability increase waiting?} A long service occupies the server while new jobs arrive. The Pollaczek--Khinchin formula contains the second moment of service time, so larger variance raises the mean wait.
+
+\end{enumerate}
+\section*{8. References}
+\begin{thebibliography}{9}
+\bibitem{queue_ref1} D. Gross, J. F. Shortle, J. M. Thompson, and C. M. Harris, \emph{Fundamentals of Queueing Theory}.
+\bibitem{queue_ref2} L. Kleinrock, \emph{Queueing Systems, Volume 1: Theory}.
+\bibitem{queue_ref3} L. Kleinrock, \emph{Queueing Systems, Volume 2: Computer Applications}.
+\bibitem{queue_ref4} J. W. Cohen, \emph{The Single Server Queue}.
+\bibitem{queue_ref5} J. F. C. Kingman, \emph{Heavy Traffic in Single Server Queues}.
+\end{thebibliography}

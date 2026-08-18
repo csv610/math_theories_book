@@ -1,0 +1,159 @@
+\clearpage\chapter{Bifurcation theory}
+\section*{1. Overview}
+\subsection*{Intuitive}
+\paragraph{The problem}
+
+A parameter can change smoothly while the behavior of a system changes suddenly. A population may remain near zero and then settle at a positive level; a circuit may begin to oscillate; a fluid flow may lose stability and develop a new pattern. Bifurcation theory locates and classifies the parameter values at which the qualitative structure of solutions changes.
+
+
+
+\subsection*{Formal}
+For an equation $F(x,\lambda)=0$, a bifurcation is a parameter value $\lambda_0$ at which the nearby solution set changes qualitatively. At an equilibrium, the linearization $D_xF$ determines local behavior; loss of invertibility, together with suitable nondegeneracy conditions, signals a possible branch or stability change. Normal-form calculations reduce the local behavior to a simpler equation while preserving the relevant qualitative features.
+\section*{2. History}
+\subsection*{Historical development}
+\begin{historylist}
+\paragraph{History and motivation}
+
+The word bifurcation was introduced by Henri Poincaré in 1885 while studying changes in equilibria and periodic solutions of differential equations. Later work by Andronov, Hopf, Arnold, Smale, and many others developed local normal forms and global dynamical methods. The researchers were trying to understand why a small change in a physical parameter could change the number or stability of solutions, something a single solution formula could not reveal.
+
+Bifurcation theory applies to continuous systems such as ordinary, delay, and partial differential equations, and to discrete systems such as iterated maps. It is closely related to dynamical systems, chaos, catastrophe theory, control, and nonlinear analysis \cite{bifurcation_theory_ref1,bifurcation_theory_ref3}.
+
+\end{historylist}
+\section*{3. Theory}
+\subsection*{Core theory}
+\paragraph{Equilibria, stability, and a changing parameter}
+\bookfigure{dynamics_chaos_bifurcation}{A bifurcation diagram records how long-term behavior changes with a parameter.}
+
+Consider
+\[
+ \dot x=f(x,\lambda),
+\]
+where $\lambda$ is a parameter. An equilibrium $x_*$ satisfies $f(x_*,\lambda)=0$. To test its local stability, linearize:
+\[
+ \dot u=D_xf(x_*,\lambda)u.
+\]
+If all eigenvalues have negative real part, small disturbances decay; if one has positive real part, the equilibrium is unstable. At a bifurcation, a stability eigenvalue reaches the boundary: in continuous time its real part is zero, while for a discrete map $x_{n+1}=f(x_n,\lambda)$ a multiplier has modulus one.
+
+The scalar example
+\[
+ \dot x=rx-x^3
+\]
+has $x=0$ for all $r$. When $r<0$, the derivative at zero is $r<0$, so zero is stable. When $r>0$, zero is unstable and two new equilibria $x=\pm\sqrt r$ appear; their derivative is $r-3r=-2r<0$, so they are stable. The phase portrait changes at $r=0$. This is a supercritical pitchfork in a symmetric system.
+
+\paragraph{Local bifurcations}
+
+A local bifurcation can be understood in an arbitrarily small neighborhood of the changing equilibrium or periodic orbit. The implicit-function theorem explains why a smooth branch of equilibria persists when the derivative with respect to $x$ is invertible. Failure of this condition is the signal that a branch can turn, cross, or split.
+
+\textbf{Saddle-node.} The normal form
+\[
+ \dot x=\lambda-x^2
+\]
+has two equilibria for $\lambda>0$, one double equilibrium at $\lambda=0$, and no equilibria for $\lambda<0$. A stable and an unstable equilibrium are created or destroyed together.
+
+\textbf{Transcritical.} In
+\[
+ \dot x=\lambda x-x^2,
+\]
+the branches $x=0$ and $x=\lambda$ cross and exchange stability. This often describes a threshold between two competing states.
+
+\textbf{Pitchfork.} In the symmetric example above, one equilibrium becomes unstable and two symmetric equilibria appear. Symmetry is important: without a symmetry or constraint, a pitchfork usually unfolds into other bifurcations.
+
+\textbf{Hopf.} A pair of complex-conjugate eigenvalues crosses the imaginary axis. An equilibrium changes stability and a small periodic orbit is born or disappears. Hopf bifurcation explains the onset of oscillations in chemical reactions, biological rhythms, lasers, and electrical circuits.
+
+For maps, the corresponding conditions use multipliers. A multiplier $+1$ may lead to a saddle-node, transcritical, or pitchfork; a multiplier $-1$ often produces period doubling. A pair on the unit circle can generate a discrete analogue of Hopf behavior.
+
+\paragraph{Codimension}
+
+The codimension is the number of independent parameters that must be adjusted to produce a generic bifurcation. Saddle-node and Hopf bifurcations are generically codimension one: varying one parameter is usually enough. Transcritical and pitchfork normal forms are also drawn with one parameter, although symmetry or another condition may be needed for them to occur robustly.
+
+The Bogdanov--Takens bifurcation is a standard codimension-two example. Two conditions must be met, often producing nearby saddle-node, Hopf, and homoclinic curves in a two-parameter diagram. Codimension counts how many coincidences must be arranged, not how visually complicated the resulting dynamics will be.
+
+\paragraph{Global bifurcations}
+
+Global bifurcations cannot be detected from the eigenvalues of one equilibrium. They involve large invariant sets colliding or changing topology.
+
+\textbf{Homoclinic bifurcation.} A periodic orbit may collide with a saddle point and its stable and unstable manifolds. The period can grow very large near the collision, and complicated or chaotic behavior may appear.
+
+\textbf{Heteroclinic bifurcation.} A cycle of connections among two or more saddle points changes stability. Resonance conditions on eigenvalues can create or destroy periodic orbits; transverse intersections can alter the global connection.
+
+\textbf{Infinite-period bifurcation.} A stable node and a saddle can be created on a limit cycle while the oscillation slows and its period tends to infinity. Beyond the threshold, the cycle disappears and the equilibria remain.
+
+\textbf{Blue-sky catastrophe and crises.} A periodic orbit can collide with a nonhyperbolic invariant cycle, or a chaotic attractor can collide with a basin boundary. These events can cause a sudden enlargement or destruction of the observed attractor.
+
+The local/global distinction is practical. Linearization is powerful near an equilibrium, but it cannot reveal that a distant periodic orbit will collide with a saddle.
+
+\paragraph{Bifurcation diagrams and normal forms}
+
+A bifurcation diagram plots equilibria or periodic-orbit amplitudes against the parameter. Solid and dashed curves often indicate stable and unstable branches. A normal form is a simplified equation obtained by coordinate changes and scaling that preserves the behavior relevant near the bifurcation. It removes terms that do not affect the leading qualitative change.
+
+Center-manifold reduction explains why a high-dimensional system can often be reduced to a one- or two-dimensional equation near a nonhyperbolic equilibrium. The center manifold contains the slow directions associated with zero-real-part eigenvalues; stable directions decay and can be slaved to them. Normal-form calculations then classify the possible local behavior.
+
+\section*{4. Important theorems and results}
+\begin{enumerate}[leftmargin=*,itemsep=0.35em]
+
+\item \textbf{Implicit-function theorem.} If the derivative with respect to the state is invertible, a nearby solution branch continues smoothly with the parameter. Bifurcation requires failure of this regularity condition.
+
+\item \textbf{Linear stability criterion.} Eigenvalues with negative real parts give local decay in continuous time; a positive real part gives instability. For maps, stability corresponds to multipliers inside the unit circle.
+
+\item \textbf{Center-manifold theorem.} Near a nonhyperbolic equilibrium, the local dynamics relevant to bifurcation can be reduced to a center manifold of lower dimension.
+
+\item \textbf{Hopf bifurcation theorem.} Under nondegeneracy and transversality conditions, a pair of eigenvalues crossing the imaginary axis produces a branch of small periodic orbits.
+
+\item \textbf{Saddle-node normal form.} The equation $\dot x=\lambda-x^2$ captures the generic creation or destruction of an equilibrium pair.
+
+\item \textbf{Bogdanov--Takens unfolding.} A codimension-two double-zero eigenvalue organizes nearby saddle-node, Hopf, and homoclinic bifurcation curves.
+\end{enumerate}
+\noindent\emph{Source for these results:} \cite{bifurcation_theory_ref1}.
+
+\section*{5. Applications}
+Bifurcation theory is useful when changing a parameter changes the number, stability, or type of solutions of a differential equation. The critical parameter identifies where a qualitative transition occurs.
+\begin{enumerate}[leftmargin=*,itemsep=0.35em]
+\item \textbf{Population dynamics.} A harvesting or reproduction parameter can create a stable positive population through a transcritical or saddle-node event. A small change past the threshold may remove the only sustainable equilibrium.
+\item \textbf{Chemical and biological oscillators.} Feedback in a reaction network can cause a Hopf bifurcation. As a control parameter crosses the threshold, a stable equilibrium gives way to a stable periodic concentration cycle. Cell-cycle switches and biochemical networks use bistable and irreversible switches whose output changes near a bifurcation point.
+\item \textbf{Fluid mechanics and climate.} Increasing the Reynolds number can destabilize a steady flow and create vortices or periodic shedding. Climate models may have multiple equilibria, with transitions between them organized by saddle-node or global bifurcations.
+\item \textbf{Lasers, circuits, and quantum systems.} Laser intensity can emerge through a threshold bifurcation, and electronic feedback circuits can begin to oscillate at a Hopf point. In atomic and molecular systems, bifurcations of classical orbits leave enhanced signatures in quantum spectra. Resonant tunnelling diodes, kicked tops, and coupled quantum wells provide model examples.
+\item \textbf{Engineering and control.} Bifurcation diagrams show where a controller will lose stability or where a desired operating state disappears. Continuation methods follow solution branches numerically and reveal turning points that ordinary simulation might miss \cite{bifurcation_theory_ref2,bifurcation_theory_ref4}.
+\end{enumerate}
+
+
+\theoryconnections{bifurcation_theory}{%
+\item Calculus linearizes a differential equation near an equilibrium, and linear algebra turns that linearization into eigenvalues that indicate growth, decay, or oscillation.
+\item Dynamical systems and phase portraits then follow the nearby trajectories, while topology explains why branches of equilibria cannot simply disappear without a change in the equations.
+\item Numerical continuation traces those branches as a parameter changes, so a bifurcation is detected as a structural change rather than as one surprising numerical output \cite{bifurcation_theory_ref1,bifurcation_theory_ref2}.
+}{%
+\item Bifurcation theory tells control engineers where a stable operating point will become unstable and tells biologists where a population equilibrium can split into several regimes.
+\item In climate and fluid models, a parameter crossing a threshold can create oscillations or multiple states; in laser models it can turn a zero signal into a sustained one.
+\item Chaos theory often begins after repeated bifurcations, while catastrophe theory classifies the local shapes of the resulting transitions \cite{bifurcation_theory_ref1,bifurcation_theory_ref4}.
+}
+\section*{7. Sample Questions}
+\emph{Exercise reference:} \cite{bifurcation_theory_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
+\begin{enumerate}[leftmargin=*,itemsep=0.9em]
+
+\item \textbf{Exercise 1.} Analyze the equilibria of $\dot x=rx-x^3$.
+
+\textbf{Solution.} Equilibria are $x=0$ and, for $r\geq0$, $x=\pm\sqrt r$. The derivative is $r-3x^2$. Thus zero is stable for $r<0$ and unstable for $r>0$, while the two nonzero branches are stable for $r>0$. This is a supercritical pitchfork.
+
+\item \textbf{Exercise 2.} Classify the equilibria of $\dot x=\lambda-x^2$.
+
+\textbf{Solution.} For $\lambda>0$, $x=\pm\sqrt\lambda$; the positive branch has derivative $-2\sqrt\lambda<0$ and is stable, the negative branch unstable. At $\lambda=0$ they merge, and for $\lambda<0$ there are none: a saddle-node.
+
+\item \textbf{Exercise 3.} What eigenvalue condition signals a local continuous-time bifurcation?
+
+\textbf{Solution.} At least one eigenvalue of the Jacobian has real part zero. A zero eigenvalue gives a steady-state bifurcation; a nonzero purely imaginary pair gives the linear signal for a Hopf bifurcation. Nondegeneracy conditions are still required.
+
+\item \textbf{Exercise 4.} Why is a homoclinic bifurcation global?
+
+\textbf{Solution.} It involves an entire orbit connecting a saddle to itself and therefore the global stable and unstable manifolds, not just the eigenvalues at the saddle. The change cannot be confined to an arbitrarily small neighborhood.
+
+\item \textbf{Exercise 5.} What does codimension two mean for a Bogdanov--Takens point?
+
+\textbf{Solution.} Two independent conditions must be met, so one generally needs two parameters to reach the degenerate point. Nearby parameter values may display several codimension-one curves such as saddle-node and Hopf branches.
+
+\end{enumerate}
+\section*{8. References}
+\begin{thebibliography}{99}
+\bibitem{bifurcation_theory_ref1} S. H. Strogatz, \emph{Nonlinear Dynamics and Chaos}.
+\bibitem{bifurcation_theory_ref2} Y. A. Kuznetsov, \emph{Elements of Applied Bifurcation Theory}.
+\bibitem{bifurcation_theory_ref3} V. I. Arnold, \emph{Geometrical Methods in the Theory of Ordinary Differential Equations}.
+\bibitem{bifurcation_theory_ref4} S. Wiggins, \emph{Introduction to Applied Nonlinear Dynamical Systems and Chaos}.
+\end{thebibliography}

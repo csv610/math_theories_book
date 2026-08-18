@@ -1,0 +1,168 @@
+\theory{Dempster--Shafer theory}{How can several sources of incomplete or conflicting evidence be combined without pretending that ignorance is a precise probability?}{Dempster--Shafer theory, also called evidence theory or the theory of belief functions, assigns support to sets of possibilities rather than only to single outcomes. It reports a lower value called belief and an upper value called plausibility. The gap between them records what the evidence has not decided.}{Sensor fusion, diagnosis, decision support, intelligence analysis, missing data, reliability engineering, possibility theory, and imprecise probability.}{Mass assignments, belief, plausibility, and combination rules preserve both supporting evidence and unresolved ambiguity.}
+
+\paragraph{The problem and its history}
+
+Suppose a detector says that a signal is either red or yellow but cannot distinguish which. Ordinary probability forces us to split the evidence between red and yellow, even if no reason for the split exists. Evidence theory keeps the statement as a set-valued piece of information. It distinguishes support for a claim from room left for the claim to be true.
+
+Arthur Dempster introduced upper and lower probabilities in statistical inference. Glenn Shafer developed the framework into a general mathematical theory of evidence. Later work introduced the transferable belief model, theory of hints, alternative fusion operators, random-set interpretations, geometric models, and relational measures. \cite{dempster_shafer_theory_ref1,dempster_shafer_theory_ref2}
+
+The subject is not simply probability with different notation. A probability assigns mass to individual outcomes or events with additivity. Dempster--Shafer theory assigns basic mass to subsets, allowing a source to say “one of these possibilities” without saying how the mass is divided among them.
+
+\end{historylist}
+\section*{3. Theory}
+\subsection*{Core theory}
+\paragraph{Frame of discernment and basic belief assignments}
+
+Let $X$ be the set of possible states. Its power set $2^X$ contains every subset, including the empty set and the whole set. A basic belief assignment is a function
+\[
+ m:2^X\longrightarrow[0,1]
+\]
+with
+\[
+ m(\varnothing)=0,\qquad \sum_{A\subseteq X}m(A)=1.
+\]
+The sets with positive mass are called focal elements. The mass $m(A)$ supports the statement that the true state lies somewhere in $A$, but does not claim which member of $A$ is true.
+
+For $X=\{\text{alive},\text{dead}\}$, a detector might assign mass $0.2$ to alive, $0.5$ to dead, and $0.3$ to the whole set $X$. The final $0.3$ represents ignorance, not an equal probability of $0.15$ for each state. If later evidence distinguishes the states, that ignorance can be redistributed.
+
+The theory also allows a random-set interpretation. Begin with an ordinary probability space of observations. A set-valued map sends each observation to the subset of states that remain possible. A hidden die whose faces 1 and 2 are indistinguishable produces the set $\{1,2\}$ when that hidden face appears. Missing data in science, weather records, and computer vision naturally produce this type of set-valued observation. \cite{dempster_shafer_theory_ref1,dempster_shafer_theory_ref3}
+
+\paragraph{Belief and plausibility}
+
+For a hypothesis $A\subseteq X$, the belief is
+\[
+ \operatorname{Bel}(A)=\sum_{B\subseteq A}m(B).
+\]
+It counts all evidence that directly supports $A$ or an even more specific subset. The plausibility is
+\[
+ \operatorname{Pl}(A)=\sum_{B\cap A\neq\varnothing}m(B)
+ =1-\operatorname{Bel}(X\setminus A).
+\]
+It counts evidence that does not contradict $A$. Therefore
+\[
+ \operatorname{Bel}(A)\leq P(A)\leq\operatorname{Pl}(A)
+\]
+for every ordinary probability $P$ compatible with the evidence.
+
+Return to the cat example. With masses $m(\text{alive})=0.2$, $m(\text{dead})=0.5$, and $m(X)=0.3$,
+\[
+ \operatorname{Bel}(\text{alive})=0.2,\qquad
+ \operatorname{Pl}(\text{alive})=0.2+0.3=0.5.
+\]
+The evidence supports alive by $0.2$ and leaves at most $0.5$ room for alive. The interval $[0.2,0.5]$ is more honest than a forced number when the detector cannot resolve the situation.
+
+Belief is a lower probability and plausibility is an upper probability. For finite $X$, knowing all masses, all beliefs, or all plausibilities determines the other two through finite sums and inversion. For infinite $X$, a belief and plausibility function may exist even when no ordinary mass function on every subset is convenient. \cite{dempster_shafer_theory_ref2,dempster_shafer_theory_ref4}
+
+\paragraph{Combining evidence}
+
+Suppose two independent sources assign masses $m_1$ and $m_2$. Dempster's rule forms intersections of focal sets. If $B$ is supported by the first source and $C$ by the second, their common claim is $B\cap C$. The conflicting mass is
+\[
+ K=\sum_{B\cap C=\varnothing}m_1(B)m_2(C).
+\]
+For a nonempty $A$, the normalized combination is
+\[
+ (m_1\oplus m_2)(A)
+ =\frac{1}{1-K}
+ \sum_{B\cap C=A}m_1(B)m_2(C).
+\]
+The normalization discards conflict and rescales the nonempty intersections.
+
+This rule is appropriate when the masses express compatible belief constraints from independent sources. Other situations need cumulative, cautious, proportional, or disjunctive fusion rules. The choice of rule is a modeling assumption, not a theorem that one formula is always correct.
+
+For two friends choosing among films $X,Y,Z$, Alice may assign $0.99$ to $X$ and $0.01$ to $Y$, while Bob assigns $0.99$ to $Z$ and $0.01$ to $Y$. If the numbers mean preferences and the goal is a film both can agree to watch, the only shared preference is $Y$, so the normalized combination assigns it all the mass. If the sources make completely opposed claims, $K=1$ and the rule is undefined; that is a warning that no common supported conclusion exists. \cite{dempster_shafer_theory_ref2,dempster_shafer_theory_ref5}
+
+\paragraph{Conflict and counterintuitive examples}
+
+Zadeh's example shows why the meaning of a mass assignment must be stated. One doctor assigns mass $0.99$ to brain tumor and $0.01$ to meningitis. Another assigns $0.99$ to concussion and $0.01$ to meningitis. Dempster's rule normalizes the small agreement on meningitis and can assign it mass one. This is counterintuitive if the numbers mean each doctor's confidence in diagnoses: both doctors considered meningitis unlikely. It may be sensible if the numbers describe constraints and the only common conclusion is meningitis, but the interpretation must be explicit.
+
+Even low conflict can surprise. If both doctors assign large mass to brain tumor but disagree slightly about whether the alternative is meningitis or concussion, normalization can give brain tumor complete support. A model that treats belief as proof from evidence, rather than probability that a diagnosis is true, can explain some of these outcomes. Pearl and other authors criticized interpretations that confuse probability of truth with probability of provability, while later work studied which fusion rules are justified for which tasks. \cite{dempster_shafer_theory_ref6,dempster_shafer_theory_ref7}
+
+\paragraph{Relation to Bayesian probability}
+
+Bayesian probability is recovered as a special case when every focal element is a singleton. Then there is no unassigned set-level ignorance, and belief and plausibility agree:
+\[
+ \operatorname{Bel}(A)=\operatorname{Pl}(A)=P(A).
+\]
+If masses are assigned to sets such as red-or-green, the theory expresses information that is weaker than a probability distribution on the individual colors.
+
+The advantage is explicit ignorance. The cost is that belief is not generally additive on disjoint sets, and some combinations can violate intuitions or decision-theoretic principles. A Bayesian approximation redistributes the mass of each focal set among its members to obtain a probability distribution. This is useful when a downstream method accepts only singleton probabilities, but it necessarily loses information about ignorance and dependence on the chosen redistribution rule. \cite{dempster_shafer_theory_ref2,dempster_shafer_theory_ref8}
+
+\paragraph{Other uncertainty measures and geometry}
+
+A belief function determines a credal set: the convex set of all ordinary probability distributions $P$ satisfying
+\[
+ P(A)\geq\operatorname{Bel}(A)\quad\text{for every }A\subseteq X.
+\]
+The corresponding plausibility is the upper probability over this set. Thus evidence theory is a structured form of imprecise probability. Possibility measures correspond to consonant belief functions, in which the focal sets are nested. Probability boxes represent lower and upper cumulative distributions.
+
+For a finite frame, mass and belief values can be treated as coordinates of a point in a convex belief space. The valid points form a simplex-like geometric region, with ordinary probability distributions appearing as a special face. This picture makes mixtures, constraints, and distance between evidence sources visible.
+
+Relational measures replace the ordinary real-number order by a partial order in a bounded lattice. A measure $\mu$ assigns an ordered value to each subset of criteria, is monotone under inclusion, sends the empty set to the least element, and sends the whole set to the greatest element. This generalizes evidence combination to preferences and multi-criteria reasoning. \cite{dempster_shafer_theory_ref9}
+
+\paragraph{Applications and dependencies}
+
+Dempster--Shafer theory depends on sets, probability, combinatorics, convex geometry, and decision theory. It helps sensor fusion by retaining ambiguity when cameras, radar, and microphones disagree. In diagnosis, it can distinguish evidence directly supporting a disease from evidence that merely fails to rule it out. In intelligence analysis it represents reports that identify a group of possible sources but not one individual.
+
+The theory is useful when data are incomplete, sources report constraints rather than calibrated frequencies, and preserving ignorance matters. It is dangerous when users interpret belief intervals as ordinary confidence intervals or apply Dempster's rule to evidence with the wrong independence semantics. A responsible application states the frame, mass assignment meaning, fusion rule, conflict handling, and final decision criterion.
+
+\section*{4. Important theorems and results}
+\begin{enumerate}[leftmargin=*,itemsep=0.35em]
+
+\item \textbf{Belief--plausibility bounds.} For every hypothesis $A$, $\operatorname{Bel}(A)$ is the sum of masses contained in $A$, $\operatorname{Pl}(A)$ is the sum of masses intersecting $A$, and every compatible probability lies between them. \cite{dempster_shafer_theory_ref2}
+
+\item \textbf{Duality.} Plausibility and belief satisfy $\operatorname{Pl}(A)=1-\operatorname{Bel}(X\setminus A)$. \cite{dempster_shafer_theory_ref2}
+
+\item \textbf{Bayesian special case.} If all focal elements are singletons, belief and plausibility coincide with an ordinary probability distribution. \cite{dempster_shafer_theory_ref2}
+
+\item \textbf{Dempster combination rule.} Independent mass assignments combine through nonempty intersections and normalization by $1-K$, where $K$ is the conflicting mass. The rule is undefined when $K=1$. \cite{dempster_shafer_theory_ref1,dempster_shafer_theory_ref5}
+
+\item \textbf{Credal-set representation.} A belief function determines a convex set of compatible probability distributions, so evidence theory can be viewed as a structured lower-and-upper probability model. \cite{dempster_shafer_theory_ref9}
+\end{enumerate}
+
+\theoryapplications
+\theoryconnections{dempster shafer theory}{%
+\item Probability supplies events and conditioning, while set theory allows a mass to be assigned to a group of possible states rather than to one state.
+\item Combinatorics computes intersections of focal sets, and decision theory is needed when belief and plausibility lead to an interval rather than one probability.
+}{%
+\item Dempster--Shafer theory helps sensor fusion and diagnosis combine evidence from sources that are incomplete or partly conflicting.
+\item Its interval output preserves uncertainty that an ordinary probability model might hide, although the combination rule must be checked when conflict is large.
+}
+\section*{7. Sample Questions}
+\emph{Exercise reference:} \cite{dempster_shafer_theory_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
+\begin{enumerate}[leftmargin=*,itemsep=0.9em]
+
+\item \textbf{Exercise 1.} Let $X=\{a,b\}$ with $m(\{a\})=0.3$, $m(\{b\})=0.2$, and $m(X)=0.5$. Find belief and plausibility for $\{a\}$.
+
+\emph{Solution.} Belief sums masses contained in $\{a\}$, so $\operatorname{Bel}(\{a\})=0.3$. Plausibility sums masses intersecting $\{a\}$, so it is $0.3+0.5=0.8$.
+
+\item \textbf{Exercise 2.} Why is $m(\{a,b\})=0.5$ not the same as assigning probability $0.25$ to each state?
+
+\emph{Solution.} The set mass says only that the state is one of $a$ or $b$. It does not choose a division. Assigning $0.25$ to each adds an equal-likelihood assumption that the evidence did not provide.
+
+\item \textbf{Exercise 3.} What happens when two sources have conflict $K=1$?
+
+\emph{Solution.} Every pair of focal sets has empty intersection, so the normalizing factor $1-K$ is zero. Dempster's normalized rule is undefined. The correct response is to inspect the model or choose a fusion rule that retains conflict.
+
+\item \textbf{Exercise 4.} When does Dempster--Shafer theory reduce to Bayesian probability?
+
+\emph{Solution.} When all nonzero mass is assigned to singleton states. Then the belief and plausibility of every event are equal, and the mass function is an ordinary probability distribution.
+
+\item \textbf{Exercise 5.} Why must an application specify what the mass means?
+
+\emph{Solution.} The same numerical mass can represent a belief constraint, a probability of provability, a preference, or a sensor reliability. Dempster's normalization can be sensible for one meaning and misleading for another, especially under conflict.
+
+\end{enumerate}
+\section*{8. References}
+
+
+\begin{thebibliography}{9}
+\bibitem{dempster_shafer_theory_ref1} A. P. Dempster, "Upper and lower probabilities induced by a multivalued mapping," \emph{The Annals of Mathematical Statistics}, 1967.
+\bibitem{dempster_shafer_theory_ref2} G. Shafer, \emph{A Mathematical Theory of Evidence}, Princeton University Press, 1976.
+\bibitem{dempster_shafer_theory_ref3} I. Molchanov, \emph{Theory of Random Sets}, Springer, 2017.
+\bibitem{dempster_shafer_theory_ref4} K. Sentz and S. Ferson, \emph{Combination of Evidence in Dempster--Shafer Theory}, Sandia National Laboratories, 2002.
+\bibitem{dempster_shafer_theory_ref5} A. Jøsang and P. Simon, "Dempster's rule as seen by little colored balls," \emph{Computational Intelligence}, 2012.
+\bibitem{dempster_shafer_theory_ref6} J. Pearl, \emph{Probabilistic Reasoning in Intelligent Systems}, Morgan Kaufmann, 1988.
+\bibitem{dempster_shafer_theory_ref7} N. Wilson, "The assumptions behind Dempster's rule," in \emph{Proceedings of UAI}, 1993.
+\bibitem{dempster_shafer_theory_ref8} F. Voorbraak, "A computationally efficient approximation of Dempster--Shafer theory," \emph{International Journal of Man--Machine Studies}, 1989.
+\bibitem{dempster_shafer_theory_ref9} F. Cuzzolin, \emph{The Geometry of Uncertainty}, Springer, 2021.
+\end{thebibliography}

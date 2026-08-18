@@ -1,0 +1,171 @@
+\clearpage\chapter{Character theory}
+\section*{1. Overview}
+\subsection*{Intuitive}
+\paragraph{The problem}
+
+A representation turns each symmetry of a group into a matrix. Matrices can be large and change when the basis changes. Character theory compresses the representation to one function: the trace of each matrix. For finite groups over the complex numbers, this compact function contains enough information to recover the representation up to isomorphism.
+
+
+
+\subsection*{Formal}
+Let $\rho:G\to\operatorname{GL}(V)$ be a finite-dimensional representation of a finite group over a field of characteristic zero. Its character is the class function $\chi_\rho(g)=\operatorname{Tr}(\rho(g))$. The character inner product is
+\[
+\langle\chi,\psi\rangle=\frac1{|G|}\sum_{g\in G}\chi(g)\overline{\psi(g)}.
+\]
+Irreducible characters are orthonormal, and the multiplicity of an irreducible character in $\chi_\rho$ is its inner product with $\chi_\rho$.
+\section*{2. History}
+\subsection*{Historical development}
+\begin{historylist}
+\paragraph{Ferdinand Georg Frobenius}
+Frobenius introduced characters as traces of representation matrices and used them to study finite-group representations without writing every matrix explicitly. In characteristic zero, the character determines a complex representation up to isomorphism, which makes character tables effective summary data.
+
+\paragraph{Richard Brauer}
+Brauer developed modular character theory for positive characteristic. His methods handle the case in which the characteristic divides the group order, where the averaging arguments used in ordinary character theory no longer apply.
+
+These developments turned complicated group actions into numerical data that can be added, multiplied, and averaged. The resulting character methods support the study of finite groups, molecular symmetry, particle physics, and Lie groups \cite{character_theory_ref1,character_theory_ref3}.
+
+\end{historylist}
+\section*{3. Theory}
+\subsection*{Core theory}
+\paragraph{Representations and characters}
+
+Let $\rho:G\to\operatorname{GL}(V)$ be a finite-dimensional representation over a field $F$. Its character is
+\[
+ \chi_\rho(g)=\operatorname{Tr}(\rho(g)).
+\]
+The degree is $\chi_\rho(1)=\dim V$ in characteristic zero. A character is irreducible when the representation has no nonzero proper invariant subspace. A character of degree one is linear.
+
+Characters are class functions: $\chi(hgh^{-1})=\chi(g)$. The trace is unchanged by conjugating a matrix, so a character is constant on conjugacy classes. The kernel can be recovered in characteristic zero as the elements where $\chi(g)=\chi(1)$, and it is a normal subgroup. A character is not generally a group homomorphism.
+
+\paragraph{Character tables}
+
+For a finite group, make one column for each conjugacy class and one row for each irreducible character. The first row is the trivial character, whose entries are all 1; the first column is the identity class and contains the degrees.
+
+The table is square because the number of irreducible complex representations equals the number of conjugacy classes. From the first column one obtains
+\[
+ |G|=\sum_i \chi_i(1)^2.
+\]
+The sum of squared absolute values in a column equals the order of the centralizer of a representative element. Kernels of characters reveal normal subgroups; the commutator subgroup is the intersection of kernels of linear characters. A character table can show whether a group is abelian, but it need not determine the group up to isomorphism: the quaternion group and the dihedral group of order eight have the same character table.
+
+\paragraph{Orthogonality and decomposition}
+
+For complex class functions define
+\[
+ \langle\alpha,\beta\rangle=
+ \frac1{|G|}\sum_{g\in G}\alpha(g)\overline{\beta(g)}.
+\]
+Irreducible characters form an orthonormal basis, so
+\[
+ \langle\chi_i,\chi_j\rangle=\delta_{ij}.
+\]
+If $\chi=\sum_i m_i\chi_i$, then $m_i=\langle\chi,\chi_i\rangle$. Thus the inner product tells how many times each irreducible representation occurs in a decomposition.
+
+The column orthogonality relation says that the corresponding columns are orthogonal after weighting by centralizers. These relations are practical algorithms for completing a character table, finding centralizer sizes, decomposing a representation, and checking whether a proposed row is possible.
+
+\paragraph{Arithmetic rules}
+
+Characters turn common representation operations into simple formulas:
+\[
+ \chi_{\rho\oplus\sigma}=\chi_\rho+\chi_\sigma,\qquad
+ \chi_{\rho\otimes\sigma}=\chi_\rho\chi_\sigma,\qquad
+ \chi_{\rho^*}=\overline{\chi_\rho}.
+\]
+For exterior and symmetric squares,
+\[
+ \chi_{\wedge^2\rho}(g)=\frac{\chi_\rho(g)^2-\chi_\rho(g^2)}2,
+\quad
+ \chi_{\operatorname{Sym}^2\rho}(g)=\frac{\chi_\rho(g)^2+\chi_\rho(g^2)}2.
+\]
+For finite-order $g$, the eigenvalues of $\rho(g)$ are roots of unity, so character values are sums of roots of unity and hence algebraic integers over $\mathbb C$.
+
+\paragraph{Restriction, induction, and Frobenius reciprocity}
+
+If $H\leq G$, restricting a representation from $G$ to $H$ restricts its character. Conversely, a representation of $H$ can be induced to a representation of $G$ by letting $G$ act on functions or cosets with values in the original space. The induced character is zero on elements not conjugate to an element of $H$ and has a coset-sum formula on elements of $H$.
+
+Frobenius reciprocity says
+\[
+ \langle\theta^G,\chi\rangle_G
+ =\langle\theta,\chi_H\rangle_H.
+\]
+It converts multiplicity calculations for induction into calculations for restriction and is one of the main tools for building character tables from subgroups.
+
+\paragraph{Lie groups and Lie algebras}
+
+For a finite-dimensional representation of a Lie group, the character is still $\operatorname{Tr}(\rho(g))$. For a Lie algebra representation, one may define
+\[
+ \chi_\rho(X)=\operatorname{Tr}(e^{\rho(X)}).
+\]
+The character is invariant under the adjoint action. For a complex semisimple Lie algebra, it is determined by its values on a Cartan subalgebra and can be written using weights:
+\[
+ \chi_\rho(H)=\sum_\lambda m_\lambda e^{\lambda(H)}.
+\]
+The Weyl character formula computes irreducible characters explicitly from roots and weights.
+
+\section*{4. Important theorems and results}
+\begin{enumerate}[leftmargin=*,itemsep=0.35em]
+
+\item \textbf{Character determination theorem.} Complex representations of a finite group are isomorphic exactly when they have the same character.
+
+\item \textbf{Schur orthogonality.} Irreducible characters form an orthonormal basis of the class functions, giving both row and column orthogonality.
+
+\item \textbf{Sum-of-squares theorem.} The order of a finite group equals the sum of squares of the degrees of its irreducible complex representations.
+
+\item \textbf{Maschke's theorem.} If the characteristic does not divide $|G|$, every finite-dimensional representation is completely reducible. This is why character decomposition works cleanly in characteristic zero.
+
+\item \textbf{Frobenius reciprocity.} Multiplicities in an induced representation equal multiplicities in the corresponding restricted representation.
+
+\item \textbf{Weyl character formula.} The character of an irreducible representation of a complex semisimple Lie algebra is determined explicitly by its highest weight and root system.
+\end{enumerate}
+\noindent\emph{Source for these results:} \cite{character_theory_ref1}.
+
+\section*{5. Applications}
+Character theory compresses a representation into traces of group elements, while retaining enough information to study its decomposition. Character values therefore make symmetry calculations manageable in algebra, combinatorics, chemistry, and physics.
+\begin{enumerate}[leftmargin=*,itemsep=0.35em]
+\item \textbf{Finite-group structure.} Character values reveal normal subgroups, commutators, centralizers, and possible degrees. Character calculations occur in classification of finite simple groups and in the Feit--Thompson theorem.
+\item \textbf{Chemistry and physics.} Molecular vibrations and particle states transform under symmetry groups. Character tables separate modes into irreducible types and predict which transitions or interactions are allowed.
+\item \textbf{Combinatorics.} The representation of a group on a set gives a permutation character. Inner products count orbits and fixed configurations, connecting characters with Burnside's lemma.
+\item \textbf{Number theory and analysis.} Linear characters of abelian groups include Dirichlet characters and lead to Fourier analysis and $L$-functions. Higher-dimensional characters enter automorphic forms and arithmetic geometry.
+\item \textbf{Moonshine.} Replacing ordinary dimension by a graded character produces McKay--Thompson series and connects representations of the Monster group with modular functions.
+\end{enumerate}
+
+
+\theoryconnections{character_theory}{%
+\item Group theory provides conjugacy classes, which collect elements that have the same symmetry type.
+\item Representation theory turns each group element into a matrix, and the character records only the trace of that matrix; traces are easier to compare and still remember enough to decompose a representation.
+\item Orthogonality of characters is a Fourier calculation on the group, so inner products count how many irreducible symmetry patterns occur \cite{character_theory_ref1,character_theory_ref2}.
+}{%
+\item Character theory helps classify finite-group representations by replacing a large collection of matrices with a table of values on conjugacy classes.
+\item In chemistry those values predict how molecular vibrations split into symmetry types; in particle physics they label states under continuous symmetries.
+\item In combinatorics and number theory, character sums convert symmetry or congruence conditions into cancellations that can be estimated \cite{character_theory_ref1,character_theory_ref3}.
+}
+\section*{7. Sample Questions}
+\emph{Exercise reference:} \cite{character_theory_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
+\begin{enumerate}[leftmargin=*,itemsep=0.9em]
+
+\item \textbf{Exercise 1.} What is the character of the permutation representation of $S_3$?
+
+\textbf{Solution.} The trace of a permutation matrix equals the number of fixed points. On the classes identity, transposition, and 3-cycle, the values are $3,1,0$. The trivial subrepresentation has character $(1,1,1)$, so the standard two-dimensional representation has character $(2,0,-1)$.
+
+\item \textbf{Exercise 2.} Why is a character constant on conjugacy classes?
+
+\textbf{Solution.} $\rho(hgh^{-1})=\rho(h)\rho(g)\rho(h)^{-1}$, and similar matrices have the same trace.
+
+\item \textbf{Exercise 3.} How does an inner product decompose a character?
+
+\textbf{Solution.} If $\chi=\sum_i m_i\chi_i$, orthonormality gives $\langle\chi,\chi_j\rangle=m_j$. The inner product is therefore the multiplicity of the $j$th irreducible.
+
+\item \textbf{Exercise 4.} What is the character of a direct sum?
+
+\textbf{Solution.} The representing matrix is block diagonal, so its trace is the sum of the traces: $\chi_{\rho\oplus\sigma}=\chi_\rho+\chi_\sigma$.
+
+\item \textbf{Exercise 5.} Why is modular character theory harder?
+
+\textbf{Solution.} If the field characteristic divides $|G|$, averaging over the group may fail and representations need not split into irreducibles. Brauer's theory supplies a replacement using restricted character data.
+
+\end{enumerate}
+\section*{8. References}
+\begin{thebibliography}{99}
+\bibitem{character_theory_ref1} J.-P. Serre, \emph{Linear Representations of Finite Groups}.
+\bibitem{character_theory_ref2} I. M. Isaacs, \emph{Character Theory of Finite Groups}.
+\bibitem{character_theory_ref3} B. C. Hall, \emph{Lie Groups, Lie Algebras, and Representations}.
+\end{thebibliography}

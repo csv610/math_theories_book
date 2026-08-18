@@ -1,0 +1,105 @@
+\theory{Operator theory}{How can we study transformations of functions, signals, and infinite lists as carefully as we study numbers?}{An operator is a rule that takes one object to another, often a function to a function. Operator theory studies linear and nonlinear operators, their domains, inverses, spectra, and natural modes. It extends matrix algebra to infinite-dimensional spaces, where convergence and the choice of domain become part of the problem.}{Differential and integral equations, quantum mechanics, Fourier analysis, signal processing, control, inverse problems, and the mathematics of operator algebras.}{Domains, spectra, resolvents, and functional calculus extend matrix methods to transformations of infinite-dimensional spaces.}
+
+\paragraph{The problem and its history}
+Matrices act on finite lists of numbers. Differentiation, integration, shifting a sequence, and filtering a signal act on functions or infinite lists. These rules are too large to be represented by a finite matrix, but they still have structure. Operator theory asks which rules are continuous, which can be inverted, how errors grow, and whether the rule has simple modes \cite{operator_theory_ref1}.
+
+The subject began with differential and integral operators arising in differential equations. Hilbert's study of integral equations introduced infinite-dimensional analogues of Euclidean space. Banach and von Neumann developed the language of normed and Hilbert spaces, while spectral theory connected operators to eigenvalues. The resulting theory belongs to functional analysis and depends heavily on the topology of function spaces \cite{operator_theory_ref2,operator_theory_ref3}.
+
+\end{historylist}
+\section*{3. Theory}
+\subsection*{Core theory}
+\paragraph{Operators and their domains}
+Let $X$ and $Y$ be vector spaces. A linear operator $T:X\to Y$ satisfies
+\[
+T(ax+by)=aT(x)+bT(y).
+\]
+The differentiation operator $D$ sends a polynomial $x^n$ to $nx^{n-1}$. Its kernel consists of constant polynomials, and its range on polynomials is all polynomials. An integral operator may have the form
+\[
+(Tf)(x)=\int_a^b K(x,t)f(t)\,dt,
+\]
+where the kernel $K$ describes how input values are combined.
+
+In finite dimensions every linear map is defined on the whole space and is continuous. For an unbounded operator such as differentiation on a space of square-integrable functions, the domain must be specified. A function may be square-integrable while its derivative is not. Ignoring this point can make a formally correct equation meaningless. Closed operators and densely defined operators provide the setting in which limits and adjoints can be handled safely \cite{operator_theory_ref1,operator_theory_ref2}.
+
+\paragraph{Spectrum and natural modes}
+For a matrix $A$, an eigenvector $v$ satisfies $Av=\lambda v$. The corresponding $\lambda$ is a value at which $A-\lambda I$ fails to be invertible. In an infinite-dimensional space, the spectrum of $T$ is the set of complex numbers $\lambda$ for which $T-\lambda I$ has no bounded inverse. The spectrum may contain values that are not ordinary eigenvalues; this is one reason infinite-dimensional analysis is richer than matrix algebra.
+
+The spectral theorem says, broadly, that self-adjoint and more generally normal operators can be represented using their spectral data. In finite dimensions a normal matrix is unitarily diagonalizable:
+\[
+A=UDU^*,
+\]
+where the columns of $U$ are orthonormal eigenvectors and $D$ is diagonal. For an infinite-dimensional self-adjoint operator, a sum over eigenvectors may be replaced by an integral over a spectral measure. The operator then behaves like multiplication by the variable, the simplest possible model \cite{operator_theory_ref1,operator_theory_ref4}.
+
+An operator $N$ on a complex Hilbert space is normal when $NN^*=N^*N$. Unitary operators preserve lengths, self-adjoint operators are the infinite-dimensional analogue of Hermitian matrices, and positive operators have the form $M^*M$. These classes are important because the spectral theorem applies to them and because they model reversible motion, measured quantities, and energy \cite{operator_theory_ref1}.
+
+\paragraph{Polar decomposition}
+Every bounded operator $A$ between complex Hilbert spaces has a canonical factorization
+\[
+A=UP,\qquad P=(A^*A)^{1/2},
+\]
+where $P$ is positive and $U$ is a partial isometry. For a square invertible matrix, this says that $A$ is a rotation or reflection followed by a stretch. It is the operator version of writing a complex number as magnitude times direction, and it is closely related to the singular value decomposition.
+
+The word partial matters in infinite dimensions. The unilateral shift on sequences moves every entry one place and inserts a zero. It preserves length on its initial space but is not onto, so it is not unitary. The polar factor records exactly this loss of surjectivity \cite{operator_theory_ref3}.
+
+\paragraph{Complex analysis and operator algebras}
+Many operators act on spaces of holomorphic functions. On the Hardy space, multiplication by the independent variable gives the unilateral shift. Beurling's theorem describes its invariant subspaces by inner functions. Toeplitz operators multiply a function and then project it back into the Hardy space; similar questions arise on Bergman spaces \cite{operator_theory_ref5}.
+
+An operator algebra is a collection of operators closed under addition, scalar multiplication, and composition. A $C^*$-algebra is a complex Banach algebra equipped with an adjoint operation satisfying
+\[
+(xy)^*=y^*x^*,\qquad (x^*)^*=x,\qquad \|x^*x\|=\|x\|^2.
+\]
+The norm identity is powerful: it ties algebraic invertibility, geometry, and spectral radius together. Commutative $C^*$-algebras can be understood through spaces of functions, while noncommutative ones provide an algebraic language for quantum observables \cite{operator_theory_ref4}.
+
+\paragraph{How the theory solves applications}
+For a vibrating string, separation of variables turns the wave equation into an eigenvalue problem for a differential operator. The eigenfunctions are normal modes; the observed motion is a combination of them. For a quantum particle, a self-adjoint operator represents an observable, and its spectrum describes the possible measurement values. The spectral theorem explains how probabilities are assigned to spectral regions \cite{operator_theory_ref1}.
+
+In signal processing, a filter is an operator. Fourier modes are especially useful because convolution operators act on them by multiplication. Instead of tracking every point of a signal, one studies how the operator changes each frequency. In control theory, the spectrum of a system operator helps determine stability; in inverse problems, compact operators explain why recovering an input from measured output may amplify noise \cite{operator_theory_ref2,operator_theory_ref3}.
+
+\section*{4. Important theorems and results}
+\begin{enumerate}[leftmargin=*,itemsep=0.35em]
+\item \textbf{Spectral theorem.} Self-adjoint and normal operators on Hilbert spaces admit a spectral representation; finite-dimensional versions are unitary diagonalization.
+
+\item \textbf{Schur decomposition.} Every complex matrix is unitarily similar to an upper triangular matrix. A normal upper triangular matrix is diagonal, yielding the normal-matrix spectral theorem.
+
+\item \textbf{Polar decomposition.} Every bounded operator has $A=U(A^*A)^{1/2}$ with $U$ a partial isometry, uniquely determined on the relevant range.
+
+\item \textbf{Douglas factorization lemma.} If $A^*A\leq B^*B$, then $A=CB$ for a contraction $C$. This gives a clean route to polar decomposition.
+
+\item \textbf{Beurling's theorem.} The invariant subspaces of the unilateral shift on the Hardy space are generated by inner functions.
+
+\item \textbf{C*-identity and spectral radius.} In a $C^*$-algebra the norm is determined by the algebraic structure through the spectrum of $x^*x$. This is why $C^*$-algebras are rigid analytic objects.
+\end{enumerate}
+\noindent\emph{Source for these results:} \cite{operator_theory_ref1}.
+
+\theoryapplications
+\theoryconnections{operator_theory}{%
+\item Linear algebra studies transformations of finite-dimensional vectors; operator theory extends the same question to spaces of functions, where convergence and integration must be controlled.
+\item Topology of function spaces says which limits are allowed, measure defines the integral norms, and complex analysis explains resolvents and spectra.
+\item For example, differentiating a function is an operator, and asking for its eigenfunctions is asking which shapes reproduce themselves under differentiation or under a boundary-value problem \cite{operator_theory_ref1,operator_theory_ref2}.
+}{%
+\item Operator theory helps differential equations by converting an equation into a statement about an operator's inverse or spectrum.
+\item Fourier analysis diagonalizes important translation-invariant operators into frequencies, while quantum mechanics interprets observables as operators and their spectra as possible measurement values.
+\item In control and inverse problems, boundedness and spectral location tell whether errors grow and whether hidden inputs can be recovered \cite{operator_theory_ref1,operator_theory_ref4}.
+}
+\section*{7. Sample Questions}
+\emph{Exercise reference:} \cite{operator_theory_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
+\begin{enumerate}[leftmargin=*,itemsep=0.9em]
+\item \textbf{Exercise 1. Find the eigenvalues and an orthonormal eigenbasis of $A=\begin{pmatrix}2&1\\1&2\end{pmatrix}$.} The vectors $(1,1)$ and $(1,-1)$ give eigenvalues $3$ and $1$. After dividing each by $\sqrt2$, they form an orthonormal basis, so $A$ is unitarily diagonalizable.
+
+\item \textbf{Exercise 2. What is the kernel of differentiation on polynomials?} If $Dp=0$, every coefficient of positive degree is zero, so $p$ is constant. Thus $\ker D$ is the one-dimensional space of constants.
+
+\item \textbf{Exercise 3. Compute the polar decomposition of $A=\begin{pmatrix}0&1\\0&0\end{pmatrix}$.} We have $A^*A=\begin{pmatrix}0&0\\0&1\end{pmatrix}$, so $P=(A^*A)^{1/2}=\operatorname{diag}(0,1)$. The partial isometry $U$ sends $(0,1)$ to $(1,0)$ and is zero on $(1,0)$; then $UP=A$.
+
+\item \textbf{Exercise 4. Why is the differentiation operator unbounded on $L^2[0,1]$?} Take $f_n(x)=\sin(2\pi n x)$. Its $L^2$ norm stays fixed while the derivative has norm proportional to $n$. No single constant bounds $\|Df\|$ by $\|f\|$, so differentiation is not bounded on this space.
+
+\item \textbf{Exercise 5. Explain the Fourier reason that convolution becomes multiplication.} A Fourier mode $e^{i\omega x}$ is an eigenfunction of translation. Convolution with a fixed kernel preserves each frequency and multiplies its amplitude by the kernel's Fourier transform. Therefore filtering can be performed frequency by frequency.
+
+\end{enumerate}
+\section*{8. References}
+\begin{thebibliography}{9}
+\bibitem{operator_theory_ref1} J. B. Conway, \emph{A Course in Functional Analysis}.
+\bibitem{operator_theory_ref2} P. R. Halmos, \emph{Introduction to Hilbert Space and the Theory of Spectral Multiplicity}.
+\bibitem{operator_theory_ref3} J. B. Conway, \emph{A Course in Operator Theory}.
+\bibitem{operator_theory_ref4} G. K. Pedersen, \emph{C*-Algebras and Their Automorphism Groups}.
+\bibitem{operator_theory_ref5} K. Hoffman, \emph{Banach Spaces of Analytic Functions}.
+\end{thebibliography}

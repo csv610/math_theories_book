@@ -1,0 +1,95 @@
+\theory{Intersection theory}{How can the meeting of geometric objects be counted when they touch, overlap, or intersect in high dimensions?}{Intersection theory assigns algebraic multiplicities to intersections and organizes them in rings of cycles. It extends Bezout's counting principle to geometry where ordinary point counting is not enough.}{Algebraic geometry, topology, enumerative geometry, moduli spaces, and mathematical physics.}{Cycles, divisors, and refined multiplicities count how geometric objects meet, including intersections invisible in a naive drawing.}
+
+\paragraph{The problem and its history}
+Two lines in a plane usually meet once. A line and a parabola may meet twice. If the line is tangent, the two meetings merge into one visible point, but the equation still has multiplicity two. Intersection theory preserves this hidden count. Its roots lie in Bezout's theorem, elimination theory, and the work of Weil and van der Waerden; William Fulton developed a modern framework \cite{intersection_theory_ref1,intersection_theory_ref2}.
+
+For subvarieties $A$ and $B$ of a smooth variety $X$, a proper intersection has the expected dimension
+\[
+\dim(A\cap B)=\dim A+\dim B-\dim X.
+\]
+The intersection product $A\cdot B$ is a cycle supported on $A\cap B$, with coefficients recording local multiplicity.
+
+\end{historylist}
+\section*{3. Theory}
+\subsection*{Core theory}
+\paragraph{A local example}
+The line $y=0$ and parabola $y=x^2$ meet at the origin. Substituting gives $x^2=0$, a double root, so the intersection multiplicity is $2$. If the line is moved to $y=\epsilon$, there are two nearby intersection points over the complex numbers, both approaching the origin as $\epsilon$ tends to zero. Multiplicity is therefore a continuity-preserving count.
+
+\paragraph{Moving cycles and rational equivalence}
+Objects in bad position may overlap too much: parallel lines in an affine plane have no meeting, while a plane containing a line has an intersection of unexpectedly high dimension. One moves cycles within a rational-equivalence class until they meet properly. A rational function on a subvariety produces a difference between its zero and pole divisors; such differences are declared equivalent to zero.
+
+The Chow group is the group of cycles modulo rational equivalence. Intersection products make the collection of Chow groups into a Chow ring when the ambient variety is smooth. This ring retains algebraic information that ordinary cohomology may forget.
+
+\paragraph{Topological intersection forms}
+On an oriented manifold of dimension $2n$, the middle cohomology has a bilinear intersection form
+\[
+\lambda(a,b)=\langle a\smile b,[M]\rangle.
+\]
+It evaluates the cup product on the fundamental class. On a four-manifold this form is especially important: its signature is the number of positive directions minus negative directions. Poincare duality makes the form nondegenerate under suitable hypotheses.
+
+\paragraph{Self-intersection and blow-ups}
+An object may intersect a moved copy of itself. For a smooth subvariety, the self-intersection is governed by the top Chern class of its normal bundle. A line in the projective plane has self-intersection $1$. A ruling line in $\mathbb P^1\times\mathbb P^1$ has self-intersection $0$ because it can be moved away from itself.
+
+Blowing up a point on a surface replaces the point by an exceptional curve. This curve has genus zero and self-intersection $-1$. Castelnuovo's contraction theorem says that a suitable $(-1)$-curve can be blown down again. These calculations are central in birational classification \cite{intersection_theory_ref3}.
+
+\paragraph{Modern developments and uses}
+Intersection theory counts curves satisfying geometric conditions, such as lines meeting prescribed objects. It underlies enumerative geometry, Chern classes, Riemann--Roch, Gromov--Witten invariants, quantum cohomology, and moduli spaces. Virtual fundamental cycles supply a corrected intersection class when a moduli space is singular or has the wrong dimension. Current developments extend the theory from schemes to stacks and connect it to quantum intersection rings.
+
+\paragraph{What the theory depends on and where it is useful}
+Intersection theory depends on algebraic geometry, divisors, cycles, commutative algebra, cohomology, and topology. It helps elimination theory count solutions, topology study intersection forms, and physics compute enumerative and quantum invariants.
+
+Nonprojective varieties can lack a well-behaved intersection theory, and singular or nonproper intersections require refined tools such as virtual cycles or derived intersections.
+
+\section*{4. Important theorems and results}
+\begin{enumerate}[leftmargin=*,itemsep=0.35em]
+\item \textbf{Bezout's theorem.} Plane curves of degrees $m$ and $n$ meet in $mn$ points counted with multiplicity over an algebraically closed field when they have no common component.
+
+\item \textbf{Moving lemma.} Cycles can often be replaced by rationally equivalent cycles in proper position.
+
+\item \textbf{Self-intersection formula.} The self-intersection of a smooth subvariety is represented by the top Chern class of its normal bundle.
+
+\item \textbf{Poincare duality.} The topological intersection pairing on a closed oriented manifold is nondegenerate.
+
+\item \textbf{Castelnuovo contraction theorem.} A suitable smooth rational curve of self-intersection $-1$ can be contracted to a smooth point \cite{intersection_theory_ref2}.
+\end{enumerate}
+
+\theoryapplications
+\theoryconnections{intersection theory}{%
+\item Algebraic geometry supplies varieties, divisors, and local rings; commutative algebra supplies multiplicity; and topology supplies homology and cohomology pairings.
+\item Chow groups and Chern classes extend the elementary idea of counting intersections.
+}{%
+\item Intersection theory helps algebraic geometry count solutions with multiplicity and helps arithmetic geometry attach numerical invariants to cycles.
+\item It also connects geometric incidence problems to moduli spaces, enumerative geometry, and characteristic classes.
+}
+\section*{7. Sample Questions}
+\emph{Exercise reference:} \cite{intersection_theory_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
+\begin{enumerate}[leftmargin=*,itemsep=0.9em]
+\item \textbf{Exercise 1.} Why does $y=x^2$ meet $y=0$ with multiplicity two at the origin?
+
+\emph{Solution.} Substitution gives $x^2=0$, which has a root of order two. A small parallel displacement produces two nearby complex intersections.
+
+\item \textbf{Exercise 2.} What is a proper intersection?
+
+\emph{Solution.} It has the expected dimension: the dimensions add and the ambient dimension is subtracted. No component is unexpectedly large.
+
+\item \textbf{Exercise 3.} Why move cycles before intersecting?
+
+\emph{Solution.} A bad position can hide the intended count. Rational equivalence allows a harmless movement to proper position while preserving the intersection class.
+
+\item \textbf{Exercise 4.} What does self-intersection measure?
+
+\emph{Solution.} It measures how a subvariety meets a nearby copy of itself and is controlled by the normal bundle describing how it sits in the ambient space.
+
+\item \textbf{Exercise 5.} Why is a $(-1)$-curve important?
+
+\emph{Solution.} It is the exceptional curve created by blowing up a point and can often be contracted, making it a basic step in simplifying a surface.
+
+\end{enumerate}
+\section*{8. References}
+\addcontentsline{toc}{section}{References}
+
+\begin{thebibliography}{9}
+\bibitem{intersection_theory_ref1} William Fulton, \emph{Intersection Theory}, 2nd ed., Springer, 1998.
+\bibitem{intersection_theory_ref2} David Eisenbud and Joe Harris, \emph{3264 and All That}, Cambridge University Press, 2016.
+\bibitem{intersection_theory_ref3} Robin Hartshorne, \emph{Algebraic Geometry}, Springer, 1977.
+\end{thebibliography}

@@ -1,0 +1,105 @@
+\theory{Homotopy theory}{When should two maps or spaces be considered the same if one can be continuously deformed into the other?}{Homotopy theory studies continuous deformation. It replaces exact equality by a controlled notion of sameness and then builds algebraic invariants, higher-dimensional operations, and abstract models of spaces.}{Algebraic topology, algebraic geometry, category theory, noncommutative geometry, bundles, and generalized cohomology.}{Continuous deformations, loop spaces, and higher homotopy groups record which global features survive changes of shape.}
+
+\paragraph{The central idea}
+Two continuous maps $f,g:X\to Y$ are homotopic if there is a continuous family $H:X\times[0,1]\to Y$ with $H(x,0)=f(x)$ and $H(x,1)=g(x)$. A rubber band on a tabletop can move continuously without cutting; homotopy regards the starting and ending placements as equivalent. A circle cannot be continuously shrunk to a point while remaining in the punctured plane, because the missing point creates an obstruction \cite{homotopy_theory_ref1}.
+
+Homotopy theory began in algebraic topology but is now an independent subject. It studies spaces, maps, homotopies between maps, and homotopies between those homotopies. The emphasis is not on coordinates but on what survives deformation.
+
+\end{historylist}
+\section*{3. Theory}
+\subsection*{Core theory}
+\paragraph{Spaces, maps, and fundamental groups}
+A path is a map from an interval. A loop starts and ends at the same point. Homotopy classes of loops based at a point form the fundamental group $\pi_1(X)$. Multiplication follows one loop after another; the inverse runs a loop backward. The fundamental group of a circle is $\mathbb Z$, while the sphere has trivial fundamental group.
+
+Higher homotopy groups use maps from spheres: $\pi_n(X)$ records maps $S^n\to X$ up to homotopy. Unlike the fundamental group, higher groups are abelian for $n\geq2$. They detect higher-dimensional twisting, but are usually much harder to compute.
+
+\paragraph{Homotopy equivalence and examples}
+Spaces $X$ and $Y$ are homotopy equivalent if maps exist in both directions whose composites are homotopic to the identity. A disk is homotopy equivalent to a point; a cylinder is homotopy equivalent to a circle; a torus is not equivalent to a sphere because their loops and homology differ.
+
+Weak homotopy equivalence requires isomorphisms on all homotopy groups and components. Under suitable hypotheses, such as CW complexes, weak equivalence implies homotopy equivalence. This distinction prevents pathological spaces from misleading the theory.
+
+\paragraph{Loops, suspensions, and adjunction}
+The loop space $\Omega X$ consists of based loops in $X$, with multiplication by concatenation. The suspension $\Sigma X$ joins two cones over $X$. Looping and suspending are related by
+\[
+[\,\Sigma X,Y\,]\cong[\,X,\Omega Y\,],
+\]
+where brackets denote homotopy classes of maps. Milnor's theorem says that if $X$ has the homotopy type of a CW complex, so does $\Omega X$ \cite{homotopy_theory_ref2}.
+
+The suspension operation creates stable phenomena. Stable homotopy theory studies what becomes constant after repeated suspension. Spectra package sequences of spaces and their structure maps, and generalized cohomology theories are represented by spectra.
+
+\paragraph{Bundles and classifying spaces}
+For a topological group $G$, a principal $G$-bundle over $X$ is classified by a map to a classifying space $BG$. Homotopy classes of maps satisfy
+\[
+[X,BG]\cong\{\text{principal }G\text{-bundles over }X\}/\text{isomorphism}.
+\]
+The universal bundle over $BG$ pulls back along a map $X\to BG$ to produce every principal bundle. Brown's representability theorem explains why many cohomology theories can be represented by spaces.
+
+Eilenberg--Mac Lane spaces satisfy $[X,K(A,n)]=H^n(X;A)$. Thus ordinary cohomology itself can be expressed as a homotopy classification problem \cite{homotopy_theory_ref3}.
+
+\paragraph{Model categories and simplicial sets}
+Model category theory provides three classes of maps: weak equivalences, cofibrations, and fibrations. It allows constructions to be performed up to homotopy while keeping enough algebraic control. Topological spaces and nonnegative chain complexes are model categories.
+
+A simplicial set is a sequence of sets of abstract simplices with face and degeneracy maps. It generalizes a simplicial complex and can serve as a combinatorial model of a space. The singular simplicial set of $X$ has as its $n$-simplices all maps from the standard $n$-simplex to $X$; its associated chain complex computes singular homology. Geometric realization turns a simplicial set into a CW complex.
+
+\paragraph{Other mathematical settings}
+Algebraic geometry has $\mathbb A^1$-homotopy theory, where the affine line plays the role of an interval. Category theory uses higher categories and infinity-categories to record objects, maps, homotopies, and higher homotopies. Noncommutative geometry uses KK-theory and noncommutative topology to extend homotopy ideas beyond ordinary spaces.
+
+\paragraph{What the theory depends on and where it is useful}
+Homotopy theory depends on topology, algebraic topology, category theory, algebraic structures, and often homology and cohomology. It helps classify fiber bundles, organize generalized cohomology, compare algebraic varieties, and express higher categorical structure.
+
+The theory has a cost: exact homotopy groups can be difficult or impossible to calculate directly, and a homotopy invariant deliberately forgets metric information. It is suited to questions of continuous deformation, not to measuring lengths or angles.
+
+\section*{4. Important theorems and results}
+\begin{enumerate}[leftmargin=*,itemsep=0.35em]
+\item \textbf{Whitehead theorem.} A weak homotopy equivalence between CW complexes is a homotopy equivalence.
+
+\item \textbf{Seifert--van Kampen theorem.} Under suitable conditions, the fundamental group of a union is obtained from the groups of its pieces and intersection.
+
+\item \textbf{Hurewicz theorem.} Under connectivity hypotheses, the first nonzero homotopy group maps isomorphically to the first nonzero homology group.
+
+\item \textbf{Brown representability theorem.} Suitable cohomology theories are represented by spaces.
+
+\item \textbf{Freudenthal suspension theorem.} In a stable range, suspension gives isomorphisms between successive homotopy groups \cite{homotopy_theory_ref4}.
+\end{enumerate}
+
+\theoryapplications
+\theoryconnections{homotopy theory}{%
+\item Topology supplies continuous maps and deformation, while algebraic topology supplies fundamental groups, homology, and homotopy groups.
+\item Category theory and higher algebra organize suspension, loop spaces, spectra, and representability.
+}{%
+\item Homotopy theory helps classify spaces up to flexible equivalence and provides the language of stable phenomena in algebraic topology.
+\item It also supports homological algebra, derived geometry, mathematical physics, and the study of higher categories.
+}
+\section*{7. Sample Questions}
+\emph{Exercise reference:} \cite{homotopy_theory_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
+\begin{enumerate}[leftmargin=*,itemsep=0.9em]
+\item \textbf{Exercise 1.} Why is a disk homotopy equivalent to a point?
+
+\emph{Solution.} Collapse every point of the disk along a straight line to its center. The collapse varies continuously and gives a deformation retraction.
+
+\item \textbf{Exercise 2.} What is $\pi_1(S^1)$?
+
+\emph{Solution.} It is $\mathbb Z$. A loop is classified by its integer winding number, positive or negative according to direction.
+
+\item \textbf{Exercise 3.} Why is the punctured plane not simply connected?
+
+\emph{Solution.} A loop winding once around the missing point cannot be continuously contracted without crossing that point. Its winding number is a nonzero obstruction.
+
+\item \textbf{Exercise 4.} What does a classifying space classify?
+
+\emph{Solution.} Homotopy classes of maps into $BG$ correspond to isomorphism classes of principal $G$-bundles over the source space.
+
+\item \textbf{Exercise 5.} Why use simplicial sets?
+
+\emph{Solution.} They encode spaces by combinatorial data while retaining face and degeneracy operations. This makes homotopy constructions accessible to algebra and computation.
+
+\end{enumerate}
+\section*{8. References}
+\addcontentsline{toc}{section}{References}
+
+\begin{thebibliography}{9}
+\bibitem{homotopy_theory_ref1} Allen Hatcher, \emph{Algebraic Topology}, Cambridge University Press, 2002.
+\bibitem{homotopy_theory_ref2} George W. Whitehead, \emph{Elements of Homotopy Theory}, Springer, 1978.
+\bibitem{homotopy_theory_ref3} J. Peter May, \emph{A Concise Course in Algebraic Topology}, University of Chicago Press, 1999.
+\bibitem{homotopy_theory_ref4} Mark Hovey, \emph{Model Categories}, American Mathematical Society, 1999.
+\end{thebibliography}

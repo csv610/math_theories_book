@@ -1,0 +1,110 @@
+\theory{Group theory}{What can be learned from studying reversible operations and the symmetries they form?}{A group is a collection of reversible actions that can be composed, with an identity action and an inverse for every action. Group theory studies the common structure behind rotations, permutations, arithmetic symmetries, and transformations.}{Geometry, algebra, number theory, physics, chemistry, cryptography, coding, and the classification of finite structures.}{Composition and inverses encode symmetry operations, while subgroups and representations expose the internal structure of those symmetries.}
+
+\paragraph{The idea of a group}
+Imagine rotating a square around its center. Four rotations return the square to itself. Doing one rotation after another gives another rotation, doing nothing is an identity, and every rotation can be undone. These operations form a group. The elements need not be numbers; they may be permutations, matrices, motions, or functions.
+
+Formally, a group has a binary operation that is associative, has an identity element, and gives every element an inverse. A group is abelian if the order of composition does not matter. Rotations of a circle form an abelian group, while symmetries of a square including reflections form a non-abelian dihedral group. The language separates the nature of an object from the way it is labeled \cite{group_theory_ref1}.
+
+\end{historylist}
+\section*{3. Theory}
+\subsection*{Core theory}
+\paragraph{Subgroups, cosets, and quotients}
+A subgroup is a smaller collection closed under the same operation. The even integers form a subgroup of the integers under addition. A subgroup partitions a group into equal-sized left or right cosets. Lagrange's theorem follows: the order of a finite subgroup divides the order of the whole group.
+
+If a subgroup is normal, its cosets can themselves be multiplied to form a quotient group. Normal subgroups are precisely the subgroups compatible with conjugation by every group element. A homomorphism is a structure-preserving map between groups; its kernel is normal, and the first isomorphism theorem says that the quotient by the kernel is isomorphic to the image.
+
+\paragraph{How groups solve symmetry problems}
+The symmetries of an object act on the object, producing a group action. The orbit of a point is the collection of positions reachable by the group, while the stabilizer consists of actions that leave it fixed. Orbit-stabilizer says, for a finite group,
+\[
+|G|=|\operatorname{Orb}(x)|\,|\operatorname{Stab}(x)|.
+\]
+This counts symmetries by counting where an object can go and how many symmetries keep it there.
+
+Permutation groups rearrange a finite set. The symmetric group $S_n$ contains all $n!$ permutations; the alternating group $A_n$ contains the even permutations. Cayley's theorem embeds every group into a permutation group, showing that permutations are a universal model for abstract groups.
+
+\paragraph{Finite groups and their classification}
+Finite groups may be described by a multiplication table, generators and relations, or a presentation. Simple groups have no nontrivial normal subgroup. They are the indivisible building blocks of finite groups, in the same way that prime numbers are building blocks of integers. The classification of finite simple groups is a vast theorem showing that every finite simple group belongs to one of several families: cyclic groups of prime order, alternating groups, groups of Lie type, or one of twenty-six sporadic groups. The proof occupies thousands of pages \cite{group_theory_ref2}.
+
+The Sylow theorems constrain subgroups whose order is a power of a prime. They often prove that a group of a proposed order must be abelian or must contain a normal subgroup. Semidirect products explain how one group can act on another to build a larger group.
+
+\paragraph{Representations and characters}
+A representation realizes abstract group elements as matrices acting on a vector space. Matrix multiplication then performs the group operation, so linear algebra becomes available. A representation is faithful when different group elements give different matrices. Characters record traces of representation matrices; they are constant on conjugacy classes and can determine how representations decompose.
+
+Fourier polynomials are characters of the circle group $U(1)$ acting on periodic functions. In quantum mechanics, a state space carries a representation of a symmetry group, and conserved quantities arise from symmetry through the broader principle associated with Noether. Finite-group representations are also used to analyze molecules and crystal symmetries \cite{group_theory_ref3}.
+
+\paragraph{Lie groups and continuous symmetry}
+A Lie group is both a group and a differentiable manifold, with smooth multiplication and inversion. Rotations in three-dimensional space form the Lie group $SO(3)$. Its tangent space at the identity is a Lie algebra, whose bracket measures the first-order failure of rotations to commute.
+
+Lie groups are the natural framework for continuous symmetries of differential equations, geometry, and physics. Differential Galois theory studies continuous symmetries of differential equations in a role analogous to permutation groups for algebraic equations. Compact Lie groups and their representations describe rotations, angular momentum, and gauge symmetries.
+
+\paragraph{Combinatorial and geometric group theory}
+Combinatorial group theory studies presentations, words in generators, and the word problem: can an algorithm decide whether a given word represents the identity? Free groups have no relations beyond cancellation. Adding relations produces quotient groups and often a geometric space.
+
+Geometric group theory studies a group through a space on which it acts. A Cayley graph records generators as labeled edges, turning algebraic multiplication into paths. Hyperbolic groups imitate negative-curvature geometry, while Bass--Serre theory studies groups acting on trees. These ideas connect group theory to topology and geometry.
+
+\paragraph{Applications}
+Elliptic curves over finite fields have groups of points. Their discrete logarithm problem supports public-key cryptography. Diffie--Hellman key exchange uses a finite cyclic group; braid-group and other non-abelian proposals use harder group operations, though security must be analyzed carefully. Error-correcting codes use group structure to organize words and decode them. Caesar's cipher is a simple group operation on alphabet positions \cite{group_theory_ref4}.
+
+Symmetry groups classify crystal patterns, molecules, tilings, and physical laws. In topology, fundamental groups record loops and coverings. In number theory, Galois groups encode symmetries of field extensions. In algebraic geometry, algebraic groups and group schemes add a compatible group operation to a geometric object.
+
+\paragraph{What the theory depends on and where it is useful}
+Group theory depends on set operations, functions, relations, and increasingly on linear algebra, topology, and geometry. It helps Galois theory organize root symmetries, representation theory convert algebra to matrices, Lie theory describe continuous motion, topology classify loops, and cryptography construct one-way computational tasks.
+
+The classification of a group may be difficult even when its definition is short. A group model also records exact symmetry, not measurement noise or approximate symmetry; applications often require additional geometry, probability, or computation.
+
+\section*{4. Important theorems and results}
+\begin{enumerate}[leftmargin=*,itemsep=0.35em]
+\item \textbf{Lagrange's theorem.} The order of a subgroup of a finite group divides the order of the group.
+
+\item \textbf{Cayley's theorem.} Every group is isomorphic to a subgroup of a symmetric permutation group.
+
+\item \textbf{Orbit-stabilizer theorem.} For a finite group action, group size equals orbit size times stabilizer size.
+
+\item \textbf{First isomorphism theorem.} A quotient by the kernel of a homomorphism is isomorphic to its image.
+
+\item \textbf{Classification of finite simple groups.} Every finite simple group belongs to the cyclic, alternating, Lie-type, or sporadic families \cite{group_theory_ref2}.
+
+These results move from local structure to classification. Lagrange and orbit--stabilizer give numerical tests for a finite action, Cayley realizes every group as permutations, and the isomorphism theorem explains how kernels remove information. The classification theorem is a map of the possible indivisible finite symmetries; it is not a short method for identifying an arbitrary group.
+\end{enumerate}
+
+\theoryapplications
+\theoryconnections{group theory}{%
+\item Set theory supplies the underlying collection and operation, while algebra studies homomorphisms, subgroups, quotients, and actions.
+\item Geometry and number theory provide important examples, and representation theory turns abstract group elements into matrices.
+}{%
+\item Group theory helps describe symmetry in geometry, chemistry, physics, coding, and algorithms.
+\item It also organizes transformations into reusable algebraic objects, so a proof about one group action can apply to many different systems.
+}
+\section*{7. Sample Questions}
+\emph{Exercise reference:} \cite{group_theory_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
+\begin{enumerate}[leftmargin=*,itemsep=0.9em]
+\item \textbf{Exercise 1.} Why do the symmetries of a square form a group?
+
+\emph{Solution.} Composing two symmetries gives another symmetry, composition is associative, doing nothing is a symmetry, and every symmetry can be undone by its inverse.
+
+\item \textbf{Exercise 2.} What does Lagrange's theorem say about a group of order $15$?
+
+\emph{Solution.} The order of every subgroup must divide $15$. Possible subgroup orders are $1$, $3$, $5$, and $15$.
+
+\item \textbf{Exercise 3.} What is the kernel of a group homomorphism?
+
+\emph{Solution.} It is the set of elements mapped to the identity of the target group. It measures which source operations become invisible under the map and is always a normal subgroup.
+
+\item \textbf{Exercise 4.} What is the difference between a group and a representation?
+
+\emph{Solution.} A group is an abstract collection of operations. A representation realizes those operations as matrices or linear transformations so that linear algebra can study them.
+
+\item \textbf{Exercise 5.} Why are finite groups useful in cryptography?
+
+\emph{Solution.} Group operations can be easy to perform repeatedly, while reversing a particular operation, such as a discrete logarithm, can be difficult in a well-chosen group.
+
+\end{enumerate}
+\section*{8. References}
+\addcontentsline{toc}{section}{References}
+
+\begin{thebibliography}{9}
+\bibitem{group_theory_ref1} Joseph J. Rotman, \emph{An Introduction to the Theory of Groups}, 4th ed., Springer, 1995.
+\bibitem{group_theory_ref2} Daniel Gorenstein, Richard Lyons, and Ronald Solomon, \emph{The Classification of the Finite Simple Groups}, American Mathematical Society, 1994--.
+\bibitem{group_theory_ref3} Jean-Pierre Serre, \emph{Linear Representations of Finite Groups}, Springer, 1977.
+\bibitem{group_theory_ref4} David S. Dummit and Richard M. Foote, \emph{Abstract Algebra}, 3rd ed., Wiley, 2004.
+\end{thebibliography}

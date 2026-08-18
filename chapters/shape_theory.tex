@@ -1,0 +1,77 @@
+\theory{Shape theory}{How can we describe the global shape of spaces that are too wild for ordinary homotopy theory?}{Shape theory approximates complicated compact spaces by simpler polyhedra and records the compatible information that survives the approximation.}{General topology, dynamical systems, inverse limits, and noncommutative geometry.}{Inverse systems of simpler spaces preserve stable large-scale information when ordinary homotopy cannot handle a wild space.}
+
+\paragraph{The problem and history}
+Ordinary homotopy theory is powerful for polyhedra and manifolds, but wild spaces can have bad local behavior. Shape theory was introduced by D. E. Christie in 1944 and developed by Karol Borsuk, who coined the name in 1968 \cite{shape_ref1}.
+
+\end{historylist}
+\section*{3. Theory}
+\subsection*{Core theory}
+\paragraph{Approximation by polyhedra}
+The method replaces a compact space by a system of simpler polyhedral approximations. Each approximation has homotopy groups and homology, and maps between approximations record how descriptions refine one another. The shape is the resulting pro-system rather than one isolated approximation.
+
+For compact spaces dominated homotopically by finite polyhedra, shape theory and homotopy theory agree. For general compact spaces, shape is more stable because it ignores microscopic details that disappear under increasingly fine approximation \cite{shape_ref2}.
+
+\paragraph{The Warsaw circle}
+The Warsaw circle is formed by closing a topologist's sine curve with an arc. Its ordinary homotopy groups can look trivial, as for a point, yet its global arrangement is not point-like. Shape theory detects the large-scale organization that ordinary homotopy groups miss \cite{shape_ref1}.
+
+\paragraph{Uses and generalizations}
+Shape methods are useful for inverse limits, attractors in dynamical systems, and compact spaces arising as limits of finite approximations. Strong shape theory refines the invariants when ordinary shape loses information. Generalizations have been developed for noncommutative geometry, including shape theory for operator algebras.
+
+\paragraph{A small worked example}
+Imagine a coastline measured with rulers of length $1$ kilometre, then
+$100$ metres, then $10$ metres. At each scale we replace the measured
+coastline by a simpler graph and record which pieces connect. A single graph
+may lose a narrow inlet, but the whole sequence shows whether that inlet
+persists as the scale becomes finer. Shape theory studies this compatible
+sequence rather than trusting one drawing.
+
+The same idea applies to a dynamical attractor. A computer simulation gives
+finite samples, not the exact limiting set. If graphs built from increasingly
+fine samples preserve the same large-scale loops and components, those
+features are candidates for shape information. This is why shape theory is
+useful for spaces that are too irregular for a smooth coordinate description
+\cite{shape_ref1,shape_ref2}.
+
+\section*{4. Important theorems and results}
+\begin{enumerate}[leftmargin=*,itemsep=0.35em]
+\item \textbf{Approximation principle.} A compact space can be represented by a directed system of polyhedral approximations.
+
+\item \textbf{Homotopy agreement.} For compact spaces dominated by finite polyhedra, shape and homotopy types coincide.
+
+\item \textbf{Shape invariance.} Shape ignores changes that vanish under arbitrarily fine approximations.
+
+\item \textbf{Warsaw-circle phenomenon.} A space can have trivial ordinary homotopy groups while possessing nontrivial global shape.
+
+Shape theory is designed for spaces that are too irregular for a single smooth or polyhedral description. Approximation produces manageable models, homotopy agreement explains when those models recover ordinary topology, and shape invariance identifies changes that disappear at finer scales. The Warsaw-circle example gives the reason for the subject: ordinary homotopy groups can miss global information in wild compact spaces.
+\end{enumerate}
+\noindent\emph{Source for these results:} \cite{shape_ref1}.
+
+\theoryapplications
+\theoryconnections{shape_theory}{%
+\item Topology and homotopy compare spaces by continuous maps, but a very wild space may have no useful finite description.
+\item Shape theory replaces it by an inverse system of simpler spaces, records how the approximations refine one another, and declares two spaces equivalent when their entire systems agree up to compatible maps.
+\item Category theory is needed because the compatibility of all approximations is part of the object, not an afterthought \cite{shape_ref1,shape_ref2}.
+}{%
+\item Shape theory helps continuum theory and geometric topology distinguish spaces whose local behavior is too irregular for ordinary homotopy groups.
+\item In dynamics, a complicated invariant set can be approximated by a sequence of finite graphs or polyhedra, allowing global loops and connectedness to be studied through the approximations.
+\item The method is useful because it preserves stable large-scale information while deliberately ignoring microscopic detail \cite{shape_ref1,shape_ref2}.
+}
+\section*{7. Sample Questions}
+\emph{Exercise reference:} \cite{shape_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
+\begin{enumerate}[leftmargin=*,itemsep=0.9em]
+\item \textbf{Exercise 1. Why use many approximations instead of one?} A single approximation may lose information. A directed system records how all approximations relate as the scale becomes finer.
+
+\item \textbf{Exercise 2. When does shape agree with homotopy theory?} It agrees for compact spaces homotopically dominated by finite polyhedra.
+
+\item \textbf{Exercise 3. Why can a wild space have trivial homotopy groups but nontrivial shape?} Homotopy groups examine maps from individual spheres. Shape also records how the entire space is organized as a limit of approximations.
+
+\item \textbf{Exercise 4. What is the role of an inverse limit?} It creates a complicated limiting space from simpler stages; shape theory studies the stable information visible at those stages.
+
+\item \textbf{Exercise 5. Why is shape useful in dynamics?} An attractor may be a complicated limit set. Polyhedral approximations can reveal persistent global structure even when local geometry is irregular.
+
+\end{enumerate}
+\section*{8. References}
+\begin{thebibliography}{9}
+\bibitem{shape_ref1} S. Mardesic, \emph{Shape Theory}.
+\bibitem{shape_ref2} J.-M. Cordier and T. Porter, \emph{Shape Theory: Categorical Methods of Approximation}.
+\end{thebibliography}

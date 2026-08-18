@@ -1,0 +1,159 @@
+\theory{Coding theory}{How can a receiver recover an intended message after symbols are changed, lost, or observed by an adversary?}{Coding theory designs representations of information for a particular purpose. Source coding removes unnecessary repetition to make data smaller; channel coding adds controlled repetition so errors can be detected and corrected; cryptographic coding protects information from adversaries; and line coding turns symbols into physical signals. A good code balances reliability, rate, delay, power, and computational effort.}{Data compression, mobile phones, QR codes, compact discs, hard drives, satellite and deep-space communication, computer networks, cryptography, medical testing, and neural information processing.}{Hamming distance and entropy quantify redundancy, error correction, and the rate at which information can be transmitted reliably.}
+
+\paragraph{The communication problem and its history}
+\bookfigure{information_coding_channel}{The same communication diagram explains compression, noise, redundancy, and recovery.}
+
+A message begins as information at a source. An encoder changes it into a string over an alphabet, such as the binary symbols $0$ and $1$. The string travels through a channel, where noise may flip bits, erase symbols, add disturbances, or hide the signal. The decoder receives the damaged string and tries to recover the original message.
+
+Coding theory asks how to design the encoder and decoder so that the result is efficient and reliable. It is studied in mathematics, information theory, electrical engineering, computer science, and linguistics. Its central tension is easy to state: removing redundancy saves space, while adding redundancy makes errors easier to detect. \cite{coding_theory_ref1,coding_theory_ref2}
+
+Claude Shannon's 1948 paper, A Mathematical Theory of Communication, supplied the statistical model and introduced entropy, mutual information, channel capacity, and the noisy-channel coding theorem. Shannon's work explained the best possible rates even before practical codes were known. Richard Hamming developed error-detecting and error-correcting codes at Bell Labs. The binary Golay code followed in 1949. Later developments included the discrete cosine transform for JPEG, MPEG, and MP3, and modern turbo and low-density parity-check codes. \cite{coding_theory_ref2,coding_theory_ref3}
+
+\end{historylist}
+\section*{3. Theory}
+\subsection*{Core theory}
+\paragraph{Four kinds of coding}
+
+Source coding, also called data compression, removes redundancy that is predictable from the source. DEFLATE, used in common compressed files, represents repeated patterns compactly. Lossless compression permits perfect reconstruction; lossy compression, used in images and sound, keeps the important perceptual information while discarding details.
+
+Channel coding adds useful redundancy before transmission or storage. A compact disc uses Reed--Solomon coding and interleaving so that a scratch affects different parts of the encoded word rather than destroying one contiguous block. Mobile phones combat radio noise and fading with channel codes. Modems and the NASA Deep Space Network use codes adapted to their different kinds of disturbances.
+
+Cryptographic coding transforms information so that an unauthorized observer cannot read or alter it. Modern cryptography aims at confidentiality, integrity, authentication, and non-repudiation. It protects passwords, bank cards, electronic commerce, and network connections, and may be secure because of a computational assumption or, as with a one-time pad, secure even against unlimited computing power.
+
+Line coding maps digital symbols to a physical waveform for baseband transmission. Unipolar, polar, bipolar, and Manchester encodings choose voltage changes so that a receiver can distinguish symbols, recover timing, and operate within the limits of the wire or radio channel. \cite{coding_theory_ref1,coding_theory_ref4}
+
+\paragraph{Codes, alphabets, and distance}
+
+Let $\mathcal X$ be the set of possible source messages and let $\Sigma$ be a finite alphabet. A code is a function
+\[
+ C:\mathcal X\longrightarrow\Sigma^*,
+\]
+where $\Sigma^*$ denotes all finite strings over $\Sigma$. The string $C(x)$ is the codeword for message $x$, and its length is $l(C(x))$. If a random source symbol $X$ has probability $\mathbb P[X=x]$, the expected code length is
+\[
+ l(C)=\sum_{x\in\mathcal X}l(C(x))\mathbb P[X=x].
+\]
+
+A code is non-singular when different source symbols receive different codewords. It is uniquely decodable when every concatenated sequence of codewords has only one possible splitting into source symbols. It is instantaneous, or prefix-free, when no codeword is a proper prefix of another; then the decoder can decide as soon as a codeword ends. These distinctions matter because a code that is individually unambiguous may still become ambiguous when codewords are placed next to one another. \cite{coding_theory_ref1,coding_theory_ref5}
+
+For error correction, the Hamming distance between two equal-length words is the number of positions in which they differ. The minimum distance $d_{\min}$ of a code is the smallest distance between two distinct valid codewords. If a received word is closer to one valid codeword than to all others, nearest-codeword decoding chooses that word.
+
+Geometrically, codewords are points in a high-dimensional space. Large minimum distance puts them far apart, leaving room for noise to move a received word without crossing into a neighbor's region. The same picture connects coding with sphere packing: each codeword has a ball of correctable errors around it, and the balls must fit without overlapping.
+
+\paragraph{Source coding and entropy}
+
+Source coding tries to represent likely messages with short words and rare messages with longer words. A source's entropy is its average uncertainty. For a discrete source,
+\[
+ H(X)=-\sum_x \mathbb P[X=x]\log_2\mathbb P[X=x].
+\]
+If a source is highly predictable, its entropy is small and strong compression is possible. If all symbols are equally likely and independent, there is less redundancy to remove.
+
+The source-coding theorem says that no lossless code can, in the long run, use fewer than approximately $H(X)$ bits per source symbol, while suitable codes can approach this limit. Huffman and arithmetic coding approach the limit for different source models. Run-length coding replaces a long sequence such as 000000 with a symbol saying “zero repeated six times.” The same idea appears in facsimile transmission and file compression.
+
+The entropy bound is not a claim that every individual file has exactly its entropy as length. It is an average statement for long sequences under a chosen probability model. If the model is wrong, the promised savings may disappear. \cite{coding_theory_ref2,coding_theory_ref6}
+
+\paragraph{Channel coding and error correction}
+
+Suppose the message bit $0$ is sent as 000 and $1$ as 111. The two codewords have distance three. If at most one bit flips, the received word is closer to the correct codeword; for example, 101 is decoded as 111. This simple repetition code demonstrates the principle but wastes many bits.
+
+In general, a code with minimum distance $d_{\min}$ detects up to $d_{\min}-1$ errors and corrects up to
+\[
+ t=\left\lfloor\frac{d_{\min}-1}{2}\right\rfloor
+\]
+errors by nearest-neighbor decoding. Detection and correction are different goals: detecting an error may be enough if the sender can retransmit, while correction is necessary for one-way deep-space communication.
+
+Interleaving spreads neighboring symbols across different codewords. A scratch on a CD then becomes many small errors, which a Reed--Solomon code can repair. Deep-space links face continuous thermal noise, telephone modems face network noise, and mobile radios face rapid fading. The best code depends on which error pattern is likely. \cite{coding_theory_ref1,coding_theory_ref7}
+
+\paragraph{Algebraic and linear codes}
+
+Algebraic coding theory expresses code properties using algebra. A linear block code is a set of fixed-length words over a finite field such that the sum of two codewords is again a codeword. It is often summarized by parameters $(n,k,d_{\min})$: $n$ is the word length, $k$ is the number of source symbols encoded at once, and $d_{\min}$ is the minimum Hamming distance. Its rate is $k/n$.
+
+Examples include repetition, parity-check, cyclic, BCH, Hamming, Reed--Solomon, Reed--Muller, algebraic-geometric, perfect, and locally recoverable codes. A parity check can detect an odd number of bit errors. Hamming codes add several parity equations so that the pattern of failed checks, called the syndrome, identifies a single bad position.
+
+Perfect codes fill the available error spheres exactly. The useful nontrivial examples include distance-three Hamming codes with parameters $(2^r-1,2^r-1-r,3)$ and the binary $(23,12,7)$ and ternary $(11,6,5)$ Golay codes. The sphere-packing picture also reveals a limitation: as dimension grows, each codeword has many nearby neighbors, so even a small probability of choosing the wrong neighbor can accumulate. \cite{coding_theory_ref1,coding_theory_ref8}
+
+Convolutional codes do not work on isolated blocks only. Each output symbol is a weighted sum of current and earlier input symbols stored in encoder registers. The encoder is often a small circuit of memory and exclusive-or gates. The Viterbi algorithm finds the most likely path through the encoder's state diagram. Convolutional codes have been used in voiceband modems, GSM phones, satellite systems, and military communication. \cite{coding_theory_ref7}
+
+\paragraph{Cryptographic coding, synchronization, and shared channels}
+
+Cryptographic coding assumes that an adversary may listen to or modify a communication. Encryption hides the content; authentication codes reveal whether the content was altered and identify the sender. Public-key systems allow secure exchange without first sharing a secret, while symmetric systems are usually faster once a key is available. Computationally secure systems depend on problems believed to be hard, such as factoring or discrete logarithms. A one-time pad gives information-theoretic security but requires a truly random key as long as the message and must never reuse it. \cite{coding_theory_ref4}
+
+Codes can also solve synchronization problems. A receiver must know where one message ends and the next begins, and must detect a phase shift or timing error. Special patterns allow the receiver to find alignment. Code-division multiple access assigns different, nearly uncorrelated sequences to users; after demodulation, the other users appear approximately as low-level noise, allowing several phones to share one radio channel.
+
+Automatic repeat-request protocols add check bits and ask for retransmission when the checks fail. Internet protocols such as TCP use sequence numbers to distinguish a new packet from a retransmission. Thus coding is not only about correcting a corrupted symbol; it can coordinate the entire conversation between sender and receiver.
+
+\paragraph{Group testing and other applications}
+
+Group testing uses a code to find a small number of unusual items among a large population with as few tests as possible. A test pools several items and returns positive if at least one member has the property. The problem arose during the Second World War when pooled tests were considered for detecting syphilis among soldiers. Modern applications include defective-product screening, medical testing, compressed sensing, and identifying infected samples.
+
+Analog coding studies error correction, compression, and encryption when signals are continuous rather than strings of bits. Neural coding asks how networks of neurons represent sensory information and how the nervous system may compress, detect, and correct signals. These fields show that coding ideas apply to physical and biological systems as well as digital computers. \cite{coding_theory_ref9,coding_theory_ref10}
+
+\paragraph{How coding theory is used in real systems}
+
+When a QR code is photographed at an angle or with a small stain, its added patterns let the reader recover missing modules. A compact disc survives dust because interleaving and Reed--Solomon checks turn a long scratch into a collection of repairable errors. A mobile phone chooses codes suited to noise and fading, then changes its rate as the radio conditions change. A deep-space probe uses strong coding because a retransmission may take hours or years.
+
+Compression and error correction are sometimes combined. A compressed file has little redundancy, so a few errors may make it unusable; a protected packet therefore adds redundancy after compression. The order matters: compressing after adding correction may destroy the patterns that the decoder needs. In storage, the design also balances capacity against lifetime, decoding energy, and the chance that multiple nearby bits fail together.
+
+Coding theory depends on probability, logarithms, linear algebra, finite fields, algorithms, and signal models. It helps information theory by turning entropy and capacity bounds into practical constructions. It helps computer engineering by supplying decoders and storage protocols, cryptography by formalizing secure encodings, and statistics by providing designs for pooled tests and noisy observations. \cite{coding_theory_ref2,coding_theory_ref6}
+
+\section*{4. Important theorems and results}
+\begin{enumerate}[leftmargin=*,itemsep=0.35em]
+
+\item \textbf{Source coding theorem.} For a memoryless source, the entropy is the fundamental lower limit on the average number of bits per source symbol for reliable lossless compression, and suitable codes approach this limit for long messages. \cite{coding_theory_ref2}
+
+\item \textbf{Noisy-channel coding theorem.} A noisy channel has a capacity; communication with arbitrarily small error probability is possible below that capacity, while reliable communication is impossible above it. \cite{coding_theory_ref2}
+
+\item \textbf{Distance bound.} A code with minimum distance $d_{\min}$ detects at most $d_{\min}-1$ errors and corrects at most $\lfloor(d_{\min}-1)/2\rfloor$ errors by nearest-codeword decoding. \cite{coding_theory_ref1}
+
+\item \textbf{Hamming sphere-packing bound.} If a binary code corrects $t$ errors, the radius-$t$ error spheres around its codewords must be disjoint; this limits how many messages can be packed into a fixed word length. \cite{coding_theory_ref1}
+
+\item \textbf{Singleton bound.} A code with length $n$, size described by dimension $k$, and minimum distance $d$ satisfies $d\leq n-k+1$ in the standard linear setting. Codes meeting the bound, such as many Reed--Solomon codes, are called maximum-distance separable. \cite{coding_theory_ref8}
+\end{enumerate}
+
+\theoryapplications
+\theoryconnections{coding theory}{%
+\item Linear algebra supplies vector-space codes, algebra supplies finite fields and polynomial constructions, and probability models errors in a communication channel.
+\item Information theory supplies entropy and capacity, which say how much compression or reliability is possible before a code is designed.
+}{%
+\item Coding theory helps digital communication, storage, satellite links, and deep-space transmission by adding structured redundancy.
+\item It also supports distributed storage and data integrity: a receiver can detect or repair errors because the valid messages occupy separated positions in a larger space.
+}
+\section*{7. Sample Questions}
+\emph{Exercise reference:} \cite{coding_theory_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
+\begin{enumerate}[leftmargin=*,itemsep=0.9em]
+
+\item \textbf{Exercise 1.} What is the Hamming distance between 101101 and 100001?
+
+\emph{Solution.} Compare positions: they differ in the third and fourth positions, and agree elsewhere. The distance is $2$.
+
+\item \textbf{Exercise 2.} How many errors can a code with minimum distance $7$ detect and correct?
+
+\emph{Solution.} It can detect up to $6$ errors. It can correct up to $\lfloor(7-1)/2\rfloor=3$ errors by nearest-codeword decoding.
+
+\item \textbf{Exercise 3.} Decode 101 using the repetition code $\{000,111\}$.
+
+\emph{Solution.} The distance from 101 to 000 is two, while its distance from 111 is one. Nearest-codeword decoding therefore returns 111, representing the message bit one.
+
+\item \textbf{Exercise 4.} What do the parameters $(n,k,d)$ of a linear block code mean?
+
+\emph{Solution.} The codeword has length $n$, $k$ source symbols are encoded at once, and distinct codewords are at least distance $d$ apart. The rate is $k/n$, while $d$ controls error detection and correction.
+
+\item \textbf{Exercise 5.} Why can interleaving help a Reed--Solomon code correct a scratch on a disc?
+
+\emph{Solution.} A scratch creates a burst of adjacent errors. Interleaving places adjacent stored symbols in different codewords, turning one burst into many smaller errors. Each codeword then stays within the correction ability of the Reed--Solomon decoder.
+
+\end{enumerate}
+\section*{8. References}
+
+
+\begin{thebibliography}{9}
+\bibitem{coding_theory_ref1} F. J. MacWilliams and N. J. A. Sloane, \emph{The Theory of Error-Correcting Codes}, North-Holland, 1977.
+\bibitem{coding_theory_ref2} C. E. Shannon, "A mathematical theory of communication," \emph{Bell System Technical Journal}, 1948.
+\bibitem{coding_theory_ref3} T. M. Cover and J. A. Thomas, \emph{Elements of Information Theory}, Wiley, 2nd ed., 2006.
+\bibitem{coding_theory_ref4} J. Katz and Y. Lindell, \emph{Introduction to Modern Cryptography}, CRC Press, 3rd ed., 2020.
+\bibitem{coding_theory_ref5} D. E. Knuth, \emph{The Art of Computer Programming, Volume 3: Sorting and Searching}, Addison-Wesley, 1998.
+\bibitem{coding_theory_ref6} T. M. Cover, \emph{Elements of Information Theory}, Wiley.
+\bibitem{coding_theory_ref7} J. G. Proakis and M. Salehi, \emph{Digital Communications}, McGraw-Hill, 5th ed., 2008.
+\bibitem{coding_theory_ref8} R. Hill, \emph{A First Course in Coding Theory}, Oxford University Press, 1986.
+\bibitem{coding_theory_ref9} H. Nyquist, "Certain topics in telegraph transmission theory," \emph{Transactions of the AIEE}, 1928.
+\bibitem{coding_theory_ref10} W. Bialek, \emph{Biophysics: Searching for Principles}, Princeton University Press, 2012.
+\end{thebibliography}

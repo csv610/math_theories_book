@@ -1,0 +1,150 @@
+\theory{Deformation theory}{If a mathematical object is nudged slightly, which nearby objects are genuinely different, and which changes are merely a change of coordinates?}{Deformation theory studies families of solutions that vary with a small parameter. It first finds infinitesimal changes, then identifies obstructions to extending them to actual families, and finally organizes all families in moduli spaces. The same pattern applies to shapes, equations, algebras, representations, bundles, and arithmetic objects.}{Algebraic geometry, complex geometry, singularity theory, moduli spaces, mathematical physics, representation theory, arithmetic geometry, and perturbation problems.}{Infinitesimal deformations and obstruction classes determine which structures can change and which changes are only coordinate effects.}
+
+\paragraph{The question and the historical development}
+
+Imagine a rigid triangle, a flexible surface, or a polynomial curve whose coefficients are changed slightly. Some changes produce a genuinely new object; others are only a relabeling of the old one. Deformation theory separates these possibilities.
+
+Write a family as $P_\varepsilon$, where $\varepsilon$ is small. Keeping only first-order terms means that $\varepsilon^2$ and higher powers are ignored. The resulting linear equations describe infinitesimal deformations. But a first-order direction may fail to extend to second order, or may extend in many different ways. The obstruction to continuing the deformation is often a cohomology class.
+
+The ideas have roots in perturbation theory, geometry, and mechanics. Kodaira and Spencer developed a systematic theory for complex manifolds. Grothendieck recast deformations in algebraic geometry using flat maps and universal families. Gerstenhaber studied deformations of algebras, and later work connected deformation theory with Hochschild cohomology, quantum groups, and string theory. \cite{deformation_theory_ref1,deformation_theory_ref2}
+
+\end{historylist}
+\section*{3. Theory}
+\subsection*{Core theory}
+\paragraph{Infinitesimal changes and trivial changes}
+
+Suppose an object is defined by equations $F(x)=0$. A deformation changes the equations to
+\[
+ F(x)+\varepsilon G(x)+O(\varepsilon^2)=0.
+\]
+Substituting a moving solution and comparing coefficients of $\varepsilon$ gives a linearized condition on $G$ and the first-order motion of $x$. The solutions of this linear condition form the tangent space to the deformation problem.
+
+Some solutions are trivial. If a coordinate change moves the original object without changing its isomorphism class, its derivative represents a direction that should be quotiented out. The true tangent space is therefore “allowed first-order changes modulo changes of coordinates.” This is why deformation theory naturally produces quotient spaces and cohomology groups.
+
+For a plane curve, changing coefficients can smooth a singular point, move it, or leave the isomorphism class unchanged. A deformation of $y^2=x^n$ such as
+\[
+ y^2-x^n+\varepsilon=0
+\]
+replaces the singular central fiber by smoother nearby fibers. The central object and the nearby objects are different fibers of one family.
+
+\paragraph{Flat families and universal deformations}
+
+The most general geometric formulation is a flat map
+\[
+ f:\mathcal X\longrightarrow S.
+\]
+The fiber over a point $s\in S$ is the object being studied at parameter $s$. Flatness is the algebraic condition that prevents components from suddenly appearing or disappearing in an uncontrolled way; it is the correct replacement for “the family changes continuously” in algebraic geometry.
+
+A universal family $\mathfrak X\to B$ is a family from which every nearby deformation is obtained by pullback along a unique map from the parameter space to $B$. If uniqueness holds only up to an allowed equivalence, the family is versal rather than universal. Hilbert schemes and Quot schemes often supply parameter spaces, while moduli spaces identify points corresponding to isomorphic objects. \cite{deformation_theory_ref1,deformation_theory_ref3}
+
+The universal picture explains why a deformation problem is not just one calculation. The base $B$ records all nearby choices, singular points of $B$ record obstructed or singular moduli behavior, and quotienting by symmetries prevents counting the same object repeatedly.
+
+\paragraph{Complex manifolds and curves}
+
+For a complex manifold $X$, the Kodaira--Spencer theory identifies first-order deformations of its complex structure with a sheaf cohomology group
+\[
+ H^1(X,\Theta_X),
+\]
+where $\Theta_X$ is the holomorphic tangent bundle. The obstruction lies in a related degree-two group, often $H^2(X,\Theta_X)$.
+
+For a Riemann surface, the obstruction group vanishes for dimension reasons. The Riemann sphere has no nontrivial deformations: its complex structure is isolated. A genus-one curve has a one-parameter family of complex structures. Every elliptic curve can be written as
+\[
+ y^2=x^3+ax+b,
+\]
+but different pairs $(a,b)$ can describe isomorphic curves. The invariant $j$ records the true isomorphism class, while coefficient changes may be mere coordinate changes.
+
+For a curve of genus $g\geq2$, Serre duality identifies the deformation tangent space with the dual of the space of holomorphic quadratic differentials. Riemann--Roch gives dimension $3g-3$ for the Teichmuller space of smooth curves. This is a concrete example of cohomology measuring the number of genuine shape changes. \cite{deformation_theory_ref2,deformation_theory_ref4}
+
+\paragraph{Singularities and analytic algebras}
+
+A germ of an analytic space near a point can be represented by a quotient
+\[
+ A=\mathbb C\{x_1,\ldots,x_n\}/I,
+\]
+where the braces denote convergent power series. A deformation is a flat family over a base germ whose special fiber is $A$. For the plane-curve singularity $y^2-x^n=0$, adding a parameter $s$ gives
+\[
+ y^2-x^n+s=0.
+\]
+The fiber at $s=0$ is singular; nonzero fibers may be smooth. Such a nearby smooth fiber is a Milnor fiber.
+
+The number and shape of deformations can be organized by a deformation functor. Instead of immediately constructing a geometric moduli space, one assigns to each local Artin algebra the set or groupoid of deformations over that algebra. Tangent vectors correspond to first-order extensions by dual numbers, and obstruction classes determine whether extensions to larger nilpotent bases exist. Schlessinger's criteria and cotangent complexes provide general tests and controlling objects. \cite{deformation_theory_ref1,deformation_theory_ref5}
+
+\paragraph{Applications in geometry, arithmetic, and physics}
+
+Mori's bend-and-break uses deformations of curves on algebraic varieties. A curve is moved through a family until it breaks into components, reducing degree or genus and helping prove the existence of rational curves on Fano varieties.
+
+Arithmetic deformation theory asks how a variety over $\mathbb F_p$ can lift to $\mathbb Z_p$ or to higher powers $\mathbb Z/p^n\mathbb Z$. For smooth curves, vanishing obstruction groups can allow compatible lifts through all orders, producing a formal scheme. The Serre--Tate theorem says that deformations of an abelian scheme are controlled by its $p$-divisible group.
+
+Galois deformation theory starts with a representation
+\[
+ \rho:G\longrightarrow\operatorname{GL}_n(\mathbb F_p)
+\]
+and asks whether it can be lifted to a representation over $\mathbb Z_p$ or another coefficient ring. This is central in modern number theory and in the study of modularity.
+
+In deformation quantization, a commutative algebra of classical observables is deformed into a noncommutative algebra of quantum observables. In string theory and mathematical physics, deformations of algebras and geometric structures are organized by Hochschild cohomology and related higher operations. \cite{deformation_theory_ref6,deformation_theory_ref7}
+
+\paragraph{What the theory depends on and where it is useful}
+
+Deformation theory depends on calculus, linearization, algebraic geometry, sheaf cohomology, category theory, and moduli. It helps moduli theory by describing local parameter spaces, singularity theory by smoothing or classifying singular objects, and arithmetic geometry by lifting structures across rings of increasing precision.
+
+Its fundamental warning is that an infinitesimal solution is not automatically an actual family. The first-order equations are necessary, but higher-order compatibility can fail. This is the reason obstruction groups and universal properties are as important as tangent spaces.
+
+\section*{4. Important theorems and results}
+\begin{enumerate}[leftmargin=*,itemsep=0.35em]
+
+\item \textbf{Kodaira--Spencer principle.} First-order deformations of a complex manifold are controlled by $H^1(X,\Theta_X)$, with obstructions in a related degree-two group. \cite{deformation_theory_ref2}
+
+\item \textbf{Riemann-surface dimension result.} The deformation space of a smooth genus-$g$ curve has dimension $0$ for $g=0$, dimension $1$ for $g=1$, and $3g-3$ for $g\geq2$. \cite{deformation_theory_ref4}
+
+\item \textbf{Flat-family principle.} Flat maps provide algebraic families whose fibers vary without uncontrolled changes in dimension or multiplicity. \cite{deformation_theory_ref1}
+
+\item \textbf{Schlessinger principle.} Under suitable finiteness and lifting conditions, a deformation functor has a hull or pro-representing object that records all infinitesimal deformations. \cite{deformation_theory_ref5}
+
+\item \textbf{Serre--Tate theorem.} Deformations of an abelian scheme are controlled by deformations of its associated $p$-divisible group. \cite{deformation_theory_ref6}
+\end{enumerate}
+
+\theoryapplications
+\theoryconnections{deformation theory}{%
+\item Algebraic geometry supplies schemes and flat families, differential geometry supplies tangent spaces and vector fields, and cohomology records infinitesimal changes and obstructions.
+\item Category theory packages the deformation problem as a functor and makes universal objects precise.
+}{%
+\item Deformation theory helps moduli problems, algebraic geometry, representation theory, and mathematical physics distinguish genuine parameters from changes caused by a coordinate choice.
+\item Obstruction classes tell when a first-order construction can be extended to an actual family.
+}
+\section*{7. Sample Questions}
+\emph{Exercise reference:} \cite{deformation_theory_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
+\begin{enumerate}[leftmargin=*,itemsep=0.9em]
+
+\item \textbf{Exercise 1.} What is an infinitesimal deformation?
+
+\emph{Solution.} It is a first-order change described by a parameter $\varepsilon$ while ignoring $\varepsilon^2$ and higher powers. It is a tangent direction to the space of solutions, before checking whether the direction extends to a genuine family.
+
+\item \textbf{Exercise 2.} Why are coordinate changes removed?
+
+\emph{Solution.} A coordinate change may move the equation or picture without changing the underlying object. Deformation theory studies new isomorphism classes, so it quotients out these trivial directions.
+
+\item \textbf{Exercise 3.} What does flatness prevent in a family?
+
+\emph{Solution.} It prevents pathological jumps in the algebraic behavior of fibers, such as components suddenly appearing or disappearing. It formalizes a controlled variation of the object over the parameter space.
+
+\item \textbf{Exercise 4.} What is the role of an obstruction class?
+
+\emph{Solution.} It measures why a first-order or lower-order deformation cannot be extended to the next order. If the obstruction vanishes, an extension may exist; if not, that infinitesimal direction does not integrate.
+
+\item \textbf{Exercise 5.} Why can different equations describe the same elliptic curve?
+
+\emph{Solution.} A change of coordinates can alter the coefficients $a$ and $b$ without changing the isomorphism class. The invariant $j$ removes this redundancy and records the true complex structure.
+
+\end{enumerate}
+\section*{8. References}
+
+
+\begin{thebibliography}{9}
+\bibitem{deformation_theory_ref1} R. Hartshorne, \emph{Deformation Theory}, Springer, 2010.
+\bibitem{deformation_theory_ref2} K. Kodaira and D. C. Spencer, "On deformations of complex analytic structures," \emph{Annals of Mathematics}, 1958.
+\bibitem{deformation_theory_ref3} R. Hartshorne, \emph{Algebraic Geometry}, Springer, 1977.
+\bibitem{deformation_theory_ref4} J. Harris and I. Morrison, \emph{Moduli of Curves}, Springer, 1998.
+\bibitem{deformation_theory_ref5} M. Schlessinger, "Functors of Artin rings," \emph{Transactions of the American Mathematical Society}, 1968.
+\bibitem{deformation_theory_ref6} J. Tate, "Serre--Tate local moduli," in \emph{Algebraic Number Theory}, Academic Press, 1967.
+\bibitem{deformation_theory_ref7} M. Gerstenhaber, "On the deformation of rings and algebras," \emph{Annals of Mathematics}, 1964.
+\end{thebibliography}

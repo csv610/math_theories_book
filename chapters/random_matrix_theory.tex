@@ -1,0 +1,203 @@
+\clearpage\chapter{Random matrix theory}
+
+\section*{1. Overview}
+\subsection*{Intuitive}
+\paragraph{The problem}
+Suppose a data set has thousands of measurements and thousands of variables.
+Its covariance matrix is then a huge table.  Even if the measurements contain
+no real pattern, the table will have eigenvalues, large singular values, and
+apparently important directions.  Which features are genuine, and which are
+created by randomness?
+
+The same question appears in physics.  A complicated quantum system may have
+too many interacting particles for its exact energy levels to be calculated.
+Instead of predicting every level, we can ask about the typical spacing of
+nearby levels.  Random matrix theory was developed to answer such questions
+about large matrices without pretending that every entry is known.
+
+
+\subsection*{Formal}
+An $N\times N$ random matrix is a matrix whose entries, or whose eigenvalue distribution, are governed by a specified probability law. Important observables include the eigenvalues $\lambda_1,\ldots,\lambda_N$, the empirical spectral measure $N^{-1}\sum_i\delta_{\lambda_i}$, and the normalized trace $N^{-1}\operatorname{Tr}f(M)$. The theory studies their limiting behavior as $N\to\infty$, with the ensemble and normalization stated explicitly.
+\section*{2. History}
+\subsection*{Historical development}
+\begin{historylist}
+\paragraph{History and the central idea}
+Eugene Wigner introduced random matrices into nuclear physics in the 1950s.
+He argued that the unknown interactions inside a heavy nucleus could be
+modelled by a symmetric random matrix.  The individual entries were not
+supposed to be literally random forces; randomness represented incomplete
+knowledge and complicated interactions.  Freeman Dyson later organised the
+main symmetry classes, and many mathematicians developed precise limit
+theorems for eigenvalues and singular values \cite{random_matrix_theory_ref1}.
+
+Let $X$ be an $m\times n$ matrix whose entries are independent measurements,
+and form the sample covariance matrix
+$S=(1/n)XX^{\mathsf T}$.  The eigenvectors of $S$ are the directions found by
+principal component analysis.  If the entries of $X$ are only noise, the
+eigenvalues are nevertheless not all equal.  For large $m$ and $n$, their
+histogram approaches a predictable shape, the Marchenko--Pastur distribution,
+when the ratio $m/n$ is held fixed.  A very large eigenvalue outside this
+noise bulk is evidence for a signal, not merely evidence that a large matrix
+always has a largest eigenvalue \cite{random_matrix_theory_ref2}.
+
+\end{historylist}
+\section*{3. Theory}
+\subsection*{Core theory}
+\paragraph{What the theory measures}
+\bookfigure{random_matrix_spectrum}{Random matrix theory separates a typical noise spectrum from a possible signal outlier.}
+There are three different questions, and confusing them leads to bad
+interpretations.  The global eigenvalue distribution asks where most
+eigenvalues lie.  The extreme-eigenvalue question asks how large the largest
+one is.  The local question asks how close neighbouring eigenvalues are.
+
+The answer depends on scaling and symmetry.  For a symmetric matrix with
+entries of variance one, eigenvalues typically have size about the square
+root of the matrix dimension.  Dividing by that scale produces a stable
+limiting picture.  For a covariance matrix, the appropriate scale is set by
+the number of observations and variables.  A theorem about one scaling
+cannot be transferred to another without checking the assumptions.
+
+\section*{4. Important theorems and results}
+\begin{enumerate}[leftmargin=*,itemsep=0.35em]
+\item \textbf{Marchenko--Pastur law.} For a large sample covariance matrix with
+independent, suitably scaled entries, the empirical distribution of
+eigenvalues approaches a deterministic limiting distribution.  In practice,
+this gives a noise bulk against which unusually large principal components
+can be compared.
+
+\item \textbf{Wigner semicircle law.} For a large real symmetric random matrix with
+centred entries of the appropriate variance, the rescaled eigenvalue
+histogram approaches a semicircle.  The theorem explains why the detailed
+distribution of individual entries often matters less than the matrix's
+symmetry and scaling.
+
+\item \textbf{Universality and edge behaviour.} Under broad conditions, local
+eigenvalue spacings and extreme eigenvalues follow the same limiting laws
+across many entry distributions.  Heavy tails and strong dependence can
+invalidate this conclusion, so the hypotheses must be checked.
+
+\end{enumerate}
+\noindent\emph{Source for these results:} \cite{random_matrix_theory_ref1}.
+
+\section*{5. Applications}
+Random matrix theory studies the collective behaviour of eigenvalues and singular values when a matrix contains uncertainty. It provides reference distributions for separating stable structure from noise in large systems.
+\begin{enumerate}[leftmargin=*,itemsep=0.7em]
+\item \textbf{Wireless communication.}  In a multiple-input, multiple-output
+(MIMO) system, a transmitter sends a vector of signals through many antenna
+paths.  The receiver observes $y=Hx+z$, where $H$ is the channel matrix and
+$z$ is noise.  Engineers want to know how many independent streams can be
+sent reliably.  The singular values of $H$ are the strengths of those
+streams, and the channel capacity contains terms of the form
+$\log(1+\rho s_i^2)$, where $s_i$ are singular values and $\rho$ is the
+signal-to-noise ratio.  Measuring every future channel matrix is impossible.
+A random matrix model predicts the typical distribution of the $s_i$, so an
+engineer can estimate capacity and the probability of a communication
+outage before installing thousands of antennas.  The useful output is not
+the entries of one invented matrix; it is a reliable estimate of the
+distribution of possible channel qualities \cite{random_matrix_theory_ref1}.
+
+\item \textbf{Separating signal from noise in data.}  Consider 10,000 patients
+described by 1,000 laboratory measurements.  Principal component analysis
+will always produce 1,000 eigenvalues, even if the measurements are
+independent noise.  Random matrix theory gives a noise-only interval for
+those eigenvalues.  Components inside the interval are consistent with
+sampling noise; a component well outside it is a candidate for a shared
+biological factor.  This is why the theory is useful: it supplies a
+reference distribution against which a data scientist can test an apparent
+pattern, instead of keeping the largest component merely because it is
+largest.  The test must be recalibrated when measurements are strongly
+dependent or have unequal variances \cite{random_matrix_theory_ref2}.
+
+\item \textbf{Financial covariance matrices.}  A portfolio manager may estimate
+the correlation of 500 assets from only 250 days of prices.  The sample
+covariance matrix then has more variables than observations, and many
+eigenvalues describe estimation noise rather than stable economic factors.
+If the noisy covariance is inverted directly, the resulting portfolio may
+place enormous weights on directions that will disappear next month.
+Random matrix methods identify the noise-like bulk and replace it with a
+smoothed bulk while retaining a few defensible large factors.  The resulting
+matrix is better conditioned, so optimisation is less sensitive to
+accidental features of the chosen historical window.  This does not predict
+market prices; it improves the reliability of a matrix used by a separate
+risk model.
+
+\item \textbf{Energy levels in complex quantum systems.}  A heavy nucleus has many
+interacting energy levels.  Wigner's random-matrix model predicts that nearby
+levels tend to repel one another: two levels are less likely to be extremely
+close than they would be in a list of independent random numbers.  Physicists
+compare the rescaled spacings of measured levels with the predicted spacing
+law.  Agreement is evidence that the system has the complicated mixing
+expected of a chaotic quantum system; disagreement can reveal hidden
+symmetry or a more regular mechanism.  The model describes statistical
+regularities, not the exact energy of a particular level \cite{random_matrix_theory_ref1}.
+\end{enumerate}
+
+\theoryconnections{random_matrix_theory}{%
+\item Probability supplies a distribution for the entries or eigenvalues, and linear algebra turns a matrix into eigenvalues, singular values, and eigenvectors.
+\item Calculus and analysis then study the collective behavior of these quantities as the matrix size grows.
+\item The important shift is from asking for one exact eigenvalue to asking for a distribution: for a large random matrix, the empirical eigenvalue plot often settles near a deterministic density, while the extreme eigenvalues fluctuate on a different scale \cite{random_matrix_theory_ref1,random_matrix_theory_ref2}.
+}{%
+\item In statistics, the singular values of a random data matrix provide a baseline for deciding whether a large observed component is signal or noise.
+\item In wireless engineering, a channel matrix determines how many independent data streams can be transmitted, and random-matrix laws predict performance when antennas are numerous.
+\item In physics, the same eigenvalue statistics model complicated energy levels, so the theory explains why unrelated systems can share the same fluctuation patterns \cite{random_matrix_theory_ref1,random_matrix_theory_ref2}.
+}
+\section*{7. Sample Questions}
+\emph{Exercise reference:} \cite{random_matrix_theory_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
+\begin{enumerate}[leftmargin=*,itemsep=0.9em]
+\item \textbf{Exercise 1. Why can a noise-only data matrix have a large principal component?}
+
+\emph{Solution.} A finite sample contains accidental correlations. Principal
+component analysis must produce eigenvalues even when every measurement is
+independent noise, so a large eigenvalue is not automatically a real factor.
+Random matrix theory supplies the range of eigenvalues that noise alone would
+normally produce.
+
+\item \textbf{Exercise 2. Find the eigenvalues of the symmetric matrix
+\(\begin{pmatrix}0&a\\a&0\end{pmatrix}\).}
+
+\emph{Solution.} Its characteristic equation is
+\(\lambda^2-a^2=0\), so the eigenvalues are \(a\) and \(-a\). This small
+example shows why symmetry forces eigenvalues to be real and why the
+eigenvalue scale depends on the size of the entries.
+
+\item \textbf{Exercise 3. What are the singular values of
+\(\operatorname{diag}(3,1)\), and what do they mean for a communication
+channel?}
+
+\emph{Solution.} The singular values are \(3\) and \(1\). The channel has two
+independent directions, but the first transmits three times the amplitude of
+the second. In a MIMO model these values determine the strengths of the
+parallel data streams.
+
+\item \textbf{Exercise 4. Why can a sample covariance matrix have zero eigenvalues?}
+
+\emph{Solution.} If there are $p$ measured variables but only $n<p$
+independent observations, the centered data matrix has rank at most $n-1$.
+The covariance matrix therefore has at least $p-n+1$ zero eigenvalues.
+Those zeros reflect insufficient observations, not necessarily exact physical
+constraints.
+
+\item \textbf{Exercise 5. What evidence would make an eigenvalue look like signal rather
+than noise?}
+
+\emph{Solution.} Compare it with the noise-only spectral law using the same
+matrix dimensions, scaling, and dependence assumptions. An eigenvalue well
+outside the predicted bulk is evidence for a possible signal, but it still
+requires validation on new data and a check that the random-matrix model is
+appropriate \cite{random_matrix_theory_ref1,random_matrix_theory_ref2}.
+
+\paragraph{Limits of the model}
+Randomness is not a substitute for understanding the data-generating
+mechanism.  Correlated entries, heavy-tailed measurements, missing data, and
+changing distributions can alter the eigenvalue law.  A large eigenvalue is
+not automatically a real discovery, and an eigenvalue inside the noise bulk
+is not proof that no signal exists.  Random matrix theory is useful when its
+probabilistic assumptions are tested and its prediction is used as a
+calibration or error benchmark.
+
+\end{enumerate}
+\section*{8. References}
+\begin{thebibliography}{9}
+\bibitem{random_matrix_theory_ref1} M. L. Mehta, \emph{Random Matrices}.
+\bibitem{random_matrix_theory_ref2} T. Tao, \emph{Topics in Random Matrix Theory}.
+\end{thebibliography}

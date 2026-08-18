@@ -1,0 +1,144 @@
+\clearpage\chapter{Brill--Noether theory}
+\section*{1. Overview}
+\subsection*{Intuitive}
+\paragraph{The problem}
+
+A curve has divisors, and a divisor can support functions or maps to projective space. The surprising question is whether it supports more independent functions than its degree and the curve's genus seem to allow. Brill--Noether theory studies these special divisors, predicts their dimensions on a generic curve, and identifies when a curve has exceptional geometry.
+
+
+
+\subsection*{Formal}
+Let $C$ be a smooth projective curve of genus $g$. The Brill--Noether locus is
+\[
+ W^r_d(C)=\{L\in\operatorname{Pic}^d(C):h^0(C,L)\ge r+1\}.
+\]
+Its expected dimension is governed by $\rho(g,r,d)=g-(r+1)(g-d+r)$. The theory asks when this locus is nonempty, what its dimension is, and how the answer changes for a special curve.
+\section*{2. History}
+\subsection*{Historical development}
+\begin{historylist}
+\paragraph{History and the central question}
+
+The theory was introduced by Alexander von Brill and Max Noether in 1874. They studied special divisors on smooth projective curves and discovered that some divisors move in larger linear systems than a naive count predicts. Modern formulations use line bundles, sheaf cohomology, the Picard variety, and moduli spaces.
+
+Let $C$ be a smooth projective curve of genus $g$ over an algebraically closed field. A divisor $D$ determines a line bundle $\mathcal O_C(D)$ and a vector space of sections $H^0(C,\mathcal O_C(D))$. Its dimension is written $h^0(D)=r+1$. A complete linear system of degree $d$ and dimension $r$ is often denoted $g^r_d$. It gives a map to $\mathbb P^r$ when the sections have no common zero \cite{brill_noether_theory_ref1,brill_noether_theory_ref3}.
+
+\end{historylist}
+\section*{3. Theory}
+\subsection*{Core theory}
+\paragraph{Special divisors and Riemann--Roch}
+
+Riemann--Roch says
+\[
+ h^0(D)-h^1(D)=\deg D-g+1.
+\]
+The term $h^1(D)$ measures the failure of the number of sections to be the ordinary expected value. A divisor is special when $h^1(D)>0$. By Serre duality, this is equivalent to the existence of a holomorphic differential whose divisor is at least $-D$.
+
+The theory is therefore a refined question about sections. A degree-$d$ divisor may move in a family of dimension greater than expected because the curve has a special shape, an extra symmetry, or a low-degree map to another curve. The same language describes line bundles, maps to projective space, and embeddings.
+
+\paragraph{The Brill--Noether number}
+
+The Brill--Noether number is
+\[
+ \rho(g,r,d)=g-(r+1)(g-d+r).
+\]
+It is the expected dimension of the space $G^r_d(C)$ of degree-$d$ linear systems with at least $r+1$ sections. The formula can be remembered from Riemann--Roch:
+\[
+ \rho=g-h^0(D)h^1(D)
+\]
+at the expected values.
+
+If $\rho<0$, a general curve should have no such linear series. If $\rho=0$, one expects finitely many. If $\rho>0$, one expects a family of dimension $\rho$. An exceptional curve may violate the generic expectation by possessing extra series.
+
+\paragraph{Main theorems}
+
+Kempf proved that when $\rho\geq0$, $G^r_d(C)$ is nonempty for a smooth curve in the standard range and every component has dimension at least $\rho$. Fulton and Lazarsfeld proved connectedness when $\rho\geq1$. Griffiths and Harris showed that for a general curve the space is reduced and has components of exactly dimension $\rho$, hence is empty when $\rho<0$. Gieseker proved smoothness for a general curve; connectedness then gives irreducibility when $\rho>0$.
+
+These results distinguish generic geometry from special geometry. A hyperelliptic curve, for instance, has a degree-two map to $\mathbb P^1$ and therefore a linear system that a general curve of the same genus may not have.
+
+\paragraph{Maps and examples}
+
+A $g^1_d$ is a pencil of degree $d$: two independent sections give a map $C\to\mathbb P^1$. A hyperelliptic curve has a $g^1_2$. A canonical linear system, associated with holomorphic differentials, maps a nonhyperelliptic curve of genus $g\geq3$ into $\mathbb P^{g-1}$.
+
+For $g=3$, $r=1$, and $d=2$,
+\[
+ \rho=3-2(3-2+1)=-1.
+\]
+Thus a general genus-three curve has no degree-two map to $\mathbb P^1$, although hyperelliptic genus-three curves do. The negative expected dimension expresses a generic nonexistence statement rather than an absolute impossibility.
+
+\paragraph{Moduli and the maximal-rank problem}
+
+The moduli space of genus-$g$ curves contains a dense set of general curves. Brill--Noether theory predicts which linear systems occur on that dense set and how large their parameter spaces are. Degenerate or special curves lie in proper loci and can have more sections.
+
+The maximal rank conjecture concerns a general curve $C\subset\mathbb P^r$ embedded by a general linear series. It predicts that restriction maps
+\[
+ H^0(\mathbb P^r,\mathcal O(m))\to H^0(C,\mathcal O_C(m))
+\]
+have maximal possible rank. The rank determines the Hilbert function of the embedded curve. Results of Larson and others prove broad cases and interpolation statements through general points, with a small list of exceptional triples.
+
+\section*{4. Important theorems and results}
+\begin{enumerate}[leftmargin=*,itemsep=0.35em]
+
+\item \textbf{Riemann--Roch.} The difference $h^0(D)-h^1(D)$ is $\deg D-g+1$, linking sections to degree and genus.
+
+\item \textbf{Brill--Noether dimension theorem.} For a general curve, $G^r_d$ has expected dimension $\rho$ when $\rho\geq0$ and is empty when $\rho<0$.
+
+\item \textbf{Kempf nonemptiness theorem.} Under the standard hypotheses, $\rho\geq0$ implies that the expected linear-series space is nonempty.
+
+\item \textbf{Fulton--Lazarsfeld connectedness.} When $\rho\geq1$, the relevant Brill--Noether space is connected.
+
+\item \textbf{Gieseker smoothness.} For a general curve, the Brill--Noether space is smooth; combined with connectedness this gives irreducibility when $\rho>0$.
+
+\item \textbf{Maximal rank theorem.} Broad cases of the maximal-rank conjecture show that restriction maps for general embedded curves have the expected rank.
+\end{enumerate}
+\noindent\emph{Source for these results:} \cite{brill_noether_theory_ref1}.
+
+\section*{5. Applications}
+Brill--Noether theory predicts when an algebraic curve has a linear series of a prescribed degree and dimension. These predictions control maps to projective space, loci in moduli spaces, and codes obtained by evaluating sections.
+\begin{enumerate}[leftmargin=*,itemsep=0.35em]
+\item \textbf{Algebraic curves.} Brill--Noether theory predicts which maps and linear systems a general curve can carry.
+\item \textbf{Picard varieties.} Divisors and their sections organize families of line bundles and identify special points in the Picard variety.
+\item \textbf{Moduli spaces.} The Brill--Noether number predicts the expected dimension of loci of curves with a prescribed linear series.
+\item \textbf{Projective embeddings.} A linear series provides an explicit map to projective space, and its sections determine whether that map separates points and tangent directions.
+\item \textbf{Coding theory.} Evaluating sections on algebraic curves produces algebraic-geometric error-correcting codes whose parameters are controlled by the curve.
+\end{enumerate}
+
+\theoryconnections{brill_noether_theory}{%
+\item Algebraic geometry represents a linear system by sections of a line bundle, while a divisor records the allowed zeros and poles of those sections.
+\item Riemann--Roch predicts the expected number of sections; Serre duality explains the correction when the divisor is special.
+\item The Brill--Noether number compares the available parameters with the conditions imposed by a desired map to projective space, so it predicts whether a general curve should carry that map \cite{brill_noether_theory_ref1,brill_noether_theory_ref2}.
+}{%
+\item The theory helps classify embeddings of curves because a collection of sections gives coordinates and hence a map into projective space.
+\item Its dimension counts describe loci in moduli space, while the same linear systems control syzygies, interpolation conditions, and evaluation codes.
+\item In each case, the geometric question becomes a question about how many independent sections survive the imposed conditions \cite{brill_noether_theory_ref1,brill_noether_theory_ref3}.
+}
+\section*{7. Sample Questions}
+\emph{Exercise reference:} \cite{brill_noether_theory_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
+\begin{enumerate}[leftmargin=*,itemsep=0.9em]
+
+\item \textbf{Exercise 1.} Compute $\rho$ for $g=4$, $r=1$, $d=3$.
+
+\textbf{Solution.} $\rho=4-2(4-3+1)=4-4=0$. A general genus-four curve is therefore expected to have finitely many $g^1_3$ systems.
+
+\item \textbf{Exercise 2.} Why is a hyperelliptic curve special?
+
+\textbf{Solution.} It has a degree-two map to $\mathbb P^1$, a $g^1_2$. If $\rho(g,1,2)<0$, a general curve of genus $g$ does not have this map, so the hyperelliptic curve lies in a special moduli locus.
+
+\item \textbf{Exercise 3.} What does $h^1(D)>0$ mean?
+
+\textbf{Solution.} The divisor is special: it has more sections than the nonspecial Riemann--Roch count predicts. Serre duality interprets $h^1(D)$ as holomorphic differentials constrained by $D$.
+
+\item \textbf{Exercise 4.} What does $\rho<0$ predict?
+
+\textbf{Solution.} A general curve has no $g^r_d$ of the specified degree and dimension. Special curves may still have one.
+
+\item \textbf{Exercise 5.} What is the meaning of a $g^1_d$?
+
+\textbf{Solution.} It is a degree-$d$ linear system of dimension one, usually giving a map from the curve to the projective line.
+
+\end{enumerate}
+\section*{8. References}
+\begin{thebibliography}{99}
+\bibitem{brill_noether_theory_ref1} E. Arbarello, M. Cornalba, P. A. Griffiths, and J. Harris, \emph{Geometry of Algebraic Curves, Volume I}.
+\bibitem{brill_noether_theory_ref2} R. Lazarsfeld, \emph{Positivity in Algebraic Geometry I}.
+\bibitem{brill_noether_theory_ref3} W. Fulton and R. Lazarsfeld, "On the connectedness of degeneracy loci and special divisors," \emph{Acta Mathematica}.
+\end{thebibliography}

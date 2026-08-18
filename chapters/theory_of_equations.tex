@@ -1,0 +1,83 @@
+\theory{Theory of equations}{When can polynomial equations be solved exactly, and when is a formula using radicals impossible?}{The classical theory of equations studies polynomial equations, their roots, formulas, and the algebraic structures that control solvability. Its central historical problem was solved by Galois theory, which replaced formulas with symmetry groups.}{Algebra, number theory, algebraic geometry, numerical root finding, physics, and the study of polynomial systems.}{Roots, multiplicities, resultants, and Galois symmetries explain both exact solvability and the limits of formulas.}
+
+\paragraph{The historical problem}
+For a polynomial equation, mathematicians first sought expressions for roots using addition, subtraction, multiplication, division, and radicals. Linear, quadratic, cubic, and quartic equations received formulas in antiquity and the Renaissance. Scipione del Ferro and Tartaglia found cubic methods; Cardano published them, and Ferrari supplied the quartic solution. Bombelli explained the complex numbers appearing in cubic formulas \cite{equations_ref1}.
+
+The general quintic resisted radicals. Ruffini gave an incomplete impossibility argument, and Niels Abel proved in 1824 that a general fifth-degree equation cannot be solved by radicals. Évariste Galois then gave a criterion: the equation is solvable by radicals exactly when its Galois group is solvable \cite{equations_ref2}.
+
+\end{historylist}
+\section*{3. Theory}
+\subsection*{Core theory}
+\paragraph{Roots and systems}
+The fundamental theorem of algebra says every nonconstant complex polynomial has a complex root, counted with multiplicity. Vieta's formulas relate coefficients to symmetric sums and products of roots. The discriminant detects repeated roots: it is zero precisely when the polynomial and its derivative share a root.
+
+Linear systems were solved in antiquity; Cramer gave a general determinant formula in the eighteenth century. Today Gaussian elimination is usually more efficient. Systems of polynomial equations lead to resultants, Grobner bases, and algebraic geometry. Integer solutions are studied as Diophantine equations in number theory \cite{equations_ref3}.
+
+\paragraph{A worked example}
+For
+\[
+x^2-5x+6=0,
+\]
+factoring gives $(x-2)(x-3)=0$, so the roots are $2$ and $3$. Vieta's
+formulas explain the calculation without factoring: the roots must add to
+$5$ and multiply to $6$. The discriminant is
+\[
+(-5)^2-4(1)(6)=1,
+\]
+which is positive, so the two real roots are distinct.
+
+The same questions become harder for a cubic or quintic. A numerical
+algorithm may approximate the roots, but the theory of equations asks a
+different question: is there a finite expression using radicals at all?
+Galois theory answers that question by studying how the roots can be
+permuted while leaving the coefficients fixed. Thus the elementary quadratic
+example is a model of the larger subject: coefficients constrain roots,
+symmetry explains the constraint, and the discriminant detects a change in
+the root pattern \cite{equations_ref1,equations_ref2}.
+
+\section*{4. Important theorems and results}
+\begin{enumerate}[leftmargin=*,itemsep=0.35em]
+\item \textbf{Fundamental theorem of algebra.} Every nonconstant complex polynomial has a complex root and factors completely into linear factors.
+
+\item \textbf{Abel--Ruffini theorem.} The general polynomial of degree five or greater is not solvable by radicals.
+
+\item \textbf{Galois criterion.} A polynomial is solvable by radicals exactly when its Galois group is solvable.
+
+\item \textbf{Vieta's formulas.} Coefficients determine elementary symmetric functions of the roots.
+
+\item \textbf{Discriminant criterion.} A polynomial has a repeated root exactly when its discriminant is zero.
+
+\item \textbf{Bezout's theorem.} Projective plane curves of degrees $m$ and $n$ meet in $mn$ points counted with multiplicity under suitable hypotheses.
+\end{enumerate}
+\noindent\emph{Source for these results:} \cite{equations_ref1}.
+
+\theoryapplications
+\theoryconnections{theory_of_equations}{%
+\item Algebra supplies operations on coefficients, complex numbers guarantee that a polynomial factors into linear factors after passing to a suitable field, and linear algebra handles systems and multiplicities.
+\item Symmetry enters because permuting the roots can preserve every coefficient; the set of such permutations is the Galois group.
+\item Polynomial geometry then interprets several equations as a shape whose intersections and singularities encode the solutions \cite{equations_ref1,equations_ref2}.
+}{%
+\item The theory feeds Galois theory by turning the question “can roots be written by radicals?” into a question about solvable groups.
+\item It feeds algebraic geometry through varieties and elimination, number theory through integer and rational roots, and numerical analysis through algorithms that approximate roots when no useful formula exists.
+\item In physics, characteristic equations determine allowed frequencies or energy levels, so root structure becomes a prediction about a system \cite{equations_ref2,equations_ref3}.
+}
+\section*{7. Sample Questions}
+\emph{Exercise reference:} \cite{equations_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
+\begin{enumerate}[leftmargin=*,itemsep=0.9em]
+\item \textbf{Exercise 1. Solve $x^2-5x+6=0$.} Factor as $(x-2)(x-3)$, so the roots are $2$ and $3$.
+
+\item \textbf{Exercise 2. What is the discriminant of $x^2+bx+c$?} It is $b^2-4c$. It is zero exactly when the quadratic has a repeated root.
+
+\item \textbf{Exercise 3. What is the general quintic have no radical formula?} Its generic Galois group is the nonsolvable group $S_5$. Galois's criterion therefore forbids a formula by radicals.
+
+\item \textbf{Exercise 4. What does Vieta say for $x^2-5x+6$?} The sum of roots is $5$ and their product is $6$, matching $2+3$ and $2\cdot3$.
+
+\item \textbf{Exercise 5. Why are multiplicities counted in intersections?} A tangent intersection or cusp can contribute more contact than a transverse crossing. Multiplicity makes Bezout's count remain constant under deformation.
+
+\end{enumerate}
+\section*{8. References}
+\begin{thebibliography}{9}
+\bibitem{equations_ref1} J. V. Uspensky, \emph{Theory of Equations}.
+\bibitem{equations_ref2} I. Stewart, \emph{Galois Theory}.
+\bibitem{equations_ref3} D. Cox, J. Little, and D. O'Shea, \emph{Ideals, Varieties, and Algorithms}.
+\end{thebibliography}

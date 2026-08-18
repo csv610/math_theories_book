@@ -1,0 +1,193 @@
+\clearpage\chapter{Asymptotic theory}
+\section*{1. Overview}
+\subsection*{Intuitive}
+\paragraph{The problem}
+
+Exact formulas often contain more detail than a question needs. We may want to know how many primes lie below a huge number, how long an algorithm takes on a large input, or how a physical solution behaves when a parameter is very small. Asymptotic theory extracts the dominant behavior and gives a disciplined description of the corrections that have been neglected.
+
+
+
+\subsection*{Formal}
+For functions $f$ and $g$ with $g$ nonzero, $f(x)\sim g(x)$ as $x\to\infty$ means $f(x)/g(x)\to1$. The notation $f=O(g)$ means that $|f(x)|\leq C|g(x)|$ eventually for some constant $C$, while $f=o(g)$ means $f(x)/g(x)\to0$. An asymptotic expansion orders a quantity by size and states how the neglected remainder is controlled.
+\section*{2. History}
+\subsection*{Historical development}
+\begin{historylist}
+\paragraph{History and the guiding question}
+
+The idea of estimating a complicated quantity by its leading behavior appears in ancient area and volume calculations. Calculus made limits and series systematic. Euler used expansions in analysis and mechanics; Gauss and Legendre used estimates in number theory. In the nineteenth and twentieth centuries, Cauchy, Poincaré, Laplace, and others developed approximations for integrals, differential equations, and perturbations.
+
+The symbols $O$ and $o$ were developed through work associated with Paul Bachmann, Edmund Landau, and later analysts. The motivation was practical: a formula that says how an error shrinks can be more useful than a closed form that cannot be evaluated. Modern asymptotics links analysis, probability, algorithms, fluid mechanics, and mathematical physics \cite{asymptotic_theory_ref1,asymptotic_theory_ref3}.
+
+\end{historylist}
+\section*{3. Theory}
+\subsection*{Core theory}
+\paragraph{Limits and the basic comparisons}
+
+For functions $f$ and $g$, the notation
+\[
+ f(x)\sim g(x)\qquad (x\to\infty)
+\]
+means
+\[
+ \lim_{x\to\infty}\frac{f(x)}{g(x)}=1,
+\]
+provided the ratio is defined eventually. The same idea applies as $x\to0$, as $x$ approaches a finite point, or along integers.
+
+The statement $f(x)=O(g(x))$ means that there are constants $C>0$ and $x_0$ such that $|f(x)|\leq C|g(x)|$ for all $x\geq x_0$. It is an eventual upper bound, not necessarily a close estimate. The statement $f(x)=o(g(x))$ means $f(x)/g(x)\to0$; $f$ is negligible compared with $g$ in that limit.
+
+For example,
+\[
+ n^2+3n\sim n^2,\qquad 3n^2+5n+7=O(n^2),\qquad
+ 5n=o(n^2).
+\]
+The first says relative error tends to zero, the second gives a scale, and the third says the linear term is negligible compared with the quadratic term. These statements do not say that the quantities are close for every small $n$.
+
+\paragraph{Dominant terms and scales}
+
+When $x$ is large, the highest power in a polynomial dominates:
+\[
+ 3x^4-2x^2+7\sim3x^4.
+\]
+For exponentials, $e^x$ eventually dominates every polynomial; for logarithms, $\log x$ grows more slowly than every positive power of $x$. These comparisons produce a hierarchy of scales used in algorithm analysis and model reduction.
+
+The number of unordered pairs chosen from $n$ objects is
+\[
+ \binom{n}{2}=\frac{n(n-1)}2\sim\frac{n^2}{2}.
+\]
+Thus doubling $n$ eventually multiplies the number of pairs by about four. For an algorithm, a quadratic operation count grows four times under the same doubling, while a cubic count grows eight times. The constants and lower terms matter for a real program, but the dominant exponent predicts large-input scaling.
+
+\paragraph{Asymptotic expansions}
+
+An asymptotic expansion is a sequence of increasingly accurate descriptions. We write
+\[
+ f(x)\sim g_1(x)+g_2(x)+\cdots
+\]
+when, for each fixed $N$,
+\[
+ f(x)-\sum_{k=1}^{N}g_k(x)=o(g_N(x)),
+\]
+with the terms forming a decreasing asymptotic scale. The series need not converge. Truncating after the smallest useful term may give the best approximation; adding more terms can eventually make it worse.
+
+For small $x$,
+\[
+ \sin x=x-\frac{x^3}{6}+\frac{x^5}{120}-\cdots.
+\]
+The first term gives the main behavior, the next gives the leading correction, and a remainder estimate tells how far the approximation can be trusted. The same pattern occurs for large $x$ in integrals, special functions, and probability tails.
+
+\paragraph{A divergent but useful expansion}
+
+A formal geometric series
+\[
+ \frac1{1-w}=\sum_{n=0}^{\infty}w^n
+\]
+converges only for $|w|<1$. After multiplying by an exponential and integrating, one obtains an expansion such as
+\[
+ e^{-1/t}\operatorname{Ei}(1/t)\sim\sum_{n=0}^{\infty}n!\,t^{n+1}
+\qquad(t\to0^+).
+\]
+The factorial coefficients mean the series diverges for every nonzero $t$. Yet for small $t$, the first few terms can give excellent numerical values before the terms begin to grow. This example warns us that asymptotic expansion and convergent series are different ideas \cite{asymptotic_theory_ref4}.
+
+\paragraph{Prime numbers and other discrete examples}
+
+Let $\pi(x)$ count primes not exceeding $x$. The prime number theorem states
+\[
+ \pi(x)\sim\frac{x}{\log x}.
+\]
+The quotient approaches 1 as $x$ grows. The approximation is not an exact count and can be poor at modest values, but it reveals the density of primes and leads to refined estimates.
+
+Asymptotics also describes partial sums, partition numbers, binomial coefficients, recurrence sequences, and coefficients of generating functions. Stirling's formula,
+\[
+ n!\sim\sqrt{2\pi n}\left(\frac ne\right)^n,
+\]
+replaces an enormous exact product by a form suitable for probability and combinatorics.
+
+\paragraph{Asymptotic distributions}
+
+In probability and statistics, a sequence of random variables may have a limiting distribution as the sample size tends to infinity. The central limit theorem says that suitably normalized sums of independent observations approach a normal distribution. Likelihood-ratio statistics often approach chi-square distributions under regularity conditions. Such limits justify approximate confidence intervals and tests, but they do not give the exact finite-sample distribution.
+
+The distinction matters. An asymptotic confidence interval may be accurate for a sample of a thousand observations and unreliable for a sample of ten. Non-asymptotic concentration inequalities provide finite-sample guarantees when a rigorous bound is required.
+
+\paragraph{Integrals, differential equations, and physics}
+
+Asymptotics estimates integrals by locating the region that contributes most. Laplace's method handles a large parameter in an exponential integral; the method of steepest descent extends it into the complex plane. Stationary phase studies rapidly oscillating integrals. These methods explain why a complicated integral can be controlled by a neighborhood of one point.
+
+In differential equations, introduce a small dimensionless parameter and seek an outer solution away from a difficult region and an inner solution near it. Boundary-layer theory derives simplified equations from the Navier--Stokes equations when viscosity acts strongly only in a thin layer. Matched asymptotic expansions join the inner and outer descriptions. Singular perturbation is useful precisely because directly setting the small parameter to zero can reduce the order of the equation and lose a boundary condition.
+
+Quantum field theory and statistical mechanics use formal expansions in a coupling constant or large parameter. Feynman diagrams organize terms, but the resulting series often diverge. Their asymptotic meaning can still be physically predictive after suitable truncation and resummation \cite{asymptotic_theory_ref3,asymptotic_theory_ref5}.
+
+\paragraph{Asymptotics versus numerical analysis}
+
+Asymptotic information and numerical information answer different questions. An estimate such as
+\[
+ f(x)=x^{-1}+O(x^{-2})
+\]
+may guarantee a small relative error only beyond a very large threshold. A numerical method may give a certified value at $x=100$ even when the asymptotic threshold is $10^4$. Conversely, a numerical table may not explain how the error changes as $x$ grows.
+
+A careful result states the limiting regime, the size of the omitted term, the constants or threshold when known, and whether the approximation is absolute or relative. Matching an asymptotic formula with numerical computation is often the most useful approach.
+
+\section*{4. Important theorems and results}
+\begin{enumerate}[leftmargin=*,itemsep=0.35em]
+\item \textbf{Prime number theorem.} $\pi(x)\sim x/\log x$, giving the leading density of primes.
+\item \textbf{Stirling's formula.} $n!\sim\sqrt{2\pi n}(n/e)^n$, with further correction terms available.
+\item \textbf{Taylor's theorem.} A smooth function equals a finite expansion plus a remainder that can be bounded using higher derivatives.
+\item \textbf{Laplace's method.} For integrals with a large parameter, the dominant contribution usually comes from neighborhoods where the exponent is largest.
+\item \textbf{Central limit theorem.} After suitable centering and scaling, sums of many independent random variables converge in distribution to a normal law under standard hypotheses.
+\item \textbf{Matched asymptotic expansions.} Inner and outer approximations can be matched in an overlap region to solve singular perturbation problems with multiple scales.
+\end{enumerate}
+\noindent\emph{Source for these results:} \cite{asymptotic_theory_ref1}.
+
+\section*{5. Applications}
+Asymptotic theory is used when the dominant behaviour of a quantity matters more than an exact formula. Main terms describe the leading scale, while error terms determine whether the approximation is reliable in the range being studied.
+\begin{enumerate}[leftmargin=*,itemsep=0.35em]
+\item \textbf{Algorithms.} Asymptotic estimates compare running times as the input grows, even when exact timings depend on hardware.
+\item \textbf{Approximation and numerics.} Error scales help choose mesh sizes, truncation points, and the number of terms to retain.
+\item \textbf{Probability and statistics.} Limit laws describe the typical behavior of averages and estimators when the sample becomes large.
+\item \textbf{Number theory.} Main terms estimate the distribution of primes and the number of solutions, while error terms measure the quality of the estimate.
+\item \textbf{Differential equations and fluid mechanics.} Different scales separate a thin boundary layer from the slower bulk motion.
+\item \textbf{Statistical mechanics and quantum theory.} Large-system limits and semiclassical limits replace a huge exact calculation by a controlled leading description.
+\item \textbf{Accident-count modelling.} Rare-event approximations estimate risks when the number of opportunities is large but each event is unlikely.
+\end{enumerate}
+\noindent\emph{Limitations.} The theory depends on limits, inequalities, calculus, series, complex analysis, probability, and linear algebra. Its limitation is not that it is inaccurate; it is that it is deliberately about a limit. A hidden constant may be enormous, convergence may be slow, and a small error in one variable may be amplified by a later operation. Big-$O$ alone does not give a numerical error bound. It also cannot replace a finite-sample calculation when the sample or parameter is not in the asymptotic regime.
+
+
+\theoryconnections{asymptotic_theory}{%
+\item Limits and calculus identify the dominant scale as a variable becomes large or small.
+\item Series and complex analysis then expose correction terms, while probability and statistics provide the language for typical rather than exact behavior.
+\item For example, Stirling's formula replaces $n!$ by $\sqrt{2\pi n}(n/e)^n$ because the logarithm of the factorial is a sum whose leading area is an integral; the correction terms quantify what the leading scale misses \cite{asymptotic_theory_ref1,asymptotic_theory_ref5}.
+}{%
+\item Asymptotic estimates help algorithms predict running time, help numerical methods choose a mesh size, and help differential equations describe boundary layers where one scale changes rapidly.
+\item In number theory, the main term describes the average distribution of primes while the error term measures the quality of the information.
+\item In physics, an expansion can be useful even when it is not convergent, provided it is stopped before its terms begin to grow \cite{asymptotic_theory_ref1,asymptotic_theory_ref3}.
+}
+\section*{7. Sample Questions}
+\emph{Exercise reference:} \cite{asymptotic_theory_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
+\begin{enumerate}[leftmargin=*,itemsep=0.9em]
+
+\item \textbf{Exercise 1.} Prove that $n^2+3n\sim n^2$.
+
+\textbf{Solution.} Divide by $n^2$: $(n^2+3n)/n^2=1+3/n$, which tends to 1 as $n\to\infty$.
+
+\item \textbf{Exercise 2.} Show that $n\log n=o(n^2)$.
+
+\textbf{Solution.} The ratio is $(n\log n)/n^2=(\log n)/n$, which tends to zero by l'Hôpital's rule or standard growth comparisons.
+
+\item \textbf{Exercise 3.} Explain why $f(n)=O(n^2)$ does not mean $f(n)\sim n^2$.
+
+\textbf{Solution.} The function $f(n)=n$ is $O(n^2)$ but $f(n)/n^2\to0$, not 1. Big-$O$ is only an eventual upper bound; asymptotic equivalence requires ratio 1.
+
+\item \textbf{Exercise 4.} Use Stirling's formula to estimate $10!$.
+
+\textbf{Solution.} The leading approximation is $\sqrt{20\pi}(10/e)^{10}$, about $3.60\times10^6$, close to the exact value $3,628,800$. Correction terms improve it.
+
+\item \textbf{Exercise 5.} Why can adding terms to a divergent asymptotic expansion make an answer worse?
+
+\textbf{Solution.} Early terms decrease and improve the approximation, but after the smallest term the divergent coefficients grow. The useful approximation is obtained by truncating near the least term, not by summing indefinitely.
+
+\end{enumerate}
+\section*{8. References}
+\begin{thebibliography}{99}
+\bibitem{asymptotic_theory_ref1} N. G. de Bruijn, \emph{Asymptotic Methods in Analysis}.
+\bibitem{asymptotic_theory_ref3} C. M. Bender and S. A. Orszag, \emph{Advanced Mathematical Methods for Scientists and Engineers}.
+\bibitem{asymptotic_theory_ref4} W. Balser, \emph{From Divergent Power Series to Analytic Functions}.
+\bibitem{asymptotic_theory_ref5} F. W. J. Olver, \emph{Asymptotics and Special Functions}.
+\end{thebibliography}

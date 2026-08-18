@@ -1,0 +1,10 @@
+\begin{tikzpicture}[>=Latex,scale=.82,transform shape]
+\begin{axis}[width=8.5cm,height=4.1cm,axis lines=left,xlabel={eigenvalue},ylabel={frequency},
+ xmin=0,xmax=6,ymin=0,ymax=1.2,xtick=\empty,ytick=\empty]
+\addplot[ybar,bar width=.18cm,fill=blue!45] coordinates
+{(0.5,.12) (0.8,.28) (1.1,.48) (1.4,.75) (1.7,1.0) (2,.95) (2.3,.82) (2.6,.62) (2.9,.42) (3.2,.25) (3.5,.12) (5.2,.8)};
+\draw[red,very thick,dashed] (axis cs:4.4,0)--(axis cs:4.4,1.1);
+\node[red,align=center] at (axis cs:5.2,1.02) {possible\\signal};
+\node[blue,align=center] at (axis cs:2.3,.25) {noise bulk};
+\end{axis}
+\end{tikzpicture}

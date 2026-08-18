@@ -1,0 +1,97 @@
+\theory{Lattice theory}{How can a collection of partially ordered objects support both a best common lower bound and a best common upper bound?}{Lattice theory studies ordered systems in which every pair has a meet and a join. It unifies divisibility, subsets, logic, subspaces, ideals, and data dependencies.}{Order theory, algebra, logic, computer science, optimization, formal verification, and universal algebra.}{Meet, join, order, and fixed-point operations describe how partial information can be combined or completed.}
+
+\paragraph{Richard Dedekind}
+Dedekind recognized that substructures such as ideals can be organized by inclusion, with intersection and generated sum acting as meet and join. This made order a useful algebraic description of divisibility and subobjects.
+
+\paragraph{Garrett Birkhoff and Alfred Tarski}
+Birkhoff developed lattice theory as an independent algebraic subject and proved representation results for important classes such as distributive lattices. Tarski's fixed-point work showed how complete lattices support existence and iteration arguments in logic and computer science \cite{lattice_theory_ref1}.
+\end{historylist}
+\section*{3. Theory}
+\subsection*{Core theory}
+\paragraph{The problem and the definition}
+In a partially ordered set, two objects may be comparable or incomparable. A lattice adds two operations. The meet $a\wedge b$ is the greatest object below both of them; the join $a\vee b$ is the least object above both. For sets, meet is intersection and join is union. For integers ordered by divisibility, meet is greatest common divisor and join is least common multiple \cite{lattice_theory_ref1}.
+
+The operations satisfy associativity, commutativity, absorption, and idempotence. A lattice may be described by its order or by these two operations. A bounded lattice has a least element $0$ and greatest element $1$. A complemented lattice gives each element a partner whose meet is $0$ and join is $1$.
+
+\paragraph{Examples}
+The power set of a finite set is a Boolean lattice. The subspaces of a vector space form a lattice: meet is intersection and join is vector-space sum. The ideals of a ring form a lattice under intersection and generated sum. Logical propositions form a lattice in which meet means "and" and join means "or".
+
+The divisors of $60$ ordered by divisibility form a finite lattice. The meet of $12$ and $18$ is $6$, while their join is $36$. A total order, such as the real numbers, is also a lattice: meet is minimum and join is maximum.
+
+\paragraph{Distributive and modular lattices}
+A lattice is distributive when $a\wedge(b\vee c)=(a\wedge b)\vee(a\wedge c)$ and the dual identity also holds. Boolean lattices are distributive and support ordinary logic. The lattice of subspaces is usually not distributive but is modular, a weaker identity reflecting dimension.
+
+Finite distributive lattices are controlled by their join-irreducible elements. This gives a bridge between an abstract order and a simpler poset of building blocks. Modular and semimodular lattices appear in geometry, matroid theory, and dimension arguments.
+
+\paragraph{Completeness and fixed points}
+A complete lattice has a meet and join for every subset, not merely every pair. The power set of any set is complete. Complete lattices are important in semantics and program verification because recursive definitions can be interpreted as fixed points.
+
+The Knaster--Tarski theorem says every monotone self-map of a complete lattice has a least and a greatest fixed point. The least fixed point can describe the smallest set of states reachable by a program; the greatest can describe all states satisfying an invariant \cite{lattice_theory_ref2}.
+
+\paragraph{Homomorphisms and constructions}
+A lattice homomorphism preserves meets and joins: $f(a\wedge b)=f(a)\wedge f(b)$ and $f(a\vee b)=f(a)\vee f(b)$. It is automatically order-preserving. Products, sublattices, quotient lattices, ideals, filters, and congruences are standard constructions. A filter is dual to an ideal: it is upward closed and closed under meet.
+
+\paragraph{Applications}
+Boolean lattices model digital circuits and logical reasoning. In databases, sets of attributes and functional dependencies form closure systems. In version control, a lattice can represent states that have a common merge or common ancestor. In static program analysis, abstract states are ordered by information and fixed points compute loop invariants.
+
+Lattice methods also organize equivalence relations, partitions, subgroups, ideals, and topology. The lattice of open sets is a frame or locale, a foundation for point-free topology and topos theory. Dilworth's and Mirsky's theorems connect chains and antichains, while Zorn's lemma and maximal principles use order structure \cite{lattice_theory_ref3}.
+
+\paragraph{What the theory depends on and where it is useful}
+Lattice theory depends on partial orders, sets, logic, algebra, and universal algebra. It helps order theory describe closure, ring theory organize ideals, type theory interpret propositions, and computer science compute fixed points.
+
+The word lattice also names a periodic grid in geometry and crystallography; that geometric lattice is a different but related subject. In an order lattice, joins and meets may exist abstractly without having a simple numerical formula.
+
+\section*{4. Important theorems and results}
+\begin{enumerate}[leftmargin=*,itemsep=0.35em]
+\item \textbf{Birkhoff representation theorem.} Every finite distributive lattice is isomorphic to the lattice of lower sets of the poset of its join-irreducible elements.
+
+\item \textbf{Knaster--Tarski theorem.} Every monotone map of a complete lattice has a complete lattice of fixed points, including least and greatest fixed points.
+
+\item \textbf{Dilworth's theorem.} In a finite poset, the largest antichain size equals the minimum number of chains needed to cover the poset.
+
+\item \textbf{Boolean representation theorem.} Every Boolean algebra is represented by sets, with operations corresponding to union, intersection, and complement.
+
+\item \textbf{Jordan--Dedekind property.} In a finite graded lattice, all maximal chains between fixed endpoints have the same length \cite{lattice_theory_ref4}.
+\end{enumerate}
+
+\theoryapplications
+\theoryconnections{lattice theory}{%
+\item Order theory supplies partial orders, joins, meets, and duality; set theory supplies concrete lattices of subsets; and algebra supplies ideals, subspaces, and congruences as examples.
+\item Combinatorics studies chains and antichains.
+}{%
+\item Lattice theory helps logic, computer science, scheduling, data-flow analysis, and the study of subobjects in algebra.
+\item The order structure records which information refines which, so fixed-point and representation theorems can guide computation.
+}
+\section*{7. Sample Questions}
+\emph{Exercise reference:} \cite{lattice_theory_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
+\begin{enumerate}[leftmargin=*,itemsep=0.9em]
+\item \textbf{Exercise 1.} In the divisor lattice of $60$, find the meet and join of $12$ and $18$.
+
+\emph{Solution.} The meet is $\gcd(12,18)=6$ and the join is $\operatorname{lcm}(12,18)=36$.
+
+\item \textbf{Exercise 2.} What are meet and join for subsets?
+
+\emph{Solution.} The meet is intersection, because it is the largest set contained in both. The join is union, because it is the smallest set containing both.
+
+\item \textbf{Exercise 3.} Why is a total order a lattice?
+
+\emph{Solution.} Any two elements are comparable. The smaller is their meet and the larger is their join.
+
+\item \textbf{Exercise 4.} What does the Knaster--Tarski theorem provide in program verification?
+
+\emph{Solution.} A monotone program transformer has a least fixed point representing the smallest solution of recursive reachability equations and a greatest fixed point representing the largest invariant solution.
+
+\item \textbf{Exercise 5.} What makes a lattice Boolean?
+
+\emph{Solution.} It is bounded, distributive, and every element has a complement. The power set of a set is the standard model.
+
+\end{enumerate}
+\section*{8. References}
+\addcontentsline{toc}{section}{References}
+
+\begin{thebibliography}{9}
+\bibitem{lattice_theory_ref1} Garrett Birkhoff, \emph{Lattice Theory}, 3rd ed., American Mathematical Society, 1967.
+\bibitem{lattice_theory_ref2} George Grätzer, \emph{Lattice Theory: Foundation}, Birkhauser, 2011.
+\bibitem{lattice_theory_ref3} B. A. Davey and H. A. Priestley, \emph{Introduction to Lattices and Order}, 2nd ed., Cambridge University Press, 2002.
+\bibitem{lattice_theory_ref4} Ralph Freese, Jaroslav Jezek, and J. B. Nation, \emph{Free Lattices}, American Mathematical Society, 1995.
+\end{thebibliography}

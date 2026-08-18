@@ -1,0 +1,89 @@
+\theory{Wheel theory}{Can algebra make division total, including division by zero, without silently pretending ordinary inverse laws still hold?}{A wheel is an algebraic structure in which division is always defined. It extends a commutative ring or semiring with an inverse-like operation and a special value for $0/0$.}{Universal algebra, computer algebra, formal specification, and division by zero.}{Totalized division and changed algebraic identities provide a consistent setting in which division remains a defined operation at zero.}
+
+\paragraph{Motivation and history}
+In ordinary arithmetic, $a/b$ is undefined when $b=0$. Computer systems may need every operation to return a value. Jesper Carlstrom developed the theory of wheels in the early 2000s \cite{wheel_ref1}.
+
+The name comes from viewing the real projective line as a circle and adding a bottom point representing $0/0$. A complex projective line is a sphere; adding the extra point gives a related geometric picture.
+
+\end{historylist}
+\section*{3. Theory}
+\subsection*{Core theory}
+\paragraph{Definition and changed rules}
+A wheel has a set, constants $0$ and $1$, commutative associative addition and multiplication, and a unary operation written $/x$. Division is shorthand for $x/y=x\cdot(/y)$. The inverse operation is involutive:
+\[
+//x=x.
+\]
+It is multiplicative, and additional axioms modify familiar distributive rules so that expressions remain defined when a denominator is zero.
+
+In a wheel, $x/x$ need not equal $1$, and $0x$ need not equal $0$ in the general case. These changes prevent illegal cancellation from turning $0/0$ into an ordinary number. The special value $0/0$ behaves like a bottom element \cite{wheel_ref2}.
+
+\paragraph{Uses and interpretation}
+Wheels provide a total algebraic data type for rational expressions. A computer algebra system can manipulate an expression without repeatedly checking whether a denominator vanishes; the result records the exceptional value instead of losing it. A wheel agrees with ordinary arithmetic where denominators are nonzero.
+
+\paragraph{A worked example}
+Consider the expression
+\[
+ \frac{x^2-1}{x-1}.
+\]
+For an ordinary number with $x\ne1$, factoring gives
+\[
+ \frac{(x-1)(x+1)}{x-1}=x+1.
+\]
+At $x=1$, the original expression is $0/0$, while the shortened expression
+has value $2$. Ordinary algebra must therefore remember the condition
+$x\ne1$; cancelling first and substituting later changes the question.
+
+A wheel keeps the exceptional value visible. The original expression is
+assigned the wheel's value for $0/0$, while the expression $x+1$ remains
+equal to $2$ at $x=1$. The two expressions agree where cancellation is
+legal, but they are not silently declared equal everywhere. This is the
+practical benefit of totalized arithmetic: a symbolic program can continue
+its calculation without confusing an exceptional value with an ordinary
+number \cite{wheel_ref1,wheel_ref2}.
+
+\section*{4. Important theorems and results}
+\begin{enumerate}[leftmargin=*,itemsep=0.35em]
+\item \textbf{Total division.} Every pair $x,y$ has a defined quotient $x/y$.
+
+\item \textbf{Involution.} Applying the inverse operation twice returns the original element.
+
+\item \textbf{Extension principle.} A commutative ring or semiring can be extended to a wheel under suitable constructions.
+
+\item \textbf{Projective model.} The real projective line with an added bottom point gives the geometric picture behind a real wheel.
+
+\item \textbf{Modified cancellation.} Identities such as $x/x=1$ are restricted because they fail at exceptional values.
+
+The results describe how a wheel extends ordinary arithmetic while retaining a total division operation. Involution supplies the inverse-like structure, and the extension principle embeds familiar rings or semirings into the wider system. Modified cancellation is essential: division is always defined, but ordinary field identities cannot be applied at exceptional values without checking the wheel's rules.
+\end{enumerate}
+\noindent\emph{Source for these results:} \cite{wheel_ref1}.
+
+\theoryapplications
+\theoryconnections{wheel_theory}{%
+\item Universal algebra asks which equations an operation must satisfy, while rings and semirings provide the ordinary addition and multiplication that a wheel extends.
+\item The key change is to make division total: instead of leaving $1/0$ undefined, the structure assigns it an explicit value and records which familiar cancellation laws must be weakened.
+\item Formal specification is needed because software must know exactly how exceptional values propagate \cite{wheel_ref1,wheel_ref2}.
+}{%
+\item Wheel theory helps computer algebra systems manipulate expressions without stopping whenever an intermediate denominator becomes zero.
+\item A symbolic program can carry the exceptional value through addition, multiplication, and inversion, then report the result under the wheel's rules.
+\item The connection is useful for formal verification because every expression has a defined denotation, but ordinary field identities may not be used unless their nonzero assumptions have been checked \cite{wheel_ref1,wheel_ref3}.
+}
+\section*{7. Sample Questions}
+\emph{Exercise reference:} \cite{wheel_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
+\begin{enumerate}[leftmargin=*,itemsep=0.9em]
+\item \textbf{Exercise 1. What is $a/b$ in a wheel?} It is shorthand for $a\cdot(/b)$ and is defined even if $b=0$.
+
+\item \textbf{Exercise 2. Why can $0/0$ not simply be $1$?} That would make ordinary cancellation inconsistent with division. A wheel assigns a special value and changes the identities that would cause the contradiction.
+
+\item \textbf{Exercise 3. What happens when $b\ne0$?} In a wheel extending the real numbers, the quotient agrees with the ordinary real quotient.
+
+\item \textbf{Exercise 4. Why is the inverse operation unary?} Division is defined by multiplying by the inverse-like value of the denominator.
+
+\item \textbf{Exercise 5. What problem does a total operation solve in software?} It prevents undefined intermediate expressions from crashing symbolic manipulation; exceptional results remain explicit values.
+
+\end{enumerate}
+\section*{8. References}
+\begin{thebibliography}{9}
+\bibitem{wheel_ref1} J. Carlstrom, \emph{Wheels: On Division by Zero}.
+\bibitem{wheel_ref2} J. A. Bergstra and J. V. Tucker, \emph{The Rational Numbers as an Abstract Data Type}.
+\bibitem{wheel_ref3} A. Setzer, \emph{Wheels}.
+\end{thebibliography}

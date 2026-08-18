@@ -1,0 +1,134 @@
+\clearpage\chapter{Almgren--Pitts min--max theory}
+\section*{1. Overview}
+\subsection*{Intuitive}
+\paragraph{The problem}
+
+How can geometry produce a minimal surface when direct minimization is too simple? If a soap film is allowed to move freely, it may shrink to a point or change its topology. The Almgren--Pitts theory solves this by minimizing not the area of one surface, but the largest area reached by an entire family of surfaces that sweeps through a nontrivial part of the space. The resulting critical surface is a higher-dimensional analogue of the saddle point found by Morse theory.
+
+
+
+\subsection*{Formal}
+Let $M$ be a closed Riemannian manifold and let $\mathcal Z_n(M;\mathbb Z_2)$ denote the space of mod--$2$ flat $n$-cycles. For a family $\Phi:X\to\mathcal Z_n(M;\mathbb Z_2)$, its width is $\sup_{x\in X}\mathbf M(\Phi(x))$, where $\mathbf M$ is mass. A homotopy class $\Pi$ of nontrivial sweepouts has min--max value $\mathbf L(\Pi)=\inf_{\Phi\in\Pi}\sup_{x\in X}\mathbf M(\Phi(x))$. Under the regularity hypotheses of the min--max theorem, a minimizing sequence produces a stationary integral varifold with mass $\mathbf L(\Pi)$.
+\section*{2. History}
+\subsection*{Historical development}
+\begin{historylist}
+\paragraph{What the theory is and why it was developed}
+
+The theory is named after Frederick J. Almgren Jr. and his student Jon T. Pitts. It is a global variational method for constructing critical points of an area or volume functional. Its starting point was George Birkhoff's min--max construction of a simple closed geodesic on a sphere. A geodesic is a shortest path only after its endpoints and homotopy class prevent collapse. Birkhoff's idea suggested a higher-dimensional question: can a family of curves or surfaces be made to sweep through a manifold, and can the highest length or area in that sweep be minimized?
+
+Almgren developed the topology of spaces of cycles, and Pitts built the discretized and regularity machinery needed to turn a minimizing sequence of families into a genuine minimal hypersurface. The mathematicians were trying to find geometric objects that direct minimization misses: saddle points of area rather than absolute minima. Later work by Allard, Schoen, Simon, Marques, Neves, Zhou, and others extended regularity and applications to geometry and topology \cite{almgren_pitts_min_max_theory_ref1,almgren_pitts_min_max_theory_ref2,almgren_pitts_min_max_theory_ref3}.
+
+\end{historylist}
+\section*{3. Theory}
+\subsection*{Core theory}
+\paragraph{The picture before the technical definitions}
+
+Imagine a mountain pass. Many paths connect one valley to another. Each path rises to a highest elevation. Among all connecting paths, choose one whose highest point is as low as possible. The mountain-pass height is a critical level: at that height the landscape cannot be lowered without breaking the connection between the valleys.
+
+Replace paths by hypersurfaces and height by area. A \emph{sweepout} is a continuously varying family of surfaces, indexed by a parameter space. The family may begin as a small surface, expand through the manifold, and finish as another small surface. Its width is the largest area of any slice. A min--max sequence consists of better and better sweepouts whose widths approach the infimum
+\[
+ \mathbf L(\Pi)=\inf_{\Phi\in\Pi}\ \sup_{x\in X}\mathbf M(\Phi(x)),
+\]
+where $\Pi$ is a nontrivial homotopy class of sweepouts, $X$ is the parameter space, and $\mathbf M$ denotes mass, the generalized area. The central theorem says that a min--max sequence has a subsequence converging, in the varifold sense, to a stationary object.
+
+\paragraph{Cycles, mass, and varifolds}
+
+A $k$-cycle is a generalized $k$-dimensional surface with no boundary. Smooth closed curves and closed surfaces are examples. Almgren and Pitts use integral currents and the flat metric to measure how cycles differ, while mass measures their area or volume. A family must vary continuously in the relevant topology; without this care, nearby parameter values could represent unrelated surfaces and the sweep would carry no geometric meaning.
+
+A varifold forgets orientation and records how much $k$-dimensional material passes through each region and direction. It is flexible enough to describe a limiting sequence even when the surfaces develop folds, cancellation, or singularities. A varifold is \emph{stationary} when its first variation vanishes for every compactly supported deformation. For a smooth surface, this is exactly the condition of zero mean curvature, hence minimality.
+
+The limit need not initially be a smooth embedded surface. It is a stationary integral varifold, a measure-theoretic generalization of a minimal submanifold. Regularity theory then asks how large its singular set can be. This separation between existence and regularity is one of the theory's major conceptual achievements \cite{almgren_pitts_min_max_theory_ref1,almgren_pitts_min_max_theory_ref4}.
+
+\paragraph{Almgren's topology of cycle spaces}
+
+The space of cycles has its own homotopy groups. Almgren proved that for a closed Riemannian manifold $M$, the $m$-th homotopy group of the space of flat $k$-cycles is isomorphic to the $(m+k)$-th homology group of $M$:
+\[
+ \pi_m(\mathcal Z_k(M))\cong H_{m+k}(M).
+\]
+The theorem generalizes the Dold--Thom theorem, which corresponds morally to the case $k=0$. In simple language, it says that families of cycles remember the topology of the manifold itself. A nontrivial homology class can therefore generate a nontrivial family of surfaces, and a nontrivial family is the raw material for min--max.
+
+This is why the method is global. It does not begin with a local graph and try to solve a differential equation. It first identifies a topological obstruction to shrinking the whole family away. The area functional must then attain a saddle-type critical level inside that obstruction.
+
+\paragraph{The min--max construction}
+
+Choose a nontrivial parameterized family of cycles. Approximate the family by finer and finer discrete families while controlling the mass changes between neighboring parameter values. Improve the family by a tightening or deformation procedure: if a slice can be locally pushed down in area without damaging the homotopy class, make that improvement. A minimizing sequence eventually has no remaining cheap deformation.
+
+The limit is stationary because any deformation with negative first variation would lower nearby slices and contradict minimality of the width. The almost-minimizing property prevents the limit from being an arbitrary stationary object with severe singularities. In codimension one, Pitts used this property to prove regularity in low dimensions.
+
+The construction is subtle because the parameterized surfaces can concentrate, cancel, or converge with multiplicity. The discrete fineness conditions, interpolation theorems, and replacement arguments are what preserve the topology while controlling the geometric limit. The theory's strength comes from combining homotopy, measure, and variational reasoning rather than relying on any one of them alone \cite{almgren_pitts_min_max_theory_ref1,almgren_pitts_min_max_theory_ref5}.
+
+\paragraph{Regularity and dimensional thresholds}
+
+Almgren initially obtained stationary integral varifolds. Allard's regularity theorem shows that a stationary varifold is smooth on an open dense region under appropriate density and stability hypotheses. Pitts greatly improved the codimension-one construction and introduced $1/j$-almost-minimizing varifolds. Schoen and Simon extended the regularity theory.
+
+For an $n$-dimensional Riemannian manifold, the min--max hypersurface is smooth when $3\leq n\leq6$. In higher dimensions it is smooth away from a closed singular set of dimension at most $n-8$. This threshold reflects the existence of singular minimal cones in higher dimensions; it is not a defect of the proof.
+
+\section*{4. Important theorems and results}
+\begin{enumerate}[leftmargin=*,itemsep=0.35em]
+
+\item \textbf{Almgren isomorphism theorem.} The homotopy groups of spaces of flat cycles correspond to shifted homology groups of the manifold. This converts topological information about the manifold into nontrivial families of cycles.
+
+\item \textbf{Min--max existence theorem.} A nontrivial homotopy class of sweepouts has a minimizing sequence whose critical limit is a stationary integral varifold.
+
+\item \textbf{Allard regularity theorem.} A stationary varifold that is sufficiently close to a plane in measure and density is represented locally by a smooth graph. It explains why a weak limit is smooth on a large regular set.
+
+\item \textbf{Pitts regularity theorem.} In codimension one, the almost-minimizing min--max varifold is smooth in dimensions up to six and has singular set of dimension at most $n-8$ in higher dimensions.
+
+\item \textbf{Marques--Neves theorem.} The min--max method proves the Willmore conjecture for embedded tori in the three-sphere.
+\end{enumerate}
+\noindent\emph{Source for these results:} \cite{almgren_pitts_min_max_theory_ref1}.
+
+\section*{5. Applications}
+Almgren--Pitts min--max theory is useful when topology forces a geometric object to exist but direct minimization collapses to a trivial object. A sweepout supplies the constraint, and the least possible maximal area identifies a minimal hypersurface.
+\begin{enumerate}[leftmargin=*,itemsep=0.35em]
+\item \textbf{Round sphere.} Sweep the unit sphere by latitude circles or, in a higher-dimensional version, by parallel hyperspheres. The equatorial slice is the natural min--max object. A family that shrinks immediately to a point does not represent a nontrivial class; a genuine sweep must force the family across the manifold.
+\item \textbf{Three-manifolds.} In a closed three-manifold, a one-parameter family of surfaces can produce an embedded minimal surface. The method is useful when no obvious stable minimal surface exists. Positive Ricci curvature, Heegaard splittings, and the topology of the manifold influence the number and index of the surfaces obtained.
+\item \textbf{Willmore conjecture.} Marques and Neves used a refined min--max construction to prove that every embedded torus in the three-sphere has Willmore energy at least $2\pi^2$. The proof found a critical surface in a family of conformal images and then compared its energy with the Clifford torus.
+\item \textbf{Multiplicity and many surfaces.} Higher-parameter families can produce distinct minimal hypersurfaces. The resulting width spectrum records a sequence of critical values, analogous to the sequence of eigenvalues in spectral theory. This connects min--max geometry with topology, index estimates, and questions about how complicated a manifold must be to contain many minimal surfaces \cite{almgren_pitts_min_max_theory_ref2,almgren_pitts_min_max_theory_ref6}.
+\end{enumerate}
+
+
+\theoryconnections{almgren_pitts_min_max_theory}{%
+\item Riemannian geometry supplies the notion of area, while the calculus of variations asks for surfaces that make area stationary.
+\item Algebraic topology provides a nontrivial family of surfaces to sweep through, and currents and varifolds allow a sequence of rough surfaces to converge even when ordinary smooth convergence fails.
+\item Regularity theory is then needed to prove that the limiting object is smooth except at controlled singularities.
+\item In this way, topology creates the competitor family, analysis takes the maximum, and geometric measure theory makes the limiting process rigorous \cite{almgren_pitts_min_max_theory_ref1,almgren_pitts_min_max_theory_ref3}.
+}{%
+\item The theory produces minimal hypersurfaces by taking the least possible maximal area in a sweepout.
+\item Those hypersurfaces become geometric probes: their areas give widths of a manifold, their indices measure unstable directions, and their regularity makes them usable in geometric analysis.
+\item This connects directly to three-manifold topology, the Willmore problem, scalar-curvature questions, and spectral geometry, where the existence of a canonical surface or width supplies information that pointwise estimates alone do not reveal \cite{almgren_pitts_min_max_theory_ref2,almgren_pitts_min_max_theory_ref6}.
+}
+\section*{7. Sample Questions}
+\emph{Exercise reference:} \cite{almgren_pitts_min_max_theory_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
+\begin{enumerate}[leftmargin=*,itemsep=0.9em]
+
+\item \textbf{Exercise 1.} Why does minimizing the area of a single closed curve on a sphere fail to find a nontrivial geodesic?
+
+\textbf{Solution.} A closed curve can contract to a point, whose length is zero. The absolute minimum is therefore trivial. A nontrivial family or homotopy condition is needed to force a saddle point, as in Birkhoff's min--max method.
+
+\item \textbf{Exercise 2.} What does stationary mean for a smooth hypersurface?
+
+\textbf{Solution.} Its first variation of area is zero for every compactly supported deformation. The first variation formula identifies this with zero mean curvature, so the hypersurface is minimal.
+
+\item \textbf{Exercise 3.} In the width formula, why is the supremum taken before the infimum?
+
+\textbf{Solution.} Each sweepout has one worst slice, so its cost is the largest mass in that family. We then choose the family whose worst slice is as small as possible. Reversing the order would allow each parameter value to choose a different family and would destroy the global sweep constraint.
+
+\item \textbf{Exercise 4.} What is the role of a varifold?
+
+\textbf{Solution.} A varifold records the limiting amount and direction of surface without requiring a globally smooth parametrization or an orientation. It gives a compact language for weak limits of surfaces that may fold or develop singularities.
+
+\item \textbf{Exercise 5.} Why is the dimension range $3$ through $6$ special?
+
+\textbf{Solution.} In these dimensions the codimension-one min--max hypersurface has no singular points. In higher dimensions singularities can occur, but their dimension is at most $n-8$, so the surface is still smooth on a large open set.
+
+\end{enumerate}
+\section*{8. References}
+\begin{thebibliography}{99}
+\bibitem{almgren_pitts_min_max_theory_ref1} J. T. Pitts, \emph{Existence and Regularity of Minimal Surfaces on Riemannian Manifolds}, Princeton University Press.
+\bibitem{almgren_pitts_min_max_theory_ref2} F. C. Marques and A. Neves, \emph{Min--Max Theory and the Willmore Conjecture}.
+\bibitem{almgren_pitts_min_max_theory_ref3} F. J. Almgren Jr., \emph{The Theory of Varifolds: A Variational Calculus in the Large for the $K$-Dimensional Area Integrand}.
+\bibitem{almgren_pitts_min_max_theory_ref4} L. Simon, \emph{Lectures on Geometric Measure Theory}, Australian National University.
+\bibitem{almgren_pitts_min_max_theory_ref5} T. Colding and C. De Lellis, "The min--max construction of minimal surfaces," \emph{Surveys in Differential Geometry}.
+\bibitem{almgren_pitts_min_max_theory_ref6} F. C. Marques and A. Neves, "Applications of Almgren--Pitts min--max theory," lecture notes.
+\end{thebibliography}

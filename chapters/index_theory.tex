@@ -1,0 +1,95 @@
+\theory{Index theory}{How can the difference between solutions and obstructions of a differential equation be computed from topology?}{The index of a Fredholm operator is the dimension of its kernel minus the dimension of its cokernel. The Atiyah--Singer theorem identifies this analytic integer with a topological expression.}{Elliptic partial differential equations, geometry, topology, heat flow, quantum physics, and moduli spaces.}{The Fredholm index turns an analytic kernel-minus-cokernel difference into a stable topological quantity under perturbation.}
+
+\paragraph{The problem and history}
+An equation $D u=f$ may have solutions, many solutions, or no solution for some right-hand sides. The kernel contains solutions of $Du=0$. The cokernel records the independent compatibility conditions that $f$ must satisfy. For a Fredholm operator, both spaces are finite-dimensional and
+\[
+\operatorname{ind}(D)=\dim\ker D-\dim\operatorname{coker}D.
+\]
+Israel Gel'fand asked whether this integer could be expressed using topological data. Michael Atiyah and Isadore Singer answered yes in the 1960s \cite{index_theory_ref1,index_theory_ref2}.
+
+\end{historylist}
+\section*{3. Theory}
+\subsection*{Core theory}
+\paragraph{Why the difference is stable}
+The dimensions of the kernel and cokernel can jump when an operator is perturbed. Their difference often does not. On a circle, the operator $D=d/dx-\lambda$ on periodic functions has a nonzero kernel only for special values of $\lambda$, but its index remains zero because the adjoint has a matching kernel.
+
+Elliptic operators on compact manifolds are Fredholm. Ellipticity means that the highest-order part of the operator has no hidden direction in which information can propagate without control. Compactness prevents infinitely many independent low-energy solutions.
+
+\paragraph{Symbols and the Atiyah--Singer formula}
+The leading derivative part of an elliptic operator is its symbol. The symbol is a bundle map on the cotangent bundle and is invertible away from the zero covector. Its homotopy class defines a K-theory element. The analytic index depends only on this topological symbol class.
+
+The Atiyah--Singer index theorem states
+\[
+\operatorname{ind}_{\mathrm{an}}(D)=\operatorname{ind}_{\mathrm{top}}(D).
+\]
+The topological side is built from characteristic classes of the manifold and bundles. One can therefore count analytic zero modes without solving the differential equation explicitly.
+
+\paragraph{Major special cases}
+The Riemann--Roch theorem computes the dimension difference between holomorphic sections and obstructions. The Hirzebruch--Riemann--Roch theorem extends it to complex manifolds. The signature theorem expresses the signature of the intersection form using the $L$-class. The Chern--Gauss--Bonnet theorem computes the Euler characteristic from curvature. The Dirac operator yields the Â-genus and spin-geometric results \cite{index_theory_ref3}.
+
+\paragraph{Proof viewpoints and applications}
+Atiyah and Singer first used K-theory and a push-forward construction, reducing the problem to spheres. Cobordism gives another reduction to simple generators. A heat-equation proof writes the index as a difference of traces of heat operators; the small-time asymptotic expansion reveals the characteristic classes. Supersymmetry explains cancellations in the heat expansion.
+
+Index theory counts zero modes in gauge theory, instantons, and quantum field theory. It gives dimensions of moduli spaces, integrality constraints such as Rokhlin-type results, and topological information from elliptic boundary problems. The Atiyah--Patodi--Singer theorem adds boundary correction terms involving eta invariants.
+
+\paragraph{What the theory depends on and where it is useful}
+Index theory depends on functional analysis, elliptic PDE, differential geometry, topology, K-theory, and characteristic classes. It helps Hodge theory identify harmonic forms, geometry compute invariants, and physics count stable states.
+
+The index does not usually give the separate dimensions of the kernel and cokernel. On noncompact spaces or for non-elliptic operators, finite-dimensionality and stability may fail; boundary conditions must then be chosen carefully.
+
+\section*{4. Important theorems and results}
+\begin{enumerate}[leftmargin=*,itemsep=0.35em]
+\item \textbf{Atiyah--Singer index theorem.} The analytic and topological indices of an elliptic operator on a compact manifold are equal.
+
+\item \textbf{Riemann--Roch theorem.} A holomorphic dimension difference is computed by degree and genus.
+
+\item \textbf{Chern--Gauss--Bonnet theorem.} The Euler characteristic is the integral of a curvature characteristic form.
+
+\item \textbf{Hirzebruch signature theorem.} The signature of a compact oriented manifold is an integral of its $L$-class.
+
+\item \textbf{Atiyah--Patodi--Singer theorem.} Elliptic index formulas on manifolds with boundary include a boundary spectral correction \cite{index_theory_ref4}.
+
+The index is an integer that measures an analytic imbalance, such as the difference between the dimensions of a kernel and a cokernel. Atiyah--Singer says that this analytic count equals a topological expression, so it can be computed without solving the differential equation directly. Riemann--Roch, Gauss--Bonnet, and the signature theorem are important special cases; Atiyah--Patodi--Singer shows what changes when a boundary contributes spectral information.
+\end{enumerate}
+
+\theoryapplications
+\theoryconnections{index theory}{%
+\item Functional analysis supplies operators and spectra, differential geometry supplies elliptic differential operators, and topology supplies characteristic classes and K-theory.
+\item Measure and integration theory provide the analytic index, while homological algebra organizes the associated complexes.
+}{%
+\item Index theory helps compute analytic quantities from topological data in geometry and mathematical physics.
+\item It explains why a problem involving infinitely many analytic modes can have a finite, stable integer answer.
+}
+\section*{7. Sample Questions}
+\emph{Exercise reference:} \cite{index_theory_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
+\begin{enumerate}[leftmargin=*,itemsep=0.9em]
+\item \textbf{Exercise 1.} What does the index measure?
+
+\emph{Solution.} It is the number of independent homogeneous solutions minus the number of independent compatibility conditions for the inhomogeneous equation.
+
+\item \textbf{Exercise 2.} Why is the index often more stable than kernel dimension?
+
+\emph{Solution.} Kernel and cokernel dimensions can change together under a perturbation, so their difference can remain constant even when each dimension jumps.
+
+\item \textbf{Exercise 3.} Why is ellipticity important?
+
+\emph{Solution.} It supplies analytic control of high-frequency behavior and, on a compact manifold, makes the operator Fredholm with finite-dimensional kernel and cokernel.
+
+\item \textbf{Exercise 4.} What does the symbol remember?
+
+\emph{Solution.} It remembers the leading derivative behavior of the operator. Its topological class determines the index even when lower-order terms change.
+
+\item \textbf{Exercise 5.} Why is the theorem useful if solving the PDE is hard?
+
+\emph{Solution.} The index can be computed from topology and characteristic classes, giving the difference of solution and obstruction dimensions without finding every solution.
+
+\end{enumerate}
+\section*{8. References}
+\addcontentsline{toc}{section}{References}
+
+\begin{thebibliography}{9}
+\bibitem{index_theory_ref1} Michael F. Atiyah and Isadore M. Singer, \emph{The Index of Elliptic Operators I}, Annals of Mathematics, 1968.
+\bibitem{index_theory_ref2} Michael F. Atiyah, \emph{K-Theory}, 2nd ed., Westview Press, 1989.
+\bibitem{index_theory_ref3} H. Blaine Lawson and Marie-Louise Michelsohn, \emph{Spin Geometry}, Princeton University Press, 1989.
+\bibitem{index_theory_ref4} Richard B. Melrose, \emph{The Atiyah--Patodi--Singer Index Theorem}, A K Peters, 1993.
+\end{thebibliography}

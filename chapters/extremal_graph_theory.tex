@@ -1,0 +1,120 @@
+\theory{Extremal graph theory}{How large or dense can a graph be when a specified pattern is forbidden?}{Extremal graph theory turns a vague question about the biggest possible network into a precise optimization problem. It connects global quantities, such as vertices and edges, with local patterns, such as triangles and cliques.}{Network design, communication systems, scheduling, additive combinatorics, probability, and the analysis of large data networks.}{Forbidden-subgraph counts and density bounds identify the largest configurations compatible with a prescribed local restriction.}
+
+\paragraph{The problem and its history}
+A graph is a collection of points called vertices joined by edges. The edges may represent friendships, roads, wires, or links in a computer network. A graph can be globally dense while still avoiding a particular local shape, but only up to a limit. Extremal graph theory asks for that limit and for the graphs that reach it. In symbols, if $H$ is a forbidden graph, $\operatorname{ex}(n,H)$ is the greatest number of edges in an $n$-vertex graph containing no copy of $H$ \cite{extremal_graph_theory_ref1,extremal_graph_theory_ref2}.
+
+The subject grew from Mantel's theorem in 1907, which determined the maximum number of edges in a triangle-free graph, and Turan's theorem in 1941, which treated graphs with no clique of a fixed size. The work of Erdős and Stone then showed that, for every non-bipartite forbidden graph, the leading term of the answer is controlled by its chromatic number. Hungarian mathematicians played an especially important role in the subject \cite{extremal_graph_theory_ref3,extremal_graph_theory_ref4}.
+
+\end{historylist}
+\section*{3. Theory}
+\subsection*{Core theory}
+\paragraph{A first example: avoiding triangles}
+Suppose $n$ students form a network in which an edge means that two students have worked together. We want as many collaborations as possible but do not want three students who all worked with one another. Put the students into two groups, as evenly as possible, and allow every edge between the groups but none inside a group. This is a complete bipartite graph. It contains no triangle, because a triangle would need two vertices from the same group, and those two vertices are not joined.
+
+If the groups have $a$ and $n-a$ students, the number of edges is $a(n-a)$. This product is largest when the groups are as equal as possible, giving
+\[
+\operatorname{ex}(n,K_3)=\left\lfloor\frac{n^2}{4}\right\rfloor.
+\]
+This is Mantel's theorem. It is not just a count: it says that a network exceeding this limit must contain a triangle. In a safety or incompatibility network, that conclusion can be more useful than the construction itself.
+
+\paragraph{Turán graphs and forbidden cliques}
+The complete graph $K_r$ has $r$ vertices with every pair joined. Turan's theorem asks for the largest $n$-vertex graph with no $K_{r+1}$. Divide the vertices into $r$ nearly equal groups, join every pair of vertices in different groups, and leave each group independent. The resulting Turan graph $T(n,r)$ has no $(r+1)$-clique and has the maximum possible number of edges. The balanced construction is forced: if one group were much larger than another, moving a vertex would increase the number of cross-group edges.
+
+The theorem illustrates the characteristic proof pattern of extremal graph theory. First construct an example showing that a proposed bound can be reached. Then prove that every graph above the bound contains the forbidden object. The extremal graph is often highly organized rather than random.
+
+\paragraph{Coloring as an extremal question}
+A proper vertex coloring assigns colors so that adjacent vertices receive different colors. The smallest possible number of colors is the chromatic number $\chi(G)$. A clique of size $\omega(G)$ requires at least $\omega(G)$ colors. An independent set, in which no two vertices are adjacent, can contain at most $\alpha(G)$ vertices of any one color, so
+\[
+\chi(G)\geq \frac{|V(G)|}{\alpha(G)}.
+\]
+A greedy algorithm gives $\chi(G)\leq\Delta(G)+1$, where $\Delta(G)$ is the largest vertex degree. Brooks' theorem improves this to $\Delta(G)$ except for complete graphs and odd cycles. Planar graphs need at most four colors by the four-color theorem \cite{extremal_graph_theory_ref2,extremal_graph_theory_ref5}.
+
+These inequalities convert local restrictions into global limits. For example, if every radio transmitter can interfere with at most five others, six frequencies always suffice by greedy coloring. A sharper structural theorem may show that five suffice unless the interference graph has a special form. Finding whether a general graph has a coloring with a prescribed number of colors is NP-hard, so extremal bounds are valuable even when exact computation is impractical.
+
+Edge coloring assigns colors to edges so that edges sharing a vertex differ. Its minimum is the chromatic index $\chi'(G)$. Vizing's theorem says that every simple graph satisfies
+\[
+\Delta(G)\leq\chi'(G)\leq\Delta(G)+1.
+\]
+Thus a timetable in which each edge is a job incident to a shared resource needs either $\Delta$ or $\Delta+1$ time slots.
+
+\paragraph{Forbidden subgraphs and asymptotic answers}
+For a fixed graph $H$, the forbidden-subgraph problem seeks $\operatorname{ex}(n,H)$. Turan's theorem gives an exact answer for cliques. For a general non-bipartite $H$, the Erdős--Stone theorem gives the leading asymptotic term:
+\[
+\operatorname{ex}(n,H)=\left(1-\frac{1}{\chi(H)-1}+o(1)\right)\binom n2.
+\]
+Here $o(1)$ means a quantity that becomes negligible as $n$ grows. The surprising point is that the exact shape of $H$ matters less than its chromatic number at the largest scale. Bipartite forbidden graphs are harder: even the correct asymptotic constant is unknown for many of them. When $H$ is complete bipartite, the question is closely related to the Zarankiewicz problem, which asks how many incidences can avoid a complete rectangular pattern.
+
+\paragraph{Homomorphism density and graph limits}
+A graph homomorphism from $H$ to $G$ maps vertices of $H$ to vertices of $G$ while preserving edges; different vertices are allowed to map to the same place. The homomorphism density $t(H,G)$ is the probability that a randomly chosen map has this property. It is a softened way to measure how strongly $H$ occurs in $G$ \cite{extremal_graph_theory_ref1}.
+
+For a large dense network, sampling every subgraph is impossible. Homomorphism densities provide statistics that survive when the network grows. A graphon is a measurable function on a square that acts as a limit object for dense graphs. In this setting $t(H,G)$ becomes an integral, and inequalities such as Cauchy--Schwarz and Holder's inequality yield relations among pattern densities. Sidorenko's conjecture proposes a sharp lower bound for the density of every bipartite graph in terms of the edge density; it remains a major open problem.
+
+\paragraph{Regularity: finding order inside a large graph}
+Szemeredi's regularity lemma says that the vertices of every sufficiently large graph can be partitioned into a bounded number of parts so that most pairs of parts behave approximately like random bipartite graphs. A pair is regular when the edge density between large subsets is close to the density between the whole parts. The lemma does not claim that the graph itself is random. It says that a complicated graph has a coarse description with controlled irregularity \cite{extremal_graph_theory_ref4,extremal_graph_theory_ref6}.
+
+The counting lemma uses a regular partition to estimate the number of copies of a fixed small graph. The removal lemma says that if a graph has very few copies of a pattern, then deleting a small number of edges removes all copies. These results connect extremal graph theory to additive combinatorics, property testing, and computational complexity. Strong regularity, weak Frieze--Kannan regularity, and hypergraph versions refine the same strategy.
+
+\paragraph{Methods and neighboring theories}
+The probabilistic method proves that an object exists by showing that a random object has positive probability of having the required property. Dependent random choice, container methods, and hypergraph regularity are important techniques. Ramsey theory asks when a sufficiently large structure must contain a highly organized monochromatic pattern; spectral graph theory uses eigenvalues to control edges, expansion, and forbidden configurations. Additive combinatorics studies sets with many additive relations, and complexity theory asks how hard it is to find or certify the extremal object. The Ruzsa--Szemeredi problem and Ore's theorem are among related results \cite{extremal_graph_theory_ref1,extremal_graph_theory_ref6}.
+
+\paragraph{What the theory depends on and where it is useful}
+The subject depends on graph theory, counting, inequalities, probability, and optimization. It helps Ramsey theory by supplying density thresholds, helps spectral graph theory by turning eigenvalue information into edge bounds, and helps additive combinatorics through regularity and removal arguments.
+
+In network planning, an extremal bound can certify that a proposed number of links forces a forbidden conflict. In scheduling, coloring bounds give guaranteed numbers of time slots. In algorithms, regularity and graph limits compress large dense networks into a manageable model. The limitations are equally important: a sharp asymptotic estimate may not give an exact answer for practical values of $n$, and many bipartite forbidden-subgraph problems remain open.
+
+\section*{4. Important theorems and results}
+\begin{enumerate}[leftmargin=*,itemsep=0.35em]
+\item \textbf{Mantel's theorem.} A triangle-free graph on $n$ vertices has at most $\lfloor n^2/4\rfloor$ edges, with equality for the balanced complete bipartite graph \cite{extremal_graph_theory_ref3}.
+
+\item \textbf{Turán's theorem.} Among $n$-vertex graphs with no $K_{r+1}$, the balanced $r$-partite Turan graph has the most edges \cite{extremal_graph_theory_ref3}.
+
+\item \textbf{Erdős--Stone theorem.} For non-bipartite $H$, the leading term of $\operatorname{ex}(n,H)$ is determined by $\chi(H)$ \cite{extremal_graph_theory_ref1}.
+
+\item \textbf{Szemeredi regularity lemma.} Every sufficiently large graph has a bounded regular partition, providing a random-like coarse model \cite{extremal_graph_theory_ref4}.
+
+\item \textbf{Vizing's theorem.} The chromatic index of a simple graph is $\Delta$ or $\Delta+1$ \cite{extremal_graph_theory_ref2}.
+\end{enumerate}
+
+\theoryapplications
+\theoryconnections{extremal graph theory}{%
+\item Graph theory supplies vertices, edges, subgraphs, and coloring, while combinatorics supplies counting and probabilistic constructions.
+\item Linear algebra and analysis can also estimate eigenvalues, expansion, and pseudorandomness in large graphs.
+}{%
+\item Extremal graph theory helps network design, theoretical computer science, additive combinatorics, and property testing.
+\item Its bounds identify the largest or smallest possible configuration under a forbidden-pattern condition, which is often more useful than classifying every graph.
+}
+\section*{7. Sample Questions}
+\emph{Exercise reference:} \cite{extremal_graph_theory_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
+\begin{enumerate}[leftmargin=*,itemsep=0.9em]
+\item \textbf{Exercise 1.} Why does a complete bipartite graph contain no triangle?
+
+\emph{Solution.} Every edge joins the two different parts. A triangle has three vertices, so two must lie in the same part. Those two have no edge between them, so the triangle cannot occur.
+
+\item \textbf{Exercise 2.} Find the maximum number of edges in a triangle-free graph with $13$ vertices.
+
+\emph{Solution.} Mantel's theorem gives $\lfloor 13^2/4\rfloor=\lfloor169/4\rfloor=42$. A complete bipartite graph with parts of sizes $6$ and $7$ has $6\cdot7=42$ edges, so the bound is attained.
+
+\item \textbf{Exercise 3.} What does the chromatic number of a graph measure?
+
+\emph{Solution.} It is the least number of labels or colors needed so that adjacent vertices receive different labels. For a map, it is the least number of colors needed so neighboring regions have different colors.
+
+\item \textbf{Exercise 4.} A simple graph has maximum degree $7$. What can be said about its edge chromatic number?
+
+\emph{Solution.} Vizing's theorem gives $7\leq\chi'(G)\leq8$. More information about the shape of the graph is needed to decide which value occurs.
+
+\item \textbf{Exercise 5.} Why is the regularity lemma useful even though it does not make a graph truly random?
+
+\emph{Solution.} It supplies a bounded coarse partition. Counts and densities of fixed small patterns can then be estimated from the parts, making a huge graph analyzable without inspecting every edge.
+
+\end{enumerate}
+\section*{8. References}
+\addcontentsline{toc}{section}{References}
+
+\begin{thebibliography}{9}
+\bibitem{extremal_graph_theory_ref1} Noga Alon and Michael Krivelevich, "Extremal and probabilistic combinatorics," in \emph{The Princeton Companion to Mathematics}, Princeton University Press, 2008.
+\bibitem{extremal_graph_theory_ref2} Reinhard Diestel, \emph{Graph Theory}, 5th ed., Springer, 2017.
+\bibitem{extremal_graph_theory_ref3} Bela Bollobas, \emph{Extremal Graph Theory}, Dover, 2004.
+\bibitem{extremal_graph_theory_ref4} Bela Bollobas, \emph{Modern Graph Theory}, Springer, 1998.
+\bibitem{extremal_graph_theory_ref5} Douglas B. West, \emph{Introduction to Graph Theory}, 2nd ed., Prentice Hall, 2001.
+\bibitem{extremal_graph_theory_ref6} Jozsef Balogh, Robert Morris, and Wojciech Samotij, \emph{The Method of Hypergraph Containers}, American Mathematical Society, 2015.
+\end{thebibliography}

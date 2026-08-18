@@ -1,0 +1,97 @@
+\theory{Perturbation theory}{How can we obtain useful answers when exact equations are too difficult, but are close to equations we can solve?}{Perturbation theory separates a solvable problem from a small correction. The unknown solution is expanded in powers of a small parameter, and the equations for successive corrections are solved one at a time.}{Celestial mechanics, quantum mechanics, fluid dynamics, waves, engineering, climate models, numerical analysis, and quantum field theory.}{A small parameter separates a solvable leading problem from corrections and supplies an ordered estimate of the error.}
+
+\paragraph{The idea and history}
+The two-body gravitational problem has exact conic-section orbits, but the motion of three bodies does not generally have a simple closed formula. Astronomers treated the influence of the third body as a perturbation of the two-body solution. Lagrange and Laplace developed systematic methods, and Le Verrier used deviations in Uranus's motion to predict Neptune \cite{perturbation_ref1,perturbation_ref2}.
+
+The same strategy entered quantum mechanics. Dirac developed time-dependent perturbation ideas, and physicists used corrections to calculate atomic energy shifts. Quantum field theory organizes repeated perturbative terms with Feynman diagrams \cite{perturbation_ref3}.
+
+\end{historylist}
+\section*{3. Theory}
+\subsection*{Core theory}
+\paragraph{Regular perturbation}
+Suppose a problem depends on a small number $\varepsilon$:
+\[
+F(u,\varepsilon)=0.
+\]
+We seek
+\[
+u=u_0+\varepsilon u_1+\varepsilon^2u_2+\cdots.
+\]
+The zeroth-order equation gives $u_0$. Substitution and comparison of powers of $\varepsilon$ gives an equation for $u_1$, then one for $u_2$. Truncating after the first correction gives $u\approx u_0+\varepsilon u_1$.
+
+For $x^2+\varepsilon x-1=0$, put $x=x_0+\varepsilon x_1+\cdots$. At order zero choose $x_0=1$. At first order, $2x_0x_1+x_0=0$, giving $x_1=-1/2$. Thus the positive root is $x\approx1-\varepsilon/2$ for small $\varepsilon$ \cite{perturbation_ref1}.
+
+\paragraph{Orders and singular problems}
+First-order perturbation keeps one correction, second-order keeps two, and so on. Higher order is not automatically better: the series may diverge, or a small parameter may multiply the highest derivative and create a boundary layer. Such a problem is singular because setting the parameter to zero changes the order of the equation.
+
+Degeneracy occurs when the unperturbed problem has several independent states with the same value. The perturbation can mix those states, so one must first diagonalize the perturbing part within the degenerate subspace. Multiple scales, matched asymptotic expansions, and dominant balance handle singular situations \cite{perturbation_ref2}.
+
+\paragraph{A mechanical example}
+For a weakly nonlinear oscillator,
+\[
+x''+x+\varepsilon x^3=0,
+\]
+the unperturbed motion is $x_0=A\cos t$. A direct correction can contain a term proportional to $t\sin t$, which grows even though $\varepsilon$ is small. This secular term signals that the frequency has shifted. The method of multiple scales introduces a slow time $T=\varepsilon t$ and allows the phase to vary slowly, removing the artificial growth.
+
+\paragraph{Quantum and celestial applications}
+In time-independent quantum mechanics,
+\[
+H=H_0+\varepsilon V.
+\]
+If $H_0\psi_n^{(0)}=E_n^{(0)}\psi_n^{(0)}$, then for a nondegenerate level the first energy correction is
+\[
+E_n^{(1)}=\langle\psi_n^{(0)},V\psi_n^{(0)}\rangle.
+\]
+It is the average effect of the weak interaction in the unperturbed state. The method predicts Stark and Zeeman effects, molecular spectra, and corrections to the harmonic oscillator \cite{perturbation_ref3}.
+
+In celestial mechanics, the small parameter may be a mass ratio or eccentricity. The starting ellipse is corrected by other planets. In fluid mechanics it may be a small viscosity or wave amplitude. In engineering it may be a small change in stiffness. The method works because the correction is measured relative to a model whose behavior is understood.
+
+\paragraph{How to judge an approximation}
+There are three questions. Is the parameter genuinely small in the region of interest? Is the series convergent or merely asymptotic? Does the truncated expression satisfy the required accuracy and boundary conditions? An asymptotic series can have excellent early terms while eventually diverging, so a remainder estimate or comparison with computation is essential \cite{perturbation_ref1,perturbation_ref2}.
+
+\section*{4. Important theorems and results}
+\begin{enumerate}[leftmargin=*,itemsep=0.35em]
+\item \textbf{Implicit-function principle.} If the unperturbed solution is regular and the derivative with respect to the unknown is invertible, a nearby solution often depends smoothly on the small parameter.
+
+\item \textbf{Regular perturbation expansion.} Substitution of a power series and matching powers of $\varepsilon$ produces a hierarchy of correction equations.
+
+\item \textbf{Rayleigh--Schrodinger first-order rule.} For a nondegenerate quantum level, the first energy shift is the expectation of the perturbing operator.
+
+\item \textbf{Secular-term principle.} Terms that grow with the independent variable indicate that the assumed fast scale is incomplete.
+
+\item \textbf{Method of multiple scales.} Introducing slow variables prevents artificial long-time growth and gives uniformly useful approximations.
+
+\item \textbf{Matched-asymptotic principle.} Outer and inner approximations can be joined in an overlap region to solve singular problems with boundary layers.
+\end{enumerate}
+\noindent\emph{Source for these results:} \cite{perturbation_ref1}.
+
+\theoryapplications
+\theoryconnections{perturbation_theory}{%
+\item Calculus expands a problem in a small parameter, and differential equations determine the correction at each order.
+\item Linear algebra solves the first correction once the unperturbed problem is known, while asymptotic estimates say how the neglected terms behave.
+\item For example, if a weak force changes a solvable oscillator, the zeroth-order motion gives the main frequency and the first-order equation predicts its small shift; the calculation is useful only while the small parameter remains in the stated range \cite{perturbation_ref1,perturbation_ref3}.
+}{%
+\item Perturbation theory lets celestial mechanics estimate the effect of a small additional body, quantum theory estimate energy shifts, and fluid mechanics describe weak viscosity or slow rotation.
+\item In engineering and wave theory, it separates a dominant design from a small imperfection, making a difficult equation solvable in stages.
+\item Secular terms are especially important: if a correction grows with time, it signals that the approximation must be reorganized rather than trusted indefinitely \cite{perturbation_ref1,perturbation_ref2}.
+}
+\section*{7. Sample Questions}
+\emph{Exercise reference:} \cite{perturbation_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
+\begin{enumerate}[leftmargin=*,itemsep=0.9em]
+\item \textbf{Exercise 1. Find the first correction to the positive solution of $x^2+\varepsilon x-1=0$.} Put $x=1+\varepsilon x_1+\cdots$. The coefficient of $\varepsilon$ is $2x_1+1$, so $x_1=-1/2$. Hence $x=1-\varepsilon/2+O(\varepsilon^2)$.
+
+\item \textbf{Exercise 2. For $H=H_0+\varepsilon V$, what is the first energy shift?} For a normalized nondegenerate state it is $\langle\psi_n^{(0)},V\psi_n^{(0)}\rangle$.
+
+\item \textbf{Exercise 3. Why is the naive expansion of $x''+x+\varepsilon x^3=0$ unsafe for all time?} The correction can grow like $t\sin t$. Once $\varepsilon t$ is no longer small, a slow-time or frequency-corrected expansion is needed.
+
+\item \textbf{Exercise 4. What makes a perturbation singular?} If the small parameter multiplies the highest derivative, setting it to zero changes the order of the equation and loses boundary conditions.
+
+\item \textbf{Exercise 5. Why did deviations in Uranus's orbit help predict Neptune?} The deviations were interpreted as the gravitational perturbation of an unseen planet. Solving the inverse perturbation problem gave a position that telescopes could test.
+
+\end{enumerate}
+\section*{8. References}
+\begin{thebibliography}{9}
+\bibitem{perturbation_ref1} C. M. Bender and S. A. Orszag, \emph{Advanced Mathematical Methods for Scientists and Engineers}.
+\bibitem{perturbation_ref2} M. H. Holmes, \emph{Introduction to Perturbation Methods}.
+\bibitem{perturbation_ref3} J. J. Sakurai and J. Napolitano, \emph{Modern Quantum Mechanics}.
+\end{thebibliography}

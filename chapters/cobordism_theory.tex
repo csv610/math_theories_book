@@ -1,0 +1,146 @@
+\theory{Cobordism theory}{When should two spaces be regarded as the two ends of one larger space?}{Cobordism compares manifolds by asking whether they jointly form the boundary of a compact manifold one dimension higher. It is a deliberately coarse comparison: two spaces that are not the same may still be connected by a higher-dimensional bridge. The resulting groups and rings can be calculated using surgery, Morse functions, characteristic numbers, and homotopy theory.}{Geometric topology, algebraic topology, manifold classification, surgery theory, generalized cohomology, topological quantum field theory, and mathematical physics.}{Cobordism replaces direct manifold classification by boundary equivalence, characteristic numbers, and controlled higher-dimensional bridges.}
+
+\paragraph{The problem and the historical idea}
+
+An $n$-dimensional manifold is a space that looks like ordinary $\mathbb R^n$ when viewed close to any one point. A surface is a two-dimensional manifold; a solid region is three-dimensional. A manifold with boundary is allowed to look like a half-space near its edge. A compact manifold is one that is bounded and contains all its limiting points. A closed manifold is compact and has no boundary.
+
+Classifying manifolds up to exact sameness is difficult. Two manifolds can have the same dimension and similar local appearance while differing globally in ways that are hard to detect. Cobordism asks a simpler question: can the two manifolds be placed together as the boundary of a compact manifold of one dimension higher? The higher-dimensional object is the cobordism. \cite{cobordism_theory_ref1,cobordism_theory_ref2}
+
+The roots go back to Poincare's attempts to understand homology through manifolds. Lev Pontryagin used the idea in geometric topology, and Rene Thom made the subject systematic. Thom showed that cobordism groups could be studied through homotopy theory and a construction now called the Thom space or Thom complex. This connected geometric questions with algebraic topology and helped establish cobordism as an extraordinary cohomology theory. \cite{cobordism_theory_ref3,cobordism_theory_ref4}
+
+\end{historylist}
+\section*{3. Theory}
+\subsection*{Core theory}
+\paragraph{Definition and elementary examples}
+
+Two closed $n$-manifolds $M$ and $N$ are cobordant if there is a compact $(n+1)$-manifold $W$ whose boundary is their disjoint union:
+\[
+ \partial W=M\sqcup N.
+\]
+More precisely, a cobordism is a compact manifold $W$ together with embeddings of $M$ and $N$ into its boundary whose images are disjoint and cover $\partial W$. The notation $(W;M,N)$ records the bridge and its two ends. The cobordism is not required to be connected.
+
+The interval $[0,1]$ is a one-dimensional cobordism between two points. For any closed manifold $M$, the cylinder $M\times[0,1]$ is a cobordism between its two copies at the ends. A circle bounds a disk, so it is cobordant to the empty manifold and is called null-cobordant. Every sphere bounds a disk of one dimension higher. Every orientable closed surface bounds a handlebody, so it is null-cobordant in the unoriented setting.
+
+The pair of pants is a two-dimensional cobordism: one circular boundary component at one end and two circles at the other. It models splitting one loop into two. Reversing the direction models joining two loops. A disjoint union is cobordant to a connected sum; the bridge records the surgery that joins the pieces. These examples show why cobordisms are useful: they describe a controlled change rather than claiming that the endpoints are identical. \cite{cobordism_theory_ref1,cobordism_theory_ref5}
+
+Cobordism is an equivalence relation on closed manifolds. Reflexivity comes from the cylinder, symmetry from turning $W$ around, and transitivity from gluing two bridges along their common boundary. It is much coarser than homeomorphism or diffeomorphism. That coarseness is a strength: exact classification becomes impossible in many dimensions, while cobordism classes can often be calculated.
+
+\paragraph{Unoriented, oriented, and structured versions}
+
+In unoriented cobordism no direction is assigned to the manifolds. One may instead require orientations. The boundary orientation convention makes the two ends appear with opposite induced orientations, so an oriented cobordism from $M$ to $N$ has boundary $M\sqcup(-N)$. The oriented cobordism groups are written $\Omega_n^{SO}$.
+
+More generally, a manifold can carry a $G$-structure: extra data such as an orientation, a complex structure after stabilization, or a framing. The structure on the bridge must restrict to the given structures at its ends. Important choices include $G=O$ for unoriented cobordism, $G=SO$ for oriented cobordism, and $G=U$ for complex cobordism. Piecewise-linear and topological manifolds produce PL and TOP versions, which are generally harder to calculate than smooth versions. \cite{cobordism_theory_ref3,cobordism_theory_ref6}
+
+Disjoint union gives addition. Cartesian product gives multiplication, because an $m$-manifold times an $n$-manifold has dimension $m+n$. Under suitable conditions the groups form a graded ring
+\[
+ \Omega_*^G=\bigoplus_{n\geq 0}\Omega_n^G.
+\]
+The grading remembers dimension, and the ring records how geometric operations interact. This is already a useful summary: two manifolds may be compared by adding and multiplying their classes instead of manipulating every point.
+
+\paragraph{Surgery: changing a manifold in a controlled way}
+
+Surgery removes a standard piece and glues in a complementary piece. Suppose an $n$-manifold contains an embedded
+\[
+ S^p\times D^q,\qquad p+q=n,
+\]
+where $S^p$ is a $p$-sphere and $D^q$ is a $q$-dimensional disk. Remove its interior and glue in
+\[
+ D^{p+1}\times S^{q-1}.
+\]
+Their boundaries are both $S^p\times S^{q-1}$, so the gluing can be made along the common boundary. The result is another $n$-manifold, and the trace of the operation is an $(n+1)$-dimensional cobordism.
+
+For a circle, cutting out two small intervals and joining the exposed endpoints can either leave one circle or produce two circles. For a sphere, removing a cylinder and inserting two disks gives two spheres; removing two disks and inserting a cylinder can give a torus or a Klein bottle depending on the gluing orientation. In higher dimensions surgery changes handles, holes, and sometimes the fundamental group while preserving the cobordism class. \cite{cobordism_theory_ref1,cobordism_theory_ref7}
+
+Surgery is valuable because it turns a global classification problem into a sequence of local modifications. In high-dimensional topology, one first builds a manifold with desired algebraic invariants and then uses surgery to remove unwanted homotopy or homology. The h-cobordism theorem and the broader surgery program use this strategy to classify manifolds under strong hypotheses.
+
+\paragraph{Morse functions and handle decompositions}
+
+A Morse function is a smooth height function whose critical points are nondegenerate: near each critical point it looks like a sum of positive and negative squares. As the level of the function rises, the level surface changes only when it passes a critical point. A critical point of index $p+1$ produces a $p$-surgery on the level manifold.
+
+If $f:W\to[0,1]$ is a Morse function on a cobordism with $f^{-1}(0)=M$ and $f^{-1}(1)=N$, then $W$ is obtained from $M\times[0,1]$ by attaching one handle for each critical point. A handle of index $p+1$ has the form $D^{p+1}\times D^{n-p}$ and realizes the corresponding surgery. Conversely, a handle decomposition produces a suitable Morse function. This Morse--handle correspondence is one of the central practical tools of cobordism theory. \cite{cobordism_theory_ref1,cobordism_theory_ref7}
+
+For example, a three-dimensional cobordism obtained by attaching a one-handle to a sphere can have a torus as its other boundary. The height function sees the attachment as a critical point of index one. Instead of staring at the whole three-dimensional shape, one records the order and indices of the handles.
+
+\paragraph{Cobordism as algebraic topology}
+
+Thom's work identifies cobordism classes with homotopy classes of maps into Thom spaces. The details depend on the chosen structure, but the message is simple: a geometric object can be encoded by a map between standard spaces. This made calculation possible using homotopy theory, characteristic classes, and cohomology operations.
+
+Cobordism is an extraordinary cohomology theory. Ordinary cohomology assigns groups to spaces using singular chains; extraordinary theories have different coefficient objects and detect geometric information that ordinary cohomology may miss. Complex $K$-theory and cobordism are important examples. Cobordism groups appear as coefficient groups of the corresponding generalized homology theory. \cite{cobordism_theory_ref4,cobordism_theory_ref6}
+
+Characteristic numbers provide computable obstructions. A characteristic class is a cohomology class built from the tangent bundle of a manifold. Evaluating products of these classes on the fundamental class gives numbers. If two manifolds are cobordant, appropriate characteristic numbers agree. Conversely, in important settings, a complete list of characteristic numbers determines the cobordism class. This turns a geometric boundary question into arithmetic with integers.
+
+\paragraph{Categories and quantum field theory}
+
+Cobordisms themselves can be treated as morphisms in a category. The objects are closed manifolds; a morphism from $M$ to $N$ is a cobordism $(W;M,N)$. Composition is gluing: if $W$ joins $M$ to $N$ and $W'$ joins $N$ to $P$, glue along $N$ to obtain a cobordism from $M$ to $P$. The common boundary is the interface at which the processes are joined.
+
+This category is the geometric domain of a topological quantum field theory. An Atiyah--Segal type field theory assigns a vector space or other algebraic object to each boundary manifold and a linear map to each cobordism. The pair of pants becomes multiplication or comultiplication, while a cylinder acts as an identity. Because the assignment depends only on the topological cobordism, the resulting physical model ignores distances and angles but retains global topology. \cite{cobordism_theory_ref8,cobordism_theory_ref9}
+
+\paragraph{What the theory depends on and where it is useful}
+
+Cobordism theory depends on manifolds, boundaries, smooth maps, homotopy, homology, characteristic classes, and category theory. It helps Morse theory by translating critical points into handles, helps surgery theory by organizing changes of manifolds, and helps generalized cohomology by supplying geometric representatives for algebraic classes.
+
+In geometric topology it gives a manageable equivalence relation for manifolds that cannot be classified exactly. In algebraic topology it supplies generalized homology and cohomology theories. In mathematical physics it gives the language for topological quantum field theory. In the Atiyah--Singer index theorem and Hirzebruch--Riemann--Roch, cobordism methods helped organize characteristic numbers and index calculations. \cite{cobordism_theory_ref4,cobordism_theory_ref8}
+
+The limitations are instructive. Cobordism forgets much information: two manifolds may be cobordant while having different fundamental groups or geometries. A cobordism also need not be a product, so it need not give a deformation through identical-looking intermediate spaces. More refined theories, including h-cobordism, framed cobordism, and surgery theory, restore some of the information that ordinary cobordism discards.
+
+\section*{4. Important theorems and results}
+\begin{enumerate}[leftmargin=*,itemsep=0.35em]
+
+\item \textbf{Equivalence theorem.} Cobordism is an equivalence relation on closed manifolds of a fixed dimension. The cylinder, reversal, and gluing give reflexivity, symmetry, and transitivity. \cite{cobordism_theory_ref1}
+
+\item \textbf{Morse--handle correspondence.} A Morse function on a cobordism gives a handle decomposition, and a handle decomposition comes from a suitable Morse function. Passing a critical point of index $p+1$ performs a $p$-surgery. \cite{cobordism_theory_ref7}
+
+\item \textbf{Thom's theorem.} Cobordism groups can be related to homotopy groups of Thom spaces, allowing geometric classification to be attacked with homotopy theory. \cite{cobordism_theory_ref4}
+
+\item \textbf{Characteristic-number principle.} In major smooth cobordism theories, characteristic numbers provide algebraic invariants that detect and, in appropriate settings, classify cobordism classes. \cite{cobordism_theory_ref3}
+
+\item \textbf{Cobordism-category principle.} Closed manifolds and cobordisms form a category under gluing, which is the input category for topological quantum field theories. \cite{cobordism_theory_ref8}
+\end{enumerate}
+
+\theoryapplications
+\theoryconnections{cobordism theory}{%
+\item Differential topology supplies manifolds and smooth maps, algebraic topology supplies homotopy and homology, and Morse theory turns a manifold into handles attached at critical points.
+\item Surgery then changes a manifold in controlled local steps while tracking the algebraic obstruction to success.
+}{%
+\item Cobordism helps classify manifolds and organize generalized cohomology theories.
+\item It also supplies the geometric language behind topological quantum field theory, where a manifold is viewed as a process between boundary manifolds and composition is given by gluing.
+}
+\section*{7. Sample Questions}
+\emph{Exercise reference:} \cite{cobordism_theory_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
+\begin{enumerate}[leftmargin=*,itemsep=0.9em]
+
+\item \textbf{Exercise 1.} Why are two copies of a closed manifold $M$ cobordant?
+
+\emph{Solution.} The cylinder $M\times[0,1]$ is compact and has boundary $M\times\{0\}\sqcup M\times\{1\}$. It is therefore a cobordism between the two copies.
+
+\item \textbf{Exercise 2.} Show that the circle is null-cobordant.
+
+\emph{Solution.} The boundary of the disk $D^2$ is the circle $S^1$. Taking one boundary component to be $S^1$ and the other to be empty gives a cobordism from the circle to the empty manifold.
+
+\item \textbf{Exercise 3.} What does a critical point of Morse index $p+1$ do to a level manifold?
+
+\emph{Solution.} It attaches a handle $D^{p+1}\times D^{n-p}$ to the cobordism. On the level set this removes $S^p\times D^{n-p}$ and inserts $D^{p+1}\times S^{n-p-1}$, which is $p$-surgery.
+
+\item \textbf{Exercise 4.} Why is cobordism easier to classify than diffeomorphism in many dimensions?
+
+\emph{Solution.} Diffeomorphism requires matching the complete smooth structure. Cobordism only asks whether the two manifolds are the boundary of a higher-dimensional bridge, so many differences are ignored. The reduced information permits algebraic invariants and surgery calculations.
+
+\item \textbf{Exercise 5.} How are two cobordisms composed?
+
+\emph{Solution.} Glue the outgoing boundary of the first cobordism to the incoming boundary of the second. The common manifold becomes an internal seam, and the result has the original incoming and outgoing boundaries.
+
+\end{enumerate}
+\section*{8. References}
+
+
+\begin{thebibliography}{9}
+\bibitem{cobordism_theory_ref1} J. Milnor, \emph{Topology from the Differentiable Viewpoint}, Princeton University Press, 1997.
+\bibitem{cobordism_theory_ref2} A. Hatcher, \emph{Algebraic Topology}, Cambridge University Press, 2002.
+\bibitem{cobordism_theory_ref3} J. Milnor and J. Stasheff, \emph{Characteristic Classes}, Princeton University Press, 1974.
+\bibitem{cobordism_theory_ref4} R. E. Stong, \emph{Notes on Cobordism Theory}, Princeton University Press, 1968.
+\bibitem{cobordism_theory_ref5} W. S. Massey, \emph{A Basic Course in Algebraic Topology}, Springer, 1991.
+\bibitem{cobordism_theory_ref6} J. P. May, \emph{A Concise Course in Algebraic Topology}, University of Chicago Press, 1999.
+\bibitem{cobordism_theory_ref7} M. W. Hirsch, \emph{Differential Topology}, Springer, 1976.
+\bibitem{cobordism_theory_ref8} M. Atiyah, "Topological quantum field theories," \emph{Publications Mathematiques de l'IHES}, 1988.
+\bibitem{cobordism_theory_ref9} J. C. Baez and J. Dolan, "Higher-dimensional algebra and topological quantum field theory," \emph{Journal of Mathematical Physics}, 1995.
+\end{thebibliography}

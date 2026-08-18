@@ -1,0 +1,72 @@
+\theory{Singularity theory}{How do spaces, maps, and physical patterns change when a smooth or regular situation degenerates?}{Singularity theory studies points where manifold structure fails, critical points of maps, and sudden changes under parameter variation. It classifies stable local models and studies how singularities arise by projection, symmetry, or degeneration.}{Algebraic geometry, differential geometry, wave fronts, optics, mechanics, catastrophe theory, bifurcation theory, and intersection cohomology.}{Jacobian rank, local normal forms, and equivalence under coordinate changes classify where smooth behavior breaks down.}
+
+\paragraph{The idea and history}
+A string is a one-dimensional manifold until it crosses itself. A crossing is a double point; a touching point can disappear after a tiny movement and is unstable. Singularity theory asks which irregularities persist under small changes and which are artifacts of a special drawing \cite{singularity_ref1}.
+
+Vladimir Arnold described the subject as the study of how objects depend on parameters when a small change causes a sudden qualitative change. Whitney studied stable singularities and critical points; Rene Thom developed catastrophe theory; Arnold connected the subject with symplectic geometry and mechanics \cite{singularity_ref2}.
+
+\end{historylist}
+\section*{3. Theory}
+\subsection*{Core theory}
+\paragraph{Algebraic and geometric examples}
+The curve $y^2=x^2+x^3$ has a double point at the origin, while $y^2=x^3$ has a cusp. A singular point of a variety is one where the local equations do not define a smooth manifold. The Jacobian matrix detects this: the rank is too small at a singular point.
+
+Singularities also arise by projecting a smooth object into lower dimensions. Caustics, such as bright patterns at the bottom of a swimming pool, occur where many light rays focus. Symmetry can create orbifolds with corners or cone-like points. A smooth manifold can degenerate into a singular space as parameters change \cite{singularity_ref3}.
+
+\paragraph{Stability, germs, and catastrophes}
+To classify a local singularity, one studies a germ, the behavior near a point, up to changes of coordinates. Taylor expansions and jets record derivatives up to a chosen order. Group actions identify equivalent local forms.
+
+Catastrophe theory studies stable critical-point changes in families of smooth functions. Fold, cusp, swallowtail, and butterfly are standard elementary models. The models do not claim that every natural event is one of these shapes; they describe local mechanisms by which equilibria appear, merge, or disappear \cite{singularity_ref1}.
+
+\paragraph{Resolution and duality}
+Hironaka's resolution-of-singularities theorem in characteristic zero says that singularities of algebraic varieties can be replaced by a smooth variety through a controlled sequence of transformations. The operation is not simply erasing a bad point; it records the exceptional geometry introduced during the resolution.
+
+Singular spaces may fail Poincare duality. Intersection cohomology restores a form of duality by using the stratification of the singular space. Perverse sheaves arise from this framework and connect singularity theory with homological algebra. Monodromy studies how solutions or covering spaces behave around singularities of differential equations \cite{singularity_ref4}.
+
+\section*{4. Important theorems and results}
+\begin{enumerate}[leftmargin=*,itemsep=0.35em]
+\item \textbf{Jacobian criterion.} Under standard hypotheses, a point of an algebraic variety is smooth exactly when the Jacobian has the expected rank.
+
+\item \textbf{Whitney stability theory.} Stable singularities are those whose qualitative form persists under small perturbations.
+
+\item \textbf{Morse lemma.} Near a nondegenerate critical point, a smooth function is equivalent to a quadratic form.
+
+\item \textbf{Hironaka resolution theorem.} Algebraic varieties over characteristic zero admit resolutions of singularities.
+
+\item \textbf{Intersection-cohomology duality.} Intersection cohomology restores a Poincare-type duality for broad classes of singular spaces.
+
+\item \textbf{Classification of elementary catastrophes.} Low-dimensional stable critical changes reduce locally to a short list of normal forms.
+\end{enumerate}
+\noindent\emph{Source for these results:} \cite{singularity_ref1}.
+
+\theoryapplications
+\theoryconnections{singularity_theory}{%
+\item Calculus identifies where a map loses rank or a surface ceases to be smooth.
+\item Differential and algebraic geometry classify the local equations, topology tests whether the local type survives small changes, and Lie group actions remove coordinate choices that do not change the singularity.
+\item Homological tools then measure how cycles, intersections, or vanishing pieces appear when the singular point is resolved or deformed \cite{singularity_ref1,singularity_ref2}.
+}{%
+\item Singularity theory supplies normal forms for catastrophe and bifurcation models, so a complicated equation can be replaced locally by a short list of stable patterns.
+\item In optics, the singular set of a ray map produces caustics and wave fronts; in algebraic geometry, resolutions and intersection cohomology recover information hidden by a singular point.
+\item The same classification therefore links visible folds and cusps with algebraic invariants \cite{singularity_ref1,singularity_ref3}.
+}
+\section*{7. Sample Questions}
+\emph{Exercise reference:} \cite{singularity_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
+\begin{enumerate}[leftmargin=*,itemsep=0.9em]
+\item \textbf{Exercise 1. Is the origin singular on $y^2=x^3$?} Write $F(x,y)=y^2-x^3$. The gradient is $(-3x^2,2y)$, which vanishes at $(0,0)$. Thus the Jacobian criterion identifies a singular point, the cusp.
+
+\item \textbf{Exercise 2. Why is a crossing more stable than a tangency?} A crossing persists under small generic perturbations, while a tangency can be removed by lifting one branch. Stability concerns persistence under perturbation.
+
+\item \textbf{Exercise 3. What is a caustic?} It is an envelope or focused set of rays produced by a projection or optical map. Several smooth rays meet there, creating a singular visible pattern.
+
+\item \textbf{Exercise 4. Why does a singular space need intersection cohomology?} Ordinary cohomology may fail duality because local neighborhoods are not manifold-like. Intersection cohomology restricts chains near singular strata to recover a duality theory.
+
+\item \textbf{Exercise 5. What does resolution of singularities do?} It replaces a singular variety by a smooth one together with a map back, while keeping track of the exceptional sets created in the process.
+
+\end{enumerate}
+\section*{8. References}
+\begin{thebibliography}{9}
+\bibitem{singularity_ref1} V. I. Arnold, \emph{Singularities of Differentiable Maps}.
+\bibitem{singularity_ref2} V. I. Arnold, \emph{Catastrophe Theory}.
+\bibitem{singularity_ref3} E. Brieskorn and H. Knorrer, \emph{Plane Algebraic Curves}.
+\bibitem{singularity_ref4} M. Goresky and R. MacPherson, \emph{Stratified Morse Theory}.
+\end{thebibliography}

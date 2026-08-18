@@ -1,0 +1,14 @@
+\begin{tikzpicture}[>=Latex,scale=.8,transform shape,
+  box/.style={draw,rounded corners,align=center,minimum width=1.55cm,minimum height=.7cm}]
+\node[box] (source) at (0,0) {source\\message};
+\node[box] (enc) at (2.5,0) {encoder\\add redundancy};
+\node[box,fill=red!8] (chan) at (5,0) {noisy\\channel};
+\node[box] (dec) at (7.5,0) {decoder\\check errors};
+\node[box] (dest) at (10,0) {recovered\\message};
+\draw[->] (source)--node[above]{bits}(enc);
+\draw[->] (enc)--node[above]{codeword}(chan);
+\draw[->] (chan)--node[above]{changed symbols}(dec);
+\draw[->] (dec)--(dest);
+\draw[->,bend left=35] (dec) to node[below]{feedback or retransmission} (enc);
+\node[align=center] at (5,-1.15) {compression removes predictable redundancy;\\error correction adds controlled redundancy};
+\end{tikzpicture}

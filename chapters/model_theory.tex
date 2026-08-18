@@ -1,0 +1,98 @@
+\theory{Model theory}{What is the relationship between a formal description and the mathematical structures in which it is true?}{Model theory studies languages, theories, structures, and definable sets. It asks which statements have models, how large those models can be, and how models compare.}{Mathematical logic, algebra, number theory, geometry, database theory, computability, and learning theory.}{Structures, formulas, and interpretations determine which properties are expressible and how algebraic models can be compared.}
+
+\paragraph{The basic idea and history}
+A formal language has symbols for functions, relations, and constants. A theory is a collection of sentences written in that language. A model is a structure in which every sentence of the theory is true. The integers, real numbers, groups, fields, and graphs can all be models of suitable theories \cite{model_theory_ref1}.
+
+Alfred Tarski coined the term "theory of models" in 1954. Earlier work by Lowenheim, Skolem, Godel, and Malcev supplied the compactness and completeness tools. Since the 1970s, Saharon Shelah's stability theory has shaped the subject.
+
+\end{historylist}
+\section*{3. Theory}
+\subsection*{Core theory}
+\paragraph{Structures and formulas}
+The language of rings has symbols $+$, $\times$, $-$, $0$, and $1$. In a field, the formula $y=x\times x$ defines the parabola $y=x^2$. A formula with free variables defines a set; a sentence with no free variables is either true or false in a structure.
+
+Definable sets can use parameters from the model. Over the real numbers, $y=x^2+\pi$ is definable using $\pi$. Model theory studies not only the objects named by a theory but also which subsets can be described in its language.
+
+\paragraph{Completeness, compactness, and size}
+The completeness theorem says that a first-order sentence is true in every model of a theory exactly when it has a formal proof from that theory. The compactness theorem says that if every finite subset of a set of first-order sentences has a model, then the whole set has a model.
+
+The downward Lowenheim--Skolem theorem says that a theory with an infinite model has models of many smaller infinite cardinalities, down to the size of its language. The upward theorem gives models in arbitrarily large cardinalities. Thus first-order axioms often cannot uniquely specify the size of an infinite structure.
+
+\paragraph{Quantifier elimination}
+Quantifiers such as "there exists" can hide the shape of a definable set. A theory has quantifier elimination if every formula is equivalent to one without quantifiers. Algebraically closed fields have quantifier elimination in the language of rings: every definable set is a Boolean combination of polynomial equations.
+
+The theory of real closed fields also has quantifier elimination after adding an order relation. This yields the decidability of many elementary geometric questions and is the logical basis of cylindrical algebraic decomposition. Model completeness is a weaker property in which embeddings between models preserve all formulas in an appropriate sense \cite{model_theory_ref2}.
+
+\paragraph{Ultraproducts and nonstandard analysis}
+An ultraproduct combines a family of structures while ignoring a chosen collection of exceptional indices. Los's theorem says a first-order sentence holds in the ultraproduct exactly when it holds in almost all components according to the ultrafilter. Ultraproducts compare finite structures with infinite limits and help prove transfer principles.
+
+Robinson used these ideas to build nonstandard analysis, where infinitesimal and infinitely large numbers are handled rigorously. Ax's work on pseudofinite fields and the Ax--Kochen theorem are important applications of ultraproduct methods.
+
+\paragraph{Stability, o-minimality, and definable geometry}
+Stability theory classifies theories by how complicated their definable sets and types can be. Stable, simple, NIP, and distal theories form part of a hierarchy. Geometric stability theory applies these ideas to algebraic and diophantine geometry.
+
+O-minimal structures are ordered structures in which every definable subset of the line is a finite union of points and intervals. This tame one-dimensional behavior controls higher-dimensional definable geometry. Pila and others used o-minimal methods in problems related to the Andre--Oort conjecture. Hrushovski used model-theoretic geometry in the Mordell--Lang and Manin--Mumford settings \cite{model_theory_ref3}.
+
+\paragraph{Applications}
+Finite model theory studies finite structures and is central to database queries, descriptive complexity, and graph properties. A query is definable by a logical formula, and the expressive power of the logic can be compared with computational complexity classes.
+
+Model theory also studies real algebraic geometry, differential fields, valued fields, p-adic fields, number fields, and pseudofinite fields. NIP theories and stability have connections to PAC learning and online learning classes. The theory is useful when algebraic structure and logical definability must be analyzed together.
+
+\paragraph{What the theory depends on and where it is useful}
+Model theory depends on first-order logic, set theory, algebra, and combinatorics. It helps algebra by transferring statements between models, geometry by describing definable sets, number theory by analyzing fields, and computer science by comparing logical descriptions with algorithms.
+
+First-order logic cannot express every mathematical property, and a complete theory may have nonisomorphic models of different sizes. These are not failures; they identify exactly what the chosen language and axioms can control.
+
+\section*{4. Important theorems and results}
+\begin{enumerate}[leftmargin=*,itemsep=0.35em]
+\item \textbf{Godel completeness theorem.} Semantic consequence in first-order logic equals formal provability.
+
+\item \textbf{Compactness theorem.} If every finite part of a first-order theory is satisfiable, the entire theory is satisfiable.
+
+\item \textbf{Lowenheim--Skolem theorems.} Infinite first-order theories have models in controlled smaller and larger cardinalities.
+
+\item \textbf{Los's theorem.} First-order formulas in an ultraproduct are evaluated componentwise according to the ultrafilter.
+
+\item \textbf{Tarski quantifier elimination.} Real closed fields admit quantifier elimination in the language of ordered rings \cite{model_theory_ref1}.
+\end{enumerate}
+
+\theoryapplications
+\theoryconnections{model theory}{%
+\item Logic supplies formulas and satisfaction, set theory supplies structures, and algebra supplies the groups, rings, and fields used as examples.
+\item Compactness and ultraproducts connect syntax with global and asymptotic properties of structures.
+}{%
+\item Model theory helps algebra by transferring first-order statements between structures and helps computer science analyze formal languages and verification.
+\item It also studies which properties can be expressed and decided, separating definability from computation.
+}
+\section*{7. Sample Questions}
+\emph{Exercise reference:} \cite{model_theory_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
+\begin{enumerate}[leftmargin=*,itemsep=0.9em]
+\item \textbf{Exercise 1.} What is a model of a group theory?
+
+\emph{Solution.} It is a set equipped with an operation, identity, and inverse operation satisfying every group axiom. The integers under addition are one model.
+
+\item \textbf{Exercise 2.} What does compactness say in practical language?
+
+\emph{Solution.} If no finite collection of requirements creates a contradiction, then all requirements can be satisfied together in some model.
+
+\item \textbf{Exercise 3.} What is a definable set?
+
+\emph{Solution.} It is a set of tuples described by a formula, possibly using fixed parameters from the structure.
+
+\item \textbf{Exercise 4.} Why is quantifier elimination useful?
+
+\emph{Solution.} It replaces hidden existential and universal searches by simpler equations and inequalities, making definable sets easier to describe and decide.
+
+\item \textbf{Exercise 5.} Why can a theory have models of different sizes?
+
+\emph{Solution.} First-order sentences describe finite patterns and relations but generally cannot say that an infinite model has exactly one particular infinite cardinality.
+
+\end{enumerate}
+\section*{8. References}
+\addcontentsline{toc}{section}{References}
+
+\begin{thebibliography}{9}
+\bibitem{model_theory_ref1} David Marker, \emph{Model Theory: An Introduction}, Springer, 2002.
+\bibitem{model_theory_ref2} Wilfrid Hodges, \emph{A Shorter Model Theory}, Cambridge University Press, 1997.
+\bibitem{model_theory_ref3} C. C. Chang and H. Jerome Keisler, \emph{Model Theory}, 3rd ed., North-Holland, 1990.
+\end{thebibliography}

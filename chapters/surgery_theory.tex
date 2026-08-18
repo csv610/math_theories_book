@@ -1,0 +1,65 @@
+\theory{Surgery theory}{How can one construct or classify manifolds by cutting out a controlled part and replacing it with another part?}{Surgery theory modifies a manifold along an embedded sphere, keeping track of the changes in homology, homotopy, and other invariants. In high dimensions it turns manifold classification into a sequence of obstruction problems.}{High-dimensional topology, cobordism, exotic spheres, manifold classification, and geometric topology.}{Cutting out a tubular neighborhood and regluing it changes a manifold in a controlled way whose homotopy and obstruction data can be computed.}
+
+\paragraph{The operation and history}
+For an $n$-manifold, remove an embedded $S^p$ with a tubular neighborhood $S^p\times D^q$ and glue in $D^{p+1}\times S^{q-1}$, where $n=p+q+1$. The boundary is the same, so the replacement produces another manifold. John Milnor called the method surgery; Andrew Wallace called it spherical modification \cite{surgery_ref1}.
+
+Surgery arose from the classification of exotic spheres and became a central tool for manifolds of dimension greater than four. Morse theory shows that two manifolds are related by a sequence of such modifications exactly when they lie in the same cobordism class \cite{surgery_ref2}.
+
+\end{historylist}
+\section*{3. Theory}
+\subsection*{Core theory}
+\paragraph{What surgery controls}
+The embedded sphere determines which homotopy class is changed. A surgery can kill a homotopy group, alter homology in a known degree, or simplify the fundamental group. The goal is to start with a manifold whose structure is known and produce one satisfying a desired property.
+
+The main classification questions are whether a space with the homotopy type of a manifold is actually homeomorphic or diffeomorphic to one, and whether a homotopy equivalence between manifolds is homotopic to a diffeomorphism. For dimensions above four, surgery gives primary and secondary obstructions rather than a single complete invariant \cite{surgery_ref3}.
+
+\paragraph{Obstructions and the s-cobordism theorem}
+A normal map records a candidate manifold map together with stable normal bundle data. A primary obstruction in topological $K$-theory must vanish before a surgery obstruction can be defined. The secondary obstruction lies in an algebraic $L$-group. When it vanishes, surgery can produce the desired homotopy equivalence under suitable hypotheses.
+
+The h-cobordism theorem says that an h-cobordism between simply connected manifolds of dimension at least five is a product. The s-cobordism theorem removes simple homotopy ambiguity and uses Whitehead torsion. These results explain why high-dimensional classification is tractable while dimensions three and four require different methods \cite{surgery_ref4}.
+
+\section*{4. Important theorems and results}
+\begin{enumerate}[leftmargin=*,itemsep=0.35em]
+\item \textbf{Surgery construction.} Replacing $S^p\times D^q$ by $D^{p+1}\times S^{q-1}$ produces a controlled change of an $n$-manifold.
+
+\item \textbf{Cobordism-surgery principle.} A cobordism can be decomposed into elementary surgeries.
+
+\item \textbf{h-cobordism theorem.} A simply connected h-cobordism in dimension at least five is a product.
+
+\item \textbf{s-cobordism theorem.} In the high-dimensional setting, vanishing Whitehead torsion characterizes when an h-cobordism is a product.
+
+\item \textbf{Surgery exact sequence.} Manifold structures, normal invariants, and algebraic $L$-groups are linked by an exact sequence of classification problems.
+\end{enumerate}
+\noindent\emph{Source for these results:} \cite{surgery_ref1}.
+
+\theoryapplications
+\theoryconnections{surgery_theory}{%
+\item Surgery removes a tubular neighborhood of an embedded sphere in a manifold and replaces it with another piece having the same boundary.
+\item Homotopy and homology calculate how this replacement changes the space, cobordism records the whole transformation, and vector bundles describe the normal data needed to perform it.
+\item K-theory and L-theory turn the remaining geometric question into an algebraic obstruction, especially when a homotopy equivalence is to be improved to a genuine equivalence of manifolds \cite{surgery_ref1,surgery_ref2}.
+}{%
+\item Surgery theory classifies high-dimensional manifolds by reducing them to a sequence of controlled modifications.
+\item It explains exotic spheres by showing when the standard sphere can be altered without changing its homotopy type, and it supplies the obstruction groups used in the h- and s-cobordism theorems.
+\item The connection is powerful but dimension-sensitive: the Whitney trick and general-position arguments that make the algebra reliable are much weaker in low dimensions \cite{surgery_ref3,surgery_ref4}.
+}
+\section*{7. Sample Questions}
+\emph{Exercise reference:} \cite{surgery_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
+\begin{enumerate}[leftmargin=*,itemsep=0.9em]
+\item \textbf{Exercise 1. What is removed in a surgery?} A tubular neighborhood $S^p\times D^q$ of an embedded sphere is removed, and $D^{p+1}\times S^{q-1}$ is glued along the common boundary.
+
+\item \textbf{Exercise 2. Why is the boundary preserved?} Both pieces have boundary $S^p\times S^{q-1}$, so the gluing matches the boundary data.
+
+\item \textbf{Exercise 3. What can surgery do to homology?} It can add or remove a handle-like feature and therefore change homology in degrees related to $p$ and $p+1$. The exact change is computed from the attaching sphere.
+
+\item \textbf{Exercise 4. What is the purpose of the primary obstruction?} It tests whether the stable vector-bundle data needed for a normal map exists. Only after it vanishes is the secondary surgery obstruction defined.
+
+\item \textbf{Exercise 5. Why is dimension important?} The Whitney trick and general-position arguments work much better in dimensions above four, enabling the h- and s-cobordism methods.
+
+\end{enumerate}
+\section*{8. References}
+\begin{thebibliography}{9}
+\bibitem{surgery_ref1} J. Milnor, \emph{Collected Papers, Volume III: Differential Topology}.
+\bibitem{surgery_ref2} W. Browder, \emph{Surgery on Simply-Connected Manifolds}.
+\bibitem{surgery_ref3} C. T. C. Wall, \emph{Surgery on Compact Manifolds}.
+\bibitem{surgery_ref4} A. Ranicki, \emph{Algebraic and Geometric Surgery}.
+\end{thebibliography}

@@ -1,0 +1,80 @@
+\theory{Proof theory}{What is a proof when the proof itself is treated as a precise mathematical object that can be inspected, transformed, and checked by a machine?}{Proof theory studies formal proofs, the rules that build them, and the strength and limits of formal systems. It is syntactic: it studies the written construction of a proof, while model theory studies what statements mean in structures.}{Foundations of mathematics, automated theorem proving, proof assistants, programming languages, type theory, linguistics, constructive mathematics, and proof complexity.}{Formal derivations, normalization, and ordinal or combinatorial measures quantify the strength and computational behavior of proof systems.}
+
+\paragraph{The idea and history}
+A formal proof is a finite tree or list built from axioms and inference rules. The rules determine exactly which conclusion may follow from which premises. This makes a proof an object that can be counted, normalized, compared, and checked. An informal proof is a compressed explanation that an expert can expand; a formal proof contains every permitted step \cite{proof_ref1,proof_ref2}.
+
+Frege, Peano, Russell, and Dedekind advanced formal logic. David Hilbert proposed a program in which mathematics would be grounded by finitary consistency proofs. Gödel's incompleteness theorems showed that a sufficiently strong consistent theory cannot prove its own consistency. This changed the questions toward relative consistency, provability, ordinals, and the exact strength of axioms \cite{proof_ref1,proof_ref3}.
+
+\end{historylist}
+\section*{3. Theory}
+\subsection*{Core theory}
+\paragraph{Proof calculi}
+Hilbert systems use a small collection of axiom schemes and rules such as modus ponens. Natural deduction mirrors ordinary reasoning: an introduction rule explains how to prove a connective, and an elimination rule explains how to use it. Sequent calculus studies judgments of the form
+\[
+\Gamma\Longrightarrow\Delta,
+\]
+where $\Gamma$ is a list of assumptions and $\Delta$ is a list of possible conclusions. Gentzen developed natural deduction and sequent calculus and used them to prove consistency results for arithmetic \cite{proof_ref2}.
+
+\paragraph{Analytic proofs and normalization}
+The cut rule allows a proof to use an intermediate lemma. Cut elimination says that in important calculi every provable sequent has a proof without cuts. Removing cuts can make the proof longer, but it exposes its logical structure. The subformula property says that a cut-free proof uses only pieces of the final statement and its premises. This supports consistency, proof search, interpolation, and automated checking \cite{proof_ref2,proof_ref4}.
+
+In natural deduction, normalization removes a formula that is introduced and immediately eliminated. The normalized proof contains no unnecessary detour. Through the Curry--Howard correspondence, propositions behave like types and proofs behave like programs; normalization of proofs corresponds to computation in typed lambda calculus \cite{proof_ref4}.
+
+\paragraph{Main research areas}
+Structural proof theory studies calculi, cut elimination, subformula properties, focused proofs, proof nets, analytic tableaux, and substructural logics such as linear logic. Ordinal analysis measures the strength of arithmetic, analysis, and set theories by associating them with well-founded transfinite ordinals. Gentzen's consistency proof for Peano arithmetic used induction up to epsilon-zero \cite{proof_ref1}.
+
+Provability logic uses a box symbol meaning it is provable that. Gödel--Löb logic captures important facts about provability in arithmetic. Reverse mathematics asks which axioms are needed to prove a theorem: it works backward from theorem to foundations and has identified robust systems often called the Big Five \cite{proof_ref3}.
+
+Functional interpretations translate classical or intuitionistic proofs into functionals. They can extract a computable witness or bound from an existence proof. Proof mining uses this information to turn abstract proofs into quantitative estimates. Proof complexity measures the length or size of proofs, while automated theorem proving searches for proofs and proof assistants check them \cite{proof_ref1,proof_ref5}.
+
+\paragraph{Semantics, language, and computers}
+Proof-theoretic semantics explains the meaning of a connective through the rules for introducing and using it. This idea has applications in constructive mathematics and formal linguistics, including type-logical and categorial grammar. In computer science, a proof assistant stores a proof term and checks it against a small trusted kernel. Checking is usually easier than discovering the proof \cite{proof_ref4}.
+
+\section*{4. Important theorems and results}
+\begin{enumerate}[leftmargin=*,itemsep=0.35em]
+\item \textbf{Gödel's first incompleteness theorem.} Any consistent, effectively axiomatized theory strong enough for arithmetic has a true arithmetic statement that it cannot prove.
+
+\item \textbf{Gödel's second incompleteness theorem.} Such a theory cannot prove its own consistency, assuming it is consistent.
+
+\item \textbf{Gentzen cut elimination.} Classical and intuitionistic sequent calculi admit cut-free proofs.
+
+\item \textbf{Subformula property.} In a cut-free proof, formulas are built from subformulas of the endsequent, supporting proof search and consistency.
+
+\item \textbf{Curry--Howard correspondence.} Propositions correspond to types, proofs to programs, and proof normalization to program evaluation.
+
+\item \textbf{Löb's theorem.} If a formal theory proves that the provability of a statement implies the statement, then the theory already proves the statement.
+\end{enumerate}
+\noindent\emph{Source for these results:} \cite{proof_ref1}.
+
+\theoryapplications
+\theoryconnections{proof_theory}{%
+\item Logic supplies formal statements and inference rules, while recursion theory identifies which symbolic procedures can actually be carried out.
+\item Set theory provides a universe in which mathematical objects can be represented, and computation turns a proof into a finite checkable object.
+\item Proof theory studies the resulting formal systems by measuring the strength of their rules and by asking which proofs can be normalized or eliminated \cite{proof_ref1,proof_ref2}.
+}{%
+\item Proof theory helps proof assistants check that every inference is legal, and automated reasoning searches for proofs by manipulating the same formal rules.
+\item In programming languages, a type can describe a specification and a program can serve as a proof that the specification is met.
+\item Consistency and incompleteness results then tell foundations which promises a formal system can and cannot make \cite{proof_ref1,proof_ref4}.
+}
+\section*{7. Sample Questions}
+\emph{Exercise reference:} \cite{proof_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
+\begin{enumerate}[leftmargin=*,itemsep=0.9em]
+\item \textbf{Exercise 1. What does modus ponens say?} From $P$ and $P\Rightarrow Q$, infer $Q$. In a formal proof this is one licensed rule, so the conclusion is mechanically checkable.
+
+\item \textbf{Exercise 2. What is the purpose of cut elimination?} It removes reliance on an intermediate lemma from the formal derivation. The result exposes the proof's local structure and often gives the subformula property.
+
+\item \textbf{Exercise 3. Give the Curry--Howard reading of a proof of $P\Rightarrow P$.} It is the identity program: given an input of type $P$, return that same input. The corresponding lambda term is $\lambda x.x$.
+
+\item \textbf{Exercise 4. Why does Gödel's second theorem not say that mathematics is useless?} It concerns one sufficiently strong formal system proving its own consistency. Stronger systems can prove the consistency of weaker systems, and ordinary mathematics remains productive despite these limits.
+
+\item \textbf{Exercise 5. What does reverse mathematics ask about the theorem that every bounded increasing sequence has a supremum?} It asks for the weakest axiom system in which the theorem can be proved and then proves a reversal showing that the theorem implies that system over a weak base theory.
+
+\end{enumerate}
+\section*{8. References}
+\begin{thebibliography}{9}
+\bibitem{proof_ref1} S. Buss, ed., \emph{Handbook of Proof Theory}.
+\bibitem{proof_ref2} G. Gentzen, \emph{The Collected Papers of Gerhard Gentzen}.
+\bibitem{proof_ref3} S. G. Simpson, \emph{Subsystems of Second Order Arithmetic}.
+\bibitem{proof_ref4} A. S. Troelstra and H. Schwichtenberg, \emph{Basic Proof Theory}.
+\bibitem{proof_ref5} J.-Y. Girard, P. Taylor, and Y. Lafont, \emph{Proofs and Types}.
+\end{thebibliography}

@@ -1,0 +1,194 @@
+\clearpage\chapter{Algebraic geometry}
+\section*{1. Overview}
+\subsection*{Intuitive}
+\paragraph{The problem}
+
+An equation can be viewed in two ways. Algebra asks which numbers satisfy it; geometry asks what shape those solutions make. Algebraic geometry studies both views at once. Its basic objects are the sets of solutions of polynomial equations, but its deeper goal is to understand the whole solution space: its components, holes, singularities, points at infinity, maps, and behavior over different number systems.
+
+
+
+\subsection*{Formal}
+Let $k$ be a field and let $k[x_1,\ldots,x_n]$ be the polynomial ring in $n$ variables. An affine algebraic set is a common zero set $V(I)\subseteq k^n$ of an ideal $I$ in this ring. Polynomial maps that send one such set into another are the basic morphisms. The ideal of all polynomials vanishing on a set records its algebraic constraints; projective varieties and schemes extend this construction when coordinates, multiplicities, or arithmetic information must also be retained.
+\section*{2. History}
+\subsection*{Historical development}
+\begin{historylist}
+\paragraph{René Descartes and Pierre de Fermat}
+They introduced coordinate methods that translated geometric curves into polynomial equations. This algebra--geometry dictionary is the starting point for studying solution sets rather than isolated numerical roots.
+
+\paragraph{Bernhard Riemann, Richard Dedekind, and Max Noether}
+They connected the study of algebraic curves with complex analysis, arithmetic, and the algebra of functions and ideals. Their work made genus, divisors, and algebraic transformations central tools for understanding curves.
+
+\paragraph{Emmy Noether, André Weil, Oscar Zariski, Jean-Pierre Serre, and Alexander Grothendieck}
+They developed the modern algebraic language of ideals, varieties, sheaves, and schemes. Grothendieck's schemes made it possible to treat number rings, finite fields, and geometric families in one framework \cite{algebraic_geometry_ref1,algebraic_geometry_ref4}.
+
+\end{historylist}
+\section*{3. Theory}
+\subsection*{Core theory}
+\paragraph{Zeros of simultaneous polynomials}
+\bookfigure{algebraic_geometry_curve}{Algebraic geometry studies a solution set and the polynomial relations that define it.}
+
+Let $k$ be a field and consider affine $n$-space $k^n$. Given polynomials $f_1,\ldots,f_r$ in $k[x_1,\ldots,x_n]$, their common zero set is
+\[
+ V(f_1,\ldots,f_r)=\{a\in k^n:f_i(a)=0\text{ for every }i\}.
+\]
+For example, $x^2+y^2-1=0$ is a circle over $\mathbb R$, while
+\[
+ x^2+y^2+z^2-1=0,\qquad x+y+z=0
+\]
+is a circle obtained by cutting a unit sphere with a plane. A line, parabola, ellipse, hyperbola, cubic curve, elliptic curve, lemniscate, and Cassini oval are all plane algebraic curves.
+
+The first questions are concrete: how many solutions are there, and can they be found? The next questions are geometric: is the set connected or irreducible, where is it singular, what is its dimension, and what happens at infinity? The same equations may have no real solutions but many complex solutions, so the field matters.
+
+\paragraph{Affine varieties and the algebra--geometry dictionary}
+
+For a set $S$ of polynomials, define $I(S)$ to be all polynomials vanishing on $S$. This is an ideal: sums and polynomial multiples of vanishing polynomials still vanish. Conversely, for an ideal $I$, define $V(I)$ as its common zero set. The operations $I\mapsto V(I)$ and $S\mapsto I(S)$ form a reversing correspondence between algebraic conditions and geometric sets.
+
+The Zariski topology declares sets of the form $V(I)$ to be closed. It is much coarser than the usual topology: a nonzero polynomial in one variable has only finitely many zeros, so finite sets are closed, but open sets are usually very large. This topology is designed to remember polynomial relations rather than distance.
+
+The Hilbert Nullstellensatz says, over an algebraically closed field, that the ideal of all polynomials vanishing on $V(I)$ is the radical $\sqrt I$. It also identifies points of affine space with maximal ideals of the coordinate ring. Hilbert's basis theorem says every ideal in $k[x_1,\ldots,x_n]$ is finitely generated, so an algebraic set can be described by finitely many equations.
+
+An algebraic set is irreducible if it cannot be expressed as the union of two smaller closed algebraic sets. Every algebraic set is a finite union of irreducible components, uniquely up to order. An affine algebraic set is irreducible exactly when its defining ideal can be chosen prime. This is the first major dictionary:
+\[
+\text{varieties}\leftrightarrow\text{prime ideals},\qquad
+\text{functions}\leftrightarrow\text{coordinate rings}.
+\]
+\cite{algebraic_geometry_ref1,algebraic_geometry_ref2}
+
+\paragraph{Regular functions and morphisms}
+
+The regular functions on an affine variety $V$ are polynomial functions restricted to $V$. They form the coordinate ring
+\[
+ k[V]=k[x_1,\ldots,x_n]/I(V).
+\]
+For the parabola $y=x^2$, the relation $y-x^2=0$ gives
+\[
+ k[x,y]/(y-x^2)\cong k[x],
+\]
+because every function on the parabola can be written using the parameter $x$.
+
+A regular map $f:V\to W$ is a map whose coordinate functions are regular. Composition of regular maps is regular, so affine varieties form a category. A map $f:V\to W$ induces a ring homomorphism in the opposite direction,
+\[
+ f^*:k[W]\to k[V],\qquad g\mapsto g\circ f.
+\]
+For affine algebraic sets, this correspondence between maps and ring homomorphisms is an equivalence with the opposite category of finitely generated reduced $k$-algebras. This contravariance is not a trick: a map of spaces lets us pull functions backward.
+
+\paragraph{Rational functions and birational geometry}
+
+If $V$ is irreducible, its coordinate ring is an integral domain and has a field of fractions $k(V)$, the field of rational functions. A rational function may have a denominator that vanishes on a hypersurface, so it is defined on a dense open part rather than everywhere.
+
+Two varieties are birationally equivalent if rational maps in both directions are inverse wherever they are defined. Birational geometry studies properties that survive this kind of alteration. The unit circle is rational because
+\[
+ x=\frac{2t}{1+t^2},\qquad y=\frac{1-t^2}{1+t^2}
+\]
+parametrizes it away from one point. A rational variety is birational to affine space. Resolution of singularities asks whether a variety can be replaced by a birationally equivalent nonsingular one; Hironaka proved this in characteristic zero, while the general positive-characteristic problem remains deeper \cite{algebraic_geometry_ref1,algebraic_geometry_ref5}.
+
+\paragraph{Projective varieties and points at infinity}
+
+Affine space misses limiting directions. Projective space $\mathbb P^n(k)$ adds points at infinity and treats parallel lines as meeting there. A projective point is a nonzero vector $(x_0,\ldots,x_n)$ up to multiplication by a nonzero scalar. These are homogeneous coordinates.
+
+A homogeneous polynomial has the same zero-or-nonzero behavior after scaling all coordinates, so homogeneous equations define projective algebraic sets. Projective varieties correspond to homogeneous prime ideals, and their homogeneous coordinate rings are graded rings. A projective variety generally has only constant global regular functions, but its function field of rational functions remains useful.
+
+Projective geometry makes several theorems cleaner. Bézout's theorem counts intersections with multiplicity in a projective setting, including intersections at infinity. The projective closures of $y=x^2$ and $y=x^3$ have different behavior at infinity; the cubic acquires a cusp there. Projective properties also make existence arguments possible.
+
+\paragraph{Real algebraic geometry}
+
+Over $\mathbb R$, order cannot be ignored. The equation $x^2+y^2-a=0$ is a circle when $a>0$ and has no real points when $a<0$, although over $\mathbb C$ both cases have solutions. Real algebraic geometry studies real varieties and, more broadly, semialgebraic sets defined by polynomial equations and inequalities.
+
+The first-quadrant branch of $xy-1=0$ is semialgebraic because it is defined by $xy-1=0$ together with $x>0$ and $y>0$. Algorithms such as cylindrical algebraic decomposition decide logical statements about polynomial inequalities and decompose real space into cells on which polynomial signs are constant. Questions about the possible arrangement of ovals of a nonsingular plane curve include parts of Hilbert's sixteenth problem.
+
+\paragraph{Computational algebraic geometry}
+
+Computational algebraic geometry turns the theory into algorithms. Gröbner bases are alternative generators for a polynomial ideal chosen with respect to a monomial order. They generalize Gaussian elimination: leading monomials make reductions systematic.
+
+If a Gröbner basis reduces to $\{1\}$, the corresponding variety has no points over an algebraically closed extension. Hilbert series can reveal dimension and degree. When the dimension is zero, the basis can be used to compute the finitely many solutions. Elimination orders remove variables and solve projection problems, while resultants eliminate variables from two equations.
+
+Cylindrical algebraic decomposition computes the topology and sign structure of semialgebraic sets. Numerical algebraic geometry uses homotopy continuation: start with a system whose solutions are known and continuously deform it into the target system, tracking solution paths with floating-point methods. Complexity matters: symbolic algorithms may be exact but expensive, while numerical methods are fast but need conditioning and error checks \cite{algebraic_geometry_ref3,algebraic_geometry_ref6}.
+
+\paragraph{Schemes and the modern viewpoint}
+
+Classical geometry studies points with coordinates in a field. Scheme theory replaces an affine variety by the spectrum of a ring, the set of all prime ideals equipped with a structure sheaf. Maximal ideals give ordinary points, while nonmaximal prime ideals represent irreducible subvarieties and generic information.
+
+This enlargement allows one theory to treat complex varieties, varieties over finite fields, and $\operatorname{Spec}(\mathbb Z)$, whose prime ideals encode the arithmetic of rational primes. Sheaves record which functions are available on each open set and how local data glue. Schemes can be glued from affine pieces, just as manifolds are glued from coordinate charts. The same language supports arithmetic geometry, deformation theory, intersection theory, and modern cohomology.
+
+Grothendieck's approach also clarifies why the Nullstellensatz is only one case of a wider algebra--geometry relation. Algebraic geometry now includes stacks, derived geometry, noncommutative geometry, and analytic and rigid-analytic variants, but the basic lesson remains: study an object through its functions and the maps between its local pieces.
+
+\paragraph{Analytic geometry and GAGA}
+
+An analytic variety is locally defined by convergent analytic functions rather than polynomials. Complex manifolds are nonsingular analytic varieties, but analytic varieties may have singularities. Serre's GAGA results compare complex algebraic varieties with their associated analytic spaces: many algebraic and analytic notions, such as coherent sheaves and cohomology, agree in the proper setting.
+
+Over non-archimedean fields, rigid analytic spaces provide an analytic geometry adapted to $p$-adic absolute values. These theories connect algebraic geometry with complex analysis, number theory, and $p$-adic geometry \cite{algebraic_geometry_ref7}.
+
+\section*{4. Important theorems and results}
+\begin{enumerate}[leftmargin=*,itemsep=0.35em]
+
+\item \textbf{Hilbert's Nullstellensatz.} Over an algebraically closed field, the radical of an ideal is the ideal of all polynomials vanishing on its zero set, and maximal ideals correspond to points.
+
+\item \textbf{Hilbert basis theorem.} Every ideal in a polynomial ring in finitely many variables over a field is finitely generated. Algebraic sets therefore have finite equation descriptions.
+
+\item \textbf{Irreducible decomposition.} Every algebraic set is a finite union of irreducible components, uniquely up to order. Prime ideals describe the irreducible pieces.
+
+\item \textbf{Bézout's theorem.} Projective plane curves with no common component meet in a number of points counted with multiplicity equal to the product of their degrees.
+
+\item \textbf{Riemann--Roch theorem.} On a smooth projective curve, the dimension of the space of functions with prescribed zeros and poles is controlled by the degree of the divisor and the genus.
+
+\item \textbf{GAGA.} Proper complex algebraic varieties and their analytic counterparts have matching categories of coherent sheaves and matching cohomological information in the appropriate sense.
+\end{enumerate}
+\noindent\emph{Source for these results:} \cite{algebraic_geometry_ref1}.
+
+\section*{5. Applications}
+Algebraic geometry is useful when polynomial equations describe the objects or constraints in a problem. Its varieties, dimensions, and singularities turn those equations into structures that can be analysed in arithmetic, computation, and geometry.
+\begin{enumerate}[leftmargin=*,itemsep=0.35em]
+\item \textbf{Cryptography and coding.} Elliptic curves supply groups used in public-key cryptography. Algebraic curves over finite fields produce error-correcting codes whose distance and decoding behavior can be studied geometrically.
+\item \textbf{Robotics and control.} The positions of a robot arm satisfy polynomial equations. Algebraic geometry can describe the reachable set, detect singular configurations, and solve inverse-kinematics equations. In control theory, polynomial invariants describe states that a system can or cannot reach.
+\item \textbf{Statistics and phylogenetics.} Probability models for discrete data often form algebraic varieties or semialgebraic sets. Polynomial relations among observed frequencies can test whether a model is plausible. Similar varieties describe evolutionary trees.
+\item \textbf{Geometric modelling and physics.} Computer-aided design uses polynomial and rational surfaces. Algebraic geometry also connects to string theory, solitons, game theory, graph matchings, integer programming, and moduli spaces in mathematical physics.
+\item \textbf{Number theory.} Diophantine equations become questions about rational points on varieties. The modularity ideas used in the proof of Fermat's Last Theorem illustrate how curves, modular forms, and arithmetic can be joined in one geometric framework.
+\end{enumerate}
+
+
+\theoryconnections{algebraic_geometry}{%
+\item Commutative algebra turns polynomial equations into ideals, and the ideal records all polynomial consequences of the equations.
+\item The spectrum of that ring supplies the points and local neighborhoods of the corresponding geometric object; localization then lets one study a point without losing the global equation.
+\item Sheaves and topology explain how local solutions are glued, while number theory and complex analysis enter when the coefficients or points are arithmetic or complex.
+\item For example, solving $x^2+y^2=1$ over different fields gives genuinely different geometries, so the coefficient field is part of the problem, not decoration \cite{algebraic_geometry_ref1,algebraic_geometry_ref2}.
+}{%
+\item Algebraic geometry helps arithmetic geometry by treating integer solutions as points on a variety and then attaching local information at each prime.
+\item It helps coding theory because a code can be built from evaluations of functions on an algebraic curve; the curve controls how many errors can be detected.
+\item In robotics and control, polynomial constraints for joints or feedback can be eliminated and studied as geometric sets.
+\item Thus geometry converts a large system of equations into objects whose dimension, singularities, and intersections can be analyzed \cite{algebraic_geometry_ref3,algebraic_geometry_ref6}.
+}
+\section*{7. Sample Questions}
+\emph{Exercise reference:} \cite{algebraic_geometry_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
+\begin{enumerate}[leftmargin=*,itemsep=0.9em]
+
+\item \textbf{Exercise 1.} Find the coordinate ring of the parabola $y=x^2$.
+
+\textbf{Solution.} It is $\mathbb R[x,y]/(y-x^2)$. Substituting $y=x^2$ gives an isomorphism with $\mathbb R[x]$, so $x$ is a global parameter.
+
+\item \textbf{Exercise 2.} Determine whether $x^2+y^2=0$ has a nonzero real point.
+
+\textbf{Solution.} No. Both squares are nonnegative, so their sum is zero only when $x=y=0$. Over $\mathbb C$, nonzero solutions exist, illustrating dependence on the base field.
+
+\item \textbf{Exercise 3.} What does a Gröbner basis tell us if it contains 1?
+
+\textbf{Solution.} The ideal is the whole polynomial ring. Therefore the equations have no common solution over an algebraically closed extension of the coefficient field.
+
+\item \textbf{Exercise 4.} Why add projective points?
+
+\textbf{Solution.} Affine curves can escape to infinity, and intersections can disappear in a coordinate chart. Projective completion adds limiting directions so that intersection theorems such as Bézout's count all intersections, including those at infinity.
+
+\item \textbf{Exercise 5.} Why are rational functions not defined everywhere?
+
+\textbf{Solution.} A quotient $p/q$ is undefined where $q=0$. On an irreducible variety it is therefore defined on a dense open subset, and the collection of such quotients forms the function field.
+
+\end{enumerate}
+\section*{8. References}
+\begin{thebibliography}{99}
+\bibitem{algebraic_geometry_ref1} R. Hartshorne, \emph{Algebraic Geometry}.
+\bibitem{algebraic_geometry_ref2} D. Eisenbud, \emph{Commutative Algebra with a View Toward Algebraic Geometry}.
+\bibitem{algebraic_geometry_ref3} D. Cox, J. Little, and D. O'Shea, \emph{Ideals, Varieties, and Algorithms}.
+\bibitem{algebraic_geometry_ref4} I. R. Shafarevich, \emph{Basic Algebraic Geometry}.
+\bibitem{algebraic_geometry_ref5} R. Hartshorne, \emph{Algebraic Geometry}, chapters on varieties, curves, and divisors.
+\bibitem{algebraic_geometry_ref6} B. Sturmfels, \emph{Solving Systems of Polynomial Equations}.
+\bibitem{algebraic_geometry_ref7} J.-P. Serre, "Géométrie algébrique et géométrie analytique," \emph{Annales de l'Institut Fourier}.
+\end{thebibliography}

@@ -1,0 +1,99 @@
+\theory{Matroid theory}{Which collections of objects behave like independent vectors in a vector space, even when the objects are edges of a graph or points in a geometry?}{Matroid theory studies combinatorial independence: a system of sets that captures what it means for elements to be independent, dependent, spanning, or minimal. It unifies results from linear algebra, graph theory, and geometry under one language of circuits, bases, and rank.}{Combinatorial optimization, graph theory, coding theory, network design, algorithm design, and geometry.}{Bases, circuits, independence, and rank describe when elements can or cannot replace one another without losing structural freedom.}
+
+\paragraph{Hassler Whitney}
+Whitney introduced matroids in 1935 as an abstraction of linear and algebraic independence. He showed that the exchange property underlying bases of a vector space is a purely combinatorial condition that appears in many settings, and he proved the first duality theorem for matroids \cite{matroid_theory_ref1}.
+
+\paragraph{B.L. van der Waerden and Saunders Mac Lane}
+Van der Waerden observed that geometric configurations, such as points and lines in a projective plane, satisfy independence axioms similar to those of a vector space. Mac Lane independently developed a lattice-theoretic characterization of matroids that emphasizes the dependence structure through flats and their meet-semilattice.
+
+\paragraph{Jack Edmonds and Paul Seymour}
+Edmonds showed in the 1960s and 1970s that matroid structure leads to efficient algorithms: matroid intersection and matroid partition problems are polynomial-time solvable, unlike many graph problems. Seymour's decomposition theorem for regular matroids completed the structure theory of binary matroids and deepened the link between matroids and combinatorial optimization \cite{matroid_theory_ref2}.
+\end{historylist}
+\section*{3. Theory}
+\subsection*{Core theory}
+\paragraph{Independent sets and bases}
+A matroid is a pair $(E,\mathcal{I})$ where $E$ is a finite set and $\mathcal{I}$ is a collection of subsets called independent sets. The axioms require that the empty set is independent, every subset of an independent set is independent, and the augmentation property holds: if $A$ and $B$ are independent and $|A|<|B|$, some element of $B\setminus A$ can be added to $A$ while remaining independent. A maximal independent set is called a basis. Every basis has the same size, called the rank of the matroid \cite{matroid_theory_ref1}.
+
+Two familiar examples illustrate the definition. In a vector space, independent sets are linearly independent sets of vectors and bases are vector-space bases. In a graph, take $E$ as the edge set and define a set of edges to be independent if it contains no cycle; the resulting matroid is called the graphic matroid. Bases of the graphic matroid are spanning forests, and the rank of a set of edges is the number of vertices minus the number of connected components they span.
+
+\paragraph{Circuits and closures}
+A circuit is a minimal dependent set. In the graphic matroid, circuits are cycles of the graph. In a vector matroid, a circuit is a minimal linearly dependent set of vectors. The circuit elimination axiom says that if $C_1$ and $C_2$ are distinct circuits sharing an element $e$, then $(C_1\cup C_2)\setminus\{e\}$ contains a circuit.
+
+The closure of a set $A$, written $\operatorname{cl}(A)$, is the largest set whose rank equals the rank of $A$. An element in the closure of $A$ but not in $A$ is said to be spanned by $A$. A flat is a set that equals its own closure. The lattice of flats of a matroid, ordered by inclusion, captures the matroid's geometric structure: flats of rank $r$ in a rank-$r$ matroid are the hyperplanes.
+
+\paragraph{Representable matroids}
+A matroid is representable over a field $F$ if its elements can be labeled by vectors in a finite-dimensional $F$-vector space so that independent sets correspond to linearly independent vectors. Every graphic matroid is representable over every field: assign a vector in $F^{n-1}$ (or the cycle space) to each edge. Matroids that are representable over $GF(2)$ are called binary; those representable over every field are called regular. Not all matroids are representable: the smallest non-representable matroid is $U_{2}^{4}$, the uniform matroid of rank $2$ on four elements, which fails over every field \cite{matroid_theory_ref2}.
+
+\paragraph{Duality and operations}
+The dual of a matroid $M$ on ground set $E$ has as its bases the complements of the bases of $M$. If $M$ is a graphic matroid of a connected graph $G$, then its dual is the graphic matroid of any planar dual of $G$. Deletion $M\setminus e$ removes element $e$; contraction $M/e$ forces $e$ into every basis. These two operations are the fundamental reductions of matroid theory, much as vertex deletion and edge contraction are in graph theory.
+
+The direct sum of two matroids on disjoint ground sets has as its independent sets the unions of independent sets from each summand. The restriction $M|A$ of $M$ to a subset $A\subseteq E$ keeps only elements of $A$. A loop is a circuit of size one; a coloop is an element that belongs to every basis. Deleting a loop does not change the rank; contracting a coloop reduces the rank by one.
+
+\paragraph{Matroid intersection and optimization}
+Two matroids on the same ground set may ask for a common independent set of maximum size. This matroid intersection problem is solvable in polynomial time by augmenting-path algorithms, generalizing bipartite matching and shortest-path problems. The matroid partition problem, which asks how many matroids are needed to cover a set, is likewise efficiently solvable. These results stand in contrast to NP-hard problems on general independence systems: matroid structure is what makes optimization tractable.
+
+\paragraph{Connectivity and structure}
+A matroid is connected if it cannot be written as a direct sum of two non-empty matroids. The components of a matroid are its maximal connected restriction and contraction pieces. For a graphic matroid, connectivity of the matroid corresponds to 2-connectedness of the underlying graph. Seymour's decomposition theorem says that every regular matroid can be built from graphic and cographic matroids along certain three-sum operations, giving a complete inductive structure for the regular class \cite{matroid_theory_ref2}.
+
+\paragraph{Coloring and extensions}
+Matroid coloring assigns elements so that no basis is monochromatic. The number of colors needed is related to the girth of the dual. The theory of matroid extensions and minors mirrors the Robertson--Seymour graph minor theory: there is a finite set of forbidden minors for each proper class of matroids, though the list is generally unknown. The Robertson--Seymour theorem for graph minors is a special case: graphs are exactly the graphic and cographic matroids plus one extra class, and the minor-closed property gives structural consequences.
+
+\paragraph{Applications}
+In combinatorial optimization, the greedy algorithm finds a maximum-weight basis of a matroid in polynomial time, which is why minimum spanning trees can be found by sorting edges and adding them greedily. Network design problems such as finding minimum-cost spanning structures are modelled by matroids. In coding theory, the bases of a matroid correspond to generating sets, and matroid duality translates into code duality. The Tutte polynomial of a matroid generalizes the chromatic polynomial of a graph and the Jones polynomial of a knot, unifying enumerative invariants across combinatorics \cite{matroid_theory_ref3}.
+
+\paragraph{What the theory depends on and where it is useful}
+Matroid theory depends on sets, linear algebra, graph theory, and combinatorics. It helps combinatorial optimization provide efficient algorithms, helps graph theory generalize cycle and spanning-tree arguments, helps coding theory unify code constructions, and helps geometry study configurations of points and flats. Its abstraction strips away metric and algebraic detail, leaving only independence structure; the cost is that some problems gain structure but not computation speed when the matroid is not representable \cite{matroid_theory_ref1}.
+
+\section*{4. Important theorems and results}
+\begin{enumerate}[leftmargin=*,itemsep=0.35em]
+\item \textbf{Basis exchange axiom.} If $B_1$ and $B_2$ are bases of a matroid and $e\in B_1\setminus B_2$, then there exists $f\in B_2\setminus B_1$ such that $(B_1\setminus\{e\})\cup\{f\}$ is a basis.
+
+\item \textbf{Circuit elimination.} If $C_1$ and $C_2$ are distinct circuits sharing an element $e$, then $(C_1\cup C_2)\setminus\{e\}$ contains a circuit.
+
+\item \textbf{Duality.} The dual of a matroid is a matroid. If $M$ has rank $r$ on ground set $E$, then $M^*$ has rank $|E|-r$, and the bases of $M^*$ are the complements of the bases of $M$.
+
+\item \textbf{Matroid intersection theorem.} For two matroids $M_1$ and $M_2$ on the same ground set, the maximum size of a common independent set equals the minimum of $r_1(X)+r_2(E\setminus X)$ over all subsets $X\subseteq E$, where $r_i$ is the rank function of $M_i$.
+
+\item \textbf{Seymour's decomposition theorem.} Every regular matroid can be constructed from graphic and cographic matroids along $3$-sums, and conversely every such construction is regular \cite{matroid_theory_ref2}.
+\end{enumerate}
+
+\theoryapplications
+\theoryconnections{matroid theory}{%
+\item Linear algebra supplies the representable case with vector spaces, independence, and rank; graph theory supplies graphic matroids via cycles and forests; combinatorics supplies counting and extremal arguments.
+\item Algorithms turn independence and exchange properties into greedy, intersection, and partition procedures with guaranteed optimality.
+}{%
+\item Matroid theory helps combinatorial optimization, coding theory, network design, scheduling, and the study of geometric configurations.
+\item By abstracting independence from algebra and graph theory, it provides a unified language for when elements can be added, removed, or exchanged without losing structure.
+}
+\section*{7. Sample Questions}
+\emph{Exercise reference:} \cite{matroid_theory_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
+\begin{enumerate}[leftmargin=*,itemsep=0.9em]
+\item \textbf{Exercise 1.} Identify the bases and circuits of the graphic matroid of $K_4$.
+
+\emph{Solution.} The ground set is the six edges of $K_4$. A basis is any spanning tree of $K_4$, which has three edges. A circuit is any cycle, such as a triangle, which has three edges.
+
+\item \textbf{Exercise 2.} Is every graphic matroid representable?
+
+\emph{Solution.} Yes. Every graphic matroid is representable over every field by assigning vectors to edges in the cycle space of the graph.
+
+\item \textbf{Exercise 3.} If $M$ has rank $4$ on a ground set of size $8$, what is the rank of its dual $M^*$?
+
+\emph{Solution.} The dual has rank $|E|-\operatorname{rank}(M)=8-4=4$.
+
+\item \textbf{Exercise 4.} Give an example of a matroid that is not representable over any field.
+
+\emph{Solution.} The uniform matroid $U_{2}^{4}$ of rank $2$ on four elements has no representation over any field; its four-element ground set of rank $2$ has no three-element circuit but cannot be embedded in any vector space with the required independence properties.
+
+\item \textbf{Exercise 5.} What does the greedy algorithm find on a matroid?
+
+\emph{Solution.} Given weights on the elements, the greedy algorithm finds a maximum-weight basis. For a graphic matroid, this is a minimum-weight spanning tree.
+
+\end{enumerate}
+\section*{8. References}
+\addcontentsline{toc}{section}{References}
+
+\begin{thebibliography}{9}
+\bibitem{matroid_theory_ref1} James G. Oxley, \emph{Matroid Theory}, 2nd ed., Oxford University Press, 2011.
+\bibitem{matroid_theory_ref2} Dominic J. A. Welsh, \emph{Matroid Theory}, Academic Press, 1976.
+\bibitem{matroid_theory_ref3} Thomas Brylawski and Douglas G. Kelly, \emph{Matroid Theory and Its Applications}, Springer, 1980.
+\end{thebibliography}

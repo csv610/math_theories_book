@@ -1,0 +1,170 @@
+\clearpage\chapter{Category theory}
+\section*{1. Overview}
+\subsection*{Intuitive}
+\paragraph{The problem}
+
+Mathematicians repeatedly build products, quotients, completions, duals, and solution spaces in different subjects. Category theory asks what these constructions have in common. It studies objects together with the maps between them, and it emphasizes relationships that remain meaningful when the internal details change.
+
+
+
+\subsection*{Formal}
+A category $\mathcal C$ consists of objects, morphisms $f:A\to B$, identity morphisms $1_A$, and a composition law that is associative and has $1_A$ as an identity. A functor maps objects and morphisms between categories while preserving identities and composition. A natural transformation compares two functors by component morphisms that make the corresponding squares commute.
+\section*{2. History}
+\subsection*{Historical development}
+\begin{historylist}
+\paragraph{History and the motivating idea}
+
+Samuel Eilenberg and Saunders Mac Lane introduced categories, functors, and natural transformations in the 1940s while formalizing algebraic topology. They wanted a language in which topological spaces could be related to algebraic invariants and in which the important maps between constructions were visible. The theory later became central to homological algebra, algebraic geometry, logic, and computer science.
+
+The category-theoretic viewpoint continues Emmy Noether's emphasis on maps preserving structure. It is not a claim that objects have no internal content. It is a method for identifying the part of a construction that is independent of a particular representation \cite{category_theory_ref1,category_theory_ref2}.
+
+\end{historylist}
+\section*{3. Theory}
+\subsection*{Core theory}
+\paragraph{Categories, objects, and morphisms}
+\bookfigure{category_commutative}{A commutative diagram records compatible ways of composing maps.}
+
+A category $\mathcal C$ has objects and morphisms. A morphism $f:A\to B$ has source $A$ and target $B$. Morphisms can be composed when the target of one is the source of the next. Composition is associative:
+\[
+ h\circ(g\circ f)=(h\circ g)\circ f.
+\]
+Every object $A$ has an identity morphism $1_A:A\to A$ satisfying
+\[
+ 1_B\circ f=f=f\circ1_A.
+\]
+
+The category $\mathbf{Set}$ has sets as objects and functions as morphisms. Groups with homomorphisms, topological spaces with continuous maps, vector spaces with linear maps, and smooth manifolds with smooth maps are other examples. A monoid is a category with one object: its elements are the endomorphisms of that object.
+
+A morphism may be a monomorphism if it can be cancelled on the left, an epimorphism if it can be cancelled on the right, and an isomorphism if it has a two-sided inverse. In sets these resemble injective, surjective, and bijective functions, but in general categories the analogies need not coincide exactly. Commutative diagrams show equations between composites by displaying paths with the same endpoints.
+
+\paragraph{Universal properties}
+
+Many important objects are best defined by how maps enter or leave them. The product $A\times B$ comes with projections $p_A$ and $p_B$. For every object $X$ and maps $f:X\to A$, $g:X\to B$, there is a unique map
+\[
+ \langle f,g\rangle:X\to A\times B
+\]
+whose composites with the projections are $f$ and $g$.
+
+This property, not a particular set of ordered pairs, defines a product in any category where it exists. The dual construction is a coproduct. Equalizers, coequalizers, pullbacks, pushouts, initial objects, and terminal objects are other universal constructions. Limits combine compatible diagrams; colimits glue diagrams together.
+
+Universal properties explain why apparently different constructions are the same. If two objects satisfy the same universal property, there is a unique isomorphism between them. The category must be stated: a product in sets, groups, or topological spaces has different internal structure, even though the mapping property has the same form.
+
+\paragraph{Functors}
+
+A functor $F:\mathcal C\to\mathcal D$ maps objects to objects and morphisms to morphisms while preserving identities and composition:
+\[
+ F(1_A)=1_{F(A)},\qquad F(g\circ f)=F(g)\circ F(f).
+\]
+Examples include the forgetful functor from groups to sets, the fundamental-group functor from pointed spaces to groups, and the vector-space dual functor, which is contravariant and reverses arrows.
+
+Functors let one transport a construction or invariant between subjects. A covariant functor preserves arrow direction; a contravariant functor is a covariant functor from the opposite category $\mathcal C^{op}$.
+
+\paragraph{Natural transformations}
+
+Given functors $F,G:\mathcal C\to\mathcal D$, a natural transformation $\eta:F\Rightarrow G$ assigns a morphism
+\[
+ \eta_A:F(A)\to G(A)
+\]
+to every object so that for every $f:A\to B$,
+\[
+ \eta_B\circ F(f)=G(f)\circ\eta_A.
+\]
+The square commutes. Naturality means the comparison is compatible with every map, not chosen separately for each object. If every $\eta_A$ is an isomorphism, the functors are naturally isomorphic.
+
+This distinction is important in algebra and topology. Two vector spaces may have isomorphic underlying dimensions, but a natural isomorphism says the identification is canonical and behaves correctly under all linear maps.
+
+\paragraph{Equivalence and duality}
+
+An isomorphism of categories is a strict reversible correspondence. An equivalence is weaker: functors in both directions are inverse up to natural isomorphism. Equivalent categories have the same category-level mathematics even when their objects are not literally identical.
+
+Every definition and theorem has a dual obtained by reversing all arrows. Products become coproducts, limits become colimits, monomorphisms become epimorphisms, and left adjoints become right adjoints in the dual formulation. This arrow-reversal often reveals a second theorem at no extra cost.
+
+\paragraph{Yoneda and representability}
+
+The Yoneda lemma says that an object is determined, up to canonical isomorphism, by the functor of maps into it. For an object $A$, the representable functor $\mathcal C(-,A)$ records every way other objects map to $A$. A natural transformation between representable functors comes from a unique morphism.
+
+Yoneda formalizes the slogan that an object is known by its relationships. It is the foundation for representable functors, moduli problems, and many universal-property proofs. It also warns against identifying objects merely by one selected set of coordinates.
+
+\paragraph{Adjunctions and other constructions}
+
+An adjunction pairs functors $F:\mathcal C\to\mathcal D$ and $G:\mathcal D\to\mathcal C$ so that maps $F(A)\to B$ correspond naturally to maps $A\to G(B)$. The free-group construction is left adjoint to the forgetful functor from groups to sets: maps from a set into the underlying set of a group extend uniquely to homomorphisms from the free group.
+
+Adjunctions explain universal properties and are often the most efficient way to recognize a construction. Functor categories have functors as objects and natural transformations as morphisms. Monads package an adjunction into a reusable algebraic operation and appear in programming-language semantics.
+
+\paragraph{Higher-dimensional categories}
+
+In an ordinary category, morphisms relate objects. A 2-category also has morphisms between morphisms, with horizontal and vertical composition and an interchange law. Bicategories weaken strict associativity and retain associativity up to coherent isomorphism. Monoidal categories are categories with a tensor-like product and a unit. The hierarchy continues to 3-categories, $n$-categories, and $\omega$-categories.
+
+Higher categories are useful when transformations between maps are themselves important, as in homotopy theory, derived geometry, topological quantum field theory, and higher-dimensional algebra.
+
+\section*{4. Important theorems and results}
+\begin{enumerate}[leftmargin=*,itemsep=0.35em]
+
+\item \textbf{Yoneda lemma.} Natural transformations from a representable functor are in one-to-one correspondence with morphisms in the category.
+
+\item \textbf{Universal-property uniqueness.} Two objects satisfying the same universal property are uniquely isomorphic.
+
+\item \textbf{Adjoint functor correspondence.} An adjunction gives natural bijections between two families of hom-sets and explains free constructions, products, and many completions.
+
+\item \textbf{Equivalence of categories.} Functors that are inverse up to natural isomorphism preserve category-level structure and theorems.
+
+\item \textbf{Functoriality of invariants.} A structure-preserving map induces a compatible map on an invariant; composition and identities are preserved automatically.
+
+\item \textbf{Duality principle.} Reversing all arrows in a categorical theorem gives a dual theorem in the opposite category.
+\end{enumerate}
+\noindent\emph{Source for these results:} \cite{category_theory_ref1}.
+
+\section*{5. Applications}
+Category theory is useful when the important information is how constructions map to one another and compose. Functors and universal properties preserve these relationships across algebra, geometry, logic, computation, and physics.
+\begin{enumerate}[leftmargin=*,itemsep=0.35em]
+\item \textbf{Algebraic topology.} Homology and homotopy are functors. A continuous map induces maps on algebraic invariants, and naturality lets one compare those induced maps.
+\item \textbf{Algebraic geometry.} Schemes, sheaves, fiber products, and derived functors are naturally categorical. The language makes local-to-global constructions and change of base systematic.
+\item \textbf{Logic and foundations.} Toposes provide categorical models of set-like mathematics and constructive logic. Categorical logic connects type theory, intuitionistic logic, and semantics.
+\item \textbf{Computer science.} Cartesian closed categories model typed lambda calculus; monads organize effects in functional programming; domain theory models recursive computation. A compiler's correctness proof can be expressed as a commuting diagram.
+\item \textbf{Physics and networks.} Monoidal categories describe processes that can be composed in time and placed side by side. They organize tensor networks, quantum circuits, open systems, databases, and Feynman-diagram composition.
+\end{enumerate}
+
+\textbf{Music and applied structures.} Applied category theory has been used to describe structured data, databases, dynamical systems, and compositional models in music theory. The common idea is to preserve relationships while changing representation \cite{category_theory_ref3,category_theory_ref4}.
+
+
+\theoryconnections{category_theory}{%
+\item Sets provide objects and functions provide arrows; category theory keeps only the composition rule and identity arrows that explain how constructions interact.
+\item This abstraction lets one compare groups, spaces, rings, and other subjects using the same diagram.
+\item A functor translates one category to another while preserving composition, and a natural transformation compares two such translations without choosing unrelated coordinates at every object \cite{category_theory_ref1,category_theory_ref2}.
+}{%
+\item Category theory helps algebraic topology by turning a space into algebraic data through functors, and helps algebraic geometry by organizing rings, spectra, and sheaves with universal maps.
+\item In programming and databases, a compositional diagram records how components or queries can be assembled.
+\item The gain is not a new numerical answer by itself; it is a proof that different constructions are compatible because they satisfy the same universal pattern \cite{category_theory_ref1,category_theory_ref3}.
+}
+\section*{7. Sample Questions}
+\emph{Exercise reference:} \cite{category_theory_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
+\begin{enumerate}[leftmargin=*,itemsep=0.9em]
+
+\item \textbf{Exercise 1.} Prove the universal property of the product of sets.
+
+\textbf{Solution.} Given $f:X\to A$ and $g:X\to B$, define $\langle f,g\rangle(x)=(f(x),g(x))$. It is the only function whose two projections are $f$ and $g$, because the ordered pair is determined by its components.
+
+\item \textbf{Exercise 2.} What is a functor from groups to sets?
+
+\textbf{Solution.} It sends each group to its underlying set and each homomorphism to the same underlying function. Identities and composition are preserved.
+
+\item \textbf{Exercise 3.} Why is a monoid a one-object category?
+
+\textbf{Solution.} Use one object whose endomorphisms are the monoid elements. Composition is the monoid multiplication and the identity morphism is the monoid identity.
+
+\item \textbf{Exercise 4.} State naturality for $\eta:F\Rightarrow G$.
+
+\textbf{Solution.} For every $f:A\to B$, the two paths from $F(A)$ to $G(B)$ agree: $\eta_BF(f)=G(f)\eta_A$.
+
+\item \textbf{Exercise 5.} What is the free-group adjunction?
+
+\textbf{Solution.} A set map from $X$ to the underlying set of a group $G$ extends uniquely to a homomorphism from the free group on $X$ to $G$. This natural bijection characterizes the free group.
+
+\end{enumerate}
+\section*{8. References}
+\begin{thebibliography}{99}
+\bibitem{category_theory_ref1} S. Mac Lane, \emph{Categories for the Working Mathematician}.
+\bibitem{category_theory_ref2} S. Awodey, \emph{Category Theory}.
+\bibitem{category_theory_ref3} E. Riehl, \emph{Category Theory in Context}.
+\bibitem{category_theory_ref4} F. W. Lawvere and S. H. Schanuel, \emph{Conceptual Mathematics}.
+\end{thebibliography}

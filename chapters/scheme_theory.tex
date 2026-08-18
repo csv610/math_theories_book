@@ -1,0 +1,86 @@
+\theory{Scheme theory}{How can algebraic geometry describe equations over arbitrary rings, remember multiplicities, and retain information lost when a field has too few visible points?}{A scheme is a space built from commutative rings. An affine scheme is the spectrum of a ring, whose points are prime ideals; a general scheme is obtained by gluing affine pieces together with a sheaf of functions. Schemes generalize varieties and unite geometry, topology, commutative algebra, and number theory.}{Algebraic geometry, arithmetic geometry, moduli spaces, number theory, the Weil conjectures, and Fermat's Last Theorem.}{Prime spectra, localization, and sheaves preserve algebraic, infinitesimal, and arithmetic information in a geometric form.}
+
+\paragraph{Alexander Grothendieck}
+Grothendieck introduced schemes in the 1960s to unify algebraic geometry over arbitrary rings. By using prime spectra and sheaves, he made nilpotents, generic points, and families part of the geometric object rather than information discarded by its visible points.
+
+\paragraph{Pierre Deligne and arithmetic geometers}
+Deligne used scheme-theoretic and cohomological methods to prove the remaining Weil conjecture. This demonstrated that schemes are not only a general language for varieties but also a working framework for arithmetic geometry \cite{scheme_ref1,scheme_ref3}.
+\end{historylist}
+\section*{3. Theory}
+\subsection*{Core theory}
+\paragraph{Why varieties are not enough}
+An algebraic variety is the set of solutions to polynomial equations, often over the complex numbers. This picture loses information over smaller fields. The equation $x^2+y^2=-1$ has no real points but has complex points. A scheme over the real numbers remembers how the equations behave over every field extension, not only what is visible in the real plane \cite{scheme_ref1}.
+
+Schemes also remember multiplicity. The equations $x=0$ and $x^2=0$ have the same visible solution set, but the second has a doubled structure. That extra information matters when studying intersections, tangent directions, and families in which components merge \cite{scheme_ref2}.
+
+\paragraph{Alexander Grothendieck and the spectrum}
+Alexander Grothendieck introduced schemes in the 1960s in \emph{Elements of Algebraic Geometry}. He wanted a flexible language for algebraic geometry over arbitrary bases, including the integers, and for deep problems such as the Weil conjectures. Pierre Deligne later proved the last Weil conjecture using this framework \cite{scheme_ref1,scheme_ref3}.
+
+For a commutative ring $R$, the affine scheme $\operatorname{Spec}(R)$ is the set of prime ideals of $R$. It has the Zariski topology, in which closed sets are
+\[
+V(I)=\{\mathfrak p:I\subseteq\mathfrak p\}.
+\]
+Maximal ideals behave like ordinary points, while non-maximal prime ideals are generic points of irreducible subspaces. The structure sheaf assigns a ring of regular functions to each open set. On a basic open set where $f$ is nonzero, the functions are obtained by allowing powers of $f$ in denominators \cite{scheme_ref2}.
+
+\paragraph{Gluing affine pieces}
+A scheme is a locally ringed space covered by affine schemes. The rings on overlapping pieces must agree through localization maps. This is analogous to describing the surface of a sphere with several maps: no single coordinate chart covers the whole surface, but compatible charts define the object.
+
+The coordinate ring of $\operatorname{Spec}(R)$ is $R$ itself. A ring map $B\to A$ induces a scheme map $\operatorname{Spec}(A)\to\operatorname{Spec}(B)$ in the opposite direction. This contravariance is essential: functions pull back along geometric maps \cite{scheme_ref1}.
+
+\paragraph{Morphisms, base change, and families}
+The relative viewpoint studies a morphism $X\to S$ rather than an isolated scheme. A scheme over a ring $R$ is a morphism $X\to\operatorname{Spec}(R)$. Base change replaces $R$ by another ring and asks how the family changes. This lets one study the same equations over the integers, a finite field, the real numbers, and the complex numbers.
+
+Moduli spaces classify geometric objects such as curves, vector bundles, or elliptic curves. A family of objects can itself have geometric structure, and schemes are designed to represent the functor that records all families. When objects have automorphisms, stacks extend schemes and algebraic spaces by remembering the symmetry groups \cite{scheme_ref4}.
+
+\paragraph{Arithmetic and geometry}
+The spectrum of the integers contains a generic point together with one point for each prime number. Thus arithmetic is represented as geometry. A scheme over the integers can be viewed as a family whose fibers over primes are reductions modulo $p$, while the generic fiber describes characteristic zero. This viewpoint links congruences, prime numbers, and geometric families.
+
+The language of schemes underlies modern proofs in arithmetic geometry. Wiles's proof of Fermat's Last Theorem used modular forms, elliptic curves, and deformation theory in a setting naturally expressed through rings and schemes. The point is not that a scheme is a picture in space; it is a controlled system of local functions that preserves algebraic information \cite{scheme_ref3}.
+
+\section*{4. Important theorems and results}
+\begin{enumerate}[leftmargin=*,itemsep=0.35em]
+\item \textbf{Affine correspondence.} Commutative rings and affine schemes are contravariantly equivalent: ring maps $B\to A$ correspond to morphisms $\operatorname{Spec}(A)\to\operatorname{Spec}(B)$.
+
+\item \textbf{Hilbert Nullstellensatz.} For polynomial rings over algebraically closed fields, maximal ideals correspond to geometric points.
+
+\item \textbf{Sheaf gluing principle.} Compatible affine pieces and their transition maps determine a scheme.
+
+\item \textbf{Base-change principle.} A morphism can be pulled back along another morphism, producing the corresponding geometric family over a new base.
+
+\item \textbf{Grothendieck's cohomological framework.} Scheme cohomology turns local function data into global invariants and supports duality, intersection theory, and the Weil conjectures.
+
+\item \textbf{Artin representability.} Under suitable conditions, a functor of families is represented by an algebraic space, and stack theory extends this to objects with automorphisms.
+\end{enumerate}
+\noindent\emph{Source for these results:} \cite{scheme_ref1}.
+
+\theoryapplications
+\theoryconnections{scheme_theory}{%
+\item Commutative algebra supplies rings and ideals, and localization zooms in by allowing selected elements to become invertible.
+\item The prime ideals form a space whose open sets reflect algebraic information, while a sheaf attaches the functions available on each open set.
+\item This local-to-global construction lets a scheme remember nilpotent or arithmetic information that ordinary point sets would discard; homological algebra measures whether local data glue consistently \cite{scheme_ref1,scheme_ref2}.
+}{%
+\item Schemes help arithmetic geometry treat a ring of integers and a polynomial curve in one language, so statements can be compared across different primes and over the complex numbers.
+\item They provide the base spaces for moduli problems, and their sheaves support intersection and deformation calculations.
+\item In number theory, reduction modulo a prime becomes a fiber of a morphism, making local behavior part of a global geometric object \cite{scheme_ref1,scheme_ref3}.
+}
+\section*{7. Sample Questions}
+\emph{Exercise reference:} \cite{scheme_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
+\begin{enumerate}[leftmargin=*,itemsep=0.9em]
+\item \textbf{Exercise 1. What are the points of $\operatorname{Spec}(\mathbb Z)$?} They are the prime ideals $(0)$ and $(p)$ for each prime integer $p$. The ideals $(p)$ are closed points, while $(0)$ is generic.
+
+\item \textbf{Exercise 2. Why is $\operatorname{Spec}(A)$ contravariant?} A ring map $B\to A$ lets a prime ideal of $A$ pull back to a prime ideal of $B$. Therefore the induced geometric map goes from $\operatorname{Spec}(A)$ to $\operatorname{Spec}(B)$.
+
+\item \textbf{Exercise 3. Compare $x=0$ and $x^2=0$.} Both have the same closed point, but $k[x]/(x^2)$ contains a nonzero nilpotent element $x$. The scheme remembers the doubled or infinitesimal structure.
+
+\item \textbf{Exercise 4. What is $\operatorname{Spec}(k[x])$ over an algebraically closed field?} Its maximal ideals $(x-a)$ correspond to points $a$ of the affine line. The zero ideal is a generic point whose closure is the whole line.
+
+\item \textbf{Exercise 5. Why study schemes over $\mathbb Z$?} A scheme over $\mathbb Z$ packages one characteristic-zero object together with its reductions modulo every prime, allowing arithmetic information to be studied as a family of fibers.
+
+\end{enumerate}
+\section*{8. References}
+\begin{thebibliography}{9}
+\bibitem{scheme_ref1} R. Hartshorne, \emph{Algebraic Geometry}.
+\bibitem{scheme_ref2} D. Eisenbud and J. Harris, \emph{The Geometry of Schemes}.
+\bibitem{scheme_ref3} A. Grothendieck and J. Dieudonne, \emph{Elements de geometrie algebrique}.
+\bibitem{scheme_ref4} D. Mumford, \emph{The Red Book of Varieties and Schemes}.
+\end{thebibliography}

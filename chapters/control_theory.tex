@@ -1,0 +1,176 @@
+\theory{Control theory}{How can a system reach a desired state despite disturbances, delay, and imperfect measurements?}{Control theory designs inputs that make a dynamical system behave as desired. A controller compares a measured process variable with a reference value, uses the error as feedback, and chooses a corrective action. The design must balance speed, accuracy, stability, energy, constraints, and uncertainty.}{Aircraft and spacecraft, robots, industrial plants, vehicles, power grids, communication systems, economics, biology, artificial intelligence, and any process in which feedback changes behavior.}{State-space models, feedback, and stability criteria connect measured system behavior with inputs designed to regulate it.}
+
+\paragraph{The problem and its history}
+
+A dynamical system changes with time. A room has a temperature, a vehicle has a position and speed, and a spacecraft has an orientation and fuel level. An input can change the system, while disturbances such as wind, friction, noise, or an unexpected load push it away from the desired state.
+
+The controller measures a process variable, compares it with a reference or set point, and forms the error
+\[
+ e(t)=\text{set point}-\text{measured value}.
+\]
+It uses this error to generate a control action. A thermostat turns heating on when the measured temperature is below the target. Cruise control changes engine power when the speed differs from the set speed. The aim is not simply to act strongly; excessive correction causes overshoot or oscillation. \cite{control_theory_ref1,control_theory_ref2}
+
+Control systems existed in mechanical form long before the modern theory. James Clerk Maxwell analyzed the stability of centrifugal governors in 1868 and explained how delay can produce self-oscillation. Edward Routh, Charles Sturm, and Adolf Hurwitz developed stability criteria. Nicolas Minorsky developed proportional-integral-derivative control for ship steering in the 1920s. Aircraft control, World War II guidance, the Space Race, robotics, and industrial automation then drove the subject forward. \cite{control_theory_ref3,control_theory_ref4}
+
+\end{historylist}
+\section*{3. Theory}
+\subsection*{Core theory}
+\paragraph{Open-loop and closed-loop control}
+\bookfigure{control_feedback}{Feedback compares a desired value with a measured output and corrects the input.}
+
+An open-loop controller gives an input without using the measured result. A washing machine may run a fixed program for a fixed time. Open-loop control is simple, but it cannot correct an unplanned disturbance.
+
+Closed-loop control uses feedback. A sensor measures the output; the controller compares it with the target; and the actuator changes the input. Negative feedback means that the controller acts to reduce the error. A block diagram commonly shows the reference, summing point, controller, plant, sensor, and feedback path.
+
+Feedback can stabilize an unstable process, reject disturbances, and make performance less sensitive to uncertain parameters. It can also cause trouble. A delayed or excessively strong feedback signal can make the system oscillate. Every design therefore asks whether the closed loop is stable and whether it remains stable when the model is imperfect.
+
+\paragraph{Mathematical models and transfer functions}
+
+A simple linear time-invariant model is
+\[
+ \dot x=Ax+Bu,\qquad y=Cx+Du,
+\]
+where $x$ is the state, $u$ is the input, and $y$ is the measured output. With state feedback $u=-Kx$, the closed-loop equation becomes
+\[
+ \dot x=(A-BK)x.
+\]
+Choosing $K$ changes the eigenvalues of $A-BK$, which determine whether small disturbances decay or grow.
+
+In classical control, the relation between input and output is often described by a transfer function
+\[
+ G(s)=\frac{Y(s)}{U(s)},
+\]
+obtained from differential equations using the Laplace transform. The variable $s$ is complex. Poles of $G(s)$ describe natural modes; zeros describe cancellations or frequencies at which the response is suppressed. A block diagram lets engineers combine components by multiplication and feedback formulas.
+
+The model is an approximation. A motor may be linearized near one operating point, while friction, saturation, backlash, and changing loads make the actual system nonlinear. Control theory studies how much performance survives such errors. \cite{control_theory_ref1,control_theory_ref5}
+
+\paragraph{Classical control: SISO and PID}
+
+Classical control usually treats one input and one output, called SISO control. The design can use a step response, a root-locus plot, a Bode plot, a Nyquist plot, or a frequency-response measurement.
+
+The proportional-integral-derivative controller is
+\[
+ u(t)=K_Pe(t)+K_I\int_0^t e(\tau)\,d\tau+K_D\frac{de}{dt}.
+\]
+The proportional term reacts to the present error. The integral term accumulates past error and removes steady-state offset. The derivative term anticipates the trend and can reduce overshoot, although it amplifies measurement noise. Real controllers use filters and limits because actuators cannot supply infinite force.
+
+Design specifications include settling time, rise time, percent overshoot, steady-state error, bandwidth, and gain and phase margins. Classical controllers remain common because they are inexpensive, interpretable, and easy to tune on site, even when modern state-space methods could describe the same plant more fully. \cite{control_theory_ref2,control_theory_ref6}
+
+\paragraph{Modern control: state space and MIMO systems}
+
+Modern control represents all important internal variables as a state vector. This is essential when several inputs and outputs interact. A large telescope may have many mirror segments, actuators, and sensors; a nuclear reactor and a biological cell may also require multiple interacting variables.
+
+A system is controllable if inputs can move it from the relevant initial state to a desired state in finite time. It is observable if the internal state can be reconstructed from the measured outputs. For the linear system $(A,B)$, controllability is tested by the rank of
+\[
+ [B\;AB\;A^2B\;\cdots\;A^{n-1}B].
+\]
+For $(A,C)$, observability is tested by the rank of
+\[
+ \begin{bmatrix}C\\CA\\CA^2\\\vdots\\CA^{n-1}\end{bmatrix}.
+\]
+Without controllability, some modes cannot be moved by the actuator. Without observability, a controller cannot know which internal mode is active.
+
+Observers estimate hidden states from measurements. The Kalman filter combines a model with noisy data and is optimal for a standard linear-Gaussian estimation problem. Pole placement chooses feedback so that the closed-loop eigenvalues have desired locations, provided the system is controllable. \cite{control_theory_ref7,control_theory_ref8}
+
+\paragraph{Frequency-domain and time-domain analysis}
+
+Frequency-domain analysis replaces differential equations by algebraic relations in frequency. Laplace, Fourier, and Z transforms convert continuous or discrete time signals into functions of a complex frequency. For linear systems this simplifies convolution into multiplication and makes resonance, bandwidth, gain, phase, and stability visible in plots.
+
+Time-domain state-space analysis keeps the state as a function of time and works naturally with multiple inputs, nonzero initial conditions, nonlinear terms, and simulations. Frequency methods are especially convenient for linear SISO design; state-space methods are more flexible for modern MIMO and nonlinear systems. Engineers often use both: a simulation checks the transient response, while a frequency plot checks robustness and margins.
+
+\paragraph{Stability and robustness}
+
+Stability means that disturbances do not make the system diverge. Lyapunov stability asks whether trajectories that start close remain close; asymptotic stability additionally requires them to approach the desired state. Bounded-input bounded-output stability requires every bounded input to produce a bounded output for a causal system.
+
+For a continuous-time linear system, poles must lie in the open left half of the complex plane. For a discrete-time system, poles must lie inside the unit circle. A pole on the boundary can produce a permanent oscillation or marginal behavior. For example,
+\[
+ x[n]=0.5^n u[n]
+\]
+has a Z-transform with a pole at $0.5$, so it decays. Replacing $0.5$ by $1.5$ gives a pole outside the unit circle and a growing response.
+
+Robust control designs for uncertainty in the model. A controller should tolerate small changes in mass, delay, friction, sensor calibration, and unmodeled dynamics. H-infinity loop shaping, sliding-mode control, and structured uncertainty methods explicitly trade nominal performance for guaranteed margins. \cite{control_theory_ref2,control_theory_ref9}
+
+\paragraph{Linear, nonlinear, decentralized, and stochastic systems}
+
+Linear methods are powerful because superposition holds: the response to two inputs is the sum of the separate responses. Nonlinear systems violate this rule. Robots and aircraft contain saturation, trigonometric geometry, contact, and aerodynamic effects. Nonlinear control uses Lyapunov functions, feedback linearization, backstepping, sliding modes, trajectory linearization, and differential geometry.
+
+In decentralized control, several controllers coordinate through communication rather than one central computer. This is useful for power networks, fleets of robots, and geographically distributed plants. The communication itself may be delayed or unreliable, creating another feedback loop.
+
+Deterministic control assumes that the model and disturbances are known functions. Stochastic control includes random shocks. It seeks policies that optimize an expected cost or a risk-sensitive criterion. Filtering and stochastic control are central in finance, robotics, navigation, and adaptive decision-making.
+
+\paragraph{Main control strategies}
+
+Optimal control chooses an input that minimizes a cost, such as fuel, time, tracking error, or energy. Pontryagin's maximum principle gives necessary conditions, while dynamic programming leads to Bellman equations. Linear-quadratic-Gaussian control combines a quadratic cost, linear dynamics, Gaussian noise, and Kalman filtering.
+
+Model predictive control repeatedly solves a finite-horizon optimization problem, applies the first action, measures the new state, and solves again. It can include actuator and safety constraints, which explains its importance in chemical plants, engines, and energy systems. Robust control protects against model uncertainty; adaptive control identifies parameters online and changes controller gains.
+
+Hierarchical and networked control arrange devices and software in levels. Intelligent control combines neural networks, Bayesian methods, fuzzy logic, evolutionary algorithms, or machine learning with a dynamic model. These methods can help with poorly known systems, but safety and stability cannot be assumed merely because a prediction is accurate on training data. \cite{control_theory_ref6,control_theory_ref10}
+
+\paragraph{Applications and connections}
+
+Control theory depends on differential equations, linear algebra, transforms, probability, optimization, numerical simulation, and dynamical systems. It helps robotics by turning desired motion into actuator commands, aerospace by stabilizing aircraft and spacecraft, manufacturing by keeping temperature and pressure within limits, and medicine by regulating drug delivery and artificial organs.
+
+Feedback also appears in economics, operations research, biology, and artificial intelligence. A market model responds to prices; a population responds to resources; a learning system changes its parameters from errors. The same mathematical questions recur: what is measured, what can be changed, how fast does the correction act, and what happens when the model is wrong?
+
+\section*{4. Important theorems and results}
+\begin{enumerate}[leftmargin=*,itemsep=0.35em]
+
+\item \textbf{Routh--Hurwitz criterion.} The coefficients of a real polynomial determine, through a finite array calculation, whether all roots lie in the open left half-plane. This gives a stability test without solving for every root. \cite{control_theory_ref3}
+
+\item \textbf{Pole-location criterion.} A continuous-time linear transfer function is asymptotically stable when all poles have negative real part; a discrete-time system is stable when all poles lie inside the unit circle. \cite{control_theory_ref2}
+
+\item \textbf{Controllability and observability tests.} The Kalman rank tests determine whether a finite-dimensional linear system can be driven and reconstructed from its inputs and outputs. \cite{control_theory_ref7}
+
+\item \textbf{Separation principle.} Under standard linear assumptions, a controller designed from an estimated state and a Kalman observer can be designed in separate pieces: the feedback and observer poles combine in the closed loop. \cite{control_theory_ref8}
+
+\item \textbf{Bellman principle.} An optimal control policy has optimal remaining decisions after every intermediate state, leading to dynamic programming and the Hamilton--Jacobi--Bellman equation. \cite{control_theory_ref10}
+\end{enumerate}
+
+\theoryapplications
+\theoryconnections{control theory}{%
+\item Differential equations model the plant, linear algebra describes state and output maps, and complex analysis locates poles and zeros.
+\item Optimization and probability enter when control effort, noise, uncertainty, and competing performance goals must be balanced.
+}{%
+\item Control theory helps robotics, aircraft, industrial processes, power systems, and autonomous vehicles keep a desired state despite disturbances.
+\item Its stability and observability tests also guide system identification, signal filtering, and the design of feedback in biological and economic models.
+}
+\section*{7. Sample Questions}
+\emph{Exercise reference:} \cite{control_theory_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
+\begin{enumerate}[leftmargin=*,itemsep=0.9em]
+
+\item \textbf{Exercise 1.} For $\dot x=ax$ with feedback $u=-kx$ and plant equation $\dot x=ax+u$, when is the closed loop asymptotically stable?
+
+\emph{Solution.} The closed loop is $\dot x=(a-k)x$. It decays exactly when $a-k<0$, or $k>a$. Feedback can stabilize an unstable plant with $a>0$ if the actuator affects the state.
+
+\item \textbf{Exercise 2.} What is the purpose of the integral term in a PID controller?
+
+\emph{Solution.} It accumulates the error over time. If a constant disturbance leaves a nonzero steady-state error, the integral term keeps increasing the control action until that offset is removed, subject to actuator saturation.
+
+\item \textbf{Exercise 3.} What does controllability mean in plain language?
+
+\emph{Solution.} It means that the available inputs can move the system from its current state to the desired state, at least within the model, in finite time. An unactuated mode makes the system uncontrollable.
+
+\item \textbf{Exercise 4.} Why might a system be observable but not controllable?
+
+\emph{Solution.} Sensors may reveal an internal mode while actuators cannot influence it. Observation concerns what can be inferred from outputs; controllability concerns what can be changed by inputs. They are logically different properties.
+
+\item \textbf{Exercise 5.} Why can feedback destabilize a system?
+
+\emph{Solution.} If the correction is delayed, too strong, or based on a noisy measurement, the controller may overcorrect. The resulting closed-loop poles can move outside the stable region, creating growing oscillations rather than reducing the error.
+
+\end{enumerate}
+\section*{8. References}
+
+
+\begin{thebibliography}{9}
+\bibitem{control_theory_ref1} K. J. Åström and R. M. Murray, \emph{Feedback Systems: An Introduction for Scientists and Engineers}, Princeton University Press, 2008.
+\bibitem{control_theory_ref2} G. F. Franklin, J. D. Powell, and A. Emami-Naeini, \emph{Feedback Control of Dynamic Systems}, Pearson, 8th ed., 2019.
+\bibitem{control_theory_ref3} J. C. Maxwell, "On governors," \emph{Proceedings of the Royal Society}, 1868.
+\bibitem{control_theory_ref4} E. J. Routh, \emph{A Treatise on the Stability of a Given State of Motion}, Macmillan, 1877.
+\bibitem{control_theory_ref5} R. H. Middleton and G. C. Goodwin, \emph{Digital Control and Estimation}, Prentice Hall, 1990.
+\bibitem{control_theory_ref6} S. Skogestad and I. Postlethwaite, \emph{Multivariable Feedback Control}, Wiley, 2nd ed., 2005.
+\bibitem{control_theory_ref7} R. E. Kalman, "On the general theory of control systems," in \emph{Proceedings of the First International Congress of Automatic Control}, 1960.
+\bibitem{control_theory_ref8} R. E. Kalman, "A new approach to linear filtering and prediction problems," \emph{Journal of Basic Engineering}, 1960.
+\bibitem{control_theory_ref9} K. Zhou, J. C. Doyle, and K. Glover, \emph{Robust and Optimal Control}, Prentice Hall, 1996.
+\bibitem{control_theory_ref10} D. P. Bertsekas, \emph{Dynamic Programming and Optimal Control}, Athena Scientific, 4th ed., 2017.
+\end{thebibliography}

@@ -1,0 +1,193 @@
+\theory{Chaos theory}{How can a completely deterministic system become practically unpredictable?}{Chaotic systems amplify tiny differences in starting conditions. Equations can be simple while long-term prediction fails; nevertheless, attractors, dimensions, and statistical patterns can remain measurable.}{Weather, turbulence, pendulums, heart rhythms, and population studies.}{Iteration, sensitivity, Lyapunov growth, and attractors turn deterministic equations into measurable predictions and finite forecast limits.}
+\paragraph{Concrete examples and uses}
+Consider the logistic map $x_{n+1}=4x_n(1-x_n)$. Nearby initial values separate because the map repeatedly stretches and folds the interval. This matters in practice because finite precision eventually repeats an orbit; chaotic models describe deterministic unpredictability in weather and ecology.
+
+\paragraph{Historical development}
+Henri Poincare discovered the essential difficulty while studying the
+three-body problem. The equations are deterministic, but the paths of three
+gravitating bodies can wind around one another so intricately that a small
+uncertainty in the starting positions changes the later path. Poincare's
+method of recording where an orbit crosses a surface became the Poincare
+section, a basic tool for visualising complicated dynamics
+\cite{chaos_theory_ref3}.
+
+In 1963 Edward Lorenz found similar behaviour in a simplified model of
+atmospheric convection. Rounding one number in a restarted computer run
+changed the later weather-like pattern. The lesson was not that a butterfly
+directly controls one tornado; it was that imperfect knowledge of the
+present can impose a finite horizon on prediction
+\cite{chaos_theory_ref4}. In the 1970s Robert May showed that a one-line
+population model can move from stable growth to cycles and chaos. Mitchell
+Feigenbaum then found a common numerical pattern in period-doubling routes
+to chaos \cite{chaos_theory_ref1}.
+
+\end{historylist}
+\section*{3. Theory}
+\subsection*{Core theory}
+\paragraph{What chaos means}
+A discrete dynamical system repeatedly applies a rule
+$x_{n+1}=f(x_n)$. A continuous-time system is often written as
+$d\mathbf{x}/dt=F(\mathbf{x})$. The state space contains all possible
+present states; an orbit is the sequence generated from one starting state.
+An equilibrium stays fixed, a periodic orbit repeats, and an attractor is a
+set toward which many initial states move.
+
+There is no single definition that covers every use of the word chaos. A
+common definition for a continuous map on a suitable metric space requires
+topological transitivity, dense periodic points, and sensitive dependence on
+initial conditions \cite{chaos_theory_ref2}. Transitivity means that the
+motion can carry points from one open region into another. Dense periodic
+points mean that regular cycles occur arbitrarily close to other states.
+Sensitivity means that arbitrarily close starting states can later become
+noticeably separated.
+
+Sensitivity by itself is not enough. The map $x\mapsto2x$ separates nearby
+points but usually sends them simply to infinity. Chaotic systems normally
+combine stretching with folding or another mechanism that keeps motion in a
+bounded region. The apparent disorder then comes from deterministic feedback,
+not from a random instruction.
+
+\paragraph{The logistic map and the route to chaos}
+\bookfigure{dynamics_chaos_bifurcation}{The logistic map shows how repeated iteration and parameter change can produce complex behavior.}
+Consider
+\[
+x_{n+1}=r x_n(1-x_n),\qquad 0\leq x_n\leq1.
+\]
+The variable can represent a scaled population and $r$ the strength of
+reproduction. The fixed points solve $rx(1-x)=x$, so they are $0$ and
+$x_*=1-1/r$. For $0<r<1$ the population tends to zero. For $1<r<3$ the
+nonzero fixed point is stable: a small error around it shrinks after
+iteration.
+
+At $r=3$ the fixed point loses stability and a stable period-two cycle
+appears. As $r$ increases, cycles of periods four, eight, and higher powers
+of two appear. These period-doubling values accumulate near
+$r=3.56995$. Beyond that point the map contains chaotic ranges as well as
+periodic windows. At $r=4$, two initial values differing in a few decimal
+places can agree for several steps and then diverge dramatically.
+
+The map is valuable because it demonstrates the whole mechanism in a model
+small enough to calculate by hand: feedback, loss of stability, repeated
+period doubling, sensitivity, and a statistical long-run pattern. The model
+does not claim that every population is logistic; it isolates one mechanism
+that a more realistic model can test \cite{chaos_theory_ref1}.
+
+\paragraph{The Lorenz system and strange attractors}
+Lorenz studied
+\[
+\dot{x}=\sigma(y-x),\qquad
+\dot{y}=x(\rho-z)-y,\qquad
+\dot{z}=xy-\beta z.
+\]
+For $\sigma=10$, $\rho=28$, and $\beta=8/3$, trajectories approach a
+bounded butterfly-shaped set called the Lorenz attractor. The two wings are
+regions of state space in which the model circulates before switching to the
+other region. A trajectory never settles to one fixed point or one simple
+cycle, but it remains confined.
+
+A strange attractor combines boundedness with complicated geometry and
+sensitive motion. A Poincare section records the orbit whenever it crosses a
+chosen surface, turning a continuous flow into a discrete map. It often
+reveals stretching and folding more clearly than a three-dimensional plot.
+The attractor can have a fractal dimension, so geometric complexity and
+predictability can be measured separately \cite{chaos_theory_ref3}.
+
+\paragraph{Lyapunov exponents and predictability}
+If two nearby trajectories initially differ by $\delta_0$, their separation
+may behave for a while like
+\[
+|\delta(t)|\approx |\delta_0|e^{\lambda t}.
+\]
+The number $\lambda$ is a Lyapunov exponent. A positive largest exponent
+means exponential growth of small errors in the direction being measured.
+The reciprocal gives a rough Lyapunov time: after several such times, the
+initial error may be too large for a detailed forecast.
+
+This is a diagnostic rather than a magic certificate. A numerical transient
+can look chaotic before settling, rounding can create false growth, and
+different directions can have different exponents. A bounded system with a
+positive largest exponent is strong evidence of chaos, but it should be
+checked with phase portraits, recurrence tests, or a Poincare section
+\cite{chaos_theory_ref1}.
+
+\section*{4. Important theorems and results}
+\begin{enumerate}[leftmargin=*,itemsep=0.35em]
+\item \textbf{Poincare--Bendixson theorem.} A sufficiently regular continuous-time
+system confined to a compact region of the plane cannot have a strange
+attractor. Its limit sets are equilibria, periodic orbits, or connecting
+trajectories. A continuous-time strange attractor therefore requires at
+least three effective state variables, although a one-dimensional discrete
+map can already be chaotic.
+
+\item \textbf{Period-three theorem.} Li and Yorke proved that a continuous map of
+an interval with a point of period three has periodic points of every
+positive period and an uncountable set of nonperiodic chaotic orbits. This
+explains why the simple logistic map can contain much richer behaviour than
+its formula suggests \cite{chaos_theory_ref2}.
+
+\item \textbf{Feigenbaum universality.} In many one-parameter families, ratios of
+successive parameter intervals in a period-doubling cascade approach about
+$4.669$. The same constant appearing in different families shows that some
+routes to chaos depend on broad structural features rather than every detail
+of the formula \cite{chaos_theory_ref1}.
+\end{enumerate}
+
+\paragraph{Concrete uses}
+In weather forecasting, the atmosphere is modelled by deterministic
+equations but its pressure, temperature, and wind are measured imperfectly.
+Forecast centres run the model from many slightly different starting states.
+If the runs spread rapidly, the service reports a probability of rain rather
+than one falsely precise long-range path. Chaos theory explains why a short
+forecast can be useful while a detailed forecast eventually loses skill.
+
+In mechanical engineering, a double pendulum or a vibrating rotor can have
+only a few moving parts and still show chaotic motion. Engineers calculate
+Poincare sections and Lyapunov exponents to locate operating energies where a
+small vibration grows rapidly. That information helps them avoid unstable
+regimes or design feedback that suppresses the growth.
+
+In ecology, the logistic map shows that a population can fluctuate
+irregularly without an external random shock. If an estimated reproduction
+parameter is near a period-doubling threshold, a small change in harvesting
+or climate may change a stable cycle into a complicated fluctuation. The
+model is useful as a warning about feedback, not as a complete description
+of a particular species.
+
+Chaotic circuits can generate signals that look noise-like and are sensitive
+to circuit parameters. They have been studied for spread-spectrum
+communication and encryption-related designs. Chaos alone is not a security
+proof: a low-dimensional deterministic signal may be reconstructed by an
+attacker, so cryptographic security requires a separate tested construction.
+
+Heart-rate records can be analysed with return maps, entropy, and related
+measures to compare long-term regulation in different physiological states.
+These quantities turn a time series into measurable features, but they are
+not diagnoses by themselves and must be validated against clinical data.
+
+\paragraph{What chaos is not}
+Chaos is not the same as randomness, complexity, or poor measurement. A
+chaotic system has a definite future when its exact state is specified.
+Practical prediction fails because the exact state is never known and small
+errors grow. Conversely, an irregular data set may be caused by measurement
+noise, changing parameters, or an omitted random process rather than chaos.
+
+The butterfly effect is therefore a statement about sensitivity, not a claim
+that a tiny event always causes one particular large event. Even when exact
+trajectories cannot be predicted, bounds, averages, invariant distributions,
+or probabilities of entering a region may remain predictable.
+\theoryapplications
+\theoryconnections{chaos theory}{%
+\item Calculus and differential equations describe the state update, while numerical experiments reveal sensitivity, invariant sets, and long-term patterns.
+\item Probability is useful when deterministic trajectories are replaced by statistical descriptions, and topology supplies the language of attractors and recurrence.
+}{%
+\item Chaos theory helps weather, ecology, fluid dynamics, and control distinguish short-term prediction from long-term statistical prediction.
+\item Its sensitivity tests also warn numerical modelers that a small measurement or rounding error can change a detailed forecast without making the model itself random.
+}
+\chapterquestions{Chaos theory}{iterated maps, sensitivity, orbits, and invariant sets}{the logistic map $x_{n+1}=4x_n(1-x_n)$}{nearby initial values separate because the map repeatedly stretches and folds the interval}{positive Lyapunov exponent is evidence of exponential sensitivity}{finite precision eventually repeats an orbit; chaotic models describe deterministic unpredictability in weather and ecology}{chaos_theory_ref1}
+\section*{8. References}
+\begin{thebibliography}{9}
+\bibitem{chaos_theory_ref1} S. H. Strogatz, \emph{Nonlinear Dynamics and Chaos}.
+\bibitem{chaos_theory_ref2} R. L. Devaney, \emph{An Introduction to Chaotic Dynamical Systems}.
+\bibitem{chaos_theory_ref3} E. Ott, \emph{Chaos in Dynamical Systems}.
+\bibitem{chaos_theory_ref4} E. N. Lorenz, \emph{The Essence of Chaos}.
+\end{thebibliography}

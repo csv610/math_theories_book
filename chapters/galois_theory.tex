@@ -1,0 +1,103 @@
+\theory{Galois theory}{Can the symmetries of the roots of an equation tell us whether its roots have a formula using radicals?}{Galois theory connects field extensions with groups of symmetries. It replaces the difficult task of manipulating roots by the more organized task of studying the permutations that preserve every algebraic relation among them.}{Polynomial equations, geometric constructions, number theory, finite fields, coding, and modern algebra.}{Automorphism groups record how roots can be permuted, converting solvability of equations into a question about group structure.}
+
+\paragraph{The question that created the theory}
+For quadratic equations, the quadratic formula expresses the roots using addition, multiplication, division, and square roots. Cardano and Ferrari found corresponding methods for cubics and quartics. Niels Henrik Abel proved that no formula of the same kind can solve every polynomial of degree five or more. The question then changed: which particular equations can be solved by radicals, and why? Évariste Galois supplied the answer by studying the symmetries of the roots \cite{galois_theory_ref1,galois_theory_ref2}.
+
+The history grew from older work on symmetric functions. The coefficients of a monic polynomial are symmetric expressions in its roots, as in $(x-a)(x-b)=x^2-(a+b)x+ab$. Lagrange studied permutations of roots and resolvent polynomials; Ruffini and Abel established the general impossibility for the quintic; Galois identified the exact group-theoretic criterion. His memoir was published by Joseph Liouville after Galois's death and was difficult for contemporaries to understand.
+
+\end{historylist}
+\section*{3. Theory}
+\subsection*{Core theory}
+\paragraph{The symmetry of a quadratic}
+\bookfigure{field_galois_lattice}{Galois theory studies the symmetries of field extensions while fixing the base field.}
+Consider $x^2-4x+1=0$. Its roots are $A=2+\sqrt3$ and $B=2-\sqrt3$. Both satisfy rational relations such as $A+B=4$ and $AB=1$. Swapping $A$ and $B$ preserves every relation whose coefficients are rational. The identity and the swap form a group of two elements.
+
+The field $\mathbb{Q}(\sqrt3)$ contains every number obtained from rational numbers and $\sqrt3$ by arithmetic. An automorphism of this field that fixes $\mathbb{Q}$ may send $\sqrt3$ to $\sqrt3$ or $-\sqrt3$. These are exactly the two symmetries above. The Galois group is therefore the group of order two.
+
+\paragraph{A quartic with four sign changes}
+The polynomial $x^4-10x^2+1$ has roots
+\[
+A=\sqrt2+\sqrt3,\quad B=\sqrt2-\sqrt3,\quad
+C=-\sqrt2+\sqrt3,\quad D=-\sqrt2-\sqrt3.
+\]
+Changing the sign of $\sqrt2$, changing the sign of $\sqrt3$, or changing both produces four valid automorphisms. They form the Klein four-group. Relations such as $AB=-1$, $AC=1$, and $A+D=0$ show that the image of $A$ determines the images of all four roots. This is the central practical idea: an allowed symmetry must preserve all relations over the base field \cite{galois_theory_ref2}.
+
+\paragraph{The modern field-theoretic picture}
+Start with a field extension $L/K$. The Galois group $\operatorname{Gal}(L/K)$ consists of all automorphisms of $L$ that leave every element of $K$ fixed. If $L$ is the splitting field of a polynomial over $K$, these automorphisms permute its roots. The modern formulation works over rational, number, finite, or local fields and also handles infinite and inseparable extensions.
+
+For a finite Galois extension, the fundamental theorem gives a reverse-order correspondence between intermediate fields $K\subseteq E\subseteq L$ and subgroups of $\operatorname{Gal}(L/K)$. The field fixed by a subgroup $H$ is
+\[
+L^H=\{x\in L:h(x)=x\text{ for every }h\in H\}.
+\]
+Large subgroups fix small fields; small subgroups fix large fields. Normal subgroups correspond to intermediate extensions that are themselves Galois.
+
+\paragraph{Solvability by radicals}
+An equation is solvable by radicals if its roots can be formed from the coefficients using arithmetic operations and repeated extraction of $n$th roots. A finite group is solvable when it can be built through a chain whose successive quotients are cyclic abelian groups. Galois's theorem states that a polynomial over a field of characteristic zero is solvable by radicals precisely when its Galois group is solvable, after the usual roots of unity are included \cite{galois_theory_ref1}.
+
+Every polynomial of degree at most four has a solvable Galois group. For the general polynomial of degree $n\geq5$, the symmetric group $S_n$ appears, and it contains the nonsolvable alternating group $A_n$. Hence there is no universal radical formula. Particular quintics may still be solvable; the theorem is about the general equation, not every equation of that degree.
+
+\paragraph{Classical geometry}
+Compass-and-straightedge constructions correspond to field extensions whose degrees are powers of two. A cube cannot be doubled because it would require constructing $\sqrt[3]{2}$, which has degree three. A general angle cannot be trisected because the required cubic need not have a constructible solution. A regular polygon with $n$ sides is constructible exactly when $n$ is a product of a power of two and distinct Fermat primes. Galois theory proves the completeness of this characterization, not merely the construction of known examples \cite{galois_theory_ref3}.
+
+\paragraph{Separable, normal, and infinite extensions}
+An algebraic extension is separable when every element has a minimal polynomial with distinct roots. It is normal when every irreducible polynomial over the base field with one root in the extension splits there. A finite extension that is both normal and separable is Galois. In characteristic zero separability is automatic; in positive characteristic an equation such as $x^p-a$ can have repeated roots.
+
+The absolute Galois group of a field $K$ is the Galois group of an algebraic closure of $K$ over $K$. This lets number theorists study all finite extensions at once. Galois theory has also been generalized to Galois connections and Grothendieck's Galois theory, which captures geometric and arithmetic coverings.
+
+\paragraph{What the theory depends on and where it is useful}
+Galois theory depends on field theory, polynomial arithmetic, permutation groups, and the theory of solvable groups. It helps algebraic number theory through absolute Galois groups, algebraic geometry through coverings, and coding theory through finite-field extensions. It gives a conceptual test even when an explicit formula would be enormous.
+
+\section*{4. Important theorems and results}
+\begin{enumerate}[leftmargin=*,itemsep=0.35em]
+\item \textbf{Fundamental theorem of Galois theory.} Intermediate fields of a finite Galois extension correspond contravariantly to subgroups of its Galois group \cite{galois_theory_ref1}.
+
+\item \textbf{Galois solvability criterion.} A polynomial over characteristic zero is solvable by radicals exactly when its Galois group is solvable.
+
+\item \textbf{Abel--Ruffini theorem.} There is no radical formula for the general polynomial of degree at least five.
+
+\item \textbf{Constructibility criterion.} A real number constructible by compass and straightedge lies in an extension of degree a power of two.
+
+\item \textbf{Discriminant test.} The discriminant is zero exactly when a polynomial has a repeated root; it also gives useful information about the real and complex roots of low-degree polynomials \cite{galois_theory_ref4}.
+\end{enumerate}
+
+\theoryapplications
+\theoryconnections{galois theory}{%
+\item Field theory supplies extensions and minimal polynomials, group theory supplies automorphisms and subgroup structure, and the fundamental theorem of algebra supplies the roots being permuted.
+\item Number theory contributes finite fields, cyclotomic fields, and arithmetic examples.
+}{%
+\item Galois theory helps decide whether polynomial equations can be solved by radicals and helps construct finite fields and field extensions.
+\item Its correspondence between subgroups and intermediate fields also transfers calculations between algebraic equations and symmetry.
+}
+\section*{7. Sample Questions}
+\emph{Exercise reference:} \cite{galois_theory_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
+\begin{enumerate}[leftmargin=*,itemsep=0.9em]
+\item \textbf{Exercise 1.} What are the automorphisms of $\mathbb{Q}(\sqrt2)$ that fix $\mathbb{Q}$?
+
+\emph{Solution.} They are the identity and the map sending $\sqrt2$ to $-\sqrt2$. Every element $a+b\sqrt2$ is therefore sent to either $a+b\sqrt2$ or $a-b\sqrt2$.
+
+\item \textbf{Exercise 2.} Why can the cube not be doubled with compass and straightedge?
+
+\emph{Solution.} Doubling the cube requires constructing $\sqrt[3]{2}$, whose minimal polynomial is $x^3-2$ and has degree three. A constructible number has degree a power of two, so this number is not constructible.
+
+\item \textbf{Exercise 3.} What does the Galois group remember?
+
+\emph{Solution.} It remembers all field automorphisms that fix the coefficients. These automorphisms permute the roots while preserving every algebraic relation over the coefficient field.
+
+\item \textbf{Exercise 4.} Does Abel--Ruffini say that no quintic can be solved?
+
+\emph{Solution.} No. It says that no single radical formula solves every quintic. Some special quintics have solvable Galois groups and can be solved by radicals.
+
+\item \textbf{Exercise 5.} Why are fields and subgroups paired in reverse order?
+
+\emph{Solution.} Adding more automorphisms imposes more equations that an element must satisfy, so the fixed field becomes smaller. Removing automorphisms imposes fewer conditions, so the fixed field becomes larger.
+
+\end{enumerate}
+\section*{8. References}
+\addcontentsline{toc}{section}{References}
+
+\begin{thebibliography}{9}
+\bibitem{galois_theory_ref1} Ian Stewart, \emph{Galois Theory}, 4th ed., Chapman and Hall/CRC, 2015.
+\bibitem{galois_theory_ref2} Emil Artin, \emph{Galois Theory}, Dover, 1998.
+\bibitem{galois_theory_ref3} David A. Cox, \emph{Galois Theory}, 2nd ed., Wiley, 2012.
+\bibitem{galois_theory_ref4} Jean-Pierre Serre, \emph{Topics in Galois Theory}, 2nd ed., A K Peters, 2008.
+\end{thebibliography}

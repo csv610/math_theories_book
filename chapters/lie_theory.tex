@@ -1,0 +1,94 @@
+\theory{Lie theory}{How can continuous symmetries be studied with the same clarity that groups give to discrete symmetries?}{Lie theory studies Lie groups, their infinitesimal Lie algebras, and the actions they generate. The exponential map turns small motions into finite transformations and makes differential equations, geometry, and physics share one language.}{Differential equations, geometry, mechanics, relativity, quantum physics, representation theory, and control.}{Lie groups and Lie algebras encode continuous symmetries at both the global and infinitesimal levels.}
+
+\paragraph{History and motivation}
+Sophus Lie wanted a theory of continuous transformation groups that would organize differential equations, just as Galois theory organizes polynomial equations. Wilhelm Killing and Élie Cartan developed the structure and representation theory of semisimple Lie algebras. Lie's work also led to contact geometry, Lie sphere geometry, moving frames, and symmetric spaces \cite{lie_theory_ref1}.
+
+\end{historylist}
+\section*{3. Theory}
+\subsection*{Core theory}
+\paragraph{Groups of continuous motion}
+A Lie group is both a group and a smooth manifold, with smooth multiplication and inversion. Rotations of the plane form the circle group. Rotations of three-dimensional space form $SO(3)$. Translations, rotations, boosts, and spacetime transformations form the Galilean, Lorentz, and Poincare groups.
+
+A one-parameter subgroup is a smooth family $g(t)$ satisfying $g(s+t)=g(s)g(t)$. For ordinary rotations, $g(t)$ rotates through angle $t$. For boosts, hyperbolic functions appear: $\exp(jt)=\cosh t+j\sinh t$ with $j^2=1$. For dual numbers, $\exp(\varepsilon t)=1+\varepsilon t$ with $\varepsilon^2=0$, producing a shear-like motion.
+
+\paragraph{Lie algebras and infinitesimal motion}
+The tangent vectors at the identity of a Lie group form its Lie algebra. The Lie bracket measures the first-order difference between doing two infinitesimal motions in opposite orders:
+\[
+[X,Y]=XY-YX
+\]
+when the group is represented by matrices. It is bilinear, antisymmetric, and satisfies the Jacobi identity.
+
+The exponential map sends a Lie-algebra element $X$ to a group element $\exp(X)$. Near the identity, the group and algebra contain the same local information. The Baker--Campbell--Hausdorff formula explains how the logarithms of two nearby transformations combine.
+
+\paragraph{Lie's three theorems}
+Lie's first theorem constructs a basis of infinitesimal transformations. His second theorem expresses the structure constants of the algebra through commutators. His third theorem says the structure constants are antisymmetric and satisfy the Jacobi identity. The converse results reconstruct a local Lie group from a finite-dimensional Lie algebra under suitable analytic conditions \cite{lie_theory_ref2}.
+
+\paragraph{Examples}
+The unit quaternions form a three-dimensional group identified with the sphere $S^3$. Their Lie algebra is the space of imaginary quaternions, and its bracket is twice the vector cross product. The Heisenberg group consists of upper triangular matrices and is the simplest important noncommutative example. Classical matrix groups such as $GL_n$, $SL_n$, $O_n$, and $Sp_n$ provide the main families.
+
+\paragraph{Structure and representations}
+Root systems and root data encode the structure of semisimple Lie algebras. Weyl and Coxeter groups describe reflections in roots. Lie groups act on vector spaces through representations, allowing symmetry to be studied with matrices. In physics, representations of rotation and Lorentz groups classify angular momentum and particle types.
+
+Lie theory also includes algebraic groups, groups of Lie type over finite fields, buildings, and the solution of Hilbert's fifth problem, which asks when a locally Euclidean topological group is a Lie group.
+
+\paragraph{Applications}
+A symmetry of a differential equation can reduce its variables and produce conserved quantities. In mechanics, rotations and translations explain angular momentum and momentum conservation. In relativity, the Lorentz and Poincare groups organize spacetime. In quantum theory, unitary representations describe states and observables. In robotics and control, $SE(3)$ represents position and orientation, while Lie-group integrators preserve the geometry of motion.
+
+\paragraph{What the theory depends on and where it is useful}
+Lie theory depends on groups, manifolds, calculus, linear algebra, differential equations, and representation theory. It helps Galois theory as the continuous analogue of root symmetry, helps geometry through homogeneous spaces, and helps physics by encoding transformation laws.
+
+The Lie algebra captures local behavior but may not determine global topology. Distinct groups can share a Lie algebra while differing by discrete quotients. Global questions therefore require covering groups, fundamental groups, and topology.
+
+\section*{4. Important theorems and results}
+\begin{enumerate}[leftmargin=*,itemsep=0.35em]
+\item \textbf{Lie correspondence.} Connected, simply connected Lie groups correspond to finite-dimensional real Lie algebras up to isomorphism.
+
+\item \textbf{Exponential map.} One-parameter subgroups are obtained from Lie-algebra elements by exponentiation.
+
+\item \textbf{Lie's three theorems.} Infinitesimal transformations satisfy the structure and Jacobi identities, and conversely generate local groups.
+
+\item \textbf{Cartan classification.} Complex semisimple Lie algebras are classified by root systems of types $A$, $B$, $C$, $D$, and exceptional types.
+
+\item \textbf{Noether principle.} Continuous symmetries of an action produce conserved quantities in suitable physical systems \cite{lie_theory_ref3}.
+\end{enumerate}
+
+\theoryapplications
+\theoryconnections{lie theory}{%
+\item Differential geometry supplies smooth manifolds and tangent vectors, while algebra supplies Lie brackets, linear representations, and root systems.
+\item Differential equations describe one-parameter motions, and topology distinguishes global group behavior from local algebra.
+}{%
+\item Lie theory helps physics describe continuous symmetry, helps differential equations exploit conserved quantities, and helps geometry classify homogeneous spaces.
+\item Passing between a Lie group and its Lie algebra replaces nonlinear motion by a local linear-algebraic model.
+}
+\section*{7. Sample Questions}
+\emph{Exercise reference:} \cite{lie_theory_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
+\begin{enumerate}[leftmargin=*,itemsep=0.9em]
+\item \textbf{Exercise 1.} What is the Lie algebra of a matrix Lie group?
+
+\emph{Solution.} It is the tangent space at the identity, equipped with the commutator bracket of infinitesimal matrices.
+
+\item \textbf{Exercise 2.} Why do rotations form a Lie group?
+
+\emph{Solution.} Rotations compose and have inverses, and their matrices depend smoothly on the angle. The set of rotations is also a smooth manifold.
+
+\item \textbf{Exercise 3.} What does the Lie bracket measure?
+
+\emph{Solution.} It measures the first-order failure of two infinitesimal transformations to commute.
+
+\item \textbf{Exercise 4.} Why can the same Lie algebra correspond to different global groups?
+
+\emph{Solution.} The algebra describes behavior near the identity. Global topology, such as whether loops close or a covering is taken, is extra information.
+
+\item \textbf{Exercise 5.} How does Lie theory help solve differential equations?
+
+\emph{Solution.} A continuous symmetry can reduce the number of variables or produce invariant quantities, turning a difficult equation into a simpler one.
+
+\end{enumerate}
+\section*{8. References}
+\addcontentsline{toc}{section}{References}
+
+\begin{thebibliography}{9}
+\bibitem{lie_theory_ref1} Brian C. Hall, \emph{Lie Groups, Lie Algebras, and Representations}, 2nd ed., Springer, 2015.
+\bibitem{lie_theory_ref2} John M. Lee, \emph{Introduction to Smooth Manifolds}, 2nd ed., Springer, 2012.
+\bibitem{lie_theory_ref3} Jean-Pierre Serre, \emph{Lie Algebras and Lie Groups}, Springer, 1992.
+\end{thebibliography}

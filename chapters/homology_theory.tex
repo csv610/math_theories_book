@@ -1,0 +1,106 @@
+\theory{Homology theory}{How can a space's holes be turned into algebraic objects that can be calculated?}{Homology replaces geometric pieces by a chain complex. Cycles are closed pieces, boundaries are pieces that bound something, and homology records cycles that are not boundaries.}{Topology, geometry, data analysis, robotics, mesh computation, algebraic geometry, and differential equations.}{Cycles modulo boundaries measure holes in a way that is invariant under continuous deformation and computable from finite complexes.}
+
+\paragraph{History and the central idea}
+Homology grew from Euler's polyhedron formula, Riemann's genus, and Betti's numerical invariants. It became a systematic part of algebraic topology when mathematicians learned to associate algebraic groups with spaces. The word is also used more generally for the homology of any chain complex and for the collection of procedures called homology theories \cite{homology_theory_ref1}.
+
+Think of a triangulated surface. A vertex is a zero-dimensional piece, an edge is a one-dimensional piece, and a triangle is a two-dimensional piece. A collection of edges can form a closed loop. If the loop is the boundary of a collection of triangles, it is not a genuine hole. If it cannot be filled, it represents a one-dimensional hole.
+
+\end{historylist}
+\section*{3. Theory}
+\subsection*{Core theory}
+\paragraph{Chains, cycles, and boundaries}
+A chain complex is a sequence of abelian groups or modules
+\[
+\cdots\longrightarrow C_{n+1}\xrightarrow{\partial_{n+1}}C_n
+\xrightarrow{\partial_n}C_{n-1}\longrightarrow\cdots
+\]
+with $\partial_n\partial_{n+1}=0$. The boundary of a boundary is empty. The $n$-cycles are $Z_n=\ker\partial_n$, and the $n$-boundaries are $B_n=\operatorname{im}\partial_{n+1}$. Since every boundary is a cycle, the $n$th homology group is
+\[
+H_n=\frac{Z_n}{B_n}.
+\]
+It identifies cycles that differ by a boundary.
+
+For a connected space, $H_0$ is usually $\mathbb Z$, one copy for each connected component. $H_1$ records loops, and higher groups record higher-dimensional voids. The rank of a homology group is a Betti number; finite pieces such as $\mathbb Z_2$ are torsion.
+
+\paragraph{Examples that build intuition}
+The sphere has no one-dimensional hole, so $H_1(S^2)=0$, but it has a two-dimensional surface class, so $H_2(S^2)=\mathbb Z$. A circle has one loop and no filled two-dimensional region: $H_0(S^1)=\mathbb Z$, $H_1(S^1)=\mathbb Z$, and higher homology is zero.
+
+The torus has two independent one-dimensional loops, one around the tube and one through the hole, and one two-dimensional surface class. Its Betti numbers are $1,2,1$. The projective plane has $H_1=\mathbb Z_2$: its essential loop becomes a boundary when traversed twice. This is torsion, a phenomenon not visible from ordinary real-valued measurements \cite{homology_theory_ref2}.
+
+\paragraph{Simplicial and singular homology}
+In simplicial homology, a space is decomposed into vertices, edges, triangles, and higher simplices. Boundary matrices make the calculation finite and algorithmic. Singular homology instead allows every continuous map from a standard simplex into the space. It works for arbitrary topological spaces and is invariant under homotopy.
+
+Cellular homology uses cells in a CW complex and is often smaller than singular homology while producing the same answer. Cubical homology uses squares and cubes, which is useful for images and voxel data. Relative homology $H_n(X,A)$ studies chains in $X$ modulo chains already contained in a subspace $A$.
+
+\paragraph{Maps, exact sequences, and products}
+A continuous map induces homomorphisms on homology. Homotopic maps induce the same homomorphism, so homology ignores continuous deformation. A pair $A\subseteq X$ gives a long exact sequence linking $H_n(A)$, $H_n(X)$, and relative homology. Mayer--Vietoris calculates a space by splitting it into overlapping pieces.
+
+The cross product combines classes in two spaces, and the Kunneth theorem describes the homology of a product. Poincare duality relates homology and cohomology of an oriented closed manifold. The Euler characteristic is the alternating sum $\chi=\sum(-1)^n\operatorname{rank}H_n$ and is independent of the chosen triangulation.
+
+\paragraph{Homology theories}
+Different constructions share the same formal behavior: homotopy invariance, exact sequences, excision, and a dimension rule. Singular, simplicial, cellular, de Rham, and Borel--Moore homology are examples. Generalized theories such as K-theory and cobordism homology relax the ordinary dimension rule and reveal finer structure.
+
+In algebraic geometry, sheaf and coherent homology measure the failure of local data to fit globally. In computational topology, persistent homology studies how homology changes as a scale parameter grows, producing a barcode that identifies robust features in noisy data \cite{homology_theory_ref3}.
+
+\paragraph{Computation and applications}
+For a finite mesh, boundary operators are matrices. Row reduction computes ranks and null spaces, while specialized algorithms preserve sparsity. Finite-element software uses homology and cohomology bases to represent fields on meshes. In data analysis, point clouds sampled from a shape are connected at a chosen distance; homology detects components, loops, and voids as the distance changes.
+
+Homology does not reconstruct every detail of a space. Two spaces can have identical homology groups but different fundamental groups or geometry. It is a robust summary, not a complete photograph.
+
+\paragraph{What the theory depends on and where it is useful}
+Homology depends on linear algebra, abelian groups, chain complexes, and topology. It helps homotopy theory by providing computable invariants, helps geometry through Euler characteristics and duality, and helps data science by converting shape into persistence diagrams.
+
+\section*{4. Important theorems and results}
+\begin{enumerate}[leftmargin=*,itemsep=0.35em]
+\item \textbf{Homotopy invariance.} Homotopic maps induce the same map on homology.
+
+\item \textbf{Mayer--Vietoris sequence.} The homology of a union can be computed from the homology of two pieces and their intersection.
+
+\item \textbf{Excision.} Under suitable inclusion conditions, removing a region from a pair does not change relative homology.
+
+\item \textbf{Kunneth theorem.} It describes the homology of a product from the homology of its factors, including possible tensor and torsion terms.
+
+\item \textbf{Poincare duality.} Homology and cohomology groups of an oriented closed manifold are paired in complementary dimensions \cite{homology_theory_ref4}.
+\end{enumerate}
+
+\theoryapplications
+\theoryconnections{homology theory}{%
+\item Topology supplies spaces and continuous maps, while linear algebra turns chains into boundary matrices and homology groups into kernels modulo images.
+\item Category theory explains functoriality, and algebraic geometry and differential geometry provide rich examples.
+}{%
+\item Homology helps distinguish spaces, compute holes, and prove fixed-point and duality results.
+\item It also supplies computable invariants for geometry and topology, making qualitative features accessible through finite calculations in many examples.
+}
+\section*{7. Sample Questions}
+\emph{Exercise reference:} \cite{homology_theory_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
+\begin{enumerate}[leftmargin=*,itemsep=0.9em]
+\item \textbf{Exercise 1.} What does $H_0(X)$ count for a space with three path components?
+
+\emph{Solution.} It is isomorphic to $\mathbb Z^3$. Each component contributes one independent zero-dimensional class.
+
+\item \textbf{Exercise 2.} What is $H_1(S^1)$?
+
+\emph{Solution.} It is $\mathbb Z$. One generator is the loop going once around the circle; going around twice represents twice that generator.
+
+\item \textbf{Exercise 3.} Why is a boundary always a cycle?
+
+\emph{Solution.} Because $\partial^2=0$. If $b=\partial c$, then $\partial b=\partial(\partial c)=0$.
+
+\item \textbf{Exercise 4.} What does torsion $\mathbb Z_2$ in homology mean geometrically?
+
+\emph{Solution.} It means a nonzero class becomes zero after being added to itself twice. The projective plane has an essential loop with exactly this behavior.
+
+\item \textbf{Exercise 5.} Why can homology fail to distinguish two spaces?
+
+\emph{Solution.} Homology records cycles and boundaries but forgets some information about how loops interact. Spaces can share all homology groups while having different fundamental groups or geometric shapes.
+
+\end{enumerate}
+\section*{8. References}
+\addcontentsline{toc}{section}{References}
+
+\begin{thebibliography}{9}
+\bibitem{homology_theory_ref1} Allen Hatcher, \emph{Algebraic Topology}, Cambridge University Press, 2002.
+\bibitem{homology_theory_ref2} James R. Munkres, \emph{Elements of Algebraic Topology}, Addison-Wesley, 1984.
+\bibitem{homology_theory_ref3} Herbert Edelsbrunner and John Harer, \emph{Computational Topology}, American Mathematical Society, 2010.
+\bibitem{homology_theory_ref4} Edwin H. Spanier, \emph{Algebraic Topology}, Springer, 1966.
+\end{thebibliography}

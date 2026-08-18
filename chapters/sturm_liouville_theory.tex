@@ -1,0 +1,77 @@
+\theory{Sturm--Liouville theory}{How can a second-order differential equation reveal the natural modes and frequencies of a system?}{Sturm--Liouville theory studies self-adjoint boundary-value problems, their eigenvalues, eigenfunctions, orthogonality, completeness, and oscillation. It turns differential equations into a spectral decomposition problem.}{Vibrating strings and membranes, heat flow, quantum mechanics, Fourier series, acoustics, and numerical boundary-value problems.}{Self-adjoint differential operators, boundary conditions, and weighted orthogonality produce discrete modes and eigenvalue expansions.}
+
+\paragraph{The problem and history}
+Jacques Sturm and Joseph Liouville developed the theory in the nineteenth century. A regular problem has the form
+\[
+\frac{d}{dx}\left(p(x)y'\right)+q(x)y=-\lambda w(x)y
+\]
+on an interval, together with boundary conditions. The coefficient $w$ is a positive weight. The goal is to find values of $\lambda$ for which a nonzero solution exists and the corresponding eigenfunction \cite{sturm_ref1}.
+
+\end{historylist}
+\section*{3. Theory}
+\subsection*{Core theory}
+\paragraph{Eigenvalues and orthogonality}
+For a regular problem, the eigenvalues are real, can be ordered
+\[
+\lambda_1<\lambda_2<\cdots,\qquad \lambda_n\to\infty,
+\]
+and each has a unique eigenfunction up to multiplication by a constant. Eigenfunctions for different eigenvalues are orthogonal under
+\[
+\langle f,g\rangle_w=\int_a^b f(x)g(x)w(x)\,dx.
+\]
+After normalization they form an orthonormal basis, so suitable functions can be expanded as an eigenfunction series \cite{sturm_ref2}.
+
+\paragraph{A model problem and its interpretation}
+The equation $-y''=\lambda y$ on $[0,\pi]$ with $y(0)=y(\pi)=0$ has eigenfunctions $\sin(nx)$ and eigenvalues $n^2$. A vibrating string is a sum of these normal modes. Separation of variables converts the heat, wave, and Laplace equations into Sturm--Liouville problems.
+
+The one-dimensional time-independent Schrodinger equation is a Sturm--Liouville problem. Its eigenvalues are energy levels and eigenfunctions are stationary states. Bessel and Legendre equations can also be written in Sturm--Liouville form, explaining the orthogonality of special functions \cite{sturm_ref3}.
+
+\paragraph{Singular problems and computation}
+When an endpoint is infinite or a coefficient vanishes, the problem is singular. Weyl's limit-point and limit-circle alternative determines whether an additional boundary condition is needed. Numerical methods include shooting, finite differences, Rayleigh--Ritz, matrix variational methods, and spectral parameter power series.
+
+\section*{4. Important theorems and results}
+\begin{enumerate}[leftmargin=*,itemsep=0.35em]
+\item \textbf{Reality and ordering.} Regular Sturm--Liouville eigenvalues are real, simple, and increase without bound.
+
+\item \textbf{Orthogonality.} Eigenfunctions belonging to distinct eigenvalues are orthogonal with the weight $w$.
+
+\item \textbf{Completeness.} Normalized eigenfunctions form an orthonormal basis of the weighted $L^2$ space.
+
+\item \textbf{Oscillation theorem.} The $n$th eigenfunction has a controlled number of zeros in the interval.
+
+\item \textbf{Rayleigh quotient principle.} The smallest eigenvalue minimizes an energy quotient among admissible nonzero functions.
+
+\item \textbf{Weyl alternative.} Singular endpoints are classified as limit-point or limit-circle, determining boundary data.
+\end{enumerate}
+\noindent\emph{Source for these results:} \cite{sturm_ref1}.
+
+\theoryapplications
+\theoryconnections{sturm_liouville_theory}{%
+\item An ordinary differential equation with boundary conditions becomes a self-adjoint operator problem.
+\item Integration supplies the weighted inner product, Hilbert spaces make orthogonality and convergence precise, and spectral theory proves that the allowed eigenvalues are the natural frequencies of the problem.
+\item The boundary conditions are essential: they select which modes fit the physical domain and make the operator's spectrum discrete in the standard compact cases \cite{sturm_ref1,sturm_ref2}.
+}{%
+\item The eigenfunctions form a basis for expanding a temperature, displacement, or wave profile, so a PDE can be solved one mode at a time.
+\item In quantum mechanics they are stationary states; in acoustics they are resonant shapes; in numerical analysis they provide basis functions whose eigenvalues reveal stiffness and stability.
+\item The connection works because self-adjointness makes different modes orthogonal and keeps the expansion coefficients independently computable \cite{sturm_ref1,sturm_ref3}.
+}
+\section*{7. Sample Questions}
+\emph{Exercise reference:} \cite{sturm_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
+\begin{enumerate}[leftmargin=*,itemsep=0.9em]
+\item \textbf{Exercise 1. Solve $-y''=\lambda y$ with $y(0)=y(\pi)=0$.} For $\lambda=n^2>0$, $y=A\sin(nx)+B\cos(nx)$. The condition at zero gives $B=0$, and the condition at $\pi$ gives $\sin(n\pi)=0$, so $n=1,2,\ldots$.
+
+\item \textbf{Exercise 2. Why are the sine functions orthogonal?} For different integers $m,n$, integration of $\sin(mx)\sin(nx)$ over $[0,\pi]$ gives zero.
+
+\item \textbf{Exercise 3. What is the physical meaning of an eigenfunction of a string?} It is a normal mode that oscillates with one natural frequency without changing shape.
+
+\item \textbf{Exercise 4. Why is a weight needed?} The self-adjoint operator defines its natural inner product through $w(x)$; orthogonality and normalization must use that physical density.
+
+\item \textbf{Exercise 5. Why does separation of variables help a PDE?} It seeks products of one-variable functions. Each factor satisfies a Sturm--Liouville eigenproblem, and the full solution is assembled from the resulting modes.
+
+\end{enumerate}
+\section*{8. References}
+\begin{thebibliography}{9}
+\bibitem{sturm_ref1} A. Zettl, \emph{Sturm--Liouville Theory}.
+\bibitem{sturm_ref2} R. Courant and D. Hilbert, \emph{Methods of Mathematical Physics}.
+\bibitem{sturm_ref3} G. Teschl, \emph{Mathematical Methods in Quantum Mechanics}.
+\end{thebibliography}
