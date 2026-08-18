@@ -100,6 +100,21 @@ The canonical representative depends on a metric even though the cohomology clas
 \item Hodge theory helps classify compact manifolds, study algebraic cycles, and compare topology with complex or Kahler geometry.
 \item Harmonic representatives make cohomology classes concrete, while the decomposition constrains which topological patterns can occur.
 }
+\section*{Glossary}
+\begin{description}[leftmargin=*,style=nextline,itemsep=0.3em]
+\item[\textbf{De Rham cohomology.}] A cohomology theory computed from smooth differential forms on a manifold; it detects holes by measuring closed forms modulo exact forms.
+\item[\textbf{Harmonic form.}] A differential form annihilated by the Hodge Laplacian ($\Delta\omega=0$); on a closed manifold it is the unique representative of its cohomology class.
+\item[\textbf{Hodge Laplacian.}] The second-order differential operator $\Delta = d\delta + \delta d$ built from exterior differentiation $d$ and its adjoint $\delta$; its kernel consists of harmonic forms.
+\item[\textbf{Hodge decomposition.}] The orthogonal splitting of every differential form into an exact part, a coexact part, and a harmonic part.
+\item[\textbf{Kähler manifold.}] A complex manifold equipped with a Hermitian metric whose associated two-form is closed, ensuring compatibility between complex and Riemannian structures.
+\item[\textbf{Algebraic cycle.}] A formal finite combination of subvarieties of an algebraic variety; its cohomology class has a Hodge type constrained by its dimension.
+\item[\textbf{Hodge conjecture.}] The open conjecture that certain rational cohomology classes of type $(p,p)$ on a smooth projective variety arise from algebraic cycles.
+\item[\textbf{Cohomology class.}] An equivalence class of closed forms modulo exact forms; detects topological holes.
+\item[\textbf{Riemannian metric.}] A smoothly varying inner product on tangent vectors enabling measurement of angles and distances.
+\item[\textbf{Differential form.}] A smooth antisymmetric tensor field that can be integrated over submanifolds.
+\item[\textbf{Betti number.}] The rank of the free part of a homology or cohomology group; counts independent holes.
+\item[\textbf{Poincaré duality.}] On a closed oriented manifold, a pairing between homology and cohomology in complementary dimensions.
+\end{description}
 \noindent\textbf{Maxwell's equations and the Hodge star in physics.} Maxwell's equations in vacuum on a Riemannian 3-manifold (or Minkowski 4-manifold) are naturally expressed using the Hodge star operator $*\colon\Omega^k\to\Omega^{n-k}$. The electric and magnetic fields are encoded in the Faraday 2-form $F=B_1\,dy\wedge dz+B_2\,dz\wedge dx+B_3\,dx\wedge dy+E_1\,dx\wedge dt+E_2\,dy\wedge dt+E_3\,dz\wedge dt$. Maxwell's equations then read $dF=0$ and $d{*F}=J$ (the current 3-form). A static magnetic field with no currents satisfies $dF=0$ and $d{*F}=0$, meaning $F$ is a harmonic 2-form with respect to the Hodge Laplacian $\Delta=d\delta+\delta d$. On $\mathbb R^3$ with the flat metric, harmonic 2-forms correspond to divergence-free, curl-free vector fields, exactly the fields satisfying both the magnetostatic equations. The Hodge decomposition therefore provides a rigorous mathematical foundation for the Helmholtz decomposition of electromagnetic fields: any electromagnetic field configuration decomposes uniquely into a radiation part (harmonic), an electrostatic/magnetostatic part (exact and coexact), and a gauge component. In engineering, this decomposition underlies boundary-element methods for solving Maxwell's equations in antenna design and microwave cavity analysis, where the harmonic part captures the propagating modes and the exact/coexact parts capture near-field effects that decay rapidly.
 \section*{7. Sample Questions}
 \emph{Exercise reference:} \cite{hodge_theory_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.

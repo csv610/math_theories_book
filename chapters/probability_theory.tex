@@ -73,6 +73,22 @@ In each case the model depends on choices: which outcomes were included, whether
 \item It supports engineering through failure probabilities and queue lengths, information theory through entropy and channel noise, and economics through risk and expected utility.
 \item In every application, the theory converts uncertain future outcomes into averages, distributions, or bounds that can guide a decision \cite{probability_theory_ref1,probability_theory_ref3}.
 }
+
+\section*{Glossary}
+\begin{description}[leftmargin=*,style=nextline,itemsep=0.3em]
+\item[\textbf{Probability space.}] A triple $(\Omega,\mathcal{F},\mathbb{P})$ consisting of a set of outcomes, a collection of admissible events, and a rule assigning each event a number between zero and one.
+\item[\textbf{Random variable.}] A measurable function from the outcome set to a numerical space, turning an abstract outcome into a number that can be averaged or compared.
+\item[\textbf{Conditional probability.}] The probability of an event $A$ given that another event $B$ has occurred, defined as $P(A\mid B)=P(A\cap B)/P(B)$.
+\item[\textbf{Independence.}] Two events are independent when knowing that one occurred does not change the probability of the other; it is a modeling assumption, not a synonym for spatial separation.
+\item[\textbf{Expectation.}] The probability-weighted average of a random variable, computed by summing or integrating each possible value multiplied by its probability.
+\item[\textbf{Law of large numbers.}] The theorem that sample averages converge to the expected value as the number of trials grows, explaining why repeated measurements stabilize.
+\item[\textbf{Central limit theorem.}] The result that a normalized sum of many independent random variables with finite variance approaches a normal distribution, regardless of the original distribution.
+\item[\textbf{Bayes' rule.}] A formula $P(A\mid B)=P(B\mid A)P(A)/P(B)$ that reverses the direction of evidence, combining a likelihood with a base rate.
+\item[$\sigma$-\textbf{algebra.}] A collection of subsets closed under complements and countable unions; specifies which events can be assigned probabilities.
+\item[\textbf{Sample space.}] The set $\Omega$ of all possible outcomes of a random experiment.
+\item[\textbf{Variance.}] The expected squared deviation of a random variable from its mean, measuring spread.
+\item[\textbf{Normal distribution.}] The bell-shaped density proportional to $e^{-x^2/2}$, arising as the limit of sums of independent random variables.
+\end{description}
 \chapterquestions{Probability theory}{sample spaces, events, conditional probabilities, and expectations}{the probability of at least one six in two fair die rolls}{$1-(5/6)^2=11/36$ by taking the complement of no six}{conditional probability updates a model after information is observed}{dependent trials cannot be multiplied blindly; probability supports risk and forecasting}{probability_theory_ref1}
 \section*{8. References}
 \begin{thebibliography}{9}

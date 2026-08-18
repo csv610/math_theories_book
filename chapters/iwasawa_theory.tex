@@ -64,6 +64,20 @@ The statements depend strongly on the chosen prime, tower, and module. A main co
 \item Iwasawa theory helps explain the growth of class groups and Selmer groups in infinite extensions.
 \item Its main conjectures connect algebraic modules with p-adic L-functions, linking arithmetic calculations to analytic information.
 }
+\section*{Glossary}
+\begin{description}[leftmargin=*,style=nextline,itemsep=0.3em]
+\item[\textbf{$\mathbb{Z}_p$-extension.}] An infinite Galois extension whose Galois group is the additive group of $p$-adic integers, assembled from finite cyclic layers of increasing order.
+\item[\textbf{Iwasawa algebra.}] The power series ring $\Lambda=\mathbb{Z}_p[[\Gamma]]$ over the $p$-adic integers in a topological generator of the Galois group $\Gamma$; it acts on inverse limits of class groups.
+\item[\textbf{Class group.}] The group of fractional ideals modulo principal ideals in a number field; it measures the failure of unique factorization into elements.
+\item[\textbf{$p$-adic $L$-function.}] An analytic function over the $p$-adic numbers that interpolates special values of ordinary $L$-functions and, through the main conjecture, mirrors algebraic modules.
+\item[\textbf{$\mu$-invariant.}] The coefficient of $p^n$ in the growth formula $v_p(|I_n|)=\mu p^n+\lambda n+\nu$; it measures exponential growth of the class group and vanishes in many cyclotomic cases.
+\item[\textbf{$\lambda$-invariant.}] The coefficient of $n$ in the growth formula, measuring polynomial growth of the class group along the tower; it is tied to Bernoulli-number divisibility via Herbrand's theorem.
+\item[\textbf{Inverse limit.}] A construction assembling compatible systems of objects into a single limiting object.
+\item[\textbf{Cyclotomic field.}] A number field obtained by adjoining roots of unity to $\mathbb{Q}$; the primary setting for classical Iwasawa theory.
+\item[\textbf{Bernoulli number.}] Rational numbers appearing in power-series expansions and $L$-function values controlling class-group divisibility.
+\item[\textbf{Selmer group.}] An algebraic group measuring arithmetic information in the context of elliptic curves and Galois cohomology.
+\item[\textbf{Main conjecture.}] The statement that the characteristic element of an Iwasawa module equals a $p$-adic $L$-function.
+\end{description}
 \noindent\textbf{Computational number theory and primality testing.} Iwasawa-theoretic invariants provide practical computational tools. The Fermat quotient $q_p(a)=(a^{p-1}-1)/p\!\pmod{p}$, which is a building block of p-adic L-functions, can be computed efficiently and used to detect Wieferich primes, primes $p$ satisfying $2^{p-1}\equiv 1\pmod{p^2}$, a condition relevant to the first case of Fermat's Last Theorem. The $\lambda$-invariant of the cyclotomic $\mathbb Z_p$-extension of $\mathbb Q$ is tied to Bernoulli-number divisibility via Herbrand's theorem and the Ferrero--Washington theorem: $p$ divides the numerator of a Bernoulli number $B_k$ if and only if $p$ divides the order of a specific component of the class group of $\mathbb Q(\zeta_p)$. Algorithms that compute these class-group components (e.g., via the Sagase or Pari/GP software packages) rely on Iwasawa-theoretic structure to organize computations in towers of number fields, making what would be astronomically large explicit-degree computations feasible by working inside the inverse limit.
 \section*{7. Sample Questions}
 \emph{Exercise reference:} \cite{iwasawa_theory_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.

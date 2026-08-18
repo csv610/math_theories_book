@@ -56,6 +56,21 @@ Proof-theoretic semantics explains the meaning of a connective through the rules
 \item In programming languages, a type can describe a specification and a program can serve as a proof that the specification is met.
 \item Consistency and incompleteness results then tell foundations which promises a formal system can and cannot make \cite{proof_ref1,proof_ref4}.
 }
+
+\section*{Glossary}
+\begin{description}[leftmargin=*,style=nextline,itemsep=0.3em]
+\item[\textbf{Formal proof.}] A finite sequence or tree of formulas built step by step from axioms using only the approved inference rules; it can be mechanically checked.
+\item[\textbf{Cut elimination.}] A procedure that removes intermediate lemmas (cuts) from a proof in the sequent calculus, exposing its local logical structure and yielding the subformula property.
+\item[\textbf{Subformula property.}] The feature of cut-free proofs in which every formula that appears is a subformula of the premises or the conclusion, supporting automated proof search.
+\item[\textbf{Curry--Howard correspondence.}] A correspondence in which propositions are viewed as types, proofs as programs, and proof normalization as program evaluation.
+\item[\textbf{Normalization.}] A procedure in natural deduction that removes unnecessary detours where a formula is introduced and immediately eliminated.
+\item[\textbf{Ordinal analysis.}] A technique that measures the strength of a formal system by assigning it a transfinite ordinal indicating how much induction it can justify.
+\item[\textbf{Reverse mathematics.}] An approach that starts with a theorem and asks for the weakest axiom system needed to prove it, working backward from result to foundations.
+\item[\textbf{Natural deduction.}] A proof calculus mirroring informal reasoning through introduction and elimination rules for each logical connective.
+\item[\textbf{Sequent calculus.}] A formalism in which proof steps operate on sequents listing assumptions and conclusions.
+\item[\textbf{Cut rule.}] An inference rule allowing a proof to use an intermediate lemma; removing it is the goal of cut elimination.
+\item[\textbf{G\"odel's incompleteness theorem.}] Any consistent, effectively axiomatized theory strong enough for arithmetic contains true unprovable statements.
+\end{description}
 \section*{7. Sample Questions}
 \emph{Exercise reference:} \cite{proof_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
 \begin{enumerate}[leftmargin=*,itemsep=0.9em]

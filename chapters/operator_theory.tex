@@ -81,6 +81,23 @@ In signal processing, a filter is an operator. Fourier modes are especially usef
 \item Fourier analysis diagonalizes important translation-invariant operators into frequencies, while quantum mechanics interprets observables as operators and their spectra as possible measurement values.
 \item In control and inverse problems, boundedness and spectral location tell whether errors grow and whether hidden inputs can be recovered \cite{operator_theory_ref1,operator_theory_ref4}.
 }
+
+\section*{Glossary}
+\begin{description}[leftmargin=*,style=nextline,itemsep=0.3em]
+\item[\textbf{Operator.}] A rule that maps elements of one vector space (often a function space) to another, generalizing the idea of a matrix to infinite dimensions.
+\item[\textbf{Spectrum.}] The set of complex numbers $\lambda$ for which $T-\lambda I$ is not invertible; it generalizes eigenvalues to infinite-dimensional spaces and may contain more than just point eigenvalues.
+\item[\textbf{Self-adjoint operator.}] An operator equal to its own adjoint ($T=T^*$), which on a Hilbert space is the infinite-dimensional analogue of a real symmetric matrix; it has a real spectrum and admits a spectral decomposition.
+\item[\textbf{Hilbert space.}] A complete vector space with an inner product, providing the infinite-dimensional setting where operators, spectra, and the spectral theorem can be developed rigorously.
+\item[\textbf{Resolvent.}] The family of inverses $(T-\lambda I)^{-1}$ for $\lambda$ outside the spectrum; its analytic properties encode the spectral structure of the operator.
+\item[\textbf{Polar decomposition.}] A factorization $A=UP$ of a bounded operator into a partial isometry $U$ and a positive operator $P$, analogous to writing a complex number as magnitude times direction.
+\item[\textbf{Bounded operator.}] A linear operator with finite operator norm, ensuring continuity.
+\item[\textbf{Unbounded operator.}] A linear operator that may not be defined on the whole space; requires careful domain specification.
+\item[\textbf{Adjoint.}] For an operator $T$, the operator $T^*$ satisfying $\langle Tx,y\rangle=\langle x,T^*y\rangle$; self-adjointness is key to the spectral theorem.
+\item[\textbf{C*-algebra.}] A complex Banach algebra with an adjoint operation satisfying $\|x^*x\|=\|x\|^2$.
+\item[\textbf{Spectral theorem.}] Self-adjoint and normal operators admit a decomposition using spectral measures.
+\item[\textbf{Hardy space.}] The space $H^2$ of holomorphic functions on the unit disk with bounded Taylor coefficients.
+\end{description}
+
 \section*{7. Sample Questions}
 \emph{Exercise reference:} \cite{operator_theory_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
 \begin{enumerate}[leftmargin=*,itemsep=0.9em]

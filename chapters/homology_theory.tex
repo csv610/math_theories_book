@@ -75,6 +75,23 @@ Homology depends on linear algebra, abelian groups, chain complexes, and topolog
 \item Homology helps distinguish spaces, compute holes, and prove fixed-point and duality results.
 \item It also supplies computable invariants for geometry and topology, making qualitative features accessible through finite calculations in many examples.
 }
+\section*{Glossary}
+\begin{description}[leftmargin=*,style=nextline,itemsep=0.3em]
+\item[\textbf{Chain complex.}] A sequence of abelian groups connected by boundary maps whose composition is zero, encoding the combinatorial skeleton of a space.
+\item[\textbf{Cycle.}] An element of a chain complex that maps to zero under the boundary operator; it represents a closed piece with no boundary.
+\item[\textbf{Boundary.}] An element that is the image of some higher-dimensional chain under the boundary operator; every boundary is automatically a cycle.
+\item[\textbf{Homology group.}] The quotient group of cycles modulo boundaries at a given dimension, measuring the extent to which cycles fail to be boundaries.
+\item[\textbf{Betti number.}] The rank (free part) of a homology group; it counts independent holes of a given dimension.
+\item[\textbf{Torsion.}] A finite cyclic piece of a homology group, invisible to real-valued measurements, indicating a hole that vanishes after being traversed multiple times.
+\item[\textbf{Persistent homology.}] A method that tracks how homology groups change as a scale parameter varies, identifying robust topological features in noisy data.
+\item[\textbf{Boundary operator.}] The map $\partial_n\colon C_n\to C_{n-1}$ in a chain complex satisfying $\partial^2=0$.
+\item[\textbf{Euler characteristic.}] The alternating sum $\chi=\sum(-1)^n\operatorname{rank}H_n$; a topological invariant independent of triangulation.
+\item[\textbf{Künneth theorem.}] Describes the homology of a product space in terms of the homology of its factors.
+\item[\textbf{Simplicial complex.}] A combinatorial structure built from vertices, edges, triangles, and higher simplices obeying face-inclusion rules.
+\item[\textbf{Simplex.}] A generalization of a triangle to higher dimensions: the convex hull of affinely independent points.
+\item[\textbf{CW complex.}] A topological space built by iteratively attaching cells of increasing dimension.
+\item[\textbf{Excision.}] The theorem that removing a suitable closed subset does not change relative homology.
+\end{description}
 \section*{7. Sample Questions}
 \emph{Exercise reference:} \cite{homology_theory_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
 \begin{enumerate}[leftmargin=*,itemsep=0.9em]

@@ -53,6 +53,21 @@ These results explain a topos at three levels. The sheaf theorem supplies the ob
 \item \textbf{Temporal logic and software verification.} In computer science, a program's execution over discrete time steps can be modeled as a $G$-set where $G=\mathbb{Z}$ acts by shifting one step forward. The topos of $\mathbb{Z}$-sets provides an internal logic in which propositions such as ``eventually $P$ holds'' are interpreted by quantifying over the orbit of a state under the $\mathbb{Z}$-action. Model-checking tools for linear temporal logic (LTL) exploit this connection: the truth value of a temporal formula at a state is determined by the entire forward orbit, which is exactly a $G$-set morphism into the subobject classifier of $\mathbf{Set}^{\mathbb{Z}}$ \cite{topos_ref1,topos_ref3}.
 \item \textbf{Type theory and proof assistants.} The Curry--Howard correspondence identifies types with propositions and programs with proofs. An elementary topos provides a model of dependent type theory: function types correspond to exponential objects, product types to categorical products, and the unit type to the terminal object. Proof assistants such as Coq and Agda are based on type theories whose semantics can be interpreted in topoi, ensuring that a verified program is correct not only syntactically but also in a rich mathematical universe \cite{topos_ref2,topos_ref3}.
 }
+\section*{Glossary}
+\begin{description}[leftmargin=*,style=nextline,itemsep=0.3em]
+\item[\textbf{Topos.}] A category that behaves like the category of sets, supporting internal logic and geometric constructions.
+\item[\textbf{Grothendieck topos.}] A category equivalent to the category of sheaves on a site; it organizes geometry and cohomology.
+\item[\textbf{Elementary topos.}] A category with finite limits, exponentials, and a subobject classifier; it provides an alternative foundation for mathematics.
+\item[\textbf{Subobject classifier.}] A distinguished object that classifies monomorphisms via characteristic maps, serving as a truth-value object in a topos.
+\item[\textbf{Exponential object.}] An object $B^A$ representing functions from $A$ to $B$; it supports internal function spaces.
+\item[\textbf{Internal logic.}] The logic interpreted within a topos, which may be intuitionistic rather than classical.
+\item[\textbf{Sheaf.}] A contravariant functor from a site to sets that satisfies a gluing condition for local data.
+\item[\textbf{Site.}] A category equipped with a Grothendieck topology that specifies covering families for defining sheaves.
+\item[\textbf{Terminal object.}] An object $1$ such that for every $X$ there is exactly one morphism $X\to 1$.
+\item[\textbf{$G$-set.}] A set equipped with an action by a group $G$; the category of $G$-sets is a topos.
+\item[\textbf{Intuitionistic logic.}] A logic in which the law of excluded middle is not assumed; the internal logic of a general topos.
+\item[\textbf{Lawvere–Tierney topology.}] A closure operator on subobjects inside a topos defining local truth and generalizing sheafification.
+\end{description}
 \section*{7. Sample Questions}
 \emph{Exercise reference:} \cite{topos_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
 \begin{enumerate}[leftmargin=*,itemsep=0.9em]

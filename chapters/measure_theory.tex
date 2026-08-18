@@ -1,15 +1,15 @@
 \theory{Measure theory}{How can length, area, probability, and size be defined consistently for complicated sets?}{Measure theory assigns a nonnegative size to a carefully chosen family of sets and extends finite addition to countably many disjoint pieces. It provides the foundation for modern integration and probability.}{Probability, analysis, ergodic theory, PDEs, geometry, economics, statistics, and mathematical physics.}{Measurable sets, countable additivity, and integration provide a rigorous way to aggregate quantities over irregular or infinite domains.}
 
-\paragraph{Émile Borel and Henri Lebesgue}
+\paragraph{\'Emile Borel and Henri Lebesgue}
 Borel identified useful classes of measurable sets, and Lebesgue constructed an integral that remains stable under limits and handles irregular sets. Their work replaced ad hoc notions of area with countably additive measure and rigorous integration.
 
-\paragraph{Constantin Carathéodory and Andrey Kolmogorov}
-Carathéodory's outer-measure construction gave a systematic route to measurable sets. Kolmogorov built modern probability on measure spaces, making measure theory the common language for integration, probability, and ergodic theory \cite{measure_theory_ref1}.
+\paragraph{Constantin Carath\'eodory and Andrey Kolmogorov}
+Carath\'eodory's outer-measure construction gave a systematic route to measurable sets. Kolmogorov built modern probability on measure spaces, making measure theory the common language for integration, probability, and ergodic theory \cite{measure_theory_ref1}.
 \end{historylist}
 \section*{3. Theory}
 \subsection*{Core theory}
 \paragraph{Why ordinary length is not enough}
-Intervals have length, rectangles have area, and boxes have volume. But limits, fractal sets, and irregular regions are not always built from finitely many such pieces. Measure theory replaces a ruler with rules that survive countable approximation. It was developed through the work of Borel, Lebesgue, Carathéodory, and later Kolmogorov \cite{measure_theory_ref1}.
+Intervals have length, rectangles have area, and boxes have volume. But limits, fractal sets, and irregular regions are not always built from finitely many such pieces. Measure theory replaces a ruler with rules that survive countable approximation. It was developed through the work of Borel, Lebesgue, Carath\'eodory, and later Kolmogorov \cite{measure_theory_ref1}.
 
 A measure space consists of a set $X$, a sigma-algebra $\Sigma$ of measurable subsets, and a measure $\mu$ satisfying $\mu(\emptyset)=0$ and countable additivity:
 \[
@@ -20,7 +20,7 @@ for pairwise disjoint measurable sets. The sigma-algebra is closed under complem
 \paragraph{Lebesgue measure}
 Lebesgue measure agrees with ordinary length on intervals: $\mu([a,b])=b-a$. It extends this to a large family of subsets of the real line and higher-dimensional Euclidean space. A set of measure zero may be nonempty, such as a point or the Cantor set, and changing a function on such a set does not change its integral.
 
-The outer-measure construction begins by covering a set with intervals or boxes and taking the infimum of the total lengths or volumes. Carathéodory's criterion selects the measurable sets for which every set splits cleanly with respect to outer measure. This construction explains why some subsets of the real line cannot be assigned a translation-invariant countably additive length without additional assumptions.
+The outer-measure construction begins by covering a set with intervals or boxes and taking the infimum of the total lengths or volumes. Carath\'eodory's criterion selects the measurable sets for which every set splits cleanly with respect to outer measure. This construction explains why some subsets of the real line cannot be assigned a translation-invariant countably additive length without additional assumptions.
 
 \paragraph{Integration}
 The Lebesgue integral first integrates indicator functions, then nonnegative simple functions, and finally general measurable functions by approximation. It can integrate functions with infinitely many discontinuities when the total contribution is controlled. The spaces $L^p$ identify functions that differ only on a null set and use
@@ -55,7 +55,7 @@ Not every subset is measurable, and an integral depends on the chosen measure. A
 
 \section*{4. Important theorems and results}
 \begin{enumerate}[leftmargin=*,itemsep=0.35em]
-\item \textbf{Carathéodory extension theorem.} A suitable premeasure on simple sets extends to a measure on the generated sigma-algebra.
+\item \textbf{Carath\'eodory extension theorem.} A suitable premeasure on simple sets extends to a measure on the generated sigma-algebra.
 
 \item \textbf{Monotone convergence theorem.} Integrals commute with increasing limits of nonnegative measurable functions.
 
@@ -74,6 +74,23 @@ Not every subset is measurable, and an integral depends on the chosen measure. A
 \item Measure theory helps probability, PDEs, harmonic analysis, ergodic theory, and geometric measure theory define size and integration beyond finite sums.
 \item Its convergence theorems justify exchanging limits, sums, derivatives, and integrals when the stated hypotheses hold.
 }
+
+\section*{Glossary}
+\begin{description}[leftmargin=*,style=nextline,itemsep=0.3em]
+\item[\textbf{Measure.}] A function that assigns a nonnegative number (possibly infinity) to subsets of a space, satisfying empty-set-measure-zero and countable additivity over disjoint unions.
+\item[\textbf{Sigma-algebra.}] A collection of subsets that is closed under complements and countable unions, providing the family of sets on which a measure can be consistently defined.
+\item[\textbf{Lebesgue measure.}] The standard way of assigning length, area, and volume to subsets of Euclidean space, extending the ordinary notion to a much wider class of sets.
+\item[\textbf{Measurable function.}] A function whose preimages of measurable sets are measurable, ensuring that integrals, probabilities, and expectations involving it are well defined.
+\item[\textbf{Lp space.}] The space of measurable functions for which the integral of the absolute value raised to the $p$-th power is finite; it provides a complete metric space used throughout analysis and probability.
+\item[\textbf{Dominated convergence theorem.}] A result that allows the limit and integral to be interchanged when a sequence of functions converges pointwise and is bounded by a single integrable function.
+\item[\textbf{Null set.}] A set of measure zero; functions may be changed on a null set without affecting their integral.
+\item[\textbf{Outer measure.}] A function assigning sizes to all subsets by taking the infimum of coverings.
+\item[\textbf{Carath\'eodory criterion.}] The condition that a set $E$ splits every test set $A$ cleanly with respect to outer measure.
+\item[\textbf{Probability space.}] A measure space with total measure 1; the foundation for modern probability.
+\item[\textbf{Fatou's lemma.}] A one-sided inequality stating $\liminf$ of integrals of nonnegative functions is at least the integral of the $\liminf$.
+\item[\textbf{Fubini's theorem.}] Allows iterated integration over a product space in either order when absolute integrability holds.
+\end{description}
+
 \section*{7. Sample Questions}
 \emph{Exercise reference:} \cite{measure_theory_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
 \begin{enumerate}[leftmargin=*,itemsep=0.9em]

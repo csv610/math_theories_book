@@ -45,6 +45,22 @@ Homotopy type theory interprets types as spaces, terms as points, and equalities
 \item Dependent types let the type mention a value, such as the length of a vector, so the checker can verify that an operation preserves a specification.
 \item Homotopy type theory extends the same idea by treating paths between objects as mathematical structure \cite{type_ref1,type_ref4}.
 }
+\section*{Glossary}
+\begin{description}[leftmargin=*,style=nextline,itemsep=0.3em]
+\item[\textbf{Type.}] A classification that determines what kind of object a term is; types prevent ill-formed expressions.
+\item[\textbf{Term.}] An expression in type theory that can be a variable, abstraction, application, or other construct.
+\item[\textbf{Curry–Howard correspondence.}] The principle that propositions correspond to types and proofs correspond to terms.
+\item[\textbf{Dependent type.}] A type that can depend on a value, allowing the type system to express precise specifications.
+\item[\textbf{Function type.}] The type $A \to B$ representing functions from terms of type $A$ to terms of type $B$.
+\item[\textbf{Product type.}] A type $A \times B$ whose terms are pairs consisting of a term of type $A$ and a term of type $B$.
+\item[\textbf{Sum type.}] A type $A + B$ representing a choice between a term of type $A$ or a term of type $B$.
+\item[\textbf{Normalization.}] The process of reducing terms to a normal form; strong normalization guarantees that all reduction sequences terminate.
+\item[\textbf{Lambda calculus.}] A formal system based on function abstraction and application; simply typed lambda calculus is modeled by Cartesian closed categories.
+\item[\textbf{Dependent product.}] The type $\Pi x:A.\,P(x)$ of functions whose output type depends on the input value; models universal quantification.
+\item[\textbf{Dependent sum.}] The type $\Sigma x:A.\,P(x)$ of pairs where the second component's type depends on the first; models existential quantification.
+\item[\textbf{Homotopy type theory.}] A version of type theory where types are interpreted as topological spaces, terms as points, equalities as paths.
+\item[\textbf{Univalence.}] The principle that equivalent types are equal; an axiom in homotopy type theory.
+\end{description}
 \section*{7. Sample Questions}
 \emph{Exercise reference:} \cite{type_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
 \begin{enumerate}[leftmargin=*,itemsep=0.9em]

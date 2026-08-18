@@ -3,7 +3,7 @@
 \paragraph{Rolf Nevanlinna}
 Nevanlinna developed the theory in 1925 to measure how often a meromorphic function takes a value as the radius of the disk grows. His counting and proximity functions compare zeros and poles with the function's total growth, turning value distribution into quantitative inequalities.
 
-\paragraph{Lars Ahlfors, André Bloch, Henri Cartan, and later contributors}
+\paragraph{Lars Ahlfors, Andr\'e Bloch, Henri Cartan, and later contributors}
 They extended value-distribution methods from meromorphic functions to broader complex-analytic settings, including holomorphic curves and several complex variables. Their work explains why exceptional values and ramification can be controlled by growth estimates \cite{nevanlinna_theory_ref1}.
 
 \end{historylist}
@@ -78,6 +78,21 @@ Nevanlinna's characteristic $T(r,f)$ measures the growth of a meromorphic functi
 \item Nevanlinna theory helps complex analysis control how often a meromorphic function takes values and helps arithmetic geometry study rational and integral points.
 \item Its counting and proximity functions turn qualitative value-avoidance questions into quantitative growth estimates.
 }
+
+\section*{Glossary}
+\begin{description}[leftmargin=*,style=nextline,itemsep=0.3em]
+\item[\textbf{Meromorphic function.}] A function that is holomorphic (complex-differentiable) everywhere on a domain except at isolated poles, where it behaves like the reciprocal of a polynomial.
+\item[\textbf{Counting function.}] A function $N(r,f)$ that accumulates the number of times a meromorphic function takes a given value inside a disk of radius $r$, weighted by multiplicity and distance from the origin.
+\item[\textbf{Proximity function.}] A function $m(r,a,f)$ that measures how closely a meromorphic function approaches a target value $a$ on the boundary circle $|z|=r$, averaged in a logarithmic sense.
+\item[\textbf{Characteristic function.}] The function $T(r,f)=N(r,a,f)+m(r,a,f)+O(1)$ that measures the overall growth rate of a meromorphic function, essentially independent of the target value $a$.
+\item[\textbf{Defect.}] A number between 0 and 1 that quantifies how much the actual frequency of a meromorphic function taking a value $a$ falls short of what its total growth would predict; a fully omitted value has defect 1.
+\item[\textbf{Second fundamental theorem.}] A deep inequality showing that a meromorphic function cannot avoid too many distinct values without its characteristic growth being forced to increase, generalizing Picard's theorem.
+\item[\textbf{First fundamental theorem.}] The identity $T(r,f)=N(r,a,f)+m(r,a,f)+O(1)$ partitioning growth between value-taking and value-approaching.
+\item[\textbf{Picard theorem.}] A transcendental entire function takes every complex value with at most one exception.
+\item[\textbf{Defect relation.}] The sum of defects $\delta(a,f)$ over all values is at most two for a nonconstant meromorphic function.
+\item[\textbf{Transcendental function.}] An entire function that is not a polynomial.
+\end{description}
+
 \section*{7. Sample Questions}
 \emph{Exercise reference:} \cite{nevanlinna_theory_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
 \begin{enumerate}[leftmargin=*,itemsep=0.9em]

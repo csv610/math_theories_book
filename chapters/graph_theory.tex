@@ -63,6 +63,21 @@ Its abstraction is a strength but also a limit: a graph may omit geography, time
 \item Graph theory helps routing, scheduling, social and biological networks, circuit design, and web search.
 \item It converts a system of pairwise relationships into paths, cuts, matchings, and flows that can guide a concrete design or diagnosis.
 }
+\section*{Glossary}
+\begin{description}[leftmargin=*,style=nextline,itemsep=0.3em]
+\item[\textbf{Vertex.}] A point in a graph representing an object; edges join vertices to encode relationships between them.
+\item[\textbf{Edge.}] A connection between two vertices in a graph; edges may be directed, undirected, or weighted.
+\item[\textbf{Bipartite graph.}] A graph whose vertices can be split into two groups so that every edge joins a vertex from one group to a vertex in the other.
+\item[\textbf{Chromatic number.}] The smallest number of colors needed to assign a color to each vertex so that no two adjacent vertices share the same color.
+\item[\textbf{Eulerian circuit.}] A closed walk that traverses every edge of a graph exactly once; it exists precisely when every vertex has even degree.
+\item[\textbf{Hamiltonian cycle.}] A cycle that visits every vertex of a graph exactly once; determining whether one exists is computationally hard in general.
+\item[\textbf{Spanning tree.}] A subgraph that includes every vertex and is a tree (connected with no cycles), using exactly $n-1$ edges for $n$ vertices.
+\item[\textbf{Path.}] A sequence of vertices where each consecutive pair is joined by an edge and no vertex is repeated.
+\item[\textbf{Tree.}] A connected graph with no cycles; it has exactly one path between any two vertices and $n-1$ edges for $n$ vertices.
+\item[\textbf{Planar graph.}] A graph that can be drawn in the plane without edges crossing.
+\item[\textbf{Degree.}] The number of edges incident to a vertex; it determines properties like Euler circuits and chromatic number.
+\item[\textbf{Matching.}] A set of edges no two of which share a vertex.
+\end{description}
 \section*{7. Sample Questions}
 \emph{Exercise reference:} \cite{graph_theory_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
 \begin{enumerate}[leftmargin=*,itemsep=0.9em]

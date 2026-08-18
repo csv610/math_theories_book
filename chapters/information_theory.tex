@@ -87,6 +87,20 @@ Information theory depends on probability, statistics, logarithms, coding, and o
 \item Information theory helps communication, compression, statistics, machine learning, cryptography, and physics quantify uncertainty and dependence.
 \item Entropy and mutual information are useful only after the source, observation, and noise model have been specified.
 }
+\section*{Glossary}
+\begin{description}[leftmargin=*,style=nextline,itemsep=0.3em]
+\item[\textbf{Entropy.}] The average uncertainty of a random variable, measured in bits; it is maximized when all outcomes are equally likely.
+\item[\textbf{Mutual information.}] The average reduction in uncertainty about one random variable obtained by observing another; it quantifies statistical dependence.
+\item[\textbf{Channel capacity.}] The maximum rate at which information can be transmitted through a noisy channel with arbitrarily low error probability using suitable long codes.
+\item[\textbf{Source coding.}] Compression of a data source to use as few bits as possible; the source coding theorem shows that the entropy rate is the fundamental limit for lossless compression.
+\item[\textbf{Channel coding.}] The deliberate addition of structured redundancy to a message so that a receiver can detect and correct errors introduced by a noisy channel.
+\item[\textbf{Kullback--Leibler divergence.}] A non-symmetric measure of how one probability distribution differs from another; it is nonnegative and zero only when the distributions agree.
+\item[\textbf{Conditional entropy.}] $H(X\mid Y)$, the remaining uncertainty about $X$ after $Y$ is observed.
+\item[\textbf{Self-information.}] $I(p)=-\log_2 p$, the information content of an event with probability $p$.
+\item[\textbf{Binary symmetric channel.}] A channel that independently flips each input bit with probability $p$.
+\item[\textbf{Shannon--Hartley law.}] The formula $C=B\log_2(1+S/N)$ for the capacity of a band-limited Gaussian channel.
+\item[\textbf{Data-processing inequality.}] Processing data cannot increase mutual information about an original variable.
+\end{description}
 \section*{7. Sample Questions}
 \emph{Exercise reference:} \cite{information_theory_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
 \begin{enumerate}[leftmargin=*,itemsep=0.9em]

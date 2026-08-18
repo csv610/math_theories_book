@@ -69,6 +69,24 @@ In type systems, a type may be below another when every value of the first can s
 \item In databases, an order can mean “contains at least this information,” so joins combine records without losing consistency.
 \item In computer science and type theory, recursive definitions are interpreted as fixed points of ordered maps, while combinatorics uses chains and antichains to bound how a finite family can be arranged \cite{order_theory_ref1,order_theory_ref3}.
 }
+
+\section*{Glossary}
+\begin{description}[leftmargin=*,style=nextline,itemsep=0.3em]
+\item[\textbf{Partial order.}] A binary relation on a set that is reflexive, antisymmetric, and transitive; it allows some pairs to be incomparable, unlike a total order.
+\item[\textbf{Poset.}] Short for partially ordered set; a set equipped with a partial order, such as subsets ordered by inclusion or integers ordered by divisibility.
+\item[\textbf{Antichain.}] A subset of a poset in which no two elements are comparable; antichains measure how many incomparable ``directions'' the order has.
+\item[\textbf{Lattice.}] A poset in which every pair of elements has both a greatest lower bound (meet) and a least upper bound (join).
+\item[\textbf{Monotone function.}] A map between posets that preserves the order: if $a\leq b$ then $f(a)\leq f(b)$; monotone self-maps of complete lattices always have fixed points by Knaster--Tarski.
+\item[\textbf{Galois connection.}] A pair of monotone maps between two posets that are nearly inverse, relating the operation of taking objects and the operation of taking their common properties.
+\item[\textbf{Total order.}] A partial order in which every pair of elements is comparable.
+\item[\textbf{Hasse diagram.}] A graph drawing of a finite poset showing only covering relations.
+\item[\textbf{Supremum (join).}] The least upper bound of a subset.
+\item[\textbf{Infimum (meet).}] The greatest lower bound of a subset.
+\item[\textbf{Closure operator.}] A monotone, extensive, idempotent self-map.
+\item[\textbf{Chain.}] A subset of a poset in which every two elements are comparable.
+\item[\textbf{Zorn's lemma.}] If every chain in a nonempty poset has an upper bound, the poset has a maximal element.
+\end{description}
+
 \section*{7. Sample Questions}
 \emph{Exercise reference:} \cite{order_theory_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
 \begin{enumerate}[leftmargin=*,itemsep=0.9em]

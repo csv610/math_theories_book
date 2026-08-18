@@ -102,6 +102,32 @@ Approximation theory replaces a difficult function or model by a simpler one whi
 \item It helps signal processing by retaining the important frequencies and suppressing numerical noise, and it helps statistics by replacing a complicated relationship with a controlled model.
 \item Its error bounds tell the downstream subject whether the numerical answer is trustworthy \cite{approximation_theory_ref1,approximation_theory_ref6}.
 }
+
+\section*{Glossary}
+\begin{description}[leftmargin=*,style=nextline,itemsep=0.3em]
+
+\item[\textbf{Minimax polynomial.}] The polynomial of a given degree that minimizes the largest absolute error over an interval, distributing the error evenly rather than forcing exact agreement at selected points.
+
+\item[\textbf{Equioscillation.}] The property that the error of a best uniform approximation alternates in sign and achieves the same maximum magnitude at a prescribed number of points, certifying optimality.
+
+\item[\textbf{Chebyshev polynomial.}] A sequence of polynomials defined by $T_n(\cos\theta)=\cos(n\theta)$ that oscillate between $-1$ and $1$ on $[-1,1]$ and provide near-optimal polynomial approximations.
+
+\item[\textbf{Approximation error.}] The difference between a function and its approximant, measured in a chosen norm such as the maximum (worst-case) or mean-square error.
+
+\item[\textbf{Remez algorithm.}] An iterative numerical procedure that converges to the minimax polynomial by adjusting test points to the true extrema of the error and solving a system of alternating equations.
+
+\item[\textbf{Asymptotic expansion.}] A sequence of increasingly accurate approximations in which each neglected term is small relative to the preceding one; the series need not converge but is useful when truncated near its smallest term.
+
+\item[\textbf{Uniform approximation.}] An approximation measured by the maximum absolute error over an interval, requiring the error to be small everywhere simultaneously.
+
+\item[\textbf{Interpolation.}] Constructing a function that matches given data exactly at selected points; it may produce large errors between those points.
+
+\item[\textbf{Least-squares approximation.}] Choosing an approximant to minimize the mean-square error rather than the worst-case error.
+
+\item[\textbf{Splines.}] Piecewise polynomial functions joined smoothly at knots, providing local approximation with controlled global smoothness.
+
+\end{description}
+
 \chapterquestions{Approximation theory}{approximants, norms, and approximation error}{approximating $e^x$ near 0 by $1+x+x^2/2$}{the Taylor polynomial has remainder controlled by a bound on the next derivative}{Weierstrass approximation says continuous functions on a closed interval can be uniformly approximated by polynomials}{an approximation outside its error range is unsafe; numerical simulation and signal processing use controlled error}{approximation_theory_ref1}
 \section*{8. References}
 \begin{thebibliography}{9}

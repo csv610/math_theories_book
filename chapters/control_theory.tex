@@ -134,6 +134,21 @@ Feedback also appears in economics, operations research, biology, and artificial
 \item Control theory helps robotics, aircraft, industrial processes, power systems, and autonomous vehicles keep a desired state despite disturbances.
 \item Its stability and observability tests also guide system identification, signal filtering, and the design of feedback in biological and economic models.
 }
+\section*{Glossary}
+\begin{description}[leftmargin=*,style=nextline,itemsep=0.3em]
+\item[\textbf{Feedback.}] A control scheme in which the measured output is compared with a reference value and the resulting error drives a corrective input to the system.
+\item[\textbf{Transfer function.}] The ratio of the output to the input in the Laplace domain for a linear time-invariant system, encoding poles and zeros that determine stability and response.
+\item[\textbf{PID controller.}] A controller that combines proportional, integral, and derivative actions on the error signal to balance speed, accuracy, and steady-state error.
+\item[\textbf{Controllability.}] The property that inputs can move a system from any initial state to any desired state in finite time.
+\item[\textbf{Observability.}] The property that the internal state of a system can be fully determined from its measured outputs over time.
+\item[\textbf{Pole.}] A value of the complex frequency variable at which the transfer function becomes unbounded, determining the natural modes and stability of the system.
+\item[\textbf{Lyapunov stability.}] A notion in which trajectories that start close to an equilibrium remain close for all future time, without necessarily approaching it.
+\item[\textbf{State-space model.}] A representation of a dynamical system using a vector of internal state variables and first-order differential equations.
+\item[\textbf{Steady-state error.}] The residual difference between the desired set point and actual output after transients have decayed.
+\item[\textbf{Kalman filter.}] An optimal state estimator for linear-Gaussian systems combining a dynamic model with noisy measurements.
+\item[\textbf{Pole placement.}] A design technique choosing feedback so closed-loop eigenvalues have prescribed locations.
+\end{description}
+
 \section*{7. Sample Questions}
 \emph{Exercise reference:} \cite{control_theory_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
 \begin{enumerate}[leftmargin=*,itemsep=0.9em]

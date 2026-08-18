@@ -46,6 +46,23 @@ Big-O notation suppresses machine-dependent constants and compares growth. Searc
 \item It supports cryptography through hardness assumptions, verification through formal properties of all executions, and complexity theory through time and space bounds.
 \item Thus a practical program can be judged not only by whether it works on examples, but by whether its specification is decidable and its resources are bounded \cite{computation_ref1,computation_ref2}.
 }
+\section*{Glossary}
+\begin{description}[leftmargin=*,style=nextline,itemsep=0.3em]
+\item[\textbf{Turing machine.}] A theoretical model of computation consisting of a tape, a head, and a state register; it formalizes the notion of algorithmic computation.
+\item[\textbf{Decidable.}] A problem for which an algorithm always halts and gives a correct yes-or-no answer for every input.
+\item[\textbf{Halting problem.}] The problem of determining whether an arbitrary algorithm will eventually stop running on a given input; it is undecidable.
+\item[\textbf{P vs NP.}] The open question of whether every problem whose solution can be verified quickly can also be solved quickly.
+\item[\textbf{NP-complete.}] The hardest problems in NP, such that an efficient solution to any one would solve all problems in NP.
+\item[\textbf{Reduction.}] A transformation of one problem into another that preserves the answer, used to compare relative difficulty.
+\item[\textbf{Chomsky hierarchy.}] A classification of formal languages by the type of automaton that recognizes them: regular, context-free, context-sensitive, and recursively enumerable.
+\item[\textbf{Big-O notation.}] A notation describing the growth rate of a function, used to classify algorithm complexity independent of machine details.
+\item[\textbf{Finite automaton.}] A computational model with finitely many states and no auxiliary memory; recognizes regular languages.
+\item[\textbf{Pushdown automaton.}] A finite automaton augmented with a stack; recognizes context-free languages.
+\item[\textbf{Regular language.}] A language recognizable by a finite automaton.
+\item[\textbf{Context-free language.}] A language recognizable by a pushdown automaton; describes nested or recursive structures.
+\item[\textbf{Church–Turing thesis.}] Every effectively calculable function is captured by equivalent formal models like Turing machines.
+\item[\textbf{Rice's theorem.}] Every nontrivial semantic property of the partial function computed by a Turing machine is undecidable.
+\end{description}
 \section*{7. Sample Questions}
 \emph{Exercise reference:} \cite{computation_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
 \begin{enumerate}[leftmargin=*,itemsep=0.9em]

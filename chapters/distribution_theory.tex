@@ -133,6 +133,20 @@ In image processing, an edge is close to a derivative of a step and a point feat
 \item Distribution theory helps PDEs define weak solutions, helps physics represent point sources, and helps harmonic analysis extend Fourier methods beyond ordinary functions.
 \item It makes differentiation continuous in a larger space, so limits of smooth approximations remain usable.
 }
+\section*{Glossary}
+\begin{description}[leftmargin=*,style=nextline,itemsep=0.3em]
+\item[\textbf{Test function.}] An infinitely differentiable function with compact support, used as a smooth probe to define the action of a distribution.
+\item[\textbf{Distribution.}] A continuous linear functional on test functions that extends the notion of a function, allowing derivatives to be defined for singular objects such as jumps and point masses.
+\item[\textbf{Dirac delta.}] The distribution that evaluates a test function at a single point, modelling an idealized point source or instantaneous impulse.
+\item[\textbf{Tempered distribution.}] A distribution defined on Schwartz functions (smooth functions that decay faster than any polynomial), important because the Fourier transform extends to this space.
+\item[\textbf{Schwartz function.}] A smooth function whose value and all derivatives decrease faster than any inverse power of~$|x|$, forming the natural test-function space for Fourier analysis.
+\item[\textbf{Convolution.}] An operation that combines two distributions or functions by integrating one against a shifted copy of the other, with the Dirac delta acting as the identity element.
+\item[\textbf{Green function.}] The response of a linear differential operator to a point-source input, used to solve equations by convolving with the source term.
+\item[\textbf{Weak derivative.}] The distributional derivative extending differentiation to non-smooth functions via integration by parts.
+\item[\textbf{Heaviside step function.}] The function equal to $0$ for $x<0$ and $1$ for $x\geq 0$; its distributional derivative is the Dirac delta.
+\item[\textbf{Sobolev space.}] A function space of functions whose weak derivatives up to a given order are $L^p$-integrable.
+\end{description}
+
 \section*{7. Sample Questions}
 \emph{Exercise reference:} \cite{distribution_theory_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
 \begin{enumerate}[leftmargin=*,itemsep=0.9em]

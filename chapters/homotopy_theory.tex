@@ -85,6 +85,23 @@ The theory has a cost: exact homotopy groups can be difficult or impossible to c
 \item \textbf{Robotics and configuration spaces.} The space of configurations of a rigid robot arm is a configuration space whose topology is governed by homotopy groups. If $n$ points move in the plane without collision, the configuration space has nontrivial fundamental group---the pure braid group---and homotopy theory determines which motions of the arm are continuously deformable into others. This is essential for motion planning: a path in configuration space that cannot be contracted to a point corresponds to a movement that cannot be simplified, which directly affects algorithmic efficiency.
 \item \textbf{Sensor network coverage.} A network of sensors in a region covers the area if every point is within range of at least one sensor. The nerve of the covering---a simplicial complex recording which sensor ranges overlap---has the same homotopy type as the covered region under suitable assumptions. Homotopy-theoretic invariants of the nerve detect holes in coverage: a nontrivial fundamental group or higher homotopy group signals an uncovered region that must be addressed.
 }
+\section*{Glossary}
+\begin{description}[leftmargin=*,style=nextline,itemsep=0.3em]
+\item[\textbf{Homotopy.}] A continuous deformation between two maps; two maps are homotopic if one can be smoothly transformed into the other without leaving the target space.
+\item[\textbf{Fundamental group.}] The group $\pi_1(X)$ of homotopy classes of loops based at a point, recording how many independent ways loops can wind around holes in a space.
+\item[\textbf{Homotopy equivalence.}] A relationship between spaces that are deformable into one another; two spaces are homotopy equivalent if maps in both directions compose to maps homotopic to the identity.
+\item[\textbf{Loop space.}] The space $\Omega X$ of all continuous maps from the circle into $X$ that fix a basepoint; it has its own homotopy type and is adjoint to suspension.
+\item[\textbf{Suspension.}] The space $\Sigma X$ obtained by joining two cones over $X$; suspension raises dimension and simplifies homotopy groups in the stable range.
+\item[\textbf{CW complex.}] A topological space built by iteratively attaching cells of increasing dimension; it provides a convenient combinatorial framework for homotopy theory.
+\item[\textbf{Model category.}] An abstract framework with three distinguished classes of maps (weak equivalences, cofibrations, fibrations) that axiomatize homotopy-theoretic constructions.
+\item[\textbf{Higher homotopy group.}] The group $\pi_n(X)$ of homotopy classes of maps $S^n\to X$; generalizes the fundamental group.
+\item[\textbf{Classifying space.}] A space $BG$ such that $[X,BG]$ classifies principal $G$-bundles over $X$.
+\item[\textbf{Principal bundle.}] A fiber bundle with a free transitive group action on fibers; classified by maps to a classifying space.
+\item[\textbf{Simplicial set.}] A combinatorial model for a topological space using abstract simplices with face and degeneracy maps.
+\item[\textbf{Simply connected.}] A space with trivial fundamental group.
+\item[\textbf{Spectrum.}] A sequence of spaces with structure maps encoding stable homotopy phenomena; represents generalized cohomology theories.
+\item[\textbf{Eilenberg--Mac Lane space.}] A space $K(A,n)$ with only one nonzero homotopy group $\pi_n=A$.
+\end{description}
 \section*{7. Sample Questions}
 \emph{Exercise reference:} \cite{homotopy_theory_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
 \begin{enumerate}[leftmargin=*,itemsep=0.9em]

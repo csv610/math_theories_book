@@ -118,6 +118,19 @@ It is useful whenever a problem has several possible notions of size. A theorem 
 \item A dimension is useful only after its definition and category are stated; different dimensions answer different questions.
 }
 \noindent\textbf{Data dimension reduction (PCA and manifold learning).} In statistics and machine learning, a dataset of $N$ observations in $\mathbb R^D$ is modeled as a point cloud that may lie near a lower-dimensional submanifold. Principal Component Analysis (PCA) finds the linear subspace of largest variance by computing the eigenvalues of the covariance matrix $X^TX/D$; the number of eigenvalues exceeding a threshold is the effective dimension, analogous to choosing a generating set in a vector space. When the data lie on a nonlinear manifold (e.g., Swiss roll, face images under varying illumination), intrinsic dimension, the Krull dimension of the underlying variety or the covering dimension of the manifold, governs how many parameters are needed. The manifold-learning algorithms Isomap and LLE estimate this intrinsic dimension using covering numbers or persistent homology. A result from dimension theory that is directly applicable: if data satisfy $r$ independent polynomial equations in $\mathbb R^D$, then (by the dimension-transcendence theorem) the expected Krull dimension of the algebraic set is $D-r$. This guides feature selection: knowing the true dimension prevents overfitting (too many features) or information loss (too few). For instance, facial images of one person under varying pose and lighting empirically lie near a 12--15 dimensional manifold inside $\mathbb R^{D}$ (with $D$ in the thousands), and manifold-learning methods that respect this intrinsic dimension outperform linear PCA for recognition tasks.
+\section*{Glossary}
+\begin{description}[leftmargin=*,style=nextline,itemsep=0.3em]
+\item[\textbf{Krull dimension.}] The maximum length of a chain of strictly nested prime ideals in a commutative ring, measuring how many layers of algebraic subspaces the ring can contain.
+\item[\textbf{Prime ideal.}] An ideal in a ring such that if a product of two elements lies in the ideal, at least one of the elements must lie in it; it represents an irreducible algebraic condition.
+\item[\textbf{Height.}] The maximum length of a chain of prime ideals ending at a given prime, measuring how many algebraic layers lie below the corresponding subspace.
+\item[\textbf{Noetherian ring.}] A ring in which every ascending chain of ideals eventually stabilizes, ensuring finite generation of ideals and making dimension theory tractable.
+\item[\textbf{Cohen--Macaulay ring.}] A ring in which the depth of each local ring equals its Krull dimension, meaning the algebraic and homological notions of size agree.
+\item[\textbf{Regular local ring.}] A local ring whose Krull dimension equals the dimension of its tangent space, indicating that the corresponding point is smooth or nonsingular.
+\item[\textbf{Localization.}] A process that focuses on the behavior of a ring near a single prime ideal, analogous to zooming into a neighborhood of one point in a geometric space.
+\item[\textbf{Depth.}] The length of the longest regular sequence in the maximal ideal of a local ring; $\operatorname{depth}=\dim$ characterizes Cohen--Macaulay rings.
+\item[\textbf{Transcendence degree.}] The maximum number of algebraically independent elements in the fraction field; equals the Krull dimension.
+\end{description}
+
 \section*{7. Sample Questions}
 \emph{Exercise reference:} \cite{dimension_theory_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
 \begin{enumerate}[leftmargin=*,itemsep=0.9em]

@@ -66,6 +66,21 @@ The incidence correspondence changes the basic object: a spacetime point becomes
 \item \textbf{Computer vision.} Twistor-theoretic ideas enter computer vision through the study of the space of camera motions. The group of Euclidean motions $SE(3)$ acts on images, and its geometry can be described using a spinorial or twistorial parameterization. The incidence between light rays and image planes is structurally identical to the twistor incidence relation. Recent work on camera networks and multi-view geometry uses twistor-inspired representations to simplify the reconstruction of 3D scenes from 2D images, particularly when the camera calibration is unknown.
 \item \textbf{Medical imaging and MRI reconstruction.} In MRI, data are collected in $k$-space (Fourier space) rather than directly in image space. The reconstruction problem---recovering the image from Fourier samples---is an inverse problem with geometric structure. Twistor methods have been applied to accelerate compressed-sensing MRI by exploiting the Penrose transform: instead of solving the reconstruction PDE in image space, one works with the simpler holomorphic representation on twistor space and transforms back. This approach can reduce the number of required samples and improve reconstruction quality for diffusion MRI, where the signal is naturally a solution of a massless equation on a curved background.
 }
+\section*{Glossary}
+\begin{description}[leftmargin=*,style=nextline,itemsep=0.3em]
+\item[\textbf{Twistor.}] A point in a complex vector or projective space that encodes spinor and conformal information about spacetime.
+\item[\textbf{Penrose transform.}] A correspondence that converts holomorphic data or cohomology classes on twistor space into solutions of massless field equations in spacetime.
+\item[\textbf{Incidence correspondence.}] The relationship where a spacetime point corresponds to a projective line in twistor space, linking geometry and field theory.
+\item[\textbf{Self-dual fields.}] Fields satisfying a simplified version of the field equations that can be solved using complex geometric methods on twistor space.
+\item[\textbf{Twistor space.}] A complex geometric arena from which spacetime and field equations can be recovered through holomorphic data.
+\item[\textbf{Spinors.}] Mathematical objects describing rotational states; they provide the basic variables in twistor theory.
+\item[\textbf{Cohomology classes.}] Algebraic objects representing field solutions; their vanishing or non-vanishing indicates solvability of field equations.
+\item[\textbf{MHV formulas.}] Methods for computing scattering amplitudes in gauge theory using maximal helicity violating configurations.
+\item[\textbf{Projective twistor space.}] The projectivization $\mathbb{CP}^3$ of the four-dimensional twistor space; each spacetime point corresponds to a projective line.
+\item[\textbf{Minkowski space.}] The flat spacetime of special relativity, $\mathbb{R}^{3+1}$ with Lorentzian metric of signature $(-,+,+,+)$.
+\item[\textbf{Conformal group.}] The group preserving the causal structure of spacetime; acts naturally on twistor space.
+\item[\textbf{BCFW recursion.}] A recursive method for computing scattering amplitudes by building higher-point amplitudes from lower-point ones.
+\end{description}
 \section*{7. Sample Questions}
 \emph{Exercise reference:} \cite{twistor_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
 \begin{enumerate}[leftmargin=*,itemsep=0.9em]

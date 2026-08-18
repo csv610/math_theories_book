@@ -64,6 +64,21 @@ Shape theory is designed for spaces that are too irregular for a single smooth o
 \item The method is useful because it preserves stable large-scale information while deliberately ignoring microscopic detail \cite{shape_ref1,shape_ref2}.
 \item \textbf{Image analysis and digital topology.} A digitized image is a finite grid of pixels, hence a finite polyhedron, but the continuous scene it samples may contain thin filaments, fractal boundaries, or wild crossings. Shape-theoretic approximations built from increasingly fine pixel grids detect whether a dark region truly has a hole (a nontrivial loop) or merely looks hollow at one resolution. For example, a medical image of lung tissue can be approximated by voxel complexes at successively finer CT scan resolutions. A shape invariant that persists across resolutions---such as a nontrivial first Čech cohomology class---signals a genuine airway passage, while an artifact at one resolution will vanish in the inverse system. Digital topology software implements this by computing pro-homology groups over a filtered complex, directly applying the shape-theoretic principle that only stable information is trustworthy \cite{shape_ref1,shape_ref2}.
 }
+
+\section*{Glossary}
+\begin{description}[leftmargin=*,style=nextline,itemsep=0.3em]
+\item[\textbf{Shape.}] An equivalence class of compact spaces under compatible inverse systems of polyhedral approximations, capturing global topology that ordinary homotopy groups may miss.
+\item[\textbf{Inverse system.}] A directed family of simpler spaces linked by maps that record how each approximation refines the previous one; shape is the stable information shared by the whole system.
+\item[\textbf{Polyhedral approximation.}] A simpler finite-dimensional space that approximates a wild compact space at a given scale; shape theory studies the entire compatible sequence of such approximations.
+\item[\textbf{Wild space.}] A topological space whose local behavior is too irregular for ordinary homotopy theory to handle with a single finite description, such as the Hawaiian earring.
+\item[\textbf{Hawaiian earring.}] The union of circles of radii $1/n$ all meeting at one point; it has an uncountable fundamental group yet the same shape as an infinite wedge of circles.
+\item[\textbf{Warsaw circle.}] A compact set formed by closing a topologist's sine curve with an arc; it has trivial ordinary homotopy groups but carries nontrivial global shape information.
+\item[\textbf{Shape invariance.}] The property that shape ignores microscopic differences that vanish under arbitrarily fine polyhedral approximations, retaining only stable large-scale features.
+\item[\textbf{Fundamental group.}] The group $\pi_1(X,x_0)$ of homotopy classes of loops at a basepoint; the primary invariant shape theory replaces for wild spaces.
+\item[\textbf{Homotopy equivalence.}] A relation weaker than homeomorphism: each space can be continuously deformed into the other.
+\item[\textbf{Inverse limit.}] The categorical limit of an inverse system; constructs complicated spaces from simpler stages.
+\item[\textbf{\v{C}ech cohomology.}] A cohomology theory computed from open covers; the natural cohomology for shape-theoretic purposes.
+\end{description}
 \section*{7. Sample Questions}
 \emph{Exercise reference:} \cite{shape_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
 \begin{enumerate}[leftmargin=*,itemsep=0.9em]

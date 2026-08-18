@@ -39,7 +39,7 @@ Lattice methods also organize equivalence relations, partitions, subgroups, idea
 \paragraph{What the theory depends on and where it is useful}
 Lattice theory depends on partial orders, sets, logic, algebra, and universal algebra. It helps order theory describe closure, ring theory organize ideals, type theory interpret propositions, and computer science compute fixed points.
 
-The word lattice also names a periodic grid in geometry and crystallography; that geometric lattice is a different but related subject. In an order lattice, joins and meets may exist abstractly without having a simple numerical formula.
+The word lattice also names a periodic grid in geometry and crystallography; that geometric lattice is a different but related subject. In an order lattice, joins and may exist abstractly without having a simple numerical formula.
 
 \section*{4. Important theorems and results}
 \begin{enumerate}[leftmargin=*,itemsep=0.35em]
@@ -62,6 +62,21 @@ The word lattice also names a periodic grid in geometry and crystallography; tha
 \item Lattice theory helps logic, computer science, scheduling, data-flow analysis, and the study of subobjects in algebra.
 \item The order structure records which information refines which, so fixed-point and representation theorems can guide computation.
 }
+
+\section*{Glossary}
+\begin{description}[leftmargin=*,style=nextline,itemsep=0.3em]
+\item[\textbf{Meet.}] The greatest lower bound of two elements in a lattice; for subsets this is intersection, for integers under divisibility it is the greatest common divisor.
+\item[\textbf{Join.}] The least upper bound of two elements in a lattice; for subsets this is union, for integers under divisibility it is the least common multiple.
+\item[\textbf{Distributive lattice.}] A lattice in which meet distributes over join (and vice versa), so that the usual algebraic laws of intersection over union hold.
+\item[\textbf{Complete lattice.}] A lattice in which every subset---not just every pair---has both a meet and a join, which guarantees the existence of fixed points via the Knaster--Tarski theorem.
+\item[\textbf{Filter.}] An upward-closed subset of a lattice closed under meet, dual to an ideal; filters model the notion of a consistent or satisfiable set of conditions.
+\item[\textbf{Fixed point.}] An element $x$ of a lattice on which a monotone map satisfies $f(x)=x$; least and greatest fixed points arise in program verification and recursive definition.
+\item[\textbf{Modular lattice.}] A lattice satisfying the modular identity $a\wedge(b\vee c)=(a\wedge b)\vee(a\wedge c)$ whenever $a\leq c$.
+\item[\textbf{Boolean lattice.}] A complemented, bounded, distributive lattice; the power set with union, intersection, and complement is the standard example.
+\item[\textbf{Ideal.}] A downward-closed subset of a lattice closed under join; dual to a filter.
+\item[\textbf{Join-irreducible element.}] An element that cannot be expressed as the join of two strictly smaller elements.
+\end{description}
+
 \section*{7. Sample Questions}
 \emph{Exercise reference:} \cite{lattice_theory_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
 \begin{enumerate}[leftmargin=*,itemsep=0.9em]
@@ -91,7 +106,7 @@ The word lattice also names a periodic grid in geometry and crystallography; tha
 
 \begin{thebibliography}{9}
 \bibitem{lattice_theory_ref1} Garrett Birkhoff, \emph{Lattice Theory}, 3rd ed., American Mathematical Society, 1967.
-\bibitem{lattice_theory_ref2} George Grätzer, \emph{Lattice Theory: Foundation}, Birkhauser, 2011.
+\bibitem{lattice_theory_ref2} George Gr\"atzer, \emph{Lattice Theory: Foundation}, Birkhauser, 2011.
 \bibitem{lattice_theory_ref3} B. A. Davey and H. A. Priestley, \emph{Introduction to Lattices and Order}, 2nd ed., Cambridge University Press, 2002.
 \bibitem{lattice_theory_ref4} Ralph Freese, Jaroslav Jezek, and J. B. Nation, \emph{Free Lattices}, American Mathematical Society, 1995.
 \end{thebibliography}

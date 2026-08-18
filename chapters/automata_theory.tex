@@ -132,6 +132,34 @@ Automata theory turns repeated rule-based behaviour into a finite state model wh
 \item The same transition model checks whether every state of a protocol avoids a forbidden condition, which is the basis of model checking and formal verification.
 \item In digital circuits and cellular automata, the state-update rule is literally an automaton transition, so questions about long computations become questions about reachable states and accepted languages \cite{automata_theory_ref4,automata_theory_ref6}.
 }
+
+\section*{Glossary}
+\begin{description}[leftmargin=*,style=nextline,itemsep=0.3em]
+
+\item[\textbf{Finite automaton.}] An idealized machine with a finite set of states that reads input symbols one at a time, transitioning between states according to a fixed rule, and accepting the input if it ends in a designated accepting state.
+
+\item[\textbf{Regular language.}] A set of strings that can be recognized by a finite automaton, equivalently described by a regular expression or a regular grammar.
+
+\item[\textbf{Nondeterministic finite automaton (NFA).}] A finite automaton that may have several possible next states for a given state and input symbol, including $\varepsilon$-transitions; it accepts if at least one computational path reaches an accepting state.
+
+\item[\textbf{Pushdown automaton.}] A finite automaton augmented with a stack that can grow without bound, giving it the memory needed to recognize context-free languages such as balanced parentheses.
+
+\item[\textbf{Turing machine.}] A model of computation with a finite instruction table and an infinite tape that can be read and written in both directions; it captures the broadest class of algorithmically decidable problems.
+
+\item[\textbf{Pumping lemma.}] A property of regular languages stating that any sufficiently long word contains a repeatable middle part; it is the standard tool for proving that a language is not regular.
+
+\item[\textbf{Chomsky hierarchy.}] A classification of formal languages by the type of automaton needed to recognize them: regular, context-free, context-sensitive, and recursively enumerable, each class strictly containing the previous one.
+
+\item[\textbf{Regular expression.}] A formal notation built from symbols, union, concatenation, and Kleene star that describes exactly the regular languages.
+
+\item[\textbf{Myhill--Nerode theorem.}] A language is regular precisely when it has finitely many distinguishable equivalence classes of prefixes; the number equals the states in the minimal DFA.
+
+\item[\textbf{Deterministic finite automaton (DFA).}] A finite automaton with exactly one transition from each state for each input symbol.
+
+\item[\textbf{Church--Turing thesis.}] The claim that every effectively calculable function can be computed by a Turing machine.
+
+\end{description}
+
 \section*{7. Sample Questions}
 \emph{Exercise reference:} \cite{automata_theory_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
 \begin{enumerate}[leftmargin=*,itemsep=0.9em]

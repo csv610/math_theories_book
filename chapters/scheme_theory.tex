@@ -70,6 +70,22 @@ The language of schemes underlies modern proofs in arithmetic geometry. Wiles's 
 \item \textbf{Coding theory.} A Reed--Solomon code of length $n$ over $\mathbb{F}_q$ is the set of evaluations of polynomials of degree less than $k$ at $n$ distinct elements $\alpha_1,\dots,\alpha_n\in\mathbb{F}_q$. The scheme $\operatorname{Spec}(\mathbb{F}_q[x])$ provides the natural setting: each evaluation point $\alpha_i$ corresponds to the maximal ideal $(x-\alpha_i)$, and a codeword is a section of the structure sheaf over the open set $D\bigl(\prod_{i=1}^n(x-\alpha_i)\bigr)$ restricted to those closed points. The minimum distance of the code equals $n-k+1$, derived geometrically from the fact that a nonzero polynomial of degree $<k$ can vanish at most $k-1$ times---equivalently, its zero scheme in $\operatorname{Spec}(\mathbb{F}_q[x])$ has at most $k-1$ closed points \cite{scheme_ref1,scheme_ref2}.
 \item \textbf{Cryptography.} Elliptic-curve cryptography (ECC) studies the group of $K$-rational points of a curve $E\colon y^2=x^3+ax+b$ over a finite field $\mathbb{F}_q$. Scheme theory treats $E$ as a scheme over $\operatorname{Spec}(\mathbb{F}_q)$ and considers the family of fibers $E_p$ over all primes $p$. The Hasse bound $|E(\mathbb{F}_q)-(q+1)|\le 2\sqrt{q}$ is proved using the zeta function of the scheme $E$, which encodes point counts over all extension fields. Deformation theory over $\operatorname{Spec}(\mathbb{Z})$---studying how $E$ changes modulo $p$---is the basis of the CM method for constructing curves with prescribed group orders, directly feeding into secure key generation for protocols such as ECDSA \cite{scheme_ref3,scheme_ref4}.
 }
+
+\section*{Glossary}
+\begin{description}[leftmargin=*,style=nextline,itemsep=0.3em]
+\item[\textbf{Scheme.}] A topological space equipped with a sheaf of rings, built by gluing affine pieces; it generalizes algebraic varieties and can remember multiplicities and arithmetic information.
+\item[\textbf{Affine scheme.}] A scheme of the form $\operatorname{Spec}(R)$, whose points are the prime ideals of a commutative ring $R$ and whose functions come from that ring.
+\item[\textbf{Prime spectrum.}] The set $\operatorname{Spec}(R)$ of all prime ideals of a ring $R$, endowed with the Zariski topology in which closed sets are defined by vanishing of ideal elements.
+\item[\textbf{Structure sheaf.}] The assignment that gives each open set of a scheme its ring of regular functions, built locally by allowing selected elements to appear in denominators.
+\item[\textbf{Generic point.}] A point whose closure is the whole space or a dense irreducible subset; in $\operatorname{Spec}(R)$ it corresponds to the zero ideal.
+\item[\textbf{Morphism.}] A continuous map of schemes that is compatible with their sheaves of functions; ring maps $B\to A$ induce morphisms $\operatorname{Spec}(A)\to\operatorname{Spec}(B)$ in the opposite direction.
+\item[\textbf{Localization.}] The ring construction that inverts a chosen set of elements, zooming in on the behavior of a scheme near a prime ideal or open subset.
+\item[\textbf{Zariski topology.}] The topology on $\operatorname{Spec}(R)$ whose closed sets are $V(I)=\{\mathfrak{p}:I\subseteq\mathfrak{p}\}$ for ideals $I$; it has far fewer open sets than the usual topology.
+\item[\textbf{Nilpotent.}] An element $x$ such that $x^n=0$ for some $n$; schemes retain nilpotent information that varieties discard.
+\item[\textbf{Base change.}] Pulling back a morphism $X\to S$ along another morphism $S'\to S$, producing the family over a new base.
+\item[\textbf{Fiber.}] For a morphism $X\to S$ and a point $s\in S$, the preimage $X_s$; fibers over different primes give reductions mod~$p$.
+\item[\textbf{Locally ringed space.}] A topological space equipped with a sheaf of local rings; every scheme is a locally ringed space.
+\end{description}
 \section*{7. Sample Questions}
 \emph{Exercise reference:} \cite{scheme_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
 \begin{enumerate}[leftmargin=*,itemsep=0.9em]

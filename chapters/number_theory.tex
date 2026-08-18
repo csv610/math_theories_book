@@ -73,6 +73,24 @@ Elliptic curves provide another example. An equation such as $y^2=x^3+ax+b$ defi
 \item Cryptography uses modular exponentiation together with problems such as factoring or discrete logarithms that are easy to perform in one direction but difficult to reverse.
 \item Algebraic geometry and probability borrow arithmetic counts and congruence information, while mathematical physics uses lattices, modular forms, and spectral sums to organize discrete states \cite{number_theory_ref1,number_theory_ref2}.
 }
+
+\section*{Glossary}
+\begin{description}[leftmargin=*,style=nextline,itemsep=0.3em]
+\item[\textbf{Prime number.}] A positive integer greater than 1 whose only positive divisors are 1 and itself; primes are the indivisible building blocks of all integers by the fundamental theorem of arithmetic.
+\item[\textbf{Congruence.}] A way of saying two integers have the same remainder when divided by a modulus $m$, written $a\equiv b\pmod{m}$; it reduces infinite searches to finite tables of residue classes.
+\item[\textbf{Diophantine equation.}] An equation seeking integer or rational solutions, named after Diophantus; solving it requires arithmetic methods rather than the real-number techniques of ordinary algebra.
+\item[\textbf{Greatest common divisor (gcd).}] The largest positive integer dividing both $a$ and $b$, computable by the Euclidean algorithm; it determines whether a linear Diophantine equation has solutions.
+\item[\textbf{Continued fraction.}] An expression of a real number as a nested fraction that provides unusually good rational approximations and is useful for analyzing quadratic irrationals and Pell equations.
+\item[\textbf{Chinese remainder theorem.}] A result stating that simultaneous congruences with pairwise coprime moduli have a unique solution modulo the product of the moduli, enabling large calculations to be split into smaller ones.
+\item[\textbf{Fundamental theorem of arithmetic.}] Every integer greater than 1 has a unique prime factorization.
+\item[\textbf{Modular arithmetic.}] Arithmetic on residue classes modulo $m$.
+\item[\textbf{Euclidean algorithm.}] An algorithm computing the greatest common divisor by repeated division with remainder.
+\item[\textbf{Fermat's little theorem.}] If $p$ is prime and $p\nmid a$, then $a^{p-1}\equiv1\pmod{p}$.
+\item[\textbf{Euler's totient function.}] The function $\varphi(n)$ counting integers up to $n$ coprime to $n$.
+\item[\textbf{Elliptic curve.}] A smooth cubic curve $y^2=x^3+ax+b$ whose points form a group supporting digital signatures.
+\item[\textbf{RSA.}] A public-key cryptosystem whose security relies on the difficulty of factoring a large composite $n=pq$.
+\end{description}
+
 \section*{7. Sample Questions}
 \emph{Exercise reference:} \cite{number_theory_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
 \begin{enumerate}[leftmargin=*,itemsep=0.9em]

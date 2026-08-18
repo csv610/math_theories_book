@@ -67,6 +67,20 @@ The results describe how a wheel extends ordinary arithmetic while retaining a t
 \item A symbolic program can carry the exceptional value through addition, multiplication, and inversion, then report the result under the wheel's rules.
 \item The connection is useful for formal verification because every expression has a defined denotation, but ordinary field identities may not be used unless their nonzero assumptions have been checked \cite{wheel_ref1,wheel_ref3}.
 }
+\section*{Glossary}
+\begin{description}[leftmargin=*,style=nextline,itemsep=0.3em]
+\item[\textbf{Wheel.}] An algebraic structure in which division is always defined, including division by zero, with modified cancellation laws.
+\item[\textbf{Total division.}] The property that every pair of elements $x, y$ has a defined quotient $x/y$, even when $y = 0$.
+\item[\textbf{Inverse operation.}] A unary operation written $/x$ that acts like a reciprocal; division is defined as $x/y = x \cdot (/y)$.
+\item[\textbf{Involution.}] The property that applying the inverse operation twice returns the original element: $//x = x$.
+\item[\textbf{Bottom element.}] The special value representing $0/0$ in a wheel, which behaves differently from ordinary numbers.
+\item[\textbf{Extension principle.}] A construction that embeds a commutative ring or semiring into a wheel while preserving ordinary arithmetic where defined.
+\item[\textbf{Modified cancellation.}] The restriction that identities like $x/x = 1$ cannot be applied at exceptional values without checking the wheel's rules.
+\item[\textbf{Projective line.}] The real or complex projective line with an added bottom point, providing the geometric picture behind a wheel.
+\item[\textbf{Commutative ring.}] An algebraic structure with addition and multiplication satisfying usual axioms; a wheel extends this to make division total.
+\item[\textbf{Semiring.}] An algebraic structure like a ring but without requiring additive inverses; wheels can extend these.
+\item[\textbf{Cancellation law.}] The rule that $ax=bx$ implies $a=b$; in wheels such laws must be weakened because division by zero is defined.
+\end{description}
 \section*{7. Sample Questions}
 \emph{Exercise reference:} \cite{wheel_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
 \begin{enumerate}[leftmargin=*,itemsep=0.9em]

@@ -76,6 +76,21 @@ The method is useful whenever a problem is staged by dimension. In topology it t
 \item The obstruction is therefore useful precisely because it identifies the first stage at which a proposed construction cannot be completed \cite{obstruction_theory_ref3,obstruction_theory_ref4}.
 \item \textbf{Structural engineering and failure modes.} A loaded truss or frame is a network of beams (edges) joined at nodes (vertices). Each beam can carry stress in certain directions---the ``fiber'' of the local bundle. When an engineer tries to assign a consistent stress distribution across the whole structure, local solutions may fail to patch together globally. The obstruction cocycle measures exactly this: a nonzero class in $H^2(B;\pi_1(F))$ signals a load path that cannot close, predicting a failure mode such as torsional buckling or a mechanism (a floppy mode). For instance, a cantilevered roof frame with triangular bracing has trivial obstruction classes, confirming rigidity; removing one diagonal makes a class nonzero, identifying the precise panel where collapse initiates \cite{obstruction_theory_ref2}.
 }
+
+\section*{Glossary}
+\begin{description}[leftmargin=*,style=nextline,itemsep=0.3em]
+\item[\textbf{Obstruction.}] A cohomology class that measures whether a locally possible construction can be extended globally; if the class is nonzero, the extension is impossible.
+\item[\textbf{Cohomology class.}] An element of a cohomology group that records global topological information encoded in local data on the cells of a space.
+\item[\textbf{Homotopy group.}] An algebraic invariant $\pi_n(Y)$ measuring the ways an $n$-dimensional sphere can be mapped into a space $Y$; nonzero elements represent maps that cannot be continuously deformed to a constant map.
+\item[\textbf{Characteristic class.}] A natural assignment of cohomology classes to vector bundles that detects global twisting; Stiefel--Whitney classes and the Euler class are important examples.
+\item[\textbf{Fibration.}] A map $p:E\to B$ that locally looks like a product, where each point of the base $B$ has a fiber $F$ above it; obstructions to global sections of fibrations lie in cohomology groups.
+\item[\textbf{Simplicial complex.}] A combinatorial space built from vertices, edges, triangles, and higher-dimensional simplices glued along their faces, providing a framework for computing obstructions skeleton by skeleton.
+\item[\textbf{Obstruction cocycle.}] A cochain assigning to each simplex the homotopy class of its boundary map; automatically a cocycle.
+\item[\textbf{$n$-skeleton.}] The union of all simplices of dimension at most $n$; obstructions are computed skeleton by skeleton.
+\item[\textbf{Stiefel--Whitney class.}] A characteristic class with $\mathbb{Z}/2$ coefficients detecting nontrivial real vector bundles.
+\item[\textbf{Normal map.}] A degree-one map between manifolds equipped with a lift of the tangent bundle to the stable normal bundle.
+\end{description}
+
 \section*{7. Sample Questions}
 \emph{Exercise reference:} \cite{obstruction_theory_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
 \begin{enumerate}[leftmargin=*,itemsep=0.9em]

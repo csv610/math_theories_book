@@ -71,6 +71,23 @@ In a router, packets arrive and compete for a finite buffer. If the service rate
 \item The same calculation estimates traffic congestion, hospital beds, factory buffers, and network delay.
 \item Its distinctive contribution is to show the cost of variability: even when average arrival and service rates are equal, random bursts can make the queue grow without bound \cite{queue_ref1,queue_ref3}.
 }
+
+\section*{Glossary}
+\begin{description}[leftmargin=*,style=nextline,itemsep=0.3em]
+\item[\textbf{Traffic intensity.}] The ratio $\rho=\lambda/\mu$ of the arrival rate to the service rate; a queue with unlimited capacity reaches a steady state only when $\rho<1$.
+\item[\textbf{Poisson process.}] A model of random arrivals in which interarrival times are independent and exponentially distributed, characterized by a constant average rate $\lambda$.
+\item[\textbf{Little's law.}] The relationship $L=\lambda W$ stating that the long-run average number in a stable system equals the throughput multiplied by the average time spent in the system.
+\item[\textbf{M/M/1 queue.}] The simplest queueing model with Poisson arrivals, exponentially distributed service times, one server, and unlimited waiting capacity.
+\item[\textbf{Kendall's notation.}] A shorthand A/S/$c$ that classifies a queue by its arrival distribution, service distribution, and number of servers.
+\item[\textbf{Steady state.}] A long-run equilibrium condition in which the probability distribution of the number in the system no longer changes with time.
+\item[\textbf{Pollaczek--Khinchin formula.}] An exact expression for the mean waiting time in an M/G/1 queue showing that service-time variance directly increases delay.
+\item[\textbf{Kingman's formula.}] An approximation for the mean waiting time in a G/G/1 queue proportional to $\rho/(1-\rho)$ and to the sum of arrival and service variabilities.
+\item[\textbf{Interarrival time.}] The time between consecutive arrivals; exponentially distributed in a Poisson process.
+\item[\textbf{Service time.}] The duration a server takes to complete one job.
+\item[\textbf{Utilization.}] The fraction of time a server is busy, equal to $\rho$ in single-server models.
+\item[\textbf{Birth--death process.}] A continuous-time Markov chain where transitions only increase or decrease the state by one.
+\item[\textbf{Erlang formula.}] Formulas giving blocking and waiting probabilities in multi-server telephone systems.
+\end{description}
 \section*{7. Sample Questions}
 \emph{Exercise reference:} \cite{queue_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
 \begin{enumerate}[leftmargin=*,itemsep=0.9em]

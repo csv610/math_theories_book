@@ -109,6 +109,34 @@ The limits are just as important as the uses. A measure representation may be no
 \item Choquet theory helps optimization identify boundary solutions, helps potential theory represent harmonic functions, and helps probability interpret a complicated state as a mixture of simpler extreme states.
 \item Uniqueness is valuable because it turns a representation into an explanation rather than one arbitrary decomposition.
 }
+
+\section*{Glossary}
+\begin{description}[leftmargin=*,style=nextline,itemsep=0.3em]
+
+\item[\textbf{Extreme point.}] An element of a convex set that cannot be written as a nontrivial average of two other distinct points in the set; vertices of a polygon are extreme points.
+
+\item[\textbf{Convex set.}] A set in which every line segment joining two of its points lies entirely within it; equivalently, any finite weighted average of points in the set remains in the set.
+
+\item[\textbf{Representing measure.}] A probability measure supported on the extreme points of a convex set such that the value of every continuous affine function at an interior point equals its integral against the measure.
+
+\item[\textbf{Choquet simplex.}] A compact convex set in which every point has a unique representing probability measure on the extreme boundary, generalizing the uniqueness of barycentric coordinates in a triangle.
+
+\item[\textbf{Affine function.}] A function that preserves weighted averages, meaning $f(\lambda x+(1-\lambda)y)=\lambda f(x)+(1-\lambda)f(y)$; affine functions test whether a measure represents a point.
+
+\item[\textbf{Barycentric coordinates.}] The weights in a finite convex combination expressing a point as an average of extreme points; in a simplex these weights are unique.
+
+\item[\textbf{Krein--Milman theorem.}] The result that a compact convex set in a locally convex space is the closed convex hull of its extreme points, guaranteeing that extreme points completely determine the set.
+
+\item[\textbf{Convex hull.}] The smallest convex set containing a given collection of points; in finite dimensions equals the convex hull of extreme points.
+
+\item[\textbf{Probability measure.}] A measure assigning total mass 1; it replaces finite weights in the infinite-dimensional representation.
+
+\item[\textbf{Compact convex set.}] A convex set that is topologically compact; this ensures representing measures exist.
+
+\item[\textbf{Locally convex space.}] A topological vector space with enough continuous linear functionals to separate points and define neighborhoods via convex sets.
+
+\end{description}
+
 \section*{7. Sample Questions}
 \emph{Exercise reference:} \cite{choquet_theory_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
 \begin{enumerate}[leftmargin=*,itemsep=0.9em]

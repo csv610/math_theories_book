@@ -56,6 +56,24 @@ Etale and l-adic sheaf cohomology supplied the cohomological tools used in the p
 \item Cohomology turns the failure of gluing into invariants, so a local calculation can reveal a global obstruction \cite{sheaf_ref1,sheaf_ref3}.
 }
 \noindent\textbf{Data fusion and sensor networks.} A sensor network deploys many sensors over a region, each producing local measurements (temperature, air quality, acoustic signals) on its own coverage area. A sheaf on the network's topology assigns to each open set of sensors the data they collectively observe, with restriction maps encoding how data from a larger group restricts to a subgroup. The sheaf condition requires that overlapping sensor groups produce consistent readings. When readings conflict on overlaps, sheaf cohomology in degree~1 measures the inconsistency. This is used in practice: Baryshnikov and Ghrist introduced sheaf-based methods for distributed sensing, and real-time data-fusion algorithms use sheaf Laplacians to detect and localize sensor faults. A sensor reporting erroneous data creates a nontrivial cocycle; optimizing the sheaf Laplacian's smallest nonzero eigenvalue pinpoints which sensor is the source of the inconsistency.
+
+\section*{Glossary}
+\begin{description}[leftmargin=*,style=nextline,itemsep=0.3em]
+\item[\textbf{Sheaf.}] A structure that assigns data (sets, groups, rings, or modules) to every open set of a topological space, together with restriction maps to smaller open sets, satisfying the condition that compatible local pieces glue uniquely to a global piece.
+\item[\textbf{Presheaf.}] An assignment of data and restriction maps to open sets that may fail the gluing condition; a sheaf is a presheaf that satisfies it.
+\item[\textbf{Section.}] A piece of data assigned to a particular open set by a sheaf; a global section is a section defined on the whole space.
+\item[\textbf{Restriction map.}] The operation that takes data on a larger open set and produces compatible data on a smaller open subset, ensuring local information can be compared across scales.
+\item[\textbf{Sheaf condition.}] The requirement that whenever overlapping open sets carry compatible local sections, there exists exactly one global section restricting to each of them.
+\item[\textbf{Sheaf cohomology.}] A sequence of groups measuring the obstruction to gluing local data globally; degree zero gives the global sections, and higher degrees detect precise obstructions.
+\item[\textbf{Grothendieck topology.}] A generalization of open covers defined on a category, allowing abstract covering families that supply more local information than the Zariski topology alone.
+\item[\textbf{Topos.}] A category of sheaves on a site that behaves like a generalized space, supporting both geometric and logical reasoning.
+\item[\textbf{Sheafification.}] The universal process turning a presheaf into a sheaf, adding gluing data the presheaf lacked.
+\item[\textbf{Direct image functor.}] For a map $f\colon X\to Y$, the functor $f_*$ pushing sections forward along $f$.
+\item[\textbf{Inverse image functor.}] For a map $f\colon X\to Y$, the functor $f^{-1}$ pulling a sheaf on $Y$ back to $X$.
+\item[\textbf{\'Etale topology.}] A Grothendieck topology on a scheme defined by \'etale morphisms, providing more open covers than Zariski.
+\item[\textbf{Coherent sheaf.}] A sheaf of modules locally finitely generated and finitely presented; fundamental in algebraic geometry.
+\item[\textbf{De Rham theorem.}] On a smooth manifold, de Rham cohomology agrees with singular cohomology with real coefficients.
+\end{description}
 \section*{7. Sample Questions}
 \emph{Exercise reference:} \cite{sheaf_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
 \begin{enumerate}[leftmargin=*,itemsep=0.9em]

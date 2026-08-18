@@ -117,6 +117,22 @@ Coding theory depends on probability, logarithms, linear algebra, finite fields,
 \item Coding theory helps digital communication, storage, satellite links, and deep-space transmission by adding structured redundancy.
 \item It also supports distributed storage and data integrity: a receiver can detect or repair errors because the valid messages occupy separated positions in a larger space.
 }
+\section*{Glossary}
+\begin{description}[leftmargin=*,style=nextline,itemsep=0.3em]
+\item[\textbf{Hamming distance.}] The number of positions in which two equal-length strings differ, used to measure how far apart codewords are.
+\item[\textbf{Entropy.}] A measure of the average uncertainty in a random source, expressed in bits; it sets the fundamental limit on lossless compression.
+\item[\textbf{Codeword.}] The encoded string produced by applying a code to a source message, typically longer than the original to add redundancy for error protection.
+\item[\textbf{Minimum distance.}] The smallest Hamming distance between any two distinct valid codewords in a code; it determines how many errors the code can detect or correct.
+\item[\textbf{Linear block code.}] A set of fixed-length words over a finite field in which the sum of any two codewords is again a codeword, described by parameters $(n,k,d)$.
+\item[\textbf{Syndrome.}] The pattern of failed parity-check equations that identifies which errors occurred, allowing the decoder to locate and correct faulty positions.
+\item[\textbf{Interleaving.}] A technique that redistributes symbols from different codewords across a physical medium so that a burst of adjacent errors is spread out among many codewords.
+\item[\textbf{Channel capacity.}] The maximum rate at which information can be transmitted through a noisy channel with arbitrarily small error probability.
+\item[\textbf{Prefix-free code.}] A code in which no codeword is a proper prefix of another, enabling instantaneous uniquely decodable decoding.
+\item[\textbf{Reed-Solomon code.}] A non-binary cyclic error-correcting code especially effective at correcting burst errors.
+\item[\textbf{Source coding.}] The process of compressing a source's output by removing redundancy, also called data compression.
+\item[\textbf{Finite field.}] A field with finitely many elements, such as $\mathbb{F}_q$; the structure over which linear block codes are defined.
+\end{description}
+
 \section*{7. Sample Questions}
 \emph{Exercise reference:} \cite{coding_theory_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
 \begin{enumerate}[leftmargin=*,itemsep=0.9em]

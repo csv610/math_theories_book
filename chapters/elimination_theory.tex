@@ -91,6 +91,19 @@ In CAD, elimination detects whether two surfaces intersect or become tangent. In
 \item Elimination theory helps solve polynomial systems, robotics constraints, computer-aided design, and algebraic statistics.
 \item It turns hidden variables into explicit conditions, but the degree and coefficient growth can make exact computation expensive.
 }
+\section*{Glossary}
+\begin{description}[leftmargin=*,style=nextline,itemsep=0.3em]
+\item[\textbf{Resultant.}] A polynomial in the coefficients of two univariate polynomials that vanishes exactly when the polynomials share a common root; it eliminates one variable from a system.
+\item[\textbf{Discriminant.}] A special resultant between a polynomial and its derivative that vanishes when two roots coincide, detecting repeated roots and singular parameter values.
+\item[\textbf{Gröbner basis.}] A specially chosen generating set for a polynomial ideal adapted to a monomial order, which makes membership and elimination questions systematic and algorithmic.
+\item[\textbf{Elimination ideal.}] The subset of an ideal that involves only selected variables, obtained by intersecting the ideal with a smaller polynomial ring; it captures all consequences of the system in those variables.
+\item[\textbf{Quantifier elimination.}] A logical procedure that replaces a formula with quantified variables by an equivalent formula without quantifiers, turning existence questions into explicit conditions.
+\item[\textbf{Cylindrical algebraic decomposition.}] An algorithm that partitions real space into cells on which the signs of a family of polynomials are constant, enabling decision procedures for formulas involving polynomial equalities and inequalities.
+\item[\textbf{Monomial order.}] A rule for ranking polynomial terms that determines the leading term and drives the reduction steps in Gröbner-basis computations.
+\item[\textbf{Buchberger's algorithm.}] The algorithm for computing a Gröbner basis by repeatedly reducing pairs of polynomials until all S-polynomials reduce to zero.
+\item[\textbf{Nullstellensatz.}] Hilbert's theorem that a polynomial system has no common solution over an algebraically closed field iff its ideal contains $1$.
+\end{description}
+
 \section*{7. Sample Questions}
 \emph{Exercise reference:} \cite{elimination_theory_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
 \begin{enumerate}[leftmargin=*,itemsep=0.9em]

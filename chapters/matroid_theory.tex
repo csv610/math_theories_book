@@ -65,6 +65,22 @@ Matroid theory depends on sets, linear algebra, graph theory, and combinatorics.
 \item Matroid theory helps combinatorial optimization, coding theory, network design, scheduling, and the study of geometric configurations.
 \item By abstracting independence from algebra and graph theory, it provides a unified language for when elements can be added, removed, or exchanged without losing structure.
 }
+
+\section*{Glossary}
+\begin{description}[leftmargin=*,style=nextline,itemsep=0.3em]
+\item[\textbf{Independent set.}] A subset of the ground set that satisfies the matroid axioms of independence; in a vector matroid this means linearly independent, and in a graphic matroid it means acyclic.
+\item[\textbf{Basis.}] A maximal independent set in a matroid; every basis has the same size, which is the matroid's rank.
+\item[\textbf{Circuit.}] A minimal dependent set; in a graphic matroid a circuit is a cycle, and removing any single edge from it makes the remaining edges independent.
+\item[\textbf{Rank.}] The size of any basis of a matroid; it measures the maximum number of independent elements in the ground set.
+\item[\textbf{Graphic matroid.}] The matroid whose ground set is the edge set of a graph, where independent sets are acyclic edge subsets and bases are spanning forests.
+\item[\textbf{Matroid duality.}] A construction that produces a new matroid whose bases are the complements of the original's bases, linking properties of a matroid to properties of its dual.
+\item[\textbf{Closure.}] For a set $A$, the largest set whose rank equals the rank of $A$; elements in $\operatorname{cl}(A)\setminus A$ are spanned by $A$.
+\item[\textbf{Flat.}] A set equal to its own closure.
+\item[\textbf{Uniform matroid.}] The matroid $U_k^n$ of rank $k$ on $n$ elements where every $k$-subset is a basis.
+\item[\textbf{Representable matroid.}] A matroid whose elements can be labeled by vectors so independent sets correspond to linearly independent vectors.
+\item[\textbf{Tutte polynomial.}] A two-variable polynomial generalizing the chromatic polynomial of a graph and the Jones polynomial of a knot.
+\end{description}
+
 \section*{7. Sample Questions}
 \emph{Exercise reference:} \cite{matroid_theory_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
 \begin{enumerate}[leftmargin=*,itemsep=0.9em]

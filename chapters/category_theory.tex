@@ -136,6 +136,34 @@ Category theory is useful when the important information is how constructions ma
 \item In programming and databases, a compositional diagram records how components or queries can be assembled.
 \item The gain is not a new numerical answer by itself; it is a proof that different constructions are compatible because they satisfy the same universal pattern \cite{category_theory_ref1,category_theory_ref3}.
 }
+
+\section*{Glossary}
+\begin{description}[leftmargin=*,style=nextline,itemsep=0.3em]
+
+\item[\textbf{Category.}] A collection of objects together with morphisms (arrows) between them that can be composed associatively, with each object having an identity morphism.
+
+\item[\textbf{Functor.}] A map between categories that sends objects to objects and morphisms to morphisms while preserving identities and composition; it transports constructions from one setting to another.
+
+\item[\textbf{Natural transformation.}] A family of morphisms between two functors that is compatible with every map in the category, expressing a canonical way to compare two constructions.
+
+\item[\textbf{Universal property.}] A property that defines an object (such as a product or coproduct) solely in terms of how other objects and maps relate to it, guaranteeing uniqueness up to isomorphism.
+
+\item[\textbf{Adjoint functors.}] A pair of functors $F\dashv G$ in which maps from $F(A)$ to $B$ correspond naturally to maps from $A$ to $G(B)$; adjunctions encode free constructions, limits, and many canonical completions.
+
+\item[\textbf{Yoneda lemma.}] The result that an object is determined up to isomorphism by the functor of maps into it, formalizing the idea that an object is fully known by its relationships.
+
+\item[\textbf{Limit and colimit.}] Universal constructions that, respectively, pick a canonical ``cone'' over a diagram (limit) or glue objects together along shared data (colimit).
+
+\item[\textbf{Morphism.}] An arrow from one object to another in a category that can be composed associatively; the structure-preserving maps of each category.
+
+\item[\textbf{Isomorphism.}] A morphism with a two-sided inverse; two objects are isomorphic when structurally identical in the category.
+
+\item[\textbf{Duality.}] The principle that every definition and theorem has a dual obtained by reversing all arrows.
+
+\item[\textbf{Natural isomorphism.}] A natural transformation in which every component morphism is an isomorphism.
+
+\end{description}
+
 \section*{7. Sample Questions}
 \emph{Exercise reference:} \cite{category_theory_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
 \begin{enumerate}[leftmargin=*,itemsep=0.9em]

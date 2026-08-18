@@ -127,6 +127,20 @@ The theory is useful when data are incomplete, sources report constraints rather
 \item Dempster--Shafer theory helps sensor fusion and diagnosis combine evidence from sources that are incomplete or partly conflicting.
 \item Its interval output preserves uncertainty that an ordinary probability model might hide, although the combination rule must be checked when conflict is large.
 }
+\section*{Glossary}
+\begin{description}[leftmargin=*,style=nextline,itemsep=0.3em]
+\item[\textbf{Basic belief assignment.}] A function that distributes a total mass of~1 among subsets of possible states, expressing support for sets of outcomes rather than individual ones.
+\item[\textbf{Belief.}] The sum of all masses assigned to subsets fully contained in a hypothesis, representing the lower bound of total support for that hypothesis.
+\item[\textbf{Plausibility.}] The sum of all masses assigned to subsets that intersect a hypothesis, representing the upper bound of support that does not contradict the hypothesis.
+\item[\textbf{Focal element.}] A subset of the state space that receives positive mass in a basic belief assignment.
+\item[\textbf{Dempster's rule.}] A combination rule that merges evidence from two independent sources by intersecting their focal sets and rescaling by the nonconflicting mass.
+\item[\textbf{Frame of discernment.}] The set of all possible states under consideration, which serves as the universal set over which mass is distributed.
+\item[\textbf{Credal set.}] The convex set of all ordinary probability distributions that are compatible with a given belief function, representing the range of probabilities consistent with the evidence.
+\item[\textbf{Conflict mass (K).}] The total mass assigned by two sources to pairs of focal sets with empty intersection, measuring disagreement.
+\item[\textbf{Normalization.}] The rescaling step in Dempster's rule that removes conflicting mass and redistributes remaining mass to sum to one.
+\item[\textbf{Possibility measure.}] A special case of a belief function in which focal sets are nested, related to consonant evidence.
+\end{description}
+
 \section*{7. Sample Questions}
 \emph{Exercise reference:} \cite{dempster_shafer_theory_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
 \begin{enumerate}[leftmargin=*,itemsep=0.9em]

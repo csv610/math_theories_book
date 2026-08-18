@@ -103,6 +103,21 @@ Computational learning theory depends on probability, combinatorics, linear alge
 \item Computational learning theory helps machine learning estimate how much data is needed, guides model selection, and explains why boosting, regularisation, and margin maximisation work.
 \item It also connects to online optimisation, game theory, and control by analysing how agents improve through repeated interaction and feedback.
 }
+\section*{Glossary}
+\begin{description}[leftmargin=*,style=nextline,itemsep=0.3em]
+\item[\textbf{PAC learning.}] A framework in which a learner, given enough examples, produces a hypothesis whose error is below a chosen tolerance with high probability---probably approximately correct.
+\item[\textbf{VC dimension.}] The largest number of points that a hypothesis class can shatter, meaning it can realize every possible binary labeling of those points; it controls sample complexity.
+\item[\textbf{Rademacher complexity.}] A measure of how well a hypothesis class can fit random noise on a given sample, used to derive distribution-dependent generalization bounds.
+\item[\textbf{Hypothesis class.}] The set of candidate functions from which a learner selects a hypothesis during training.
+\item[\textbf{Sample complexity.}] The minimum number of training examples needed to guarantee that the learner's error is below a specified threshold with a specified confidence.
+\item[\textbf{Agnostic learning.}] A setting in which the target function need not belong to the hypothesis class, so the learner can only hope to approximate the best hypothesis in the class.
+\item[\textbf{Boosting.}] A technique that combines many weak learners, each only slightly better than random guessing, into a single strong learner with much lower error.
+\item[\textbf{Shatter.}] A hypothesis class shatters a set of points if it can realize every possible binary labeling of those points.
+\item[\textbf{Generalization.}] The ability of a learner to perform well on unseen data drawn from the same distribution as training data.
+\item[\textbf{Weak learner.}] A classifier that performs only slightly better than random guessing; boosting combines many weak learners into a strong one.
+\item[\textbf{Growth function.}] A function counting the number of distinct labelings a hypothesis class produces on $m$ points.
+\end{description}
+
 \section*{7. Sample Questions}
 \emph{Exercise reference:} \cite{colt_ref2}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
 \begin{enumerate}[leftmargin=*,itemsep=0.9em]
