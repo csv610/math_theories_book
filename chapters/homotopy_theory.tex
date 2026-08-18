@@ -13,6 +13,15 @@ A path is a map from an interval. A loop starts and ends at the same point. Homo
 
 Higher homotopy groups use maps from spheres: $\pi_n(X)$ records maps $S^n\to X$ up to homotopy. Unlike the fundamental group, higher groups are abelian for $n\geq2$. They detect higher-dimensional twisting, but are usually much harder to compute.
 
+\paragraph{Worked example: fundamental groups of $S^1$ and $T^2$}
+\textbf{The circle $S^1$.} Consider the universal covering map $\mathbb{R}\to S^1$ given by $t\mapsto e^{2\pi i t}$. A loop in $S^1$ based at $1$ lifts to a path in $\mathbb{R}$ starting at $0$ and ending at some integer $n\in\mathbb{Z}$. Two loops are homotopic if and only if they lift to paths ending at the same integer, so $\pi_1(S^1)\cong\mathbb{Z}$, with the integer recording winding number.
+
+\textbf{The torus $T^2=S^1\times S^1$.} A loop in the product decomposes as a pair of loops, one in each factor. Hence
+\[
+\pi_1(T^2)\;\cong\;\pi_1(S^1)\times\pi_1(S^1)\;\cong\;\mathbb{Z}\times\mathbb{Z}.
+\]
+Geometrically, a loop that goes once around the meridian represents $(1,0)$ and a loop going once around the longitude represents $(0,1)$. Every homotopy class is an integer combination of these two generators. In contrast, the sphere $S^2$ has $\pi_1(S^2)=0$ because every loop on a sphere can be shrunk to a point---there are no ``holes'' to wind around.
+
 \paragraph{Homotopy equivalence and examples}
 Spaces $X$ and $Y$ are homotopy equivalent if maps exist in both directions whose composites are homotopic to the identity. A disk is homotopy equivalent to a point; a cylinder is homotopy equivalent to a circle; a torus is not equivalent to a sphere because their loops and homology differ.
 
@@ -62,13 +71,19 @@ The theory has a cost: exact homotopy groups can be difficult or impossible to c
 \item \textbf{Freudenthal suspension theorem.} In a stable range, suspension gives isomorphisms between successive homotopy groups \cite{homotopy_theory_ref4}.
 \end{enumerate}
 
-\theoryapplications
+\paragraph{Applications}
+\begin{enumerate}[leftmargin=*,itemsep=0.35em]
+\item \textbf{Robotics and configuration spaces.} The configuration space of a rigid robot arm with multiple revolute joints is a product of circles, and the homotopy type of this space determines which motions are continuously deformable into one another. When obstacles are present, the configuration space becomes a manifold with boundary, and its fundamental group $\pi_1$ classifies the distinct ways the arm can circumnavigate obstacles without collision. Two joint trajectories are homotopic precisely when one can be continuously deformed into the other through collision-free motions. This classification is used in motion planning algorithms: by computing generators of $\pi_1$ for the obstacle-free configuration space, planners identify qualitatively different route classes and select the shortest representative in each class. For multi-robot systems, the joint configuration space is a product of many circle factors, and its higher homotopy groups detect topological obstructions to coordinating three or more robots simultaneously around shared obstacles \cite{homotopy_theory_ref1,homotopy_theory_ref3}.
+\item \textbf{Sensor networks and coverage.} In a network of mobile sensors, the sensing region swept out over time forms a topological space whose homotopy groups characterize coverage redundancy. A loop of sensors that cannot be contracted without uncovering a region signals a coverage gap, detected as a nontrivial element of $\pi_1$. Higher homotopy groups detect volumetric voids in three-dimensional sensor deployments. When sensors move along planned trajectories, the homotopy class of each trajectory relative to obstacles determines whether the sensor can be rerouted without leaving its assigned coverage area. This framework extends persistence-based methods: while persistent homology records the birth and death of topological features across scales, homotopy-theoretic invariants classify the qualitative ways in which trajectories, not just static coverage, can be deformed. Researchers have applied these ideas to underwater sensor networks for tsunami monitoring, where the ocean floor creates obstacles that force sensors into nontrivial homotopy classes, and to drone swarms for agricultural surveying, where the homotopy type of the free space determines the minimum number of distinct flight patterns needed to cover a field \cite{homotopy_theory_ref2,homotopy_theory_ref3}.
+\end{enumerate}
 \theoryconnections{homotopy theory}{%
 \item Topology supplies continuous maps and deformation, while algebraic topology supplies fundamental groups, homology, and homotopy groups.
 \item Category theory and higher algebra organize suspension, loop spaces, spectra, and representability.
 }{%
 \item Homotopy theory helps classify spaces up to flexible equivalence and provides the language of stable phenomena in algebraic topology.
 \item It also supports homological algebra, derived geometry, mathematical physics, and the study of higher categories.
+\item \textbf{Robotics and configuration spaces.} The space of configurations of a rigid robot arm is a configuration space whose topology is governed by homotopy groups. If $n$ points move in the plane without collision, the configuration space has nontrivial fundamental group---the pure braid group---and homotopy theory determines which motions of the arm are continuously deformable into others. This is essential for motion planning: a path in configuration space that cannot be contracted to a point corresponds to a movement that cannot be simplified, which directly affects algorithmic efficiency.
+\item \textbf{Sensor network coverage.} A network of sensors in a region covers the area if every point is within range of at least one sensor. The nerve of the covering---a simplicial complex recording which sensor ranges overlap---has the same homotopy type as the covered region under suitable assumptions. Homotopy-theoretic invariants of the nerve detect holes in coverage: a nontrivial fundamental group or higher homotopy group signals an uncovered region that must be addressed.
 }
 \section*{7. Sample Questions}
 \emph{Exercise reference:} \cite{homotopy_theory_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.

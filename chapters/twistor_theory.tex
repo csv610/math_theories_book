@@ -11,6 +11,13 @@ Twistor coordinates combine spinor information. The conformal group of compactif
 \paragraph{The Penrose transform}
 Holomorphic functions and cohomology classes on twistor space correspond to solutions of massless field equations in spacetime. Contour integrals recover fields from twistor data. Penrose's nonlinear graviton construction represents self-dual solutions of Einstein's equations by deformations of complex structure. Ward's construction represents self-dual Yang--Mills fields using holomorphic vector bundles \cite{twistor_ref3}.
 
+\paragraph{Concrete illustration: the Penrose transform in flat $\mathbb{R}^4$}
+Consider flat Minkowski space $\mathbb{R}^4$ with coordinates $(t,x,y,z)$ and the associated projective twistor space $\mathbb{PT}\cong\mathbb{CP}^3$. A point $p\in\mathbb{R}^4$ determines a projective line $\mathbb{CP}^1\subset\mathbb{PT}$ via the incidence relation $Z^\alpha=p_{a\dot{a}}\pi^{a\dot{\alpha}}$ in spinor notation. Suppose one prescribes a holomorphic function $f(Z)$ on an open region of $\mathbb{PT}$. The Penrose transform recovers a field $\phi(x)$ on $\mathbb{R}^4$ by integrating $f$ over the $\mathbb{CP}^1$ corresponding to each spacetime point:
+\[
+\phi(x)\;=\;\oint_{\mathbb{CP}^1_x} f(Z)\;\omega,
+\]
+where $\omega$ is the natural holomorphic $1$-form on the twistor line. The output $\phi$ automatically satisfies the massless wave equation $\Box\,\phi=0$. In this flat-space example the computation is concrete: pick $f(Z)=Z^0/(Z^1 Z^2)$ on a suitable domain, perform the contour integral parametrizing the $\mathbb{CP}^1$ by the spinor ratio $\pi^1/\pi^0$, and read off the resulting solution $\phi(t,x,y,z)$ on spacetime. The PDE has been solved entirely by complex integration on twistor space.
+
 \paragraph{Scattering amplitudes}
 Twistor methods reorganized calculations in gauge theory. MHV formulas, twistor actions, BCFW recursion, Grassmannian integrals, and the amplituhedron express scattering amplitudes in geometric forms. Witten's twistor string theory linked perturbative Yang--Mills amplitudes with strings in twistor space \cite{twistor_ref4}.
 
@@ -56,6 +63,8 @@ The incidence correspondence changes the basic object: a spacetime point becomes
 \item The transform helps construct self-dual solutions of relativity and gauge theory because a nonlinear spacetime equation becomes a bundle-gluing problem.
 \item In integrable systems it exposes hidden complex geometry, and in scattering amplitudes it makes factorization and recursion visible.
 \item These are not separate tricks: the same incidence relation translates spacetime propagation into holomorphic geometry \cite{twistor_ref3,twistor_ref4,twistor_ref5}.
+\item \textbf{Computer vision.} Twistor-theoretic ideas enter computer vision through the study of the space of camera motions. The group of Euclidean motions $SE(3)$ acts on images, and its geometry can be described using a spinorial or twistorial parameterization. The incidence between light rays and image planes is structurally identical to the twistor incidence relation. Recent work on camera networks and multi-view geometry uses twistor-inspired representations to simplify the reconstruction of 3D scenes from 2D images, particularly when the camera calibration is unknown.
+\item \textbf{Medical imaging and MRI reconstruction.} In MRI, data are collected in $k$-space (Fourier space) rather than directly in image space. The reconstruction problem---recovering the image from Fourier samples---is an inverse problem with geometric structure. Twistor methods have been applied to accelerate compressed-sensing MRI by exploiting the Penrose transform: instead of solving the reconstruction PDE in image space, one works with the simpler holomorphic representation on twistor space and transforms back. This approach can reduce the number of required samples and improve reconstruction quality for diffusion MRI, where the signal is naturally a solution of a massless equation on a curved background.
 }
 \section*{7. Sample Questions}
 \emph{Exercise reference:} \cite{twistor_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
@@ -73,9 +82,9 @@ The incidence correspondence changes the basic object: a spacetime point becomes
 \end{enumerate}
 \section*{8. References}
 \begin{thebibliography}{9}
-\bibitem{twistor_ref1} R. Penrose and W. Rindler, \emph{Spinors and Space-Time}.
-\bibitem{twistor_ref2} S. Huggett and K. Tod, \emph{An Introduction to Twistor Theory}.
-\bibitem{twistor_ref3} L. J. Mason and N. M. J. Woodhouse, \emph{Integrability, Self-Duality, and Twistor Theory}.
-\bibitem{twistor_ref4} E. Witten, \emph{Perturbative Gauge Theory as a String Theory in Twistor Space}.
-\bibitem{twistor_ref5} M. Dunajski, \emph{Twistor Theory and Differential Equations}.
+\bibitem{twistor_ref1} R. Penrose and W. Rindler, \emph{Spinors and Space-Time}, Vol.~1, Cambridge University Press, 1984.
+\bibitem{twistor_ref2} S. Huggett and K. Tod, \emph{An Introduction to Twistor Theory}, Cambridge University Press, 1985.
+\bibitem{twistor_ref3} L. J. Mason and N. M. J. Woodhouse, \emph{Integrability, Self-Duality, and Twistor Theory}, Oxford University Press, 1996.
+\bibitem{twistor_ref4} E. Witten, \emph{Perturbative Gauge Theory as a String Theory in Twistor Space}, Comm.\ Math.\ Phys., 2004.
+\bibitem{twistor_ref5} M. Dunajski, \emph{Solitons, Instantons, and Twistors}, Oxford University Press, 2009.
 \end{thebibliography}

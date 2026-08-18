@@ -27,6 +27,11 @@ Cayley's theorem for semigroups represents every semigroup as a semigroup of tra
 
 Finite semigroups are closely related to finite automata. A word read by an automaton induces a transformation of its state set. Words with the same effect form a syntactic monoid, and algebraic properties of this monoid characterize language classes. Krohn--Rhodes theory decomposes finite semigroups into simpler group and aperiodic components, analogous in spirit to factoring \cite{semigroup_ref3}.
 
+\paragraph{Automata and formal languages}
+The connection between semigroups and automata theory is precise and deep. A deterministic finite automaton (DFA) reads input symbols from a finite alphabet $\Sigma$ and updates its state according to a transition function $\delta\colon Q\times\Sigma\to Q$. Each symbol $a\in\Sigma$ therefore defines a transformation $q\mapsto\delta(q,a)$ of the state set $Q$. Concatenating symbols corresponds to composing these transformations, so every word $w\in\Sigma^*$ acts on $Q$ as a transformation. The set of all transformations obtained from words forms the transition semigroup of the automaton \cite{semigroup_ref3}.
+
+The syntactic monoid of a regular language $L\subseteq\Sigma^*$ is the quotient of the free monoid $\Sigma^*$ by the two-sided congruence that identifies words having the same effect in every left and right context of $L$. A fundamental theorem states that a language is regular if and only if its syntactic monoid is finite. More refined algebraic conditions on the syntactic monoid characterize proper sub-classes: a language is star-free if and only if its syntactic monoid is aperiodic (has no nontrivial group subgroups), and a language is piecewise testable if and only if its syntactic monoid is $\mathcal J$-trivial. Krohn--Rhodes theory then decomposes the transition semigroup of any DFA into group and aperiodic components, with each component recognizing a specific aspect of the language's structure. This algebraic decomposition provides both a classification tool and a design principle for automata \cite{semigroup_ref2,semigroup_ref3}.
+
 \paragraph{Analysis and differential equations}
 A one-parameter operator semigroup is a family $T(t)$ with $T(0)=I$ and $T(t+s)=T(t)T(s)$ for $t,s\geq0$. It describes evolution forward in time. Unlike a group, negative time may not be possible. If $A$ is the generator, formally $T(t)=e^{tA}$.
 
@@ -45,6 +50,21 @@ The heat equation is an example. Starting with a temperature distribution $u(0)$
 \item \textbf{Hille--Yosida principle.} Suitable conditions on an operator characterize when it generates a strongly continuous semigroup.
 \end{enumerate}
 \noindent\emph{Source for these results:} \cite{semigroup_ref1}.
+
+\paragraph{Application: image processing through mathematical morphology}
+Mathematical morphology, a framework for image analysis, provides a direct application of semigroup theory. In this setting an image is a function from a discrete grid to a set of intensity values, and basic operations are defined by a structuring element $B$. Dilation of an image $f$ by $B$ is the operation
+\[
+(f\oplus B)(x)=\max_{y\in B}f(x-y),
+\]
+and erosion is
+\[
+(f\ominus B)(x)=\min_{y\in B}f(x+y).
+\]
+When the structuring element is fixed, successive dilations compose associatively:
+\[
+(f\oplus B)\oplus C=f\oplus(B\oplus C),
+\]
+so the set of all dilations by elements from a fixed collection forms a semigroup under composition. Because dilation is generally not invertible---information about the original image can be lost---the inverse operation does not exist, and the algebraic structure is genuinely a semigroup rather than a group. Composite operations such as opening (erosion followed by dilation) and closing (dilation followed by erosion) are elements of this semigroup. The algebraic axioms of associativity guarantee that multi-step morphological filtering pipelines can be analysed and simplified by rearranging the semigroup product, which is the basis for efficient hardware and software implementations in image processing \cite{semigroup_ref1,semigroup_ref2}.
 
 \theoryapplications
 \theoryconnections{semigroup_theory}{%
@@ -72,8 +92,8 @@ The heat equation is an example. Starting with a temperature distribution $u(0)$
 \end{enumerate}
 \section*{8. References}
 \begin{thebibliography}{9}
-\bibitem{semigroup_ref1} A. H. Clifford and G. B. Preston, \emph{The Algebraic Theory of Semigroups}.
-\bibitem{semigroup_ref2} J. M. Howie, \emph{Fundamentals of Semigroup Theory}.
-\bibitem{semigroup_ref3} J.-E. Pin, \emph{Mathematical Foundations of Automata Theory}.
-\bibitem{semigroup_ref4} E. B. Davies, \emph{One-Parameter Semigroups}.
+\bibitem{semigroup_ref1} A. H. Clifford and G. B. Preston, \emph{The Algebraic Theory of Semigroups}, AMS, 1961.
+\bibitem{semigroup_ref2} J. M. Howie, \emph{Fundamentals of Semigroup Theory}, Oxford, 1995.
+\bibitem{semigroup_ref3} J.-E. Pin, \emph{Mathematical Foundations of Automata Theory}, Cambridge, 2017.
+\bibitem{semigroup_ref4} E. B. Davies, \emph{One-Parameter Semigroups}, Oxford, 1980.
 \end{thebibliography}

@@ -11,6 +11,13 @@ The method replaces a compact space by a system of simpler polyhedral approximat
 
 For compact spaces dominated homotopically by finite polyhedra, shape theory and homotopy theory agree. For general compact spaces, shape is more stable because it ignores microscopic details that disappear under increasingly fine approximation \cite{shape_ref2}.
 
+\paragraph{Concrete illustration: the Hawaiian earring vs.\ a wedge of circles}
+The Hawaiian earring $H$ is the union of circles $C_n$ of radius $1/n$ all meeting at a single point $p$. The infinite wedge $\bigvee_{n=1}^{\infty}S^1$ is the disjoint union of countably many circles identified at one point, given the topology that makes each circle an open-and-closed subset.
+
+\textbf{Ordinary homotopy.} A loop in $H$ can traverse infinitely many circles, producing a homotopy group $\pi_1(H)$ that is uncountable and not free. The wedge $\bigvee S^1$ has the free group on countably many generators as its $\pi_1$. So the two spaces are not homotopy equivalent.
+
+\textbf{Shape-theoretic view.} Approximate $H$ by the finite sub-wedge $H_N=\bigcup_{n=1}^{N}C_n$. Each $H_N$ is homotopy equivalent to $\bigvee_{n=1}^{N}S^1$, and the inclusions $H_N\hookrightarrow H_{N+1}$ are compatible. Shape theory studies this inverse system of finite wedges and records the transition maps. The wedge $\bigvee S^1$ has the same inverse system, so the two spaces have the same shape even though they are not homotopy equivalent. Shape detects the large-scale pattern---a shrinking sequence of loops---while ordinary homotopy sees unmanageable microscopic entanglement \cite{shape_ref1,shape_ref2}.
+
 \paragraph{The Warsaw circle}
 The Warsaw circle is formed by closing a topologist's sine curve with an arc. Its ordinary homotopy groups can look trivial, as for a point, yet its global arrangement is not point-like. Shape theory detects the large-scale organization that ordinary homotopy groups miss \cite{shape_ref1}.
 
@@ -55,6 +62,7 @@ Shape theory is designed for spaces that are too irregular for a single smooth o
 \item Shape theory helps continuum theory and geometric topology distinguish spaces whose local behavior is too irregular for ordinary homotopy groups.
 \item In dynamics, a complicated invariant set can be approximated by a sequence of finite graphs or polyhedra, allowing global loops and connectedness to be studied through the approximations.
 \item The method is useful because it preserves stable large-scale information while deliberately ignoring microscopic detail \cite{shape_ref1,shape_ref2}.
+\item \textbf{Image analysis and digital topology.} A digitized image is a finite grid of pixels, hence a finite polyhedron, but the continuous scene it samples may contain thin filaments, fractal boundaries, or wild crossings. Shape-theoretic approximations built from increasingly fine pixel grids detect whether a dark region truly has a hole (a nontrivial loop) or merely looks hollow at one resolution. For example, a medical image of lung tissue can be approximated by voxel complexes at successively finer CT scan resolutions. A shape invariant that persists across resolutions---such as a nontrivial first Čech cohomology class---signals a genuine airway passage, while an artifact at one resolution will vanish in the inverse system. Digital topology software implements this by computing pro-homology groups over a filtered complex, directly applying the shape-theoretic principle that only stable information is trustworthy \cite{shape_ref1,shape_ref2}.
 }
 \section*{7. Sample Questions}
 \emph{Exercise reference:} \cite{shape_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
@@ -72,6 +80,6 @@ Shape theory is designed for spaces that are too irregular for a single smooth o
 \end{enumerate}
 \section*{8. References}
 \begin{thebibliography}{9}
-\bibitem{shape_ref1} S. Mardesic, \emph{Shape Theory}.
-\bibitem{shape_ref2} J.-M. Cordier and T. Porter, \emph{Shape Theory: Categorical Methods of Approximation}.
+\bibitem{shape_ref1} S. Mardesic, \emph{Shape Theory}, World Scientific, 1989.
+\bibitem{shape_ref2} J.-M. Cordier and T. Porter, \emph{Shape Theory: Categorical Methods of Approximation}, Ellis Horwood, 1989.
 \end{thebibliography}

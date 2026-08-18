@@ -13,6 +13,9 @@ Let $X$ be a topological space. For each open set $U$, let $\mathcal F(U)$ be th
 
 The sheaf of continuous real-valued functions satisfies this rule: compatible continuous pieces define one continuous function. The sheaf of smooth functions, holomorphic functions, vector fields, and sections of a vector bundle provide richer examples. The constant presheaf may fail to be a sheaf because locally constant choices can behave differently on disconnected regions \cite{sheaf_ref1}.
 
+\paragraph{Worked example: the sheaf of continuous functions on $\mathbb R$}
+Let $X=\mathbb R$ with its usual topology, and for each open $U\subseteq\mathbb R$ let $\mathcal F(U)=C(U,\mathbb R)$ be the set of continuous real-valued functions on $U$. If $V\subseteq U$, the restriction map $\rho_{UV}\colon\mathcal F(U)\to\mathcal F(V)$ sends a function $f$ on $U$ to its restriction $f\big|_V$. Now take the open cover $U_1=(-\infty,1)$ and $U_2=(0,\infty)$ of $\mathbb R$. Suppose $f_1\in\mathcal F(U_1)$ and $f_2\in\mathcal F(U_2)$ agree on the overlap $U_1\cap U_2=(0,1)$, meaning $f_1(x)=f_2(x)$ for every $x\in(0,1)$. Then there is a unique continuous function $f\colon\mathbb R\to\mathbb R$ whose restriction to $U_1$ is $f_1$ and whose restriction to $U_2$ is $f_2$: define $f(x)=f_1(x)$ for $x\le1$ and $f(x)=f_2(x)$ for $x>0$. Agreement on the overlap guarantees continuity at every point. This is precisely the sheaf gluing axiom in action. Failure of agreement would obstruct gluing: for instance, $f_1(x)=0$ on $(-\infty,1)$ and $f_2(x)=1$ on $(0,\infty)$ cannot glue because they conflict on $(0,1)$.
+
 \paragraph{Morphisms and functors}
 A morphism of sheaves is a collection of maps commuting with restriction. Sheaves of a fixed type on a space form a category. A continuous map $f:X\to Y$ gives a direct image functor $f_*$, which records data on inverse images, and an inverse image functor $f^{-1}$, which transports local data in the other direction. These functors and their derived versions are central to geometry \cite{sheaf_ref3}.
 
@@ -52,6 +55,7 @@ Etale and l-adic sheaf cohomology supplied the cohomological tools used in the p
 \item On a scheme it records regular functions and modules; in arithmetic it organizes information over different localizations; in logic it models varying truth values.
 \item Cohomology turns the failure of gluing into invariants, so a local calculation can reveal a global obstruction \cite{sheaf_ref1,sheaf_ref3}.
 }
+\noindent\textbf{Data fusion and sensor networks.} A sensor network deploys many sensors over a region, each producing local measurements (temperature, air quality, acoustic signals) on its own coverage area. A sheaf on the network's topology assigns to each open set of sensors the data they collectively observe, with restriction maps encoding how data from a larger group restricts to a subgroup. The sheaf condition requires that overlapping sensor groups produce consistent readings. When readings conflict on overlaps, sheaf cohomology in degree~1 measures the inconsistency. This is used in practice: Baryshnikov and Ghrist introduced sheaf-based methods for distributed sensing, and real-time data-fusion algorithms use sheaf Laplacians to detect and localize sensor faults. A sensor reporting erroneous data creates a nontrivial cocycle; optimizing the sheaf Laplacian's smallest nonzero eigenvalue pinpoints which sensor is the source of the inconsistency.
 \section*{7. Sample Questions}
 \emph{Exercise reference:} \cite{sheaf_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
 \begin{enumerate}[leftmargin=*,itemsep=0.9em]
@@ -68,8 +72,8 @@ Etale and l-adic sheaf cohomology supplied the cohomological tools used in the p
 \end{enumerate}
 \section*{8. References}
 \begin{thebibliography}{9}
-\bibitem{sheaf_ref1} G. E. Bredon, \emph{Sheaf Theory}.
-\bibitem{sheaf_ref2} R. Godement, \emph{Topologie algebrique et theorie des faisceaux}.
-\bibitem{sheaf_ref3} I. Moerdijk and S. Mac Lane, \emph{Sheaves in Geometry and Logic}.
-\bibitem{sheaf_ref4} R. Hartshorne, \emph{Algebraic Geometry}.
+\bibitem{sheaf_ref1} G. E. Bredon, \emph{Sheaf Theory}, 2nd ed., Springer, 1997.
+\bibitem{sheaf_ref2} R. Godement, \emph{Topologie algebrique et theorie des faisceaux}, Hermann, 1958.
+\bibitem{sheaf_ref3} I. Moerdijk and S. Mac Lane, \emph{Sheaves in Geometry and Logic}, Springer, 1994.
+\bibitem{sheaf_ref4} R. Hartshorne, \emph{Algebraic Geometry}, Springer, 1977.
 \end{thebibliography}

@@ -27,6 +27,11 @@ Let $C$ be a smooth projective curve of genus $g$ over an algebraically closed f
 \subsection*{Core theory}
 \paragraph{Special divisors and Riemann--Roch}
 
+\paragraph{Concrete illustration: low-genus examples}
+\emph{Genus 2.} Every genus-2 curve $C$ is hyperelliptic: there exists a degree-2 map $C\to\mathbb P^1$, i.e.\ a $g^1_2$. Take a concrete example, $C\colon y^2=x^6-1$ over $\mathbb C$. A divisor $D=P_1+P_2$ consisting of two Weierstrass points (points where $x^6=1$, $y=0$) has $\deg D=2$ and $h^0(D)=2$, giving a complete $g^1_2$. Riemann--Roch yields $h^0(D)-h^1(D)=2-2+1=1$; since $h^1(D)=h^0(K-D)$ by Serre duality and $\deg K=2$ for genus 2, when $D\ne K$ we get $h^0(D)=2$. Now consider a divisor of degree 3: any effective divisor of degree 3 on a genus-2 curve has $h^0(D)\ge 2$ (by Riemann--Roch: $h^0-h^1=3-2+1=2$, and $h^1\ge 0$), so there is always at least a $g^1_3$, and often a $g^2_3$.
+
+\emph{Genus 3.} A general genus-3 curve is a smooth plane quartic in $\mathbb P^2$. Its canonical series is a $g^2_4$ embedding $C\hookrightarrow\mathbb P^2$. For a point $P\in C$, the divisor $D=K_C-P$ has degree $2g-2-1=3$ and $h^0(D)=g-1=2$ (by Riemann--Roch, since $h^1(D)=h^0(P)=1$), giving a $g^1_3$: a degree-3 map $C\to\mathbb P^1$. The Brill--Noether number for this system is $\rho(3,1,3)=3-2(3-3+1)=-1<0$, so a general genus-3 curve does \emph{not} carry a $g^1_3$ coming from this naive count. However, the computation above shows a $g^1_3$ always exists (just shift $K_C$ by one point). The point is that $\rho$ is negative for the \emph{specified} type; the actual system exists for geometric reasons but is not ``expected.'' By contrast, a degree-2 map $g^1_2$ has $\rho(3,1,2)=3-2(3-2+1)=-1<0$---and indeed a general genus-3 curve has no $g^1_2$; only hyperelliptic genus-3 curves do. This neatly separates the general locus from the hyperelliptic locus in moduli space.
+
 Riemann--Roch says
 \[
  h^0(D)-h^1(D)=\deg D-g+1.
@@ -100,6 +105,7 @@ Brill--Noether theory predicts when an algebraic curve has a linear series of a 
 \item \textbf{Moduli spaces.} The Brill--Noether number predicts the expected dimension of loci of curves with a prescribed linear series.
 \item \textbf{Projective embeddings.} A linear series provides an explicit map to projective space, and its sections determine whether that map separates points and tangent directions.
 \item \textbf{Coding theory.} Evaluating sections on algebraic curves produces algebraic-geometric error-correcting codes whose parameters are controlled by the curve.
+\item \textbf{Algebraic geometry codes from curves.} Goppa's construction of algebraic-geometric (AG) codes uses exactly the linear series studied by Brill--Noether theory. Fix a smooth projective curve $C$ over $\mathbb F_q$, a degree-$d$ divisor $D$ with $V(D)=\emptyset$ (no base points), and a set of $n$ rational points $P_1,\ldots,P_n\in C(\mathbb F_q)\setminus\operatorname{supp}(D)$. The code is $C_\Omega(D,P_1,\ldots,P_n)=\{(f(P_1),\ldots,f(P_n)):f\in H^0(C,\mathcal O(D))\}\subseteq\mathbb F_q^n$. By Riemann--Roch, if $d>2g-2$ then $h^0(D)=d-g+1$, so the code has dimension $k=d-g+1$ and minimum distance $d-n+1$ (a Singleton-type bound). The Tsfasman--Vlăduţ--Zink theorem states that if infinitely many curves over $\mathbb F_q$ satisfy the Drinfeld--Vlăduţ bound $g/q+1\le 1/\sqrt{q}-1$, then AG codes can \emph{beat} the Gilbert--Varshamov bound asymptotically. For example, over $\mathbb F_{127}$, the modular curve $X_0(N)$ for suitable $N$ achieves this, yielding codes with parameters superior to any known random code. These codes find use in deep-space communication (e.g., NASA's consultation with Goppa's codes for compressed telemetry) and in distributed storage systems where the algebraic structure enables efficient decoding via the Berlekamp--Massey--Sakata algorithm.
 \end{enumerate}
 
 \theoryconnections{brill_noether_theory}{%
@@ -138,7 +144,7 @@ Brill--Noether theory predicts when an algebraic curve has a linear series of a 
 \end{enumerate}
 \section*{8. References}
 \begin{thebibliography}{99}
-\bibitem{brill_noether_theory_ref1} E. Arbarello, M. Cornalba, P. A. Griffiths, and J. Harris, \emph{Geometry of Algebraic Curves, Volume I}.
-\bibitem{brill_noether_theory_ref2} R. Lazarsfeld, \emph{Positivity in Algebraic Geometry I}.
-\bibitem{brill_noether_theory_ref3} W. Fulton and R. Lazarsfeld, "On the connectedness of degeneracy loci and special divisors," \emph{Acta Mathematica}.
+\bibitem{brill_noether_theory_ref1} E. Arbarello, M. Cornalba, P. A. Griffiths, and J. Harris, \emph{Geometry of Algebraic Curves, Volume I}, Springer, 1985.
+\bibitem{brill_noether_theory_ref2} R. Lazarsfeld, \emph{Positivity in Algebraic Geometry I}, Springer, 2004.
+\bibitem{brill_noether_theory_ref3} W. Fulton and R. Lazarsfeld, ``On the connectedness of degeneracy loci and special divisors,'' \emph{Acta Mathematica}, Vol.~146, 1981.
 \end{thebibliography}

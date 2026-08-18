@@ -18,6 +18,9 @@ Below the threshold, open clusters are typically finite and connection probabili
 
 Important observables include the probability that a site belongs to the infinite cluster, the mean cluster size, the correlation length, and the probability of a spanning path across a finite box. Near criticality these quantities often follow power laws such as $\xi\sim|p-p_c|^{-\nu}$. The exponent depends mainly on dimension rather than microscopic details, an idea called universality. Critical clusters are often fractal \cite{percolation_ref2}.
 
+\paragraph{Critical exponents and universality}
+Near the threshold, several quantities follow power laws whose exponents are called critical exponents. For example, the probability $\theta(p)$ that a site belongs to the infinite cluster behaves as $\theta(p)\sim(p-p_c)^{\beta}$ for $p$ slightly above $p_c$, the mean cluster size diverges as $\chi(p)\sim|p-p_c|^{-\gamma}$, and the correlation length scales as $\xi(p)\sim|p-p_c|^{-\nu}$. A central prediction of universality is that these exponents depend only on the lattice dimension and on the symmetry class of the model, not on microscopic details such as the lattice geometry or whether the model is site or bond percolation. Numerical simulations confirm this prediction: two-dimensional percolation yields a specific set of exponents, while three-dimensional percolation yields a different set, regardless of the underlying lattice \cite{percolation_ref2}.
+
 \paragraph{Different models}
 Directed percolation allows paths to move in a preferred direction such as time and is connected with the contact process. Bootstrap percolation activates or removes sites according to the number of active neighbors. First-passage percolation assigns random travel times to edges and studies the fastest route. Invasion percolation grows a cluster by choosing the least costly boundary edge. The Fortuin--Kasteleyn random-cluster model connects percolation with the Ising and Potts models \cite{percolation_ref3}.
 
@@ -25,6 +28,11 @@ Directed percolation allows paths to move in a preferred direction such as time 
 In epidemiology, people or animals are vertices and possible transmissions are edges. Below the transmission threshold, outbreaks usually die out in small clusters; above it, a large outbreak becomes possible. Vaccination or reduced contact can lower the effective connectivity and move a population below the threshold.
 
 In ecology, habitat patches are sites and movement corridors are bonds. A species can persist over a region only if enough patches remain connected. In materials science, enough chemical links connect small polymer molecules into a system-spanning gel. In virology, randomly removing capsid subunits can cross a fragmentation threshold and break a virus shell \cite{percolation_ref4}.
+
+\paragraph{Application: oil recovery and wireless connectivity}
+In oil recovery, the pore space of a reservoir rock is modeled as a network in which open passages allow oil to flow. If the occupied pore fraction is below $p_c$, the oil remains trapped in disconnected pockets and cannot be extracted efficiently. Injecting surfactants or increasing the pressure effectively raises $p_c$'s complement, connecting enough pores for the oil to reach the production well. The percolation threshold determines the minimum fraction of open pores needed for a spanning flow path, giving engineers a quantitative target for recovery design \cite{percolation_ref4}.
+
+In wireless communication, each base station is a site and a communication link exists when two stations are close enough and the signal-to-noise ratio exceeds a threshold. The percolation threshold then predicts the density of base stations at which a giant connected component forms, enabling long-range communication across the network. Below the threshold, a mobile user can reach only a small local cluster; above it, end-to-end paths exist with high probability. This connection between spatial density and connectivity guides the deployment of ad hoc and sensor networks \cite{percolation_ref1,percolation_ref4}.
 
 \section*{4. Important theorems and results}
 \begin{enumerate}[leftmargin=*,itemsep=0.35em]
@@ -37,6 +45,8 @@ In ecology, habitat patches are sites and movement corridors are bonds. A specie
 \item \textbf{Duality principle.} In two dimensions, open crossings and closed crossings in the dual lattice constrain one another.
 
 \item \textbf{Sharpness of the transition.} In standard models, connection probabilities decay exponentially below the threshold, while a macroscopic cluster appears above it.
+
+\item \textbf{Conformal invariance (Smirnov, 2001).} For critical bond percolation on the planar triangular lattice, the crossing probabilities of a simply connected domain converge to explicit conformally invariant functions as the lattice spacing tends to zero. This result proved the long-standing conjecture that two-dimensional critical percolation is conformally invariant in the scaling limit and is a key input in the derivation of exact critical exponents for two-dimensional percolation \cite{percolation_ref1,percolation_ref2}.
 \end{enumerate}
 \noindent\emph{Source for these results:} \cite{percolation_ref1}.
 
@@ -66,8 +76,8 @@ In ecology, habitat patches are sites and movement corridors are bonds. A specie
 \end{enumerate}
 \section*{8. References}
 \begin{thebibliography}{9}
-\bibitem{percolation_ref1} G. Grimmett, \emph{Percolation}.
-\bibitem{percolation_ref2} D. Stauffer and A. Aharony, \emph{Introduction to Percolation Theory}.
-\bibitem{percolation_ref3} H. Kesten, \emph{Percolation Theory for Mathematicians}.
-\bibitem{percolation_ref4} M. Sahini and M. Sahimi, \emph{Applications of Percolation Theory}.
+\bibitem{percolation_ref1} G. Grimmett, \emph{Percolation}, 2nd ed., Springer, 1999.
+\bibitem{percolation_ref2} D. Stauffer and A. Aharony, \emph{Introduction to Percolation Theory}, 2nd ed., Taylor \& Francis, 1991.
+\bibitem{percolation_ref3} H. Kesten, \emph{Percolation Theory for Mathematicians}, Birkhäuser, 1982.
+\bibitem{percolation_ref4} M. Sahini and M. Sahimi, \emph{Applications of Percolation Theory}, Taylor \& Francis, 2003.
 \end{thebibliography}

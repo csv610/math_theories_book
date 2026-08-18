@@ -22,6 +22,11 @@ V(I)=\{\mathfrak p:I\subseteq\mathfrak p\}.
 \]
 Maximal ideals behave like ordinary points, while non-maximal prime ideals are generic points of irreducible subspaces. The structure sheaf assigns a ring of regular functions to each open set. On a basic open set where $f$ is nonzero, the functions are obtained by allowing powers of $f$ in denominators \cite{scheme_ref2}.
 
+\paragraph{Concrete illustration: $\operatorname{Spec}(\mathbb{Z})$ and $\operatorname{Spec}(k[x])$}
+$\operatorname{Spec}(\mathbb{Z})$ has one point for each prime $(p)$ and a generic point $(0)$. The closure of $(0)$ is the whole space, reflecting that every nonzero integer is divisible by some prime. The basic open set $D(n)=\{(p):p\nmid n\}$ is the set of primes not dividing $n$; the ring of functions on $D(n)$ is $\mathbb{Z}[1/n]$, the integers with $n$ inverted. For example, $D(6)$ consists of all primes other than $2$ and $3$, and its function ring is $\mathbb{Z}[\tfrac{1}{6}]$. This space encodes the arithmetic of $\mathbb{Z}$: a closed subset $V(p_1\cdots p_k)$ is a finite set of primes, while the generic point sits in every nonempty open set.
+
+$\operatorname{Spec}(k[x])$ over a field $k$ is the affine line. Its maximal ideals are $(x-a)$ for $a\in k$, so if $k$ is algebraically closed these are exactly the $k$-points of the line. The zero ideal $(0)$ is the generic point. The open set $D(x)=\{p:x\notin p\}$ removes only the origin; its function ring is $k[x,x^{-1}]$, the Laurent polynomials. The scheme remembers the origin as a point even though a generic rational function on the line is defined away from it. Comparing the two spectra: $\operatorname{Spec}(\mathbb{Z})$ is a one-dimensional Noetherian space whose closed points are primes, while $\operatorname{Spec}(k[x])$ is geometrically a line; both illustrate how a ring completely determines its spectrum \cite{scheme_ref1,scheme_ref2}.
+
 \paragraph{Gluing affine pieces}
 A scheme is a locally ringed space covered by affine schemes. The rings on overlapping pieces must agree through localization maps. This is analogous to describing the surface of a sphere with several maps: no single coordinate chart covers the whole surface, but compatible charts define the object.
 
@@ -62,6 +67,8 @@ The language of schemes underlies modern proofs in arithmetic geometry. Wiles's 
 \item Schemes help arithmetic geometry treat a ring of integers and a polynomial curve in one language, so statements can be compared across different primes and over the complex numbers.
 \item They provide the base spaces for moduli problems, and their sheaves support intersection and deformation calculations.
 \item In number theory, reduction modulo a prime becomes a fiber of a morphism, making local behavior part of a global geometric object \cite{scheme_ref1,scheme_ref3}.
+\item \textbf{Coding theory.} A Reed--Solomon code of length $n$ over $\mathbb{F}_q$ is the set of evaluations of polynomials of degree less than $k$ at $n$ distinct elements $\alpha_1,\dots,\alpha_n\in\mathbb{F}_q$. The scheme $\operatorname{Spec}(\mathbb{F}_q[x])$ provides the natural setting: each evaluation point $\alpha_i$ corresponds to the maximal ideal $(x-\alpha_i)$, and a codeword is a section of the structure sheaf over the open set $D\bigl(\prod_{i=1}^n(x-\alpha_i)\bigr)$ restricted to those closed points. The minimum distance of the code equals $n-k+1$, derived geometrically from the fact that a nonzero polynomial of degree $<k$ can vanish at most $k-1$ times---equivalently, its zero scheme in $\operatorname{Spec}(\mathbb{F}_q[x])$ has at most $k-1$ closed points \cite{scheme_ref1,scheme_ref2}.
+\item \textbf{Cryptography.} Elliptic-curve cryptography (ECC) studies the group of $K$-rational points of a curve $E\colon y^2=x^3+ax+b$ over a finite field $\mathbb{F}_q$. Scheme theory treats $E$ as a scheme over $\operatorname{Spec}(\mathbb{F}_q)$ and considers the family of fibers $E_p$ over all primes $p$. The Hasse bound $|E(\mathbb{F}_q)-(q+1)|\le 2\sqrt{q}$ is proved using the zeta function of the scheme $E$, which encodes point counts over all extension fields. Deformation theory over $\operatorname{Spec}(\mathbb{Z})$---studying how $E$ changes modulo $p$---is the basis of the CM method for constructing curves with prescribed group orders, directly feeding into secure key generation for protocols such as ECDSA \cite{scheme_ref3,scheme_ref4}.
 }
 \section*{7. Sample Questions}
 \emph{Exercise reference:} \cite{scheme_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
@@ -79,8 +86,8 @@ The language of schemes underlies modern proofs in arithmetic geometry. Wiles's 
 \end{enumerate}
 \section*{8. References}
 \begin{thebibliography}{9}
-\bibitem{scheme_ref1} R. Hartshorne, \emph{Algebraic Geometry}.
-\bibitem{scheme_ref2} D. Eisenbud and J. Harris, \emph{The Geometry of Schemes}.
-\bibitem{scheme_ref3} A. Grothendieck and J. Dieudonne, \emph{Elements de geometrie algebrique}.
-\bibitem{scheme_ref4} D. Mumford, \emph{The Red Book of Varieties and Schemes}.
+\bibitem{scheme_ref1} R. Hartshorne, \emph{Algebraic Geometry}, Springer, 1977.
+\bibitem{scheme_ref2} D. Eisenbud and J. Harris, \emph{The Geometry of Schemes}, Springer, 2000.
+\bibitem{scheme_ref3} A. Grothendieck and J. Dieudonne, \emph{Elements de geometrie algebrique}, IHES, 1961.
+\bibitem{scheme_ref4} D. Mumford, \emph{The Red Book of Varieties and Schemes}, Springer, 1999.
 \end{thebibliography}

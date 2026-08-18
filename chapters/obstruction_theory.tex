@@ -17,6 +17,17 @@ H^n(X;\pi_{n-1}(Y)).
 \]
 The class is the obstruction to extending the map. A zero class means that the map can be adjusted within its homotopy class so that extension is possible; a nonzero class proves that extension is impossible \cite{obstruction_theory_ref1}.
 
+\paragraph{Concrete illustration: computing an obstruction on a 2-skeleton}
+Let $X$ be a simplicial complex consisting of three vertices $v_0,v_1,v_2$, three edges $e_{01},e_{02},e_{12}$, and one triangle $\Delta$ with boundary $e_{01}+e_{12}-e_{02}$. Let $Y=S^1$ (the unit circle). We want to extend a map $f\colon X^{(1)}\to S^1$ from the 1-skeleton to the whole complex.
+
+\textbf{Step 1: Define $f$ on vertices.} Set $f(v_0)=f(v_1)=f(v_2)=1\in S^1$.
+
+\textbf{Step 2: Define $f$ on edges.} Let $f$ traverse the circle once around each edge: each edge maps by the identity loop $e^{2\pi i t}$ for $t\in[0,1]$. The winding number on every edge is $1$.
+
+\textbf{Step 3: Compute the obstruction on $\Delta$.} The boundary of $\Delta$ maps into $S^1$ with total winding $1+1-1=1$. This nonzero element of $\pi_1(S^1)\cong\mathbb{Z}$ is the obstruction cocycle on $\Delta$. Its cohomology class in $H^2(X;\pi_1(S^1))$ is $1\neq 0$.
+
+\textbf{Conclusion.} No continuous extension of $f$ to the interior of $\Delta$ exists. The obstruction computation took three concrete steps---assign values, sum winding numbers, check nonzero---that generalize to any dimension by replacing winding numbers with higher homotopy groups \cite{obstruction_theory_ref3}.
+
 For a simple picture, a map from the circle to the circle may wind around once. The winding number is nonzero, so it cannot extend to a map from the disk to the circle without crossing the circle's missing center in an appropriate model. A map that winds zero times can be filled. The same reasoning survives in much more complicated spaces, where the winding number is replaced by a homotopy group and cohomology class.
 
 \paragraph{Sections and bundles}
@@ -63,6 +74,7 @@ The method is useful whenever a problem is staged by dimension. In topology it t
 \item The method helps bundle theory decide whether a section or reduction of structure group exists, and helps Postnikov theory build a space from successive homotopy data.
 \item In surgery and K- or L-theory, the same pattern tests whether algebraic data can be realized by an actual manifold or bundle.
 \item The obstruction is therefore useful precisely because it identifies the first stage at which a proposed construction cannot be completed \cite{obstruction_theory_ref3,obstruction_theory_ref4}.
+\item \textbf{Structural engineering and failure modes.} A loaded truss or frame is a network of beams (edges) joined at nodes (vertices). Each beam can carry stress in certain directions---the ``fiber'' of the local bundle. When an engineer tries to assign a consistent stress distribution across the whole structure, local solutions may fail to patch together globally. The obstruction cocycle measures exactly this: a nonzero class in $H^2(B;\pi_1(F))$ signals a load path that cannot close, predicting a failure mode such as torsional buckling or a mechanism (a floppy mode). For instance, a cantilevered roof frame with triangular bracing has trivial obstruction classes, confirming rigidity; removing one diagonal makes a class nonzero, identifying the precise panel where collapse initiates \cite{obstruction_theory_ref2}.
 }
 \section*{7. Sample Questions}
 \emph{Exercise reference:} \cite{obstruction_theory_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
@@ -80,9 +92,9 @@ The method is useful whenever a problem is staged by dimension. In topology it t
 \end{enumerate}
 \section*{8. References}
 \begin{thebibliography}{9}
-\bibitem{obstruction_theory_ref1} G. W. Whitehead, \emph{Elements of Homotopy Theory}.
-\bibitem{obstruction_theory_ref2} N. Steenrod, \emph{The Topology of Fibre Bundles}.
-\bibitem{obstruction_theory_ref3} A. Hatcher, \emph{Algebraic Topology}.
-\bibitem{obstruction_theory_ref4} A. Ranicki, \emph{Algebraic and Geometric Surgery}.
-\bibitem{obstruction_theory_ref5} C. T. C. Wall, \emph{Surgery on Compact Manifolds}.
+\bibitem{obstruction_theory_ref1} G. W. Whitehead, \emph{Elements of Homotopy Theory}, Springer, 1978.
+\bibitem{obstruction_theory_ref2} N. Steenrod, \emph{The Topology of Fibre Bundles}, Princeton University Press, 1951.
+\bibitem{obstruction_theory_ref3} A. Hatcher, \emph{Algebraic Topology}, Cambridge University Press, 2002.
+\bibitem{obstruction_theory_ref4} A. Ranicki, \emph{Algebraic and Geometric Surgery}, Oxford University Press, 2002.
+\bibitem{obstruction_theory_ref5} C. T. C. Wall, \emph{Surgery on Compact Manifolds}, 2nd edition, American Mathematical Society, 1999.
 \end{thebibliography}

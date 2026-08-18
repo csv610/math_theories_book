@@ -30,6 +30,17 @@ For a field $k$, the ring $k$ has dimension zero because its only prime ideal is
 \]
 so its dimension is two. Algebraically, the plane has two independent coordinates and two layers of prime conditions.
 
+\paragraph{Worked example: Krull dimension of $k[x,y]/(xy)$}
+Consider the quotient ring $R=k[x,y]/(xy)$, which represents the union of the two coordinate axes in the affine plane. We compute its Krull dimension by finding the longest chain of prime ideals in $R$.
+
+First, the prime ideals of $R$ correspond bijectively to prime ideals of $k[x,y]$ containing $(xy)$, by the lattice theorem. A prime ideal $\mathfrak p\supseteq(xy)$ must contain $x$ or $y$ (since $(xy)\subseteq\mathfrak p$ and $\mathfrak p$ is prime).
+
+\noindent\emph{Length-0 chains.} The maximal ideals are candidates for the top of a chain. For instance, $(x,y)\supseteq(xy)$ in $k[x,y]$ gives a maximal ideal in $R$ (corresponding to the origin, the intersection point of the two axes). The zero ideal $(0)$ in $R$ is prime since $R$ is a domain? No---$R$ is \emph{not} a domain: $\bar x\cdot\bar y=0$ in $R$ with neither $\bar x$ nor $\bar y$ zero. So the minimal primes of $R$ are $(\bar x)$ and $(\bar y)$, corresponding to the two axes.
+
+\noindent\emph{Length-1 chains.} The chain $(\bar x)\subsetneq(\bar x,\bar y)$ has length 1 (two primes, one inclusion), as does $(\bar y)\subsetneq(\bar x,\bar y)$. No longer chain exists: any prime strictly containing $(\bar x,\bar y)$ would correspond to a prime in $k[x,y]$ strictly containing $(x,y)$, which is impossible since $(x,y)$ is maximal.
+
+Therefore $\dim R=1$. Geometrically, each axis is a line (dimension 1), and the union of two lines meeting at a point still has dimension 1. This confirms the general principle: quotienting by one equation typically drops dimension by at most one, and here $\dim k[x,y]=2$ is reduced to $\dim R=1$.
+
 \paragraph{Polynomial rings, varieties, and chains}
 
 For a Noetherian ring $R$, adjoining one polynomial variable raises the dimension:
@@ -106,6 +117,7 @@ It is useful whenever a problem has several possible notions of size. A theorem 
 \item Dimension theory helps algebraic geometry compare varieties, helps local algebra measure singularities, and helps homological algebra predict the length of resolutions.
 \item A dimension is useful only after its definition and category are stated; different dimensions answer different questions.
 }
+\noindent\textbf{Data dimension reduction (PCA and manifold learning).} In statistics and machine learning, a dataset of $N$ observations in $\mathbb R^D$ is modeled as a point cloud that may lie near a lower-dimensional submanifold. Principal Component Analysis (PCA) finds the linear subspace of largest variance by computing the eigenvalues of the covariance matrix $X^TX/D$; the number of eigenvalues exceeding a threshold is the effective dimension, analogous to choosing a generating set in a vector space. When the data lie on a nonlinear manifold (e.g., Swiss roll, face images under varying illumination), intrinsic dimension, the Krull dimension of the underlying variety or the covering dimension of the manifold, governs how many parameters are needed. The manifold-learning algorithms Isomap and LLE estimate this intrinsic dimension using covering numbers or persistent homology. A result from dimension theory that is directly applicable: if data satisfy $r$ independent polynomial equations in $\mathbb R^D$, then (by the dimension-transcendence theorem) the expected Krull dimension of the algebraic set is $D-r$. This guides feature selection: knowing the true dimension prevents overfitting (too many features) or information loss (too few). For instance, facial images of one person under varying pose and lighting empirically lie near a 12--15 dimensional manifold inside $\mathbb R^{D}$ (with $D$ in the thousands), and manifold-learning methods that respect this intrinsic dimension outperform linear PCA for recognition tasks.
 \section*{7. Sample Questions}
 \emph{Exercise reference:} \cite{dimension_theory_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
 \begin{enumerate}[leftmargin=*,itemsep=0.9em]

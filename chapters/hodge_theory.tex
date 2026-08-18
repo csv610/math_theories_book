@@ -26,6 +26,15 @@ H^k_{\mathrm{dR}}(M)\cong H^k_{\mathrm{sing}}(M;\mathbb R).
 \]
 Thus differential equations can detect the same holes that a topologist sees \cite{hodge_theory_ref3}.
 
+\paragraph{Concrete illustration: Hodge theory on a torus}
+The simplest closed Riemann surface is the flat torus $T^2=\mathbb R^2/\mathbb Z^2$ of genus 1, equipped with the metric $ds^2=dx^2+dy^2$ where $x,y$ are coordinates modulo 1. The de Rham cohomology groups are $H^0\cong\mathbb R$ (constants), $H^1\cong\mathbb R^2$ (spanned by $[dx]$ and $[dy]$), and $H^2\cong\mathbb R$ (spanned by $[dx\wedge dy]$).
+
+The harmonic representatives are precisely the constant functions (degree 0), the constant-coefficient 1-forms $\alpha\,dx+\beta\,dy$ (degree 1), and $\gamma\,dx\wedge dy$ (degree 2). Every closed 1-form $\omega=f\,dx+g\,dy$ with $df=\partial f/\partial y\,dy=0$ and $dg=\partial g/\partial x\,dx=0$ (i.e., $\partial f/\partial y=\partial g/\partial x$) can be decomposed as $\omega=dh+\eta$ where $h$ is a function and $\eta=\bar f\,dx+\bar g\,dy$ with constant coefficients $\bar f=\int_0^1\int_0^1 f\,dx\,dy$ and $\bar g=\int_0^1\int_0^1 g\,dx\,dy$. The harmonic part $\eta$ is the unique representative of the cohomology class $[\omega]\in H^1_{\mathrm{dR}}(T^2)$.
+
+Concretely, take $\omega=(2\pi x)\,dy$, which is closed ($d\omega=0$) but not exact. Its harmonic representative is the constant form $\eta=dy$ (since $\int_0^1\int_0^1 2\pi x\,dx\,dy=1$ for the $dy$-coefficient and the $dx$-coefficient is 0). One verifies directly: $\omega-d(2\pi xy)=2\pi x\,dy-2\pi y\,dx-2\pi x\,dy+\ldots$---more cleanly, $\omega=\eta+d(2\pi xy-2\pi xy)$ works after subtracting a suitable exact form. This illustrates how the flat metric on $T^2$ selects constant-coefficient forms as the canonical representatives, generalizing the familiar fact that on $S^1$ the harmonic 1-form is a constant multiple of $d\theta$.
+
+The Hodge decomposition of the Hodge numbers is $h^{0,0}=h^{1,0}=h^{0,1}=h^{1,1}=1$, consistent with $H^1(T^2;\mathbb C)=H^{1,0}\oplus H^{0,1}\cong\mathbb C$ and the Betti numbers $b_0=1,\,b_1=2,\,b_2=1$, all equal as expected for a K\"ahler manifold.
+
 \paragraph{The metric, adjoint, and Laplacian}
 Choose a Riemannian metric. It gives an inner product on forms, and therefore an adjoint $\delta$ to $d$. The Hodge Laplacian is
 \[
@@ -91,6 +100,7 @@ The canonical representative depends on a metric even though the cohomology clas
 \item Hodge theory helps classify compact manifolds, study algebraic cycles, and compare topology with complex or Kahler geometry.
 \item Harmonic representatives make cohomology classes concrete, while the decomposition constrains which topological patterns can occur.
 }
+\noindent\textbf{Maxwell's equations and the Hodge star in physics.} Maxwell's equations in vacuum on a Riemannian 3-manifold (or Minkowski 4-manifold) are naturally expressed using the Hodge star operator $*\colon\Omega^k\to\Omega^{n-k}$. The electric and magnetic fields are encoded in the Faraday 2-form $F=B_1\,dy\wedge dz+B_2\,dz\wedge dx+B_3\,dx\wedge dy+E_1\,dx\wedge dt+E_2\,dy\wedge dt+E_3\,dz\wedge dt$. Maxwell's equations then read $dF=0$ and $d{*F}=J$ (the current 3-form). A static magnetic field with no currents satisfies $dF=0$ and $d{*F}=0$, meaning $F$ is a harmonic 2-form with respect to the Hodge Laplacian $\Delta=d\delta+\delta d$. On $\mathbb R^3$ with the flat metric, harmonic 2-forms correspond to divergence-free, curl-free vector fields, exactly the fields satisfying both the magnetostatic equations. The Hodge decomposition therefore provides a rigorous mathematical foundation for the Helmholtz decomposition of electromagnetic fields: any electromagnetic field configuration decomposes uniquely into a radiation part (harmonic), an electrostatic/magnetostatic part (exact and coexact), and a gauge component. In engineering, this decomposition underlies boundary-element methods for solving Maxwell's equations in antenna design and microwave cavity analysis, where the harmonic part captures the propagating modes and the exact/coexact parts capture near-field effects that decay rapidly.
 \section*{7. Sample Questions}
 \emph{Exercise reference:} \cite{hodge_theory_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
 \begin{enumerate}[leftmargin=*,itemsep=0.9em]

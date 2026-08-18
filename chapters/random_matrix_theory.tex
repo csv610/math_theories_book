@@ -79,6 +79,31 @@ invalidate this conclusion, so the hypotheses must be checked.
 \end{enumerate}
 \noindent\emph{Source for these results:} \cite{random_matrix_theory_ref1}.
 
+\paragraph{Local statistics: the GUE nearest-neighbour spacing distribution}
+Beyond the global eigenvalue density, random matrix theory characterizes
+how individual eigenvalues are positioned relative to their neighbours. For
+the Gaussian Unitary Ensemble (GUE)---the ensemble of Hermitian matrices
+with independent complex Gaussian entries---the nearest-neighbour spacing
+distribution $p(s)$ gives the probability density that the gap between two
+adjacent eigenvalues equals $s$ after local rescaling. Unlike independent
+random variables, whose gaps follow an exponential distribution, GUE
+eigenvalues repel one another: $p(s)\sim(\pi s/2)e^{-\pi s^2/4}$ as
+$s\to0$, so small gaps are suppressed. This level repulsion is a universal
+feature of chaotic quantum systems and is experimentally observed in nuclear
+spectra, mesoscopic conductance fluctuations, and zeros of the Riemann zeta
+function \cite{random_matrix_theory_ref1}.
+
+\paragraph{The Tracy--Widom distribution}
+The largest eigenvalue of a large GUE matrix, after centring and rescaling,
+converges to the Tracy--Widom distribution $F_2$. This distribution governs
+the fluctuations of the spectral edge and appears in a remarkable range of
+problems: the longest increasing subsequence of a random permutation, the
+height of growth models in the Kardar--Parisi--Zhang universality class, and
+the free energy of certain directed polymer models. The Tracy--Widom law
+replaces the Gaussian distribution that governs sums of independent random
+variables, reflecting the strong correlations induced by eigenvalue
+repulsion \cite{random_matrix_theory_ref1,random_matrix_theory_ref2}.
+
 \section*{5. Applications}
 Random matrix theory studies the collective behaviour of eigenvalues and singular values when a matrix contains uncertainty. It provides reference distributions for separating stable structure from noise in large systems.
 \begin{enumerate}[leftmargin=*,itemsep=0.7em]
@@ -95,6 +120,21 @@ engineer can estimate capacity and the probability of a communication
 outage before installing thousands of antennas.  The useful output is not
 the entries of one invented matrix; it is a reliable estimate of the
 distribution of possible channel qualities \cite{random_matrix_theory_ref1}.
+
+For large antenna arrays with $n_t$ transmit and $n_r$ receive antennas,
+when $n_t$ and $n_r$ grow proportionally with ratio $\gamma=n_t/n_r$, the
+Marchenko--Pastur law describes the bulk of the singular-value spectrum of
+$H$. The ergodic capacity per antenna approaches
+\[
+C=\int\log(1+\rho\,\lambda)\,dF(\lambda),
+\]
+where $F$ is the limiting singular-value distribution. The Tracy--Widom
+distribution controls the fluctuations of the largest singular value, which
+determines the dominant spatial channel and sets the peak data rate for a
+single stream. These random-matrix predictions allow engineers to dimension
+antenna arrays and power budgets without exhaustive field measurements,
+capturing both typical performance and the probability of an unusually weak
+or strong channel \cite{random_matrix_theory_ref1}.
 
 \item \textbf{Separating signal from noise in data.}  Consider 10,000 patients
 described by 1,000 laboratory measurements.  Principal component analysis
@@ -198,6 +238,7 @@ calibration or error benchmark.
 \end{enumerate}
 \section*{8. References}
 \begin{thebibliography}{9}
-\bibitem{random_matrix_theory_ref1} M. L. Mehta, \emph{Random Matrices}.
-\bibitem{random_matrix_theory_ref2} T. Tao, \emph{Topics in Random Matrix Theory}.
+\bibitem{random_matrix_theory_ref1} M. L. Mehta, \emph{Random Matrices}, 3rd ed., Academic Press, 2004.
+\bibitem{random_matrix_theory_ref2} T. Tao, \emph{Topics in Random Matrix Theory}, American Mathematical Society, 2012.
+\bibitem{random_matrix_theory_ref3} C. Tracy and H. Widom, ``Level-spacing distributions and the Airy kernel,'' \emph{Communications in Mathematical Physics}, vol.\ 159, pp.\ 151--174, 1994.
 \end{thebibliography}

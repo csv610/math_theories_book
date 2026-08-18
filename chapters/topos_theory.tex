@@ -13,6 +13,13 @@ The category of sheaves of sets on a topological space is a Grothendieck topos. 
 
 An elementary topos is defined by finite limits, exponentials, and a subobject classifier. It can interpret intuitionistic logic, so the law of excluded middle need not hold. A topos of $G$-sets is useful when a group symmetry should be built into every object \cite{topos_ref2}.
 
+\paragraph{Concrete illustration: $G$-sets for a simple group}
+Let $G=\mathbb{Z}/2\mathbb{Z}=\{0,1\}$ act on a set $X=\{a,b\}$ by swapping $a$ and $b$: the non-identity element of $G$ sends $a\mapsto b$ and $b\mapsto a$. A $G$-set is any set with such a $G$-action; a morphism of $G$-sets is a map $f\colon X\to Y$ satisfying $f(g\cdot x)=g\cdot f(x)$ for all $g\in G$, $x\in X$.
+
+The category $\mathbf{Set}^{G}$ of all $G$-sets is a topos. Its terminal object is the one-element set with trivial $G$-action. Products are cartesian products with $G$ acting componentwise: $(X\times Y)_g=(x,y)\mapsto(g\cdot x,g\cdot y)$. The subobject classifier is $\Omega=\{0,1\}$ where $G$ acts trivially on both elements: the characteristic map of the $G$-invariant subset $\{a\}\subset\{a,b\}$ sends both $a$ and $b$ to $1$, reflecting that $\{a\}$ is not $G$-stable and so its ``truth value'' is the whole of $\Omega$.
+
+This tiny example shows the topos machinery in action: internal logic (truth values in $\Omega$), subobject classification (invariant subsets), and the failure of excluded middle, since the proposition ``$x=a$'' has no definite truth value when $G$ may swap the points \cite{topos_ref1,topos_ref2}.
+
 \paragraph{Logic and applications}
 The internal language of a topos treats objects as types or sets and arrows as functions. A subobject is a predicate, and its classifier behaves like a truth-value object. In a Boolean topos the internal logic is classical; in a general topos it is intuitionistic. This makes topoi useful for constructive mathematics and semantics of computation.
 
@@ -43,6 +50,8 @@ These results explain a topos at three levels. The sheaf theorem supplies the ob
 \item Topos theory helps cohomology because sheaf data can be resolved and its failure to glue can be measured.
 \item It helps constructive mathematics by providing a setting where excluded middle need not hold, and helps computer science by interpreting types, programs, and proofs in a common semantics.
 \item Homotopy-theoretic topoi extend this idea by treating equivalent proofs or paths as geometric data rather than identifying everything strictly \cite{topos_ref1,topos_ref3}.
+\item \textbf{Temporal logic and software verification.} In computer science, a program's execution over discrete time steps can be modeled as a $G$-set where $G=\mathbb{Z}$ acts by shifting one step forward. The topos of $\mathbb{Z}$-sets provides an internal logic in which propositions such as ``eventually $P$ holds'' are interpreted by quantifying over the orbit of a state under the $\mathbb{Z}$-action. Model-checking tools for linear temporal logic (LTL) exploit this connection: the truth value of a temporal formula at a state is determined by the entire forward orbit, which is exactly a $G$-set morphism into the subobject classifier of $\mathbf{Set}^{\mathbb{Z}}$ \cite{topos_ref1,topos_ref3}.
+\item \textbf{Type theory and proof assistants.} The Curry--Howard correspondence identifies types with propositions and programs with proofs. An elementary topos provides a model of dependent type theory: function types correspond to exponential objects, product types to categorical products, and the unit type to the terminal object. Proof assistants such as Coq and Agda are based on type theories whose semantics can be interpreted in topoi, ensuring that a verified program is correct not only syntactically but also in a rich mathematical universe \cite{topos_ref2,topos_ref3}.
 }
 \section*{7. Sample Questions}
 \emph{Exercise reference:} \cite{topos_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
@@ -60,7 +69,7 @@ These results explain a topos at three levels. The sheaf theorem supplies the ob
 \end{enumerate}
 \section*{8. References}
 \begin{thebibliography}{9}
-\bibitem{topos_ref1} S. Mac Lane and I. Moerdijk, \emph{Sheaves in Geometry and Logic}.
-\bibitem{topos_ref2} P. T. Johnstone, \emph{Topos Theory}.
-\bibitem{topos_ref3} O. Caramello, \emph{Theories, Sites, Toposes}.
+\bibitem{topos_ref1} S. Mac Lane and I. Moerdijk, \emph{Sheaves in Geometry and Logic}, Springer-Verlag, 1994.
+\bibitem{topos_ref2} P. T. Johnstone, \emph{Topos Theory}, Academic Press, 1977.
+\bibitem{topos_ref3} O. Caramello, \emph{Theories, Sites, Toposes}, Cambridge University Press, 2018.
 \end{thebibliography}

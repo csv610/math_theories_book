@@ -24,8 +24,18 @@ The Hales--Jewett theorem states that a sufficiently high-dimensional word cube,
 \paragraph{What the numbers mean}
 Ramsey results are usually existential: they prove that a desired pattern exists but may not provide an efficient way to find it. The smallest bounds can be enormous, sometimes growing exponentially or according to very fast functions. Improving upper and lower bounds is therefore central. Computer searches settle some small values, but a proof must still cover all colorings \cite{ramsey_ref2}.
 
+\paragraph{Quantitative bounds and the probabilistic method}
+The diagonal Ramsey numbers grow at least exponentially. Erdős showed in 1947 that $R(k,k)>2^{k/2}$ for every $k\geq3$. The argument uses the probabilistic method: choose a random red-blue coloring of the edges of $K_n$ by assigning each edge a color independently with equal probability. For a fixed set of $k$ vertices the chance that all $\binom{k}{2}$ edges among them are the same color is $2\cdot2^{-\binom{k}{2}}$. The expected number of monochromatic $k$-cliques is therefore
+\[
+\binom{n}{k}\cdot2^{1-\binom{k}{2}}.
+\]
+When $n=\lfloor2^{k/2}\rfloor$ this expectation is less than $1$, so there exists a coloring with no monochromatic $k$-clique. Consequently $R(k,k)$ must exceed $n$. This short probabilistic argument gives an exponential lower bound and demonstrates the power of nonconstructive existence proofs in Ramsey theory \cite{ramsey_ref1,ramsey_ref2}.
+
 \paragraph{Applications}
 In communication networks, a Ramsey bound says how large a system must be before a repeated compatible or incompatible pattern is forced. In theoretical computer science, it controls homogeneous subsets used in lower bounds. In geometry, Erdős--Szekeres results guarantee convex polygons among sufficiently many points. In additive number theory, partition results force arithmetic structure inside apparently random sets.
+
+\paragraph{Application: network design}
+A concrete application arises in the design of communication networks. Suppose nodes are paired by links that are either reliable or unreliable. A Ramsey-type argument guarantees that once the network exceeds a threshold size, there must exist a large fully reliable subnetwork or a large fully unreliable subnetwork. This forces the network designer to plan for at least one of these extremes. For instance, if the designer must guarantee a reliable communication path among $k$ terminals, the Ramsey bound $R(k,k)$ tells her the minimum total number of nodes that must be installed so that, regardless of which links fail, a reliable $k$-terminal subnetwork exists. The bound is conservative but provides a guaranteed worst-case guarantee: no adversarial pattern of link failures can destroy all large reliable groups \cite{ramsey_ref1,ramsey_ref3}.
 
 \section*{4. Important theorems and results}
 \begin{enumerate}[leftmargin=*,itemsep=0.35em]
@@ -40,6 +50,8 @@ In communication networks, a Ramsey bound says how large a system must be before
 \item \textbf{Hales--Jewett theorem.} Every finite coloring of a sufficiently large word cube contains a monochromatic combinatorial line.
 
 \item \textbf{Rado's theorem.} A matrix criterion characterizes partition regularity for many finite systems of homogeneous linear equations.
+
+\item \textbf{Erdős lower bound.} $R(k,k)>2^{k/2}$ for every $k\geq3$. In particular, the diagonal Ramsey numbers grow at least exponentially.
 \end{enumerate}
 \noindent\emph{Source for these results:} \cite{ramsey_ref1}.
 
@@ -69,7 +81,7 @@ In communication networks, a Ramsey bound says how large a system must be before
 \end{enumerate}
 \section*{8. References}
 \begin{thebibliography}{9}
-\bibitem{ramsey_ref1} R. L. Graham, B. L. Rothschild, and J. H. Spencer, \emph{Ramsey Theory}.
-\bibitem{ramsey_ref2} R. Graham and S. Butler, \emph{Rudiments of Ramsey Theory}.
-\bibitem{ramsey_ref3} B. M. Landman and A. Robertson, \emph{Ramsey Theory on the Integers}.
+\bibitem{ramsey_ref1} R. L. Graham, B. L. Rothschild, and J. H. Spencer, \emph{Ramsey Theory}, 2nd ed., Wiley, 1990.
+\bibitem{ramsey_ref2} R. Graham and S. Butler, \emph{Rudiments of Ramsey Theory}, American Mathematical Society, 1981.
+\bibitem{ramsey_ref3} B. M. Landman and A. Robertson, \emph{Ramsey Theory on the Integers}, American Mathematical Society, 2004.
 \end{thebibliography}

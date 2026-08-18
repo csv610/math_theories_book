@@ -9,6 +9,11 @@ Wall introduced algebraic L-theory, using the letter after K. The central proble
 \paragraph{Quadratic forms and Witt groups}
 A quadratic form assigns a value such as $x^2+y^2$ or $x^2-3y^2$ to a vector. Over a ring with involution, one studies forms compatible with the involution. A form is nondegenerate when its associated pairing has no hidden null direction. Hyperbolic forms represent completely canceling pairs and are treated as trivial after stabilization.
 
+\paragraph{Worked example: a quadratic form on $\mathbb{Z}^2$}
+Consider the quadratic form $q\colon\mathbb{Z}^2\to\mathbb{Z}$ defined by $q(m,n)=m^2+n^2$. Its associated bilinear pairing is $b((m,n),(m',n'))=2mm'+2nn'$. This form is nondegenerate: if $b((m,n),-)=0$ for all inputs, then $(m,n)=(0,0)$. The signature of this form is $2$ (both eigenvalues of the corresponding real matrix are positive), so its class in $L_0(\mathbb{Z})\cong\mathbb{Z}$ is $2$.
+
+Now perform surgery: replace the sub-lattice spanned by $(2,0)$ and $(0,1)$ with a new copy glued along its boundary sphere. The surgery changes the form by a hyperbolic summand, which is trivial in the Witt group. After stabilization the signature remains $2$, and the surgery obstruction in $L_4(\mathbb{Z})\cong\mathbb{Z}$ is zero: the target manifold can be reached. If instead the surgery produced a form with signature $1$, the obstruction class would be nonzero and no sequence of further surgeries would succeed \cite{l_theory_ref1,l_theory_ref2}.
+
 For a ring $R$ with involution, even-dimensional quadratic groups $L_{2k}(R)$ are Witt groups of suitable $(-1)^k$-quadratic forms. Addition is orthogonal direct sum. Symmetric L-groups $L^n(R)$ use symmetric forms; a symmetrization map relates the two and is an isomorphism away from relevant 2-torsion.
 
 \paragraph{Periodicity and the integer example}
@@ -56,6 +61,8 @@ The theory is most effective in high dimensions and under hypotheses on the fund
 }{%
 \item L-theory helps classify high-dimensional manifolds and analyze whether a homotopy equivalence can be improved to a homeomorphism or diffeomorphism.
 \item Its periodicity turns an apparently unbounded classification problem into recurring algebraic cases.
+\item \textbf{Three-manifold recognition.} In dimension three, the surgery exact sequence combined with L-theory over the fundamental group ring $\mathbb Z[\pi_1]$ provides algebraic criteria that distinguish homotopy-equivalent but non-homeomorphic 3-manifolds. For example, two closed orientable 3-manifolds with isomorphic fundamental groups can be separated by computing their $L_1(\mathbb Z[\pi_1])$ surgery obstructions, which detect differences in how handles are attached.
+\item \textbf{Knot concordance.} The algebraic signature of the Seifert matrix of a knot $K$ gives a class in $L_0(\mathbb Z)\cong\mathbb Z$. For the trefoil knot this signature is $2\neq0$, proving it is not slice (not the boundary of a smoothly embedded disk in the 4-ball). L-theory thus provides a computable concordance invariant that separates knots into distinct concordance classes \cite{l_theory_ref1,l_theory_ref2}.
 }
 \section*{7. Sample Questions}
 \emph{Exercise reference:} \cite{l_theory_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.

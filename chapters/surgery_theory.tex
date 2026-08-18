@@ -13,6 +13,9 @@ The embedded sphere determines which homotopy class is changed. A surgery can ki
 
 The main classification questions are whether a space with the homotopy type of a manifold is actually homeomorphic or diffeomorphic to one, and whether a homotopy equivalence between manifolds is homotopic to a diffeomorphism. For dimensions above four, surgery gives primary and secondary obstructions rather than a single complete invariant \cite{surgery_ref3}.
 
+\paragraph{Worked example: surgery on $S^3$}
+Consider the three-sphere $S^3$ and perform surgery on an embedded circle $S^1\subset S^3$. The normal bundle of $S^1$ in $S^3$ is trivial (since $S^3$ is parallelizable), so a tubular neighborhood looks like $S^1\times D^2$. Surgery means removing this $S^1\times D^2$ and gluing in $D^2\times S^1$ along the common boundary $S^1\times S^1$. The result is again $S^3$: one can see this by observing that $S^3$ is the boundary of $D^4$, and the surgery corresponds to attaching a 2-handle along the unknot, which does not change the manifold. More interestingly, surgery on a knotted $S^1\subset S^3$ (a nontrivial knot) can produce exotic manifolds. For example, surgery on the right-hand trefoil knot with framing $1$ yields the Poincaré homology sphere, a manifold with the same homology as $S^3$ but with $\pi_1\cong$ the binary icosahedral group of order 120. This shows that even in dimension three, surgery can change the topology in ways invisible to homology.
+
 \paragraph{Obstructions and the s-cobordism theorem}
 A normal map records a candidate manifold map together with stable normal bundle data. A primary obstruction in topological $K$-theory must vanish before a surgery obstruction can be defined. The secondary obstruction lies in an algebraic $L$-group. When it vanishes, surgery can produce the desired homotopy equivalence under suitable hypotheses.
 
@@ -41,6 +44,7 @@ The h-cobordism theorem says that an h-cobordism between simply connected manifo
 \item Surgery theory classifies high-dimensional manifolds by reducing them to a sequence of controlled modifications.
 \item It explains exotic spheres by showing when the standard sphere can be altered without changing its homotopy type, and it supplies the obstruction groups used in the h- and s-cobordism theorems.
 \item The connection is powerful but dimension-sensitive: the Whitney trick and general-position arguments that make the algebra reliable are much weaker in low dimensions \cite{surgery_ref3,surgery_ref4}.
+\item \textbf{Three-manifold topology and the Poincar\'e conjecture.} Surgery theory was the conceptual engine behind the resolution of the Poincar\'e conjecture. Perelman's proof via Ricci flow can be viewed as a continuous, analytic version of surgery: as the flow progresses, singularities develop that are modeled on neck-pinch operations, and each singularity is resolved by a surgery that removes and replaces a cylindrical region. The classification program for three-manifolds---the Thurston geometrization conjecture, now a theorem---decomposes every closed 3-manifold along incompressible spheres and tori into pieces that each carry one of eight model geometries. Surgery-theoretic language (cutting along embedded spheres, tracking the effect on $\pi_1$, and using obstruction theory) provides the combinatorial framework that organizes this decomposition and led to Perelman's proof.
 }
 \section*{7. Sample Questions}
 \emph{Exercise reference:} \cite{surgery_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
@@ -58,8 +62,8 @@ The h-cobordism theorem says that an h-cobordism between simply connected manifo
 \end{enumerate}
 \section*{8. References}
 \begin{thebibliography}{9}
-\bibitem{surgery_ref1} J. Milnor, \emph{Collected Papers, Volume III: Differential Topology}.
-\bibitem{surgery_ref2} W. Browder, \emph{Surgery on Simply-Connected Manifolds}.
-\bibitem{surgery_ref3} C. T. C. Wall, \emph{Surgery on Compact Manifolds}.
-\bibitem{surgery_ref4} A. Ranicki, \emph{Algebraic and Geometric Surgery}.
+\bibitem{surgery_ref1} J. Milnor, \emph{Collected Papers, Volume III: Differential Topology}, American Mathematical Society, 2010.
+\bibitem{surgery_ref2} W. Browder, \emph{Surgery on Simply-Connected Manifolds}, Springer-Verlag, 1972.
+\bibitem{surgery_ref3} C. T. C. Wall, \emph{Surgery on Compact Manifolds}, American Mathematical Society, 1999.
+\bibitem{surgery_ref4} A. Ranicki, \emph{Algebraic and Geometric Surgery}, Oxford University Press, 2002.
 \end{thebibliography}
