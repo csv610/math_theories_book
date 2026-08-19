@@ -1,11 +1,12 @@
 \theory{Graph theory}{How can relationships among objects be represented, counted, and navigated?}{Graph theory studies vertices joined by edges. It gives a language for networks in which geometry is less important than connection: who is linked to whom, which routes exist, and which patterns must occur.}{Roads, computer networks, social networks, biology, scheduling, search engines, electrical circuits, and algorithms.}{Vertices, edges, paths, and connectivity reduce network questions to finite combinatorial structures that can be counted or searched.}
 
 \paragraph{The idea and its history}
-In a graph, vertices represent objects and edges represent relationships. Edges may be undirected, directed, weighted, colored, or repeated. A graph of a function is a different object; this chapter concerns relational graphs. Leonhard Euler's 1736 analysis of the bridges of Konigsberg is usually regarded as the beginning of graph theory. He showed that the question was not about distances but about the number of times each land region was connected to a bridge.
+In a graph, vertices represent objects and edges represent relationships. Draw dots for towns and lines for roads; draw dots for people and lines for friendships. That picture is a graph. It ignores distances, angles, and shapes; it records only which pairs are connected. Leonhard Euler's 1736 analysis of the bridges of Königsberg is usually regarded as the beginning of graph theory. He showed that the question was not about distances but about the number of times each land region was connected to a bridge.
 
 A walk follows edges and may repeat vertices. A trail does not repeat edges. A path does not repeat vertices. A circuit returns to its starting point, and a connected graph has a path between every pair of vertices. The degree of a vertex is the number of incident edges. A tree is a connected graph with no cycle; it has exactly one path between any two vertices and $n-1$ edges when it has $n$ vertices \cite{graph_theory_ref1,graph_theory_ref2}.
 
 \end{historylist}
+\begin{quote}\small \textbf{Prerequisite:} None. This chapter uses only counting and the idea of a connection between objects.\end{quote}
 \section*{3. Theory}
 \subsection*{Core theory}
 \paragraph{A concrete network example}

@@ -1,11 +1,12 @@
 \theory{Group theory}{What can be learned from studying reversible operations and the symmetries they form?}{A group is a collection of reversible actions that can be composed, with an identity action and an inverse for every action. Group theory studies the common structure behind rotations, permutations, arithmetic symmetries, and transformations.}{Geometry, algebra, number theory, physics, chemistry, cryptography, coding, and the classification of finite structures.}{Composition and inverses encode symmetry operations, while subgroups and representations expose the internal structure of those symmetries.}
 
 \paragraph{The idea of a group}
-Imagine rotating a square around its center. Four rotations return the square to itself. Doing one rotation after another gives another rotation, doing nothing is an identity, and every rotation can be undone. These operations form a group. The elements need not be numbers; they may be permutations, matrices, motions, or functions.
+Imagine rotating a square around its center. There are four rotations that return the square to itself: turn by $0°$, $90°$, $180°$, or $270°$. Doing one rotation after another gives another rotation (for example, $90°$ then $90°$ gives $180°$). Doing nothing is an action too (the identity). Every rotation can be undone: to undo a $90°$ turn, rotate by $270°$. These four rules---combining actions, an identity, and an inverse for each action---define a group. The elements need not be numbers; they may be rotations, shuffles, reflections, or any reversible operation.
 
-Formally, a group has a binary operation that is associative, has an identity element, and gives every element an inverse. A group is abelian if the order of composition does not matter. Rotations of a circle form an abelian group, while symmetries of a square including reflections form a non-abelian dihedral group. The language separates the nature of an object from the way it is labeled \cite{group_theory_ref1}.
+Formally, a group has a binary operation (a way to combine two actions into one), an identity element (doing nothing), and an inverse for every element (a way to undo). A group is abelian if the order of composition does not matter: rotating $90°$ then $180°$ gives the same result as $180°$ then $90°$. A group that is not abelian---like the symmetries of a square including reflections---is called non-abelian \cite{group_theory_ref1}.
 
 \end{historylist}
+\begin{quote}\small \textbf{Prerequisite:} High-school algebra. The first two sections need no proof techniques.\end{quote}
 \section*{3. Theory}
 \subsection*{Core theory}
 \paragraph{Subgroups, cosets, and quotients}

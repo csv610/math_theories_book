@@ -400,6 +400,18 @@ Finally, we compare choices. A second receptionist costs money but reduces waiti
 Every chapter follows this same pattern, even when the object is a number, a shape, a proof, or a physical law. The formal vocabulary is a compact label for a practical habit of thought.
 
 \tableofcontents
+
+\chapter*{Start here}
+\addcontentsline{toc}{chapter}{Start here}
+
+\paragraph{If you are new to university mathematics}
+You do not need calculus, proofs, or formal notation to begin. The twelve worked modules (Modules 1--12, starting on page~\pageref{module1}) teach core ideas through small problems and guided exercises. Each module takes about 20 minutes. Do the exercises before reading the answers.
+
+The alphabetical chapter list (starting with Algebraic Geometry) is a reference catalogue, not a reading order. Each chapter is a short map of one theory: what it studies, why it matters, and where it connects. Some chapters use definitions you may not have seen yet; the Student's Toolbox (near the end) explains the most common ones. You can read any chapter in any order and return to it later.
+
+\paragraph{If you already know calculus and proof techniques}
+Start with any chapter that interests you. The intuitive opening gives the main idea; the core theory gives the precise statement; the sample questions let you test understanding. The worked modules review the same ideas from a different angle.
+
 \mainmatter
 
 \part{Chapters in alphabetical order}
@@ -1092,16 +1104,14 @@ The map summarizes the dependencies and applications explained in the chapters; 
 \bibitem{map_hatcher} A. Hatcher, \emph{Algebraic Topology}, Cambridge University Press, 2002.
 \end{thebibliography}
 \chapter*{The student's toolbox: difficult words made ordinary}
-This short dictionary is meant to be used while reading. The point is not to avoid precise ideas, but to give each precise idea a familiar handle.
+This short dictionary is meant to be used while reading. The point is not to avoid precise ideas, but to give each precise idea a familiar handle. If you meet a term not listed here, it will be defined in the chapter where it first appears.
 
 \begin{description}[leftmargin=3.0cm,style=nextline]
 \item[Algebra] A way of writing rules for combining and changing quantities or objects. It is not limited to school equations.
 \item[Algorithm] A recipe that always says what step to take next, such as the instructions for sorting a list.
-\item[Category] A collection of objects together with arrows (morphisms) between them that can be composed. Categories organize mathematical structures by their shared patterns of maps.
 \item[Continuous] Changing without a sudden jump or tear, like moving a cup across a table.
 \item[Dimension] How many independent directions are needed to move around an object. A line has one, a sheet two, and a room three.
 \item[Equation] A statement that two descriptions have the same value. Solving it means finding the situations where that statement is true.
-\item[Functor] A map between categories that sends objects to objects and arrows to arrows while preserving composition. It transports a construction from one setting to another, such as turning a topological space into a group.
 \item[Function] A dependable input-to-output rule. A temperature converter and a vending machine are everyday examples.
 \item[Geometry] The study of shape, position, distance, and motion.
 \item[Group] A collection of reversible actions that can be performed one after another. Rotations of a cube are a model example.
@@ -1112,11 +1122,18 @@ This short dictionary is meant to be used while reading. The point is not to avo
 \item[Operator] A rule that acts on another object, often a function or a list of numbers.
 \item[Proof] A chain of small, checkable reasons that forces a conclusion to be true under stated rules.
 \item[Set] A collection of objects considered together. The objects can be numbers, places, choices, or other collections.
-\item[Sigma-algebra] A collection of subsets that is closed under complements and countable unions. It tells you which sets are allowed to have a measure assigned to them.
 \item[Symmetry] A change that leaves the important appearance or structure unchanged.
 \item[Topology] The study of features that survive bending and stretching, such as connected pieces and holes.
 \item[Vector] A quantity with several components, often used to describe a direction, a position, or a list of measurements.
-\item[Wheel] An algebraic system designed to let division by zero be written as a total operation, with special rules that prevent it from behaving like ordinary field arithmetic.
+\end{description}
+
+\paragraph{Advanced terms you will meet later.}
+Some chapters use terms that require more background than this introduction provides. You will meet them again when you study those subjects in a full course:
+\begin{description}[leftmargin=3.0cm,style=nextline]
+\item[Category] A collection of objects together with arrows between them that can be composed. It organizes mathematical structures by their shared patterns of maps.
+\item[Functor] A map between categories that preserves their structure. It transports a construction from one setting to another.
+\item[Sigma-algebra] A collection of subsets that is closed under complements and countable unions. It tells you which sets are allowed to have a measure assigned to them.
+\item[Wheel] An algebraic system designed to let division by zero be written as a total operation.
 \end{description}
 
 \chapter*{How to study a theory without getting lost}
@@ -1127,9 +1144,11 @@ For each chapter, make a four-line note in your own words:
 \item Say what the theory measures or preserves. This is usually the heart of the subject.
 \item Write one decision it improves: decode, predict, classify, schedule, control, compare, or prove impossible.
 \end{enumerate}
-Then explain the theory to another person without using its name. If the explanation still works, you understand the idea rather than merely recognizing the vocabulary. Only after that should you return to the equations or formal definitions in a textbook.
+Then explain the theory to another person---or write the explanation in a message to a friend, or say it out loud to yourself---without using its name. If the explanation still works, you understand the idea rather than merely recognizing the vocabulary. After that, the equations will make more sense when you see them.
 
 \chapter*{A map of the connections}
+This section is a reference guide. Read it after finishing the modules, when the theory names will be familiar.
+
 The theories are easier to remember as families. \emph{Probability} describes uncertainty, while \emph{statistics} learns from observations of that uncertainty. \emph{Graph theory} describes connections, while \emph{queue theory}, \emph{game theory}, and \emph{control theory} use connections to study waiting, competition, and correction. \emph{Topology} asks which features survive bending; \emph{geometry} keeps measurements too; \emph{algebra} records operations and symmetry. \emph{Information theory} asks how messages can be represented, and \emph{coding theory} makes them survive noise. \emph{Number theory} studies whole-number structure, while algebraic geometry joins equations to shapes.
 
 The same pattern appears again and again: choose a simple representation, find a feature that remains reliable, and use it to make a prediction. That is the common thread tying this very large list together.
@@ -1138,14 +1157,14 @@ The same pattern appears again and again: choose a simple representation, find a
 This book is a first conversation, not a credential. The following standard references are reliable next steps; a student should use the one matching their preparation rather than trying to read them all.
 
 \begin{description}[leftmargin=3.5cm,style=nextline]
-\item[Elementary foundations] Courant and Robbins, \emph{What Is Mathematics?}; Ian Stewart, \emph{Concepts of Modern Mathematics}.
-\item[Proof and discrete mathematics] Daniel Velleman, \emph{How to Prove It}; Richard Johnsonbaugh, \emph{Discrete Mathematics}.
-\item[Probability and statistics] David Williams, \emph{Weighing the Odds}; David Freedman, Robert Pisani, and Roger Purves, \emph{Statistics}.
-\item[Calculus and differential equations] Michael Spivak, \emph{Calculus}; Walter Strauss, \emph{Partial Differential Equations}.
-\item[Algebra and number theory] Joseph Gallian, \emph{Contemporary Abstract Algebra}; G. H. Hardy and E. M. Wright, \emph{An Introduction to the Theory of Numbers}.
-\item[Topology and geometry] Sidney Morris, \emph{Topology Without Tears}; James Munkres, \emph{Topology}.
-\item[Computation and information] Michael Sipser, \emph{Introduction to the Theory of Computation}; Thomas Cover and Joy Thomas, \emph{Elements of Information Theory}.
-\item[Advanced subjects] Serge Lang, \emph{Algebra}; Robin Hartshorne, \emph{Algebraic Geometry}; John Lee, \emph{Introduction to Smooth Manifolds}. These are reference texts, not assumed prerequisites for this book.
+\item[Read now (no calculus needed)] Courant and Robbins, \emph{What Is Mathematics?}; Ian Stewart, \emph{Concepts of Modern Mathematics}.
+\item[Read after one semester] Daniel Velleman, \emph{How to Prove It}; Richard Johnsonbaugh, \emph{Discrete Mathematics}.
+\item[Needs probability or statistics] David Williams, \emph{Weighing the Odds}; David Freedman, Robert Pisani, and Roger Purves, \emph{Statistics}.
+\item[Needs calculus] Michael Spivak, \emph{Calculus} (honours level); Walter Strauss, \emph{Partial Differential Equations}.
+\item[Needs one year of university math] Joseph Gallian, \emph{Contemporary Abstract Algebra}; G.\,H.\ Hardy and E.\,M.\ Wright, \emph{An Introduction to the Theory of Numbers}.
+\item[Topology: accessible first] Sidney Morris, \emph{Topology Without Tears} (free online); James Munkres, \emph{Topology} (standard reference).
+\item[Computation: intermediate] Michael Sipser, \emph{Introduction to the Theory of Computation}; Thomas Cover and Joy Thomas, \emph{Elements of Information Theory}.
+\item[Graduate level (third year or later)] Serge Lang, \emph{Algebra}; Robin Hartshorne, \emph{Algebraic Geometry}; John Lee, \emph{Introduction to Smooth Manifolds}. These are reference texts, not assumed prerequisites for this book.
 \end{description}
 
 The source list is useful for names, but it is not a textbook and should not be treated as an authority for every application sentence. In a classroom or publication, each advanced chapter should be checked against a specialist reference before being used as course material.
