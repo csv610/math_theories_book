@@ -74,15 +74,15 @@ Category theory offers a different foundation: it emphasizes objects and relatio
 \section*{7. Sample Questions}
 \emph{Exercise reference:} \cite{set_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
 \begin{enumerate}[leftmargin=*,itemsep=0.9em]
-\item \textbf{Exercise 1. Why do the natural numbers and even numbers have equal size?} The map $n\mapsto2n$ is one-to-one and onto the even numbers, so the two infinite sets have the same cardinality.
+\item \textbf{Exercise 1.} Prove that $|\mathbb{N}|=|\mathbb{E}|$ where $\mathbb{E}=\{2,4,6,\ldots\}$ is the set of even positive integers. \emph{Solution.} Define $f\colon\mathbb{N}\to\mathbb{E}$ by $f(n)=2n$. This is injective: $2m=2n\Rightarrow m=n$. It is surjective: every even number $2k$ is $f(k)$. So $f$ is a bijection and $|\mathbb{N}|=|\mathbb{E}|$.
 
-\item \textbf{Exercise 2. Why is $\mathcal P(\{a,b\})$ larger than $\{a,b\}$?} The power set has four members: $\varnothing,\{a\},\{b\},\{a,b\}$. There are more subsets than original elements.
+\item \textbf{Exercise 2.} Show that $\mathcal{P}(\{1,2,3\})$ has $8$ elements and that $8>3$, illustrating Cantor's theorem for $A=\{1,2,3\}$. \emph{Solution.} $\mathcal{P}(\{1,2,3\})=\{\varnothing,\{1\},\{2\},\{3\},\{1,2\},\{1,3\},\{2,3\},\{1,2,3\}\}$. This is $2^3=8$ elements. Since $8>3=|\{1,2,3\}|$, there is no surjection from $\{1,2,3\}$ onto $\mathcal{P}(\{1,2,3\})$, consistent with Cantor's theorem.
 
-\item \textbf{Exercise 3. Give the diagonal idea for showing that binary sequences cannot be listed.} From a proposed list, create a sequence whose $n$th digit differs from the $n$th digit of the $n$th listed sequence. The new sequence differs from every listed one.
+\item \textbf{Exercise 3.} Use the diagonal argument to show that the set of infinite binary sequences is uncountable. \emph{Solution.} Suppose $s_1,s_2,s_3,\ldots$ is a list of all binary sequences. Construct $t$ by setting the $n$-th digit of $t$ to $1-s_n(n)$ (flip the $n$-th digit of $s_n$). Then $t$ differs from $s_n$ in position $n$ for every $n$. So $t$ is not on the list, contradicting the assumption that the list was complete. Therefore no countable list covers all binary sequences.
 
-\item \textbf{Exercise 4. Compare an ordinal and a cardinal?} A cardinal measures how many objects there are. An ordinal measures the order in which objects occur. Two different ordered sets can have the same cardinal but different ordinal types.
+\item \textbf{Exercise 4.} Compute the cardinality of $\mathcal{P}(\mathbb{N})$ and show it equals $|\mathbb{R}|$. \emph{Solution.} $|\mathcal{P}(\mathbb{N})|=2^{\aleph_0}$. Each subset of $\mathbb{N}$ corresponds to a binary sequence (the indicator function), so $|\mathcal{P}(\mathbb{N})|=|\{0,1\}^{\mathbb{N}}|$. Each binary sequence corresponds to a real number in $[0,1]$ via the binary expansion, giving $|\{0,1\}^{\mathbb{N}}|=|\mathbb{R}|$. (Some care is needed with dual representations, but the cardinalities match.) So $|\mathcal{P}(\mathbb{N})|=|\mathbb{R}|=2^{\aleph_0}$.
 
-\item \textbf{Exercise 5. Why was an axiomatic system needed?} Unrestricted language about all collections creates self-reference paradoxes. Axioms restrict set formation so that ordinary mathematics can be developed without those contradictions.
+\item \textbf{Exercise 5.} Verify the ordinal arithmetic: compute $1+\omega$ and $\omega+1$ in the ordinals, and explain why they differ. \emph{Solution.} $1+\omega=\omega$ because placing one element before $\omega$ yields an order type isomorphic to $\omega$ (the single element is absorbed). $\omega+1>\omega$ because $\omega+1$ has a largest element not present in $\omega$. These are different ordinals because ordinal addition is not commutative.
 
 \end{enumerate}
 \section*{8. References}

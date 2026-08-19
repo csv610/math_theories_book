@@ -61,15 +61,15 @@ General topology studies open sets and convergence. Algebraic topology studies i
 \section*{7. Sample Questions}
 \emph{Exercise reference:} \cite{topology_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
 \begin{enumerate}[leftmargin=*,itemsep=0.9em]
-\item \textbf{Exercise 1. Why are a circle and a square topologically equivalent?} A continuous bijection can map the boundary of the square once around the circle, and its inverse is continuous.
+\item \textbf{Exercise 1.} Compute the Euler characteristic of the torus $T^2$ using a cell decomposition with one 0-cell, two 1-cells, and one 2-cell. \emph{Solution.}$V = 1$, $E = 2$, $F = 1$. Then $\chi(T^2) = V - E + F = 1 - 2 + 1 = 0$.
 
-\item \textbf{Exercise 2. Compute the Euler characteristic of a tetrahedron.} It has $V=4$, $E=6$, and $F=4$, so $\chi=4-6+4=2$, the value for a sphere.
+\item \textbf{Exercise 2.} Determine whether $\mathbb{R}^2$ and $\mathbb{R}^3$ are homeomorphic. \emph{Solution.}$\mathbb{R}^2$ and $\mathbb{R}^3$ are not homeomorphic. Removing a point from $\mathbb{R}^2$ gives a connected space (the punctured plane), while removing a point from $\mathbb{R}^3$ gives a connected space as well (punctured $\mathbb{R}^3$ is connected). Instead: removing a line from $\mathbb{R}^3$ disconnects it, but removing a line from $\mathbb{R}^2$ leaves a connected space. Since connectedness is a topological invariant, they are not homeomorphic. Equivalently, $\pi_1(\mathbb{R}^2 \setminus \{0\}) = \mathbb{Z}$ while $\pi_1(\mathbb{R}^3 \setminus \{0\}) = 0$.
 
-\item \textbf{Exercise 3. Is the interval $[0,1]$ connected?} Yes. If it were split into two nonempty separated open pieces, the order structure of the real line would be contradicted.
+\item \textbf{Exercise 3.} Show that $[0,1)$ and $(0,1)$ are not homeomorphic. \emph{Solution.}$[0,1)$ is connected, and $(0,1)$ is connected. However, $[0,1)$ is compact if and only if it is closed and bounded, and it is not closed in $\mathbb{R}$. A better approach: removing $0$ from $[0,1)$ leaves $(0,1)$, which is connected. Removing any point $p \in (0,1)$ from $(0,1)$ disconnects it into $(0,p)$ and $(p,1)$. Since the number of points whose removal disconnects the space is a topological invariant, and $[0,1)$ has no such point (removing $0$ leaves a connected set, and removing any other point from $(0,1)$ does disconnect), while every point of $(0,1)$ disconnects, they are not homeomorphic.
 
-\item \textbf{Exercise 4. Why is a continuous image of a compact space compact?} An open cover of the image pulls back to an open cover of the domain; a finite subcover there maps to a finite subcover of the image.
+\item \textbf{Exercise 4.} Find the fundamental group $\pi_1(S^1 \times S^1)$ of the torus. \emph{Solution.} By the theorem for products, $\pi_1(X \times Y) \cong \pi_1(X) \times \pi_1(Y)$. Since $\pi_1(S^1) \cong \mathbb{Z}$, we get $\pi_1(S^1 \times S^1) \cong \mathbb{Z} \times \mathbb{Z}$. The two generators are the two standard loops around the torus, corresponding to the two independent directions.
 
-\item \textbf{Exercise 5. What does the fundamental group measure?} It records loops based at a point up to continuous deformation and detects holes such as the central hole of a circle.
+\item \textbf{Exercise 5.} Prove that a continuous bijection from a compact space to a Hausdorff space is a homeomorphism. \emph{Solution.}$\pi_1(T^2) \cong \pi_1(S^1) \times \pi_1(S^1) \cong \mathbb{Z} \times \mathbb{Z}$. Let $f\colon X \to Y$ be a continuous bijection with $X$ compact and $Y$ Hausdorff. We show $f^{-1}$ is continuous. Let $C \subseteq X$ be closed. Since $X$ is compact, $C$ is compact. Since $f$ is continuous, $f(C)$ is compact in $Y$. Since $Y$ is Hausdorff, $f(C)$ is closed. Thus $(f^{-1})^{-1}(C) = f(C)$ is closed, proving $f^{-1}$ is continuous.
 
 \end{enumerate}
 \section*{8. References}

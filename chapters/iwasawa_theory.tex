@@ -82,25 +82,25 @@ The statements depend strongly on the chosen prime, tower, and module. A main co
 \section*{7. Sample Questions}
 \emph{Exercise reference:} \cite{iwasawa_theory_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
 \begin{enumerate}[leftmargin=*,itemsep=0.9em]
-\item \textbf{Exercise 1.} What is a $\mathbb Z_p$-extension?
+\item \textbf{Exercise 1.} The class number of $\mathbb{Q}$ is $1$. If $\mu=0$, $\lambda=2$, and $\nu=1$ for a $\mathbb{Z}_5$-extension tower, use the growth formula $v_p(|I_n|)=\mu\cdot 5^n+\lambda n+\nu$ to compute the $5$-part of the class group size at levels $n=0,1,2,3$.
 
-\emph{Solution.} It is an infinite Galois extension whose Galois group is the additive p-adic integers, with finite cyclic layers of order $p^n$.
+\emph{Solution.} With $p=5$, $\mu=0$, $\lambda=2$, $\nu=1$: $v_5(|I_n|)=2n+1$. At $n=0$: $v_5=1$, so $|I_0|=5$. At $n=1$: $v_5=3$, so $|I_1|=5^3=125$. At $n=2$: $v_5=5$, so $|I_2|=5^5=3125$. At $n=3$: $v_5=7$, so $|I_3|=5^7=78125$. The class group grows linearly (in the exponent) along the tower.
 
-\item \textbf{Exercise 2.} Why use an inverse limit of class groups?
+\item \textbf{Exercise 2.} Verify that $\mathbb{Z}/5^n\mathbb{Z}$ has order $5^n$ and that the inverse limit $\varprojlim \mathbb{Z}/5^n\mathbb{Z}$ is isomorphic to $\mathbb{Z}_5$.
 
-\emph{Solution.} Norm maps connect the finite layers. The inverse limit stores all compatible information in one module on which the Iwasawa algebra acts.
+\emph{Solution.} The natural projection maps $\mathbb{Z}/5^{n+1}\mathbb{Z}\to\mathbb{Z}/5^n\mathbb{Z}$ are surjective and compatible. An element of the inverse limit is a sequence $(a_0,a_1,a_2,\ldots)$ with $a_n\in\mathbb{Z}/5^n\mathbb{Z}$ and $a_{n+1}\equiv a_n\pmod{5^n}$. Each such sequence corresponds to a unique $5$-adic integer $\alpha=\lim a_n\in\mathbb{Z}_5$, giving $\varprojlim\mathbb{Z}/5^n\mathbb{Z}\cong\mathbb{Z}_5$.
 
-\item \textbf{Exercise 3.} What does the growth formula describe?
+\item \textbf{Exercise 3.} Let $p=3$. If the Ferrero--Washington theorem guarantees $\mu=0$ for the cyclotomic $\mathbb{Z}_3$-extension of $\mathbb{Q}(\zeta_3)$, and $\lambda=4$ and $\nu=0$, compute $v_3(|I_n|)$ for $n=0,1,2$.
 
-\emph{Solution.} It describes the eventual p-adic valuation of the size of the class-group part, not the exact group structure at every level.
+\emph{Solution.} $v_3(|I_n|)=4n$ since $\mu=0$ and $\nu=0$. At $n=0$: $v_3=0$, so $|I_0|=1$ (trivial class group at the base level). At $n=1$: $v_3=4$, so $|I_1|=3^4=81$. At $n=2$: $v_3=8$, so $|I_2|=3^8=6561$.
 
-\item \textbf{Exercise 4.} What is the role of a p-adic L-function?
+\item \textbf{Exercise 4.} Explain why $\mathbb{Z}_p[[\Gamma]]$ with $\Gamma\cong\mathbb{Z}_p$ is isomorphic to the formal power series ring $\mathbb{Z}_p[[T]]$.
 
-\emph{Solution.} It is the analytic object that interpolates special arithmetic values and, through the main conjecture, mirrors the algebraic module controlling class-group growth.
+\emph{Solution.} Choose a topological generator $\gamma$ of $\Gamma\cong\mathbb{Z}_p$ (e.g., $\gamma$ corresponds to $1\in\mathbb{Z}_p$). Any element of $\Gamma$ is $\gamma^s$ for some $s\in\mathbb{Z}_p$. Map $\gamma\mapsto 1+T$. Then $\gamma^s\mapsto(1+T)^s=\sum_{k=0}^{\infty}\binom{s}{k}T^k$, which is a well-defined power series in $\mathbb{Z}_p[[T]]$ since $\binom{s}{k}\in\mathbb{Z}_p$. This gives a continuous ring isomorphism $\mathbb{Z}_p[[\Gamma]]\cong\mathbb{Z}_p[[T]]$.
 
-\item \textbf{Exercise 5.} Why is Fermat's Last Theorem historically connected to Iwasawa theory?
+\item \textbf{Exercise 5.} Suppose for a $\mathbb{Z}_3$-extension tower the invariants are $\mu=0$, $\lambda=3$, $\nu=2$. Use the growth formula to determine at which level $n$ the $3$-part of the class group first exceeds $3^{10}$.
 
-\emph{Solution.} Kummer identified p-torsion in cyclotomic class groups as an obstruction to a direct proof. Iwasawa studied how this obstruction changes in cyclotomic towers.
+\emph{Solution.} The growth formula gives $v_3(|I_n|)=0\cdot 3^n+3n+2=3n+2$. We need $3n+2>10$, i.e., $3n>8$, i.e., $n\geq 3$. Checking: $n=2$ gives $v_3=8$ ($|I_2|=3^8=6561<3^{10}=59049$), and $n=3$ gives $v_3=11$ ($|I_3|=3^{11}=177147>3^{10}$). So level $n=3$ is the first level where the $3$-part exceeds $3^{10}$.
 
 \end{enumerate}
 \section*{8. References}

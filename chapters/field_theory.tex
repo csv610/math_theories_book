@@ -99,25 +99,25 @@ It is the arithmetic rule for counting independent coefficients.
 \section*{7. Sample Questions}
 \emph{Exercise reference:} \cite{field_theory_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
 \begin{enumerate}[leftmargin=*,itemsep=0.9em]
-\item \textbf{Exercise 1.} Why are the integers not a field?
+\item \textbf{Exercise 1.} Find the degree $[\mathbb{Q}(\sqrt{2},\sqrt{3}):\mathbb{Q}]$ and a basis for $\mathbb{Q}(\sqrt{2},\sqrt{3})$ over $\mathbb{Q}$.
 
-\emph{Solution.} A field requires every nonzero element to have a multiplicative inverse inside the set. The integer $2$ has inverse $1/2$, which is not an integer.
+\emph{Solution.} Since $\sqrt{3}\notin\mathbb{Q}(\sqrt{2})$ (if $\sqrt{3}=a+b\sqrt{2}$ then $3=a^2+2b^2+2ab\sqrt{2}$, forcing $ab=0$ and yielding a contradiction), the extension $\mathbb{Q}(\sqrt{2},\sqrt{3})/\mathbb{Q}$ has degree $[\mathbb{Q}(\sqrt{2},\sqrt{3}):\mathbb{Q}(\sqrt{2})]\cdot[\mathbb{Q}(\sqrt{2}):\mathbb{Q}]=2\cdot 2=4$. A basis is $\{1,\sqrt{2},\sqrt{3},\sqrt{6}\}$.
 
-\item \textbf{Exercise 2.} Describe an element of $\mathbb{Q}(\sqrt2)$.
+\item \textbf{Exercise 2.} Find the minimal polynomial of $1+\sqrt{2}$ over $\mathbb{Q}$.
 
-\emph{Solution.} Every element is $a+b\sqrt2$ with rational $a$ and $b$. Products reduce because $(\sqrt2)^2=2$, so no higher power is needed.
+\emph{Solution.} Set $\alpha=1+\sqrt{2}$, so $\alpha-1=\sqrt{2}$ and $(\alpha-1)^2=2$, giving $\alpha^2-2\alpha-1=0$. The polynomial $x^2-2x-1$ is irreducible over $\mathbb{Q}$ (no rational roots by the rational root theorem), so it is the minimal polynomial.
 
-\item \textbf{Exercise 3.} What does a minimal polynomial tell us?
+\item \textbf{Exercise 3.} Find the multiplicative inverse of $3$ in $\mathbb{F}_7$ and of $x+1$ in $\mathbb{F}_2[x]/(x^3+x+1)$.
 
-\emph{Solution.} It is the shortest monic polynomial over the base field that vanishes at the element. It gives the basic algebraic relation from which all other polynomial relations follow.
+\emph{Solution.} In $\mathbb{F}_7$: $3\cdot 5=15\equiv 1\pmod{7}$, so $3^{-1}=5$. In $\mathbb{F}_2[x]/(x^3+x+1)$: perform polynomial long division of $x^3+x+1$ by $x+1$. We get $x^3+x+1=(x+1)(x^2+x)+1$, so $(x+1)(x^2+x)\equiv 1$, meaning $(x+1)^{-1}=x^2+x$.
 
-\item \textbf{Exercise 4.} How many elements does $\mathbb{F}_{2^3}$ have, and what is special about its nonzero elements?
+\item \textbf{Exercise 4.} Let $f(x)=x^3-2$ over $\mathbb{Q}$. Prove that $[\mathbb{Q}(\sqrt[3]{2}):\mathbb{Q}]=3$.
 
-\emph{Solution.} It has $2^3=8$ elements. Its seven nonzero elements form a cyclic multiplicative group, so one element generates all seven by repeated multiplication.
+\emph{Solution.} The polynomial $x^3-2$ is irreducible over $\mathbb{Q}$ by Eisenstein's criterion with $p=2$. Therefore its minimal polynomial over $\mathbb{Q}$ has degree $3$, so $[\mathbb{Q}(\sqrt[3]{2}):\mathbb{Q}]=3$.
 
-\item \textbf{Exercise 5.} Why does Galois theory help solve polynomial equations?
+\item \textbf{Exercise 5.} Prove that every finite field has order $p^n$ for some prime $p$ and positive integer $n$.
 
-\emph{Solution.} It replaces the complicated expressions for roots by the simpler question of how symmetries permute the roots. The subgroup structure of that symmetry group reveals which intermediate fields and radical operations are possible.
+\emph{Solution.} A finite field $F$ has characteristic $p>0$ (since it is finite, $1+1+\cdots+1=0$ for some sum). Then $F$ contains $\mathbb{F}_p$ as a subfield. $F$ is a vector space over $\mathbb{F}_p$, say of dimension $n$. A basis $\{e_1,\ldots,e_n\}$ gives $|F|=p^n$, since every element is a unique $\mathbb{F}_p$-linear combination of the basis elements.
 
 \end{enumerate}
 \section*{8. References}

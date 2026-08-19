@@ -84,15 +84,15 @@ The results describe how a wheel extends ordinary arithmetic while retaining a t
 \section*{7. Sample Questions}
 \emph{Exercise reference:} \cite{wheel_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
 \begin{enumerate}[leftmargin=*,itemsep=0.9em]
-\item \textbf{Exercise 1. What is $a/b$ in a wheel?} It is shorthand for $a\cdot(/b)$ and is defined even if $b=0$.
+\item \textbf{Exercise 1.} In a wheel, the inverse operation satisfies $//x = x$ (involution). Using this, show that $/(1/a) = a$ for any element $a$. \emph{Solution.}$/(1/a) = //a = a$, applying involution twice. More carefully: the inverse operation is a unary operation $/(\cdot)$, so $/(1/a)$ means we apply $/$ to the element $1/a$. By involution, $/(1/a) = //a = a$.
 
-\item \textbf{Exercise 2. Why can $0/0$ not simply be $1$?} That would make ordinary cancellation inconsistent with division. A wheel assigns a special value and changes the identities that would cause the contradiction.
+\item \textbf{Exercise 2.}$\mathbb{R} \cup \{\infty, \bot\}$ forms a wheel (the extended real wheel). For $x, y \in \mathbb{R}$ with $y \neq 0$, compute $x/y$ in the wheel and confirm it agrees with ordinary division. \emph{Solution.}$x/y = x \cdot (/y) = x \cdot (1/y) = x/y$, which is the ordinary real quotient. When $y = 0$, $x/0 = x \cdot (/0)$ where $/0$ is the special element $\infty$ in the wheel. Thus $x/0$ is defined and equals $\infty$ (for $x \neq 0$), or $\bot$ (for $x = 0$, since $0/0 = \bot$). The wheel agrees with ordinary arithmetic where the denominator is nonzero.
 
-\item \textbf{Exercise 3. What happens when $b\ne0$?} In a wheel extending the real numbers, the quotient agrees with the ordinary real quotient.
+\item \textbf{Exercise 3.} In a wheel, $x/x$ need not equal $1$ for all $x$. Show that in the real wheel $\mathbb{R} \cup \{\infty, \bot\}$, $0/0 = \bot \neq 1$. \emph{Solution.}$0/0 = 0 \cdot (/0) = 0 \cdot \infty$. In the real wheel, this is defined as $\bot$ (the bottom element), not $1$. This prevents the contradiction: if $0/0 = 1$, then from $0 \cdot a = 0 \cdot b$ we could conclude $a = b$ by canceling $0/0$, which is false. The wheel assigns $\bot$ to maintain consistency.
 
-\item \textbf{Exercise 4. Why is the inverse operation unary?} Division is defined by multiplying by the inverse-like value of the denominator.
+\item \textbf{Exercise 4.} Consider the expression $\frac{x^2 - 4}{x - 2}$. In ordinary algebra, this equals $x + 2$ for $x \neq 2$. In the real wheel, what is the value at $x = 2$? \emph{Solution.}$\frac{x^2 - 4}{x - 2} = \frac{(x-2)(x+2)}{x - 2}$. At $x = 2$: the numerator is $0$ and the denominator is $0$, so the value is $0/0 = \bot$. The wheel correctly distinguishes $\frac{x^2-4}{x-2}$ from $x + 2$ at $x = 2$: the former gives $\bot$, while the latter gives $4$.
 
-\item \textbf{Exercise 5. What problem does a total operation solve in software?} It prevents undefined intermediate expressions from crashing symbolic manipulation; exceptional results remain explicit values.
+\item \textbf{Exercise 5.}$\mathbb{CP}^1$ (the Riemann sphere) is the complex projective line. Explain how it relates to the complex wheel by adding a bottom element. \emph{Solution.}$\mathbb{CP}^1 = \mathbb{C} \cup \{\infty\}$ is the one-point compactification of $\mathbb{C}$, and forms a wheel with $\infty$ playing the role of $1/0$ and $\bot$ playing the role of $0/0$. The complex wheel extends $\mathbb{C}$ by adding two special elements: $\infty$ (for $z/0$ with $z \neq 0$) and $\bot$ (for $0/0$). The Riemann sphere $\mathbb{CP}^1$ captures the $\infty$ part; the full complex wheel additionally includes $\bot$ to make all divisions total.
 
 \end{enumerate}
 \section*{8. References}

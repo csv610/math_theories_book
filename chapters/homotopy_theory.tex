@@ -105,25 +105,25 @@ The theory has a cost: exact homotopy groups can be difficult or impossible to c
 \section*{7. Sample Questions}
 \emph{Exercise reference:} \cite{homotopy_theory_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
 \begin{enumerate}[leftmargin=*,itemsep=0.9em]
-\item \textbf{Exercise 1.} Why is a disk homotopy equivalent to a point?
+\item \textbf{Exercise 1.} Compute $\pi_1(S^1\vee S^1)$, the fundamental group of the figure-eight space.
 
-\emph{Solution.} Collapse every point of the disk along a straight line to its center. The collapse varies continuously and gives a deformation retraction.
+\emph{Solution.} By the Seifert--van Kampen theorem, write $S^1\vee S^1=U\cup V$ where $U$ is the first circle thickened slightly (contractible to $S^1$) and $V$ the second. Then $U\cap V$ is contractible, so $\pi_1(S^1\vee S^1)\cong\pi_1(S^1)*\pi_1(S^1)\cong\mathbb{Z}*\mathbb{Z}$, the free group on two generators. This is a nonabelian group.
 
-\item \textbf{Exercise 2.} What is $\pi_1(S^1)$?
+\item \textbf{Exercise 2.} Determine $\pi_1(\mathbb{R}^2\setminus\{(0,0)\})$ and $\pi_1(\mathbb{R}^2\setminus\{(0,0),(1,0)\})$.
 
-\emph{Solution.} It is $\mathbb Z$. A loop is classified by its integer winding number, positive or negative according to direction.
+\emph{Solution.} $\mathbb{R}^2\setminus\{(0,0)\}$ deformation retracts onto $S^1$, so $\pi_1\cong\mathbb{Z}$. For the twice-punctured plane, by van Kampen's theorem (or noting it deformation retracts onto a wedge of two circles), $\pi_1(\mathbb{R}^2\setminus\{(0,0),(1,0)\})\cong\mathbb{Z}*\mathbb{Z}$, the free group on two generators.
 
-\item \textbf{Exercise 3.} Why is the punctured plane not simply connected?
+\item \textbf{Exercise 3.} Compute $\pi_1(S^n)$ for $n\geq 2$.
 
-\emph{Solution.} A loop winding once around the missing point cannot be continuously contracted without crossing that point. Its winding number is a nonzero obstruction.
+\emph{Solution.} $S^n$ is simply connected for $n\geq 2$. Every loop $f:S^1\to S^n$ can be extended to a disk map $D^2\to S^n$ (since $S^1$ is the boundary of $D^2$ and $\pi_1$ of $D^2$ is trivial) by considering the surjection $D^2\to D^2$ that collapses the boundary and using the fact that the image of $f$ avoids at least one point (a loop misses some point by dimension reasons when $n\geq 2$). Thus $\pi_1(S^n)=0$ for $n\geq 2$.
 
-\item \textbf{Exercise 4.} What does a classifying space classify?
+\item \textbf{Exercise 4.} Compute $\pi_1(T^2)$, the fundamental group of the torus.
 
-\emph{Solution.} Homotopy classes of maps into $BG$ correspond to isomorphism classes of principal $G$-bundles over the source space.
+\emph{Solution.} $T^2=S^1\times S^1$. Since the fundamental group of a product is the product of fundamental groups, $\pi_1(T^2)\cong\pi_1(S^1)\times\pi_1(S^1)\cong\mathbb{Z}\times\mathbb{Z}$, the free abelian group of rank $2$.
 
-\item \textbf{Exercise 5.} Why use simplicial sets?
+\item \textbf{Exercise 5.} Show that a solid torus $D^2\times S^1$ is contractible to a circle, and compute its fundamental group.
 
-\emph{Solution.} They encode spaces by combinatorial data while retaining face and degeneracy operations. This makes homotopy constructions accessible to algebra and computation.
+\emph{Solution.} The solid torus deformation retracts onto $\{0\}\times S^1$ (collapse each disk $D^2$ to its center along straight lines). Therefore $D^2\times S^1\simeq S^1$ and $\pi_1(D^2\times S^1)\cong\pi_1(S^1)\cong\mathbb{Z}$.
 
 \end{enumerate}
 \section*{8. References}

@@ -145,25 +145,25 @@ The theory is useful when data are incomplete, sources report constraints rather
 \emph{Exercise reference:} \cite{dempster_shafer_theory_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
 \begin{enumerate}[leftmargin=*,itemsep=0.9em]
 
-\item \textbf{Exercise 1.} Let $X=\{a,b\}$ with $m(\{a\})=0.3$, $m(\{b\})=0.2$, and $m(X)=0.5$. Find belief and plausibility for $\{a\}$.
+\item \textbf{Exercise 1.} Let $X=\{a,b,c\}$ with $m(\{a\})=0.4$, $m(\{b\})=0.3$, $m(\{a,c\})=0.2$, $m(X)=0.1$. Compute $\operatorname{Bel}(\{a,c\})$ and $\operatorname{Pl}(\{a,c\})$.
 
-\emph{Solution.} Belief sums masses contained in $\{a\}$, so $\operatorname{Bel}(\{a\})=0.3$. Plausibility sums masses intersecting $\{a\}$, so it is $0.3+0.5=0.8$.
+\emph{Solution.} Belief sums masses of subsets fully contained in $\{a,c\}$: $\operatorname{Bel}(\{a,c\})=m(\{a\})+m(\{a,c\})=0.4+0.2=0.6$. Plausibility sums masses of subsets intersecting $\{a,c\}$: $\operatorname{Pl}(\{a,c\})=m(\{a\})+m(\{a,c\})+m(X)=0.4+0.2+0.1=0.7$.
 
-\item \textbf{Exercise 2.} Why is $m(\{a,b\})=0.5$ not the same as assigning probability $0.25$ to each state?
+\item \textbf{Exercise 2.} Two independent sources assign: $m_1(\{a\})=0.6$, $m_1(\{b\})=0.4$; $m_2(\{a,b\})=0.7$, $m_2(\{c\})=0.3$. Combine using Dempster's rule.
 
-\emph{Solution.} The set mass says only that the state is one of $a$ or $b$. It does not choose a division. Assigning $0.25$ to each adds an equal-likelihood assumption that the evidence did not provide.
+\emph{Solution.} Intersections: $\{a\}\cap\{a,b\}=\{a\}$, mass $0.42$; $\{a\}\cap\{c\}=\varnothing$; $\{b\}\cap\{a,b\}=\{b\}$, mass $0.28$; $\{b\}\cap\{c\}=\varnothing$. Conflict: $K=0.18+0.12=0.3$. Normalized: $(m_1\oplus m_2)(\{a\})=0.42/0.7=0.6$; $(m_1\oplus m_2)(\{b\})=0.28/0.7=0.4$.
 
-\item \textbf{Exercise 3.} What happens when two sources have conflict $K=1$?
+\item \textbf{Exercise 3.} Given $X=\{a,b,c\}$ with $m(\{a\})=0.4$, $m(\{b\})=0.2$, $m(\{a,b,c\})=0.4$, compute $\operatorname{Bel}(\{a\})$ and $\operatorname{Pl}(\{a\})$.
 
-\emph{Solution.} Every pair of focal sets has empty intersection, so the normalizing factor $1-K$ is zero. Dempster's normalized rule is undefined. The correct response is to inspect the model or choose a fusion rule that retains conflict.
+\emph{Solution.} $\operatorname{Bel}(\{a\})=m(\{a\})=0.4$. $\operatorname{Pl}(\{a\})=m(\{a\})+m(\{a,b,c\})=0.4+0.4=0.8$. Every compatible probability $P$ satisfies $0.4\leq P(\{a\})\leq 0.8$.
 
-\item \textbf{Exercise 4.} When does Dempster--Shafer theory reduce to Bayesian probability?
+\item \textbf{Exercise 4.} Verify that when all focal elements are singletons, Dempster--Shafer reduces to Bayesian probability. Take $X=\{a,b\}$ with $m(\{a\})=0.6$, $m(\{b\})=0.4$.
 
-\emph{Solution.} When all nonzero mass is assigned to singleton states. Then the belief and plausibility of every event are equal, and the mass function is an ordinary probability distribution.
+\emph{Solution.} $\operatorname{Bel}(\{a\})=m(\{a\})=0.6$ and $\operatorname{Pl}(\{a\})=m(\{a\})=0.6$, so $\operatorname{Bel}=\operatorname{Pl}$ for every event. The mass function is identical to a probability distribution with $P(a)=0.6$, $P(b)=0.4$.
 
-\item \textbf{Exercise 5.} Why must an application specify what the mass means?
+\item \textbf{Exercise 5.} Two sources assign: $m_1(\{a\})=0.5$, $m_1(\{b\})=0.5$; $m_2(\{c\})=0.5$, $m_2(\{d\})=0.5$ on frame $X=\{a,b,c,d\}$. Compute the conflict $K$.
 
-\emph{Solution.} The same numerical mass can represent a belief constraint, a probability of provability, a preference, or a sensor reliability. Dempster's normalization can be sensible for one meaning and misleading for another, especially under conflict.
+\emph{Solution.} Every focal set of $m_1$ ($\{a\}$ and $\{b\}$) is disjoint from every focal set of $m_2$ ($\{c\}$ and $\{d\}$). So $K=m_1(\{a\})m_2(\{c\})+m_1(\{a\})m_2(\{d\})+m_1(\{b\})m_2(\{c\})+m_1(\{b\})m_2(\{d\})=0.25+0.25+0.25+0.25=1$. Dempster's rule is undefined ($1-K=0$).
 
 \end{enumerate}
 \section*{8. References}

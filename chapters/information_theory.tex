@@ -104,25 +104,25 @@ Information theory depends on probability, statistics, logarithms, coding, and o
 \section*{7. Sample Questions}
 \emph{Exercise reference:} \cite{information_theory_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
 \begin{enumerate}[leftmargin=*,itemsep=0.9em]
-\item \textbf{Exercise 1.} What is the entropy of a fair coin?
+\item \textbf{Exercise 1.} A random variable $X$ takes values in $\{a,b,c,d\}$ with probabilities $\frac{1}{2},\frac{1}{4},\frac{1}{8},\frac{1}{8}$. Compute $H(X)$.
 
-\emph{Solution.} A fair coin has two equally likely outcomes, so its entropy is $H=1$ bit.
+\emph{Solution.} $H(X)=-\frac{1}{2}\log_2\frac{1}{2}-\frac{1}{4}\log_2\frac{1}{4}-\frac{1}{8}\log_2\frac{1}{8}-\frac{1}{8}\log_2\frac{1}{8}=\frac{1}{2}\cdot 1+\frac{1}{4}\cdot 2+\frac{1}{8}\cdot 3+\frac{1}{8}\cdot 3=\frac{1}{2}+\frac{1}{2}+\frac{3}{8}+\frac{3}{8}=\frac{7}{4}=1.75$ bits.
 
-\item \textbf{Exercise 2.} Why does a certain coin have zero entropy?
+\item \textbf{Exercise 2.} Compute $H(X,Y)$ for two independent fair coins $X$ and $Y$.
 
-\emph{Solution.} Its outcome is known before the flip. The only probability is $1$, and $-\log_2(1)=0$.
+\emph{Solution.} Since $X$ and $Y$ are independent with $H(X)=H(Y)=1$ bit, $H(X,Y)=H(X)+H(Y)=2$ bits. There are four equally likely outcomes, each with probability $1/4$, so $H(X,Y)=-4\cdot\frac{1}{4}\log_2\frac{1}{4}=2$ bits.
 
-\item \textbf{Exercise 3.} What does mutual information measure?
+\item \textbf{Exercise 3.} A binary symmetric channel has crossover probability $p=0.25$. Compute its capacity in bits per use.
 
-\emph{Solution.} It is the average reduction in uncertainty about one variable after observing another. It is zero when the variables are independent.
+\emph{Solution.} $C=1-H_b(p)=1-H_b(0.25)=-0.25\log_2(0.25)-0.75\log_2(0.75)=0.5+0.75\cdot 0.41503\ldots=0.5+0.31127\ldots=0.8113$ bits. So $C\approx 0.1887$ bits per use.
 
-\item \textbf{Exercise 4.} A binary symmetric channel flips bits with probability $p=0.1$. What is its capacity?
+\item \textbf{Exercise 4.} A source emits symbols from $\{A,B,C,D,E\}$ with equal probability. How many bits per symbol are needed for lossless compression, and how many bits would a naive fixed-length code use?
 
-\emph{Solution.} It is $1-H_b(0.1)$, approximately $1-0.469=0.531$ bits per use.
+\emph{Solution.} Entropy: $H(X)=\log_2 5\approx 2.3219$ bits per symbol. A fixed-length code uses $\lceil\log_2 5\rceil=3$ bits per symbol. The source coding theorem says the optimal lossless code uses approximately $2.322$ bits per symbol, a savings of about $23\%$ over the fixed-length code.
 
-\item \textbf{Exercise 5.} Why can redundancy improve communication?
+\item \textbf{Exercise 5.} Two coins $X$ and $Y$ are not independent: $X$ is fair, and $Y=X$ with probability $0.9$ and $Y\neq X$ with probability $0.1$ (each with $0.05$ for the other value). Compute $I(X;Y)$.
 
-\emph{Solution.} The receiver compares the received word with the structured set of allowed codewords. The pattern of redundant symbols reveals and corrects some errors that an uncoded message could not detect.
+\emph{Solution.} $H(X)=1$ bit. We compute $H(Y)$: $P(Y=H)=0.9\cdot 0.5+0.05\cdot 0.5=0.475$, $P(Y=T)=0.475$. So $H(Y)=-2(0.475)\log_2(0.475)\approx 0.9988$ bits. $H(X,Y)=\sum_{x,y}P(x,y)\log_2(1/P(x,y))$: $P(H,H)=0.45$, $P(T,T)=0.45$, $P(H,T)=0.05$, $P(T,H)=0.05$. So $H(X,Y)=-2(0.45)\log_2(0.45)-2(0.05)\log_2(0.05)\approx 0.9170+0.4322=1.3493$ bits. $I(X;Y)=H(X)+H(Y)-H(X,Y)=1+0.9988-1.3493\approx 0.6495$ bits.
 
 \end{enumerate}
 \section*{8. References}

@@ -157,25 +157,25 @@ Bifurcation theory is useful when changing a parameter changes the number, stabi
 \emph{Exercise reference:} \cite{bifurcation_theory_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
 \begin{enumerate}[leftmargin=*,itemsep=0.9em]
 
-\item \textbf{Exercise 1.} Analyze the equilibria of $\dot x=rx-x^3$.
+\item \textbf{Exercise 1.} Consider $\dot x=\lambda x-x^2$. Find all equilibria, determine their stability for $\lambda=1$ and $\lambda=-1$, and classify the bifurcation at $\lambda=0$.
 
-\textbf{Solution.} Equilibria are $x=0$ and, for $r\geq0$, $x=\pm\sqrt r$. The derivative is $r-3x^2$. Thus zero is stable for $r<0$ and unstable for $r>0$, while the two nonzero branches are stable for $r>0$. This is a supercritical pitchfork.
+\emph{Solution.} Equilibria: $x=0$ and $x=\lambda$ (when $\lambda\ne 0$). The derivative $f_x=\lambda-2x$. At $x=0$: $f_x=\lambda$, stable for $\lambda<0$, unstable for $\lambda>0$. At $x=\lambda$: $f_x=-\lambda$, stable for $\lambda>0$, unstable for $\lambda<0$. The two branches cross and exchange stability at $\lambda=0$: this is a transcritical bifurcation. For $\lambda=1$, the equilibria are $0$ (unstable) and $1$ (stable). For $\lambda=-1$, the equilibria are $0$ (stable) and $-1$ (unstable).
 
-\item \textbf{Exercise 2.} Classify the equilibria of $\dot x=\lambda-x^2$.
+\item \textbf{Exercise 2.} Find the equilibria and bifurcation diagram for $\dot x=\lambda-x^3$. What type of bifurcation occurs at $\lambda=0$?
 
-\textbf{Solution.} For $\lambda>0$, $x=\pm\sqrt\lambda$; the positive branch has derivative $-2\sqrt\lambda<0$ and is stable, the negative branch unstable. At $\lambda=0$ they merge, and for $\lambda<0$ there are none: a saddle-node.
+\emph{Solution.} Equilibria satisfy $x^3=\lambda$, so $x=\lambda^{1/3}$ (one real root for all $\lambda$). The derivative $f_x=-3x^2$ is always $\le 0$, and equals $0$ only at $x=\lambda=0$. The equilibrium $x=\lambda^{1/3}$ is stable for all $\lambda\ne 0$ (since $f_x=-3\lambda^{2/3}<0$). At $\lambda=0$, $f_x=0$ but $f_{xx}=-6x=0$ and $f_{xxx}=-6\ne 0$. This is a degenerate saddle-node (a cusp-type degeneracy): the equilibrium exists for all $\lambda$ and does not lose or gain equilibria, but the linearization degenerates.
 
-\item \textbf{Exercise 3.} What eigenvalue condition signals a local continuous-time bifurcation?
+\item \textbf{Exercise 3.} For the system $\dot x=r x-x^3$, compute the eigenvalue at $x=0$ when $r=0.5$ and $r=-0.5$, and identify which equilibria are stable.
 
-\textbf{Solution.} At least one eigenvalue of the Jacobian has real part zero. A zero eigenvalue gives a steady-state bifurcation; a nonzero purely imaginary pair gives the linear signal for a Hopf bifurcation. Nondegeneracy conditions are still required.
+\emph{Solution.} The derivative at $x=0$ is $r$. When $r=0.5>0$, the eigenvalue is $0.5>0$, so $x=0$ is unstable. The two nonzero equilibria $x=\pm\sqrt{0.5}$ each have derivative $r-3r=-2r=-1<0$, so they are stable. When $r=-0.5<0$, the eigenvalue at $x=0$ is $-0.5<0$, so $x=0$ is stable. No nonzero real equilibria exist.
 
-\item \textbf{Exercise 4.} Why is a homoclinic bifurcation global?
+\item \textbf{Exercise 4.} For the two-dimensional system $\dot x=\lambda-x^2$, $\dot y=-y$, determine the equilibria for $\lambda>0$, $\lambda=0$, and $\lambda<0$, and identify which are stable nodes versus saddle points.
 
-\textbf{Solution.} It involves an entire orbit connecting a saddle to itself and therefore the global stable and unstable manifolds, not just the eigenvalues at the saddle. The change cannot be confined to an arbitrarily small neighborhood.
+\emph{Solution.} Equilibria: $(\pm\sqrt{\lambda},0)$ for $\lambda>0$; $(0,0)$ for $\lambda\le 0$. The Jacobian is $\begin{pmatrix}-2x&0\\0&-1\end{pmatrix}$. For $\lambda>0$ at $(\sqrt{\lambda},0)$: eigenvalues $-2\sqrt{\lambda}<0$ and $-1<0$, so stable node. At $(-\sqrt{\lambda},0)$: eigenvalues $+2\sqrt{\lambda}>0$ and $-1<0$, so saddle point. For $\lambda<0$: no equilibria. At $\lambda=0$: $(0,0)$ has Jacobian $\begin{pmatrix}0&0\\0&-1\end{pmatrix}$, a degenerate (nonhyperbolic) equilibrium.
 
-\item \textbf{Exercise 5.} What does codimension two mean for a Bogdanov--Takens point?
+\item \textbf{Exercise 5.} Consider $\dot x=r+x-x^3$. Find the turning points (fold points) of the equilibrium curve by solving $\dot x=0$ and $\ddot x=0$ simultaneously, and determine the values of $r$ at which folds occur.
 
-\textbf{Solution.} Two independent conditions must be met, so one generally needs two parameters to reach the degenerate point. Nearby parameter values may display several codimension-one curves such as saddle-node and Hopf branches.
+\emph{Solution.} Equilibria satisfy $x^3-x=r$. The fold condition is $\frac{d}{dx}(x^3-x)=3x^2-1=0$, giving $x=\pm 1/\sqrt{3}$. At $x=1/\sqrt{3}$: $r=1/(3\sqrt{3})-1/\sqrt{3}=-2/(3\sqrt{3})\approx -0.385$. At $x=-1/\sqrt{3}$: $r=-1/(3\sqrt{3})+1/\sqrt{3}=2/(3\sqrt{3})\approx 0.385$. These are the two saddle-node (fold) bifurcation points. Between them, three equilibria exist; outside, only one.
 
 \end{enumerate}
 \section*{8. References}

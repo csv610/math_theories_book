@@ -96,25 +96,25 @@ These theorems explain why ideals replace elements when unique factorization of 
 \section*{7. Sample Questions}
 \emph{Exercise reference:} \cite{ideal_theory_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
 \begin{enumerate}[leftmargin=*,itemsep=0.9em]
-\item \textbf{Exercise 1.} Why do the multiples of $6$ form an ideal of $\mathbb Z$?
+\item \textbf{Exercise 1.} Find all prime ideals of $\mathbb{Z}$ and determine which are maximal.
 
-\emph{Solution.} The sum or difference of two multiples of $6$ is a multiple of $6$, and multiplying a multiple of $6$ by any integer remains a multiple of $6$.
+\emph{Solution.} The prime ideals of $\mathbb{Z}$ are $(0)$ and $(p)$ for each prime number $p$. The ideal $(0)$ is prime since $\mathbb{Z}/(0)=\mathbb{Z}$ is a domain, but it is not maximal since $\mathbb{Z}$ is not a field. Each $(p)$ is maximal since $\mathbb{Z}/(p)=\mathbb{F}_p$ is a field. Every maximal ideal is prime, so all $(p)$ are prime and maximal.
 
-\item \textbf{Exercise 2.} Is $(5)$ a maximal ideal of $\mathbb Z$?
+\item \textbf{Exercise 2.} In $\mathbb{Z}[x]$, show that the ideal $(2,x)$ is maximal.
 
-\emph{Solution.} Yes. The quotient $\mathbb Z/(5)$ is the field with five elements, so $(5)$ is maximal and therefore prime.
+\emph{Solution.} Consider $\mathbb{Z}[x]/(2,x)$. Modding out by $(2)$ gives $\mathbb{F}_2[x]$, and then modding out by the image of $x$ gives $\mathbb{F}_2[x]/(x)\cong\mathbb{F}_2$. Since the quotient is a field, $(2,x)$ is maximal.
 
-\item \textbf{Exercise 3.} What geometric set is defined by $(x,y)$ in $k[x,y]$?
+\item \textbf{Exercise 3.} Use the Chinese remainder theorem to solve the system $x\equiv 3\pmod{5}$ and $x\equiv 4\pmod{7}$.
 
-\emph{Solution.} It is the single point $(0,0)$, because both $x$ and $y$ must vanish there.
+\emph{Solution.} Since $\gcd(5,7)=1$, the ideals $(5)$ and $(7)$ are comaximal. By CRT, $\mathbb{Z}/(35)\cong\mathbb{Z}/(5)\times\mathbb{Z}/(7)$. The solution: $x=3+5t$ and $3+5t\equiv 4\pmod{7}$ gives $5t\equiv 1\pmod{7}$, so $t\equiv 3\pmod{7}$ (since $5\cdot 3=15\equiv 1$). Thus $x=3+15=18$. Check: $18\equiv 3\pmod{5}$ and $18\equiv 4\pmod{7}$. The general solution is $x\equiv 18\pmod{35}$.
 
-\item \textbf{Exercise 4.} Why are prime ideals useful for factorization?
+\item \textbf{Exercise 4.} Show that the ideal $(x)$ in $\mathbb{Z}[x]$ is prime but not maximal.
 
-\emph{Solution.} The quotient by a prime ideal is a domain, so multiplication has no zero divisors there. Prime ideals also serve as the basic factors in ideal factorizations.
+\emph{Solution.} The quotient $\mathbb{Z}[x]/(x)\cong\mathbb{Z}$, which is an integral domain, so $(x)$ is prime. Since $\mathbb{Z}$ is not a field, $(x)$ is not maximal. For instance, $(x)\subsetneq(2,x)\subsetneq\mathbb{Z}[x]$.
 
-\item \textbf{Exercise 5.} What problem does localization solve?
+\item \textbf{Exercise 5.} Find the prime factorization of the ideal $(12)$ in $\mathbb{Z}$.
 
-\emph{Solution.} It allows selected nonzero elements to become invertible, so one can study algebraic behavior near a chosen prime ideal without carrying unrelated global information.
+\emph{Solution.} In $\mathbb{Z}$, $(12)=(4)(3)=(2^2)(3)=(2)^2\cdot(3)$. Since $(2)$ and $(3)$ are prime ideals, this is the unique prime factorization of $(12)$ as a product of prime ideals.
 
 \end{enumerate}
 \section*{8. References}

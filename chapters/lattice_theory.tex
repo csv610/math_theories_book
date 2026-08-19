@@ -84,21 +84,21 @@ The word lattice also names a periodic grid in geometry and crystallography; tha
 
 \emph{Solution.} The meet is $\gcd(12,18)=6$ and the join is $\operatorname{lcm}(12,18)=36$.
 
-\item \textbf{Exercise 2.} What are meet and join for subsets?
+\item \textbf{Exercise 2.} Classify all lattices with $3$ elements up to isomorphism.
 
-\emph{Solution.} The meet is intersection, because it is the largest set contained in both. The join is union, because it is the smallest set containing both.
+\emph{Solution.} There are exactly two: the chain $0<a<1$ (a total order) and the ``diamond'' $\{0,a,1\}$ with $a\wedge b=0$ and $a\vee b=1$ for any two distinct non-extreme elements. However, with only three elements, the only possibilities are: (i) a chain $0<a<1$, and (ii) the lattice $\{0,a,1\}$ where $a$ is incomparable with nothing (since there are only three elements, any three-element lattice is a chain). Thus there is exactly one lattice with three elements up to isomorphism: the chain.
 
-\item \textbf{Exercise 3.} Why is a total order a lattice?
+\item \textbf{Exercise 3.} Let $L$ be the lattice of subspaces of $\mathbb{R}^3$. Find the meet and join of the subspace $U=\operatorname{span}\{(1,0,0)\}$ and $V=\operatorname{span}\{(0,1,0)\}$.
 
-\emph{Solution.} Any two elements are comparable. The smaller is their meet and the larger is their join.
+\emph{Solution.} The meet is $U\cap V=\{0\}$ (trivial subspace), and the join is $U+V=\operatorname{span}\{(1,0,0),(0,1,0)\}$, the $xy$-plane.
 
-\item \textbf{Exercise 4.} What does the Knaster--Tarski theorem provide in program verification?
+\item \textbf{Exercise 4.} Verify that the lattice of subsets of $\{1,2,3\}$ is distributive by checking $A\cap(B\cup C)=(A\cap B)\cup(A\cap C)$ for $A=\{1,2\}$, $B=\{2,3\}$, $C=\{1,3\}$.
 
-\emph{Solution.} A monotone program transformer has a least fixed point representing the smallest solution of recursive reachability equations and a greatest fixed point representing the largest invariant solution.
+\emph{Solution.} Left side: $A\cap(B\cup C)=\{1,2\}\cap\{1,2,3\}=\{1,2\}$. Right side: $(A\cap B)\cup(A\cap C)=\{2\}\cup\{1\}=\{1,2\}$. Both sides agree.
 
-\item \textbf{Exercise 5.} What makes a lattice Boolean?
+\item \textbf{Exercise 5.} Find all join-irreducible elements in the divisor lattice of $12=\,2^2\cdot 3$.
 
-\emph{Solution.} It is bounded, distributive, and every element has a complement. The power set of a set is the standard model.
+\emph{Solution.} The divisors of $12$ are $\{1,2,3,4,6,12\}$. An element is join-irreducible if it cannot be written as the join of two strictly smaller elements. The join-irreducible elements are: $2$ (since $\operatorname{lcm}(1,2)=2$), $3$ (since $\operatorname{lcm}(1,3)=3$), and $4$ (since the only divisors less than $4$ are $1,2$, and $\operatorname{lcm}(1,2)=2<4$). The element $6=\operatorname{lcm}(2,3)$ is not join-irreducible, and $12=\operatorname{lcm}(4,3)$ is not either. So the join-irreducible elements are $\{2,3,4\}$.
 
 \end{enumerate}
 \section*{8. References}

@@ -189,25 +189,25 @@ Asymptotic theory is used when the dominant behaviour of a quantity matters more
 \emph{Exercise reference:} \cite{asymptotic_theory_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
 \begin{enumerate}[leftmargin=*,itemsep=0.9em]
 
-\item \textbf{Exercise 1.} Prove that $n^2+3n\sim n^2$.
+\item \textbf{Exercise 1.} Prove that $\binom{2n}{n}\sim \frac{4^n}{\sqrt{\pi n}}$ using Stirling's formula.
 
-\textbf{Solution.} Divide by $n^2$: $(n^2+3n)/n^2=1+3/n$, which tends to 1 as $n\to\infty$.
+\emph{Solution.} We have $\binom{2n}{n}=\frac{(2n)!}{(n!)^2}$. By Stirling, $n!\sim\sqrt{2\pi n}(n/e)^n$. So $(2n)!\sim\sqrt{4\pi n}(2n/e)^{2n}$ and $(n!)^2\sim 2\pi n\,(n/e)^{2n}$. Thus $\binom{2n}{n}\sim\frac{\sqrt{4\pi n}\cdot 4^n n^{2n}/e^{2n}}{2\pi n\cdot n^{2n}/e^{2n}}=\frac{2\sqrt{\pi n}\cdot 4^n}{2\pi n}=\frac{4^n}{\sqrt{\pi n}}$.
 
-\item \textbf{Exercise 2.} Show that $n\log n=o(n^2)$.
+\item \textbf{Exercise 2.} Determine whether $3^n+n^3=O(n^3)$, $3^n+n^3\sim 3^n$, or both as $n\to\infty$.
 
-\textbf{Solution.} The ratio is $(n\log n)/n^2=(\log n)/n$, which tends to zero by l'Hôpital's rule or standard growth comparisons.
+\emph{Solution.} We have $(3^n+n^3)/n^3=(3/n)^n+1\to\infty$, so $3^n+n^3\ne O(n^3)$. However, $(3^n+n^3)/3^n=1+(n/3)^3\cdot 3^{-n}\to 1$, so $3^n+n^3\sim 3^n$. Only the second statement holds.
 
-\item \textbf{Exercise 3.} Explain why $f(n)=O(n^2)$ does not mean $f(n)\sim n^2$.
+\item \textbf{Exercise 3.} Use Stirling's formula to find the leading asymptotic behavior of $\binom{n}{n/2}$ for large even $n$.
 
-\textbf{Solution.} The function $f(n)=n$ is $O(n^2)$ but $f(n)/n^2\to0$, not 1. Big-$O$ is only an eventual upper bound; asymptotic equivalence requires ratio 1.
+\emph{Solution.} With $k=n/2$: $\binom{n}{n/2}=\frac{n!}{((n/2)!)^2}$. By Stirling, $n!\sim\sqrt{2\pi n}(n/e)^n$ and $(n/2)!\sim\sqrt{\pi n}(n/(2e))^{n/2}$. So $((n/2)!)^2\sim \pi n\,(n/(2e))^n$. Thus $\binom{n}{n/2}\sim\frac{\sqrt{2\pi n}\,n^n/e^n}{\pi n\,n^n/(2^n e^n)}=\frac{\sqrt{2\pi n}\cdot 2^n}{\pi n}=\sqrt{\frac{2}{\pi n}}\cdot 2^n$.
 
-\item \textbf{Exercise 4.} Use Stirling's formula to estimate $10!$.
+\item \textbf{Exercise 4.} Show that $\sum_{k=1}^{n}\frac{1}{k}=\log n+\gamma+O(1/n)$, where $\gamma$ is the Euler--Mascheroni constant.
 
-\textbf{Solution.} The leading approximation is $\sqrt{20\pi}(10/e)^{10}$, about $3.60\times10^6$, close to the exact value $3,628,800$. Correction terms improve it.
+\emph{Solution.} The Euler--Mascheroni constant is defined as $\gamma=\lim_{n\to\infty}\left(\sum_{k=1}^n\frac{1}{k}-\log n\right)$. By the integral test comparison, $\sum_{k=1}^n\frac{1}{k}-\log n=\gamma+O(1/n)$ because $\int_n^{n+1}\frac{dx}{x}-\frac{1}{n+1}=O(1/n^2)$ and the tail converges. The $O(1/n)$ remainder follows from bounding the difference by a telescoping integral.
 
-\item \textbf{Exercise 5.} Why can adding terms to a divergent asymptotic expansion make an answer worse?
+\item \textbf{Exercise 5.} For $f(x)=x^2 e^{-x}$, find the value of $x$ that maximizes $f$ and determine the leading behavior of $\int_0^\infty x^2 e^{-x}\,dx$ using Laplace's method ideas.
 
-\textbf{Solution.} Early terms decrease and improve the approximation, but after the smallest term the divergent coefficients grow. The useful approximation is obtained by truncating near the least term, not by summing indefinitely.
+\emph{Solution.} Differentiating: $f'(x)=e^{-x}(2x-x^2)=xe^{-x}(2-x)$, so the maximum is at $x=2$ with $f(2)=4e^{-2}$. The integral is $\Gamma(3)=2!=2$. Laplace's method would estimate this by expanding $\log(x^2 e^{-x})=2\log x -x$ near $x=2$: the second derivative of $2\log x -x$ at $x=2$ is $-2/x^2\big|_{x=2}=-1/2$, giving a Gaussian integral approximation $\int\approx 4e^{-2}\sqrt{2\pi/(1/2)}=4e^{-2}\cdot 2\sqrt{\pi}\approx 2.01$, close to the exact value $2$.
 
 \end{enumerate}
 \section*{8. References}

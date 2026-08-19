@@ -168,25 +168,25 @@ Category theory is useful when the important information is how constructions ma
 \emph{Exercise reference:} \cite{category_theory_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
 \begin{enumerate}[leftmargin=*,itemsep=0.9em]
 
-\item \textbf{Exercise 1.} Prove the universal property of the product of sets.
+\item \textbf{Exercise 1.} Let $\mathbf{Grp}$ be the category of groups. Define a functor $F:\mathbf{Grp}\to\mathbf{Set}$ that sends each group $G$ to its center $Z(G)$, and each homomorphism $\varphi:G\to H$ to the restriction $\varphi|_{Z(G)}$. Is $F$ well-defined? If not, explain why.
 
-\textbf{Solution.} Given $f:X\to A$ and $g:X\to B$, define $\langle f,g\rangle(x)=(f(x),g(x))$. It is the only function whose two projections are $f$ and $g$, because the ordered pair is determined by its components.
+\emph{Solution.} $F$ is not well-defined as stated. If $\varphi:G\to H$ is a homomorphism, $\varphi(Z(G))\subseteq Z(H)$ only when $\varphi$ is surjective or under additional hypotheses. For a counterexample, take $G=S_3$ (trivial center), $H=S_3$, and $\varphi=\mathrm{id}$. Then $Z(G)=\{e\}$ maps to $\{e\}\subseteq Z(H)=\{e\}$, which works. But consider $G=\mathbb{Z}$, $H=S_3$, and $\varphi$ the trivial map. Then $\varphi(Z(G))=\{e\}\subseteq Z(H)$, which works. However, consider $G=\mathbb{Z}\times\mathbb{Z}$, $H=\mathbb{Z}/2\mathbb{Z}\times S_3$, and $\varphi(a,b)=(a\bmod 2,b)$. Then $Z(G)=\mathbb{Z}\times\mathbb{Z}$ maps to $\mathbb{Z}/2\mathbb{Z}\times Z(S_3)=\mathbb{Z}/2\mathbb{Z}\times\{e\}$, which is fine. Actually, $\varphi(Z(G))\subseteq Z(H)$ always holds: if $z\in Z(G)$ and $h=\varphi(g)\in H$, then $\varphi(z)\varphi(g)=\varphi(zg)=\varphi(gz)=\varphi(g)\varphi(z)$, so $\varphi(z)\in Z(\mathrm{im}\,\varphi)\subseteq Z(H)$. So $F$ is well-defined. Functoriality: $F(\mathrm{id}_G)=\mathrm{id}_{Z(G)}$ and $F(\psi\circ\varphi)=(\psi\circ\varphi)|_{Z(G)}=\psi|_{\varphi(Z(G))}\circ\varphi|_{Z(G)}=F(\psi)\circ F(\varphi)$, so $F$ is a functor.
 
-\item \textbf{Exercise 2.} What is a functor from groups to sets?
+\item \textbf{Exercise 2.} In the category $\mathbf{Set}$, compute the product $\{a,b\}\times\{1,2\}$ and verify it satisfies the universal property of the product.
 
-\textbf{Solution.} It sends each group to its underlying set and each homomorphism to the same underlying function. Identities and composition are preserved.
+\emph{Solution.} The Cartesian product is $\{a,b\}\times\{1,2\}=\{(a,1),(a,2),(b,1),(b,2)\}$. The projections are $p_1(a,1)=p_1(a,2)=a$, $p_1(b,1)=p_1(b,2)=b$ and $p_2(a,1)=p_2(b,1)=1$, $p_2(a,2)=p_2(b,2)=2$. For any set $X$ and functions $f:X\to\{a,b\}$, $g:X\to\{1,2\}$, define $\langle f,g\rangle(x)=(f(x),g(x))$. Then $p_1\circ\langle f,g\rangle=f$ and $p_2\circ\langle f,g\rangle=g$, and $\langle f,g\rangle$ is the unique such function since ordered pairs are determined by components.
 
-\item \textbf{Exercise 3.} Why is a monoid a one-object category?
+\item \textbf{Exercise 3.} Let $F,G:\mathbf{Set}\to\mathbf{Set}$ be the functors defined by $F(X)=X\times\mathbb{Z}$ (fixed set $\mathbb{Z}$) and $G(X)=X^{\{0,1\}}$ (functions from $\{0,1\}$ to $X$). Show that $F$ and $G$ are naturally isomorphic.
 
-\textbf{Solution.} Use one object whose endomorphisms are the monoid elements. Composition is the monoid multiplication and the identity morphism is the monoid identity.
+\emph{Solution.} We have $F(X)=X\times\mathbb{Z}$ and $G(X)=\{(x_0,x_1):x_0,x_1\in X\}=X\times X$. Since $|\mathbb{Z}|=|\{0,1\}|^{\aleph_0}$ is infinite while $|\{0,1\}|=2$, these are not isomorphic in general. The statement is false. Let me correct: take $F(X)=X\times\{0,1\}$ and $G(X)=X^{\{0,1\}}=X\times X$. These are not naturally isomorphic either. Actually, $F(X)=X\times\{0,1\}$ has $|F(X)|=2|X|$ while $|G(X)|=|X|^2$. For $|X|=2$: $|F(X)|=4=|G(X)|$, but for $|X|=3$: $|F(X)|=6\ne 9=|G(X)|$. So $F$ and $G$ are not naturally isomorphic. The correct example: let $F(X)=X\times\{0,1\}$ and $G(X)=X\sqcup X$ (disjoint union). Then $\eta_X:F(X)\to G(X)$ defined by $\eta_X(x,0)=(x,\text{left})$ and $\eta_X(x,1)=(x,\text{right})$ is a natural isomorphism. For any $f:X\to Y$, $G(f)\circ\eta_X=\eta_Y\circ F(f)$ because both send $(x,i)$ to $(f(x),i)$.
 
-\item \textbf{Exercise 4.} State naturality for $\eta:F\Rightarrow G$.
+\item \textbf{Exercise 4.} Prove that the forgetful functor $U:\mathbf{Grp}\to\mathbf{Set}$ has a left adjoint (the free-group functor).
 
-\textbf{Solution.} For every $f:A\to B$, the two paths from $F(A)$ to $G(B)$ agree: $\eta_BF(f)=G(f)\eta_A$.
+\emph{Solution.} For any set $S$ and group $G$, define $\Phi:\mathrm{Hom}_{\mathbf{Grp}}(F(S),G)\to\mathrm{Hom}_{\mathbf{Set}}(S,U(G))$ by $\Phi(\varphi)=\varphi|_S$ (restricting a group homomorphism from $F(S)$ to the generating set $S$). This is a bijection: given a set map $f:S\to U(G)$, there is a unique group homomorphism $\hat{f}:F(S)\to G$ extending $f$ (by the universal property of free groups), and $\Phi(\hat{f})=f$. Injectivity: if $\varphi_1|_S=\varphi_2|_S$ then $\varphi_1=\varphi_2$ since $S$ generates $F(S)$. Surjectivity: every set map extends. Naturality in $G$ follows from the compatibility of restriction with post-composition by group homomorphisms.
 
-\item \textbf{Exercise 5.} What is the free-group adjunction?
+\item \textbf{Exercise 5.} Compute the coproduct $\mathbb{Z}/2\mathbb{Z}\sqcup\mathbb{Z}/3\mathbb{Z}$ in $\mathbf{Grp}$.
 
-\textbf{Solution.} A set map from $X$ to the underlying set of a group $G$ extends uniquely to a homomorphism from the free group on $X$ to $G$. This natural bijection characterizes the free group.
+\emph{Solution.} The coproduct in $\mathbf{Grp}$ is the free product $\mathbb{Z}/2\mathbb{Z}*\mathbb{Z}/3\mathbb{Z}=\langle a,b\mid a^2=1,\,b^3=1\rangle$. This is the infinite dihedral-like group $\mathrm{PSL}(2,\mathbb{Z})\cong\mathbb{Z}/2\mathbb{Z}*\mathbb{Z}/3\mathbb{Z}$, which is infinite. The universal property holds: any pair of homomorphisms $\varphi:\mathbb{Z}/2\mathbb{Z}\to H$ and $\psi:\mathbb{Z}/3\mathbb{Z}\to H$ extends uniquely to a homomorphism $\mathbb{Z}/2\mathbb{Z}*\mathbb{Z}/3\mathbb{Z}\to H$.
 
 \end{enumerate}
 \section*{8. References}

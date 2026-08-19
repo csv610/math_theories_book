@@ -94,25 +94,25 @@ Not every subset is measurable, and an integral depends on the chosen measure. A
 \section*{7. Sample Questions}
 \emph{Exercise reference:} \cite{measure_theory_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
 \begin{enumerate}[leftmargin=*,itemsep=0.9em]
-\item \textbf{Exercise 1.} Why is countable additivity stronger than ordinary finite additivity?
+\item \textbf{Exercise 1.} Compute the Lebesgue measure of the open set $(0,3)\cup(7,10)\subset\mathbb{R}$.
 
-\emph{Solution.} It controls an infinite disjoint decomposition. This is essential when a set or function is approximated by a sequence of simpler pieces.
+\emph{Solution.} The Lebesgue measure of an open interval $(a,b)$ is $b-a$. Since the two intervals are disjoint, $\mu((0,3)\cup(7,10))=\mu((0,3))+\mu((7,10))=3+3=6$.
 
-\item \textbf{Exercise 2.} What does measure zero mean?
+\item \textbf{Exercise 2.} Compute the Lebesgue measure of the Cantor set $C$ constructed by removing middle thirds up to stage $3$.
 
-\emph{Solution.} The set contributes no size to the measure, although it need not be empty. A function can be changed on a null set without changing its Lebesgue integral.
+\emph{Solution.} Stage $0$: $\mu_0=1$. Stage $1$: remove interval of length $1/3$, $\mu_1=2/3$. Stage $2$: remove $2$ intervals of length $1/9$, $\mu_2=4/9$. Stage $3$: remove $4$ intervals of length $1/27$, $\mu_3=8/27$. In general $\mu_n=(2/3)^n$, so $\mu_3=8/27$.
 
-\item \textbf{Exercise 3.} When can limits pass through an integral?
+\item \textbf{Exercise 3.} Let $X=\{a,b,c\}$ and $\Sigma=2^X$ (the power set). List all eight elements of $\Sigma$ and verify it is a $\sigma$-algebra.
 
-\emph{Solution.} Monotone or dominated convergence gives standard sufficient conditions. Without such control, pointwise convergence alone is not enough.
+\emph{Solution.} $\Sigma=\{\emptyset,\{a\},\{b\},\{c\},\{a,b\},\{a,c\},\{b,c\},\{a,b,c\}\}$. It contains $\emptyset$ and $X$. Each set's complement is in $\Sigma$ (e.g., $\{a,b\}^c=\{c\}$). Countable unions reduce to finite unions, which are in $\Sigma$ (e.g., $\{a\}\cup\{b\}=\{a,b\}$). So $\Sigma$ is a $\sigma$-algebra.
 
-\item \textbf{Exercise 4.} Why is a random variable required to be measurable?
+\item \textbf{Exercise 4.} Compute $\int_0^1\left(x^2+\mathbf{1}_{[1/2,1]}(x)\right)dx$ using Lebesgue integration.
 
-\emph{Solution.} Measurability ensures inverse images of measurable outcome sets are measurable, so probabilities and expectations are defined.
+\emph{Solution.} $\int_0^1 x^2\,dx=[x^3/3]_0^1=1/3$. $\int_0^1\mathbf{1}_{[1/2,1]}(x)\,dx=\mu([1/2,1])=1/2$. Sum: $1/3+1/2=5/6$.
 
-\item \textbf{Exercise 5.} What is the Radon--Nikodym theorem used for?
+\item \textbf{Exercise 5.} Let $f_n=n\,\mathbf{1}_{(0,1/n]}$ on $[0,1]$. Compute $\int_0^1 f_n\,dx$, find the pointwise limit of $f_n$, and explain why the dominated convergence theorem does not apply.
 
-\emph{Solution.} It represents an absolutely continuous measure by a density, allowing one measure to be integrated relative to another.
+\emph{Solution.} $\int_0^1 f_n\,dx=n\cdot(1/n)=1$ for every $n$. Pointwise, $f_n(x)\to 0$ for every $x\in(0,1]$ (since $x>1/n$ for large $n$), so $\lim f_n=0$ a.e.~and $\int_0^1\lim f_n\,dx=0\neq 1=\lim\int_0^1 f_n\,dx$. The dominated convergence theorem fails because no integrable function $g$ satisfies $|f_n|\leq g$ a.e.: for any $g\in L^1$, $\int_0^{1/n}g\,dx\to 0$, but $\int_0^{1/n}f_n\,dx=1$.
 
 \end{enumerate}
 \section*{8. References}

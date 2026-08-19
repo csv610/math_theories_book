@@ -90,6 +90,20 @@ In each case the model depends on choices: which outcomes were included, whether
 \item[\textbf{Normal distribution.}] The bell-shaped density proportional to $e^{-x^2/2}$, arising as the limit of sums of independent random variables.
 \end{description}
 \chapterquestions{Probability theory}{sample spaces, events, conditional probabilities, and expectations}{the probability of at least one six in two fair die rolls}{$1-(5/6)^2=11/36$ by taking the complement of no six}{conditional probability updates a model after information is observed}{dependent trials cannot be multiplied blindly; probability supports risk and forecasting}{probability_theory_ref1}
+\section*{7. Sample Questions}
+\emph{Exercise reference:} \cite{probability_theory_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
+\begin{enumerate}[leftmargin=*,itemsep=0.9em]
+\item \textbf{Exercise 1.} A fair die is rolled once. Compute $P(\text{even}\mid \text{result}>3)$. \emph{Solution.} $P(\text{even}\cap\{4,5,6\})=P(\{4,6\})=2/6$. $P(\{4,5,6\})=3/6$. So $P(\text{even}\mid >3)=(2/6)/(3/6)=2/3$.
+
+\item \textbf{Exercise 2.} A box contains $3$ red and $5$ blue balls. Two balls are drawn without replacement. Compute the probability that both are red. \emph{Solution.} $P(\text{first red})=3/8$. Given the first is red, $P(\text{second red})=2/7$. So $P(\text{both red})=(3/8)(2/7)=6/56=3/28$.
+
+\item \textbf{Exercise 3.} Let $X$ be the number of heads in $3$ fair coin flips. Compute $E[X]$ and $\operatorname{Var}(X)$. \emph{Solution.} $X\sim\text{Binomial}(3,1/2)$. $E[X]=3\cdot 1/2=3/2$. $\operatorname{Var}(X)=3\cdot(1/2)\cdot(1/2)=3/4$.
+
+\item \textbf{Exercise 4.} A medical test has sensitivity $P(\text{positive}\mid\text{sick})=0.98$ and specificity $P(\text{negative}\mid\text{healthy})=0.95$. If $2\%$ of the population is sick, compute $P(\text{sick}\mid\text{positive})$. \emph{Solution.} By Bayes' rule: $P(\text{sick}\mid\text{pos})=P(\text{pos}\mid\text{sick})P(\text{sick})/P(\text{pos})$. $P(\text{pos})=0.98\cdot 0.02+0.05\cdot 0.98=0.0196+0.049=0.0686$. Wait: $P(\text{pos})=P(\text{pos}\mid\text{sick})P(\text{sick})+P(\text{pos}\mid\text{healthy})P(\text{healthy})=0.98\cdot 0.02+0.05\cdot 0.98=0.0196+0.049=0.0686$. So $P(\text{sick}\mid\text{pos})=0.0196/0.0686\approx 0.286$.
+
+\item \textbf{Exercise 5.} Two fair dice are rolled. Compute the conditional probability that the sum is $7$ given that at least one die shows $4$. \emph{Solution.} The event ``at least one $4$'' has outcomes $(4,1),(4,2),(4,3),(4,4),(4,5),(4,6),(1,4),(2,4),(3,4),(5,4),(6,4)$: $11$ outcomes. Of these, the pairs summing to $7$ are $(4,3)$ and $(3,4)$: $2$ outcomes. So $P(\text{sum}=7\mid\text{at least one }4)=2/11$.
+
+\end{enumerate}
 \section*{8. References}
 \begin{thebibliography}{9}
 \bibitem{probability_theory_ref1} D. Williams, \emph{Weighing the Odds}, Cambridge University Press, 2001.

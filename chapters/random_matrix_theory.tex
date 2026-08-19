@@ -200,56 +200,15 @@ regularities, not the exact energy of a particular level \cite{random_matrix_the
 \section*{7. Sample Questions}
 \emph{Exercise reference:} \cite{random_matrix_theory_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
 \begin{enumerate}[leftmargin=*,itemsep=0.9em]
-\item \textbf{Exercise 1. Why can a noise-only data matrix have a large principal component?}
+\item \textbf{Exercise 1.} Compute the eigenvalues of the $2\times 2$ real symmetric random matrix $M=\begin{pmatrix}1&2\\2&1\end{pmatrix}$. \emph{Solution.} The characteristic polynomial is $\det(M-\lambda I)=(1-\lambda)^2-4=\lambda^2-2\lambda-3=(\lambda-3)(\lambda+1)$. The eigenvalues are $\lambda_1=3$ and $\lambda_2=-1$.
 
-\emph{Solution.} A finite sample contains accidental correlations. Principal
-component analysis must produce eigenvalues even when every measurement is
-independent noise, so a large eigenvalue is not automatically a real factor.
-Random matrix theory supplies the range of eigenvalues that noise alone would
-normally produce.
+\item \textbf{Exercise 2.} Let $X$ be a $3\times 2$ matrix with all entries i.i.d.\ standard normal $N(0,1)$. Compute the expected value of $\operatorname{Tr}(XX^T)$ and the expected sum of squared singular values of $X$. \emph{Solution.} $XX^T$ is $3\times 3$. $\operatorname{Tr}(XX^T)=\sum_{i,j}X_{ij}^2$. Each $X_{ij}^2$ has expectation $1$, and there are $3\times 2=6$ entries. So $E[\operatorname{Tr}(XX^T)]=6$. The sum of squared singular values of $X$ equals $\operatorname{Tr}(X^TX)=\operatorname{Tr}(XX^T)=6$, so the answer is $6$.
 
-\item \textbf{Exercise 2. Find the eigenvalues of the symmetric matrix
-\(\begin{pmatrix}0&a\\a&0\end{pmatrix}\).}
+\item \textbf{Exercise 3.} For a $2\times 2$ Wigner matrix $W=\begin{pmatrix}a&b\\b&c\end{pmatrix}$ with $a,c\sim N(0,1)$ and $b\sim N(0,1/2)$ (entries independent), compute the mean and variance of $\operatorname{Tr}(W)=a+c$. \emph{Solution.} $E[\operatorname{Tr}(W)]=E[a]+E[c]=0+0=0$. $\operatorname{Var}(\operatorname{Tr}(W))=\operatorname{Var}(a)+\operatorname{Var}(c)=1+1=2$.
 
-\emph{Solution.} Its characteristic equation is
-\(\lambda^2-a^2=0\), so the eigenvalues are \(a\) and \(-a\). This small
-example shows why symmetry forces eigenvalues to be real and why the
-eigenvalue scale depends on the size of the entries.
+\item \textbf{Exercise 4.} A $4\times 4$ sample covariance matrix $S=\frac{1}{n}XX^T$ is formed from $n=10$ observations of $p=4$ variables. According to the Marchenko--Pastur law with ratio $\gamma=p/n=0.4$, what are the upper and lower edges of the noise bulk? \emph{Solution.} For the Marchenko--Pastur distribution with ratio $\gamma$, the support is $[(1-\sqrt{\gamma})^2,(1+\sqrt{\gamma})^2]$. With $\gamma=0.4$: lower edge $=(1-\sqrt{0.4})^2=(1-0.6325)^2\approx 0.1353$. Upper edge $=(1+\sqrt{0.4})^2=(1+0.6325)^2\approx 2.6649$. Eigenvalues of $S$ beyond approximately $2.66$ are candidates for signal.
 
-\item \textbf{Exercise 3. What are the singular values of
-\(\operatorname{diag}(3,1)\), and what do they mean for a communication
-channel?}
-
-\emph{Solution.} The singular values are \(3\) and \(1\). The channel has two
-independent directions, but the first transmits three times the amplitude of
-the second. In a MIMO model these values determine the strengths of the
-parallel data streams.
-
-\item \textbf{Exercise 4. Why can a sample covariance matrix have zero eigenvalues?}
-
-\emph{Solution.} If there are $p$ measured variables but only $n<p$
-independent observations, the centered data matrix has rank at most $n-1$.
-The covariance matrix therefore has at least $p-n+1$ zero eigenvalues.
-Those zeros reflect insufficient observations, not necessarily exact physical
-constraints.
-
-\item \textbf{Exercise 5. What evidence would make an eigenvalue look like signal rather
-than noise?}
-
-\emph{Solution.} Compare it with the noise-only spectral law using the same
-matrix dimensions, scaling, and dependence assumptions. An eigenvalue well
-outside the predicted bulk is evidence for a possible signal, but it still
-requires validation on new data and a check that the random-matrix model is
-appropriate \cite{random_matrix_theory_ref1,random_matrix_theory_ref2}.
-
-\paragraph{Limits of the model}
-Randomness is not a substitute for understanding the data-generating
-mechanism.  Correlated entries, heavy-tailed measurements, missing data, and
-changing distributions can alter the eigenvalue law.  A large eigenvalue is
-not automatically a real discovery, and an eigenvalue inside the noise bulk
-is not proof that no signal exists.  Random matrix theory is useful when its
-probabilistic assumptions are tested and its prediction is used as a
-calibration or error benchmark.
+\item \textbf{Exercise 5.} Let $A=\begin{pmatrix}1&0\\0&0\end{pmatrix}$. Compute the singular values of $A$ and verify that $\sum s_i^2=\operatorname{Tr}(AA^T)$. \emph{Solution.} $AA^T=A^2=\begin{pmatrix}1&0\\0&0\end{pmatrix}$. The eigenvalues of $AA^T$ are $1$ and $0$, so the singular values are $s_1=1$ and $s_2=0$. $\sum s_i^2=1^2+0^2=1$. $\operatorname{Tr}(AA^T)=1+0=1$. The identity holds.
 
 \end{enumerate}
 \section*{8. References}

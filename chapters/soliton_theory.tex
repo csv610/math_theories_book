@@ -71,15 +71,15 @@ The common message is that special nonlinear waves can behave like stable partic
 \section*{7. Sample Questions}
 \emph{Exercise reference:} \cite{soliton_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
 \begin{enumerate}[leftmargin=*,itemsep=0.9em]
-\item \textbf{Exercise 1. What two effects balance in a soliton?} Dispersion spreads a wave; nonlinearity changes speed with amplitude. Their cancellation preserves the pulse.
+\item \textbf{Exercise 1.} Consider the KdV soliton $u(x,t) = 2k^2 \operatorname{sech}^2(k(x - 4k^2 t - x_0))$ with $k = 1$ and $x_0 = 0$. Compute the peak amplitude and the propagation speed of the soliton. \emph{Solution.} The peak amplitude is $2k^2 = 2(1)^2 = 2$, achieved when the argument of $\operatorname{sech}^2$ is zero. The speed is the coefficient of $t$ in the argument, which is $4k^2 = 4(1)^2 = 4$. So the soliton has height $2$ and travels at speed $4$.
 
-\item \textbf{Exercise 2. What is the speed of the KdV pulse above?} Its argument is $k(x-4k^2t-x_0)$, so its speed is $4k^2$.
+\item \textbf{Exercise 2.} For the same KdV soliton with $k=2$, verify that the amplitude-to-speed ratio is independent of $k$. \emph{Solution.} The amplitude is $2k^2$ and the speed is $4k^2$. The ratio is $\frac{2k^2}{4k^2} = \frac{1}{2}$ for all $k > 0$. Thus the amplitude-to-speed ratio is always $\frac{1}{2}$, independent of $k$.
 
-\item \textbf{Exercise 3. Why does a taller KdV soliton travel faster?} Its height is $2k^2$ while its speed is $4k^2$.
+\item \textbf{Exercise 3.} Verify directly that $u(x,t) = 2\,\operatorname{sech}^2(x - 4t)$ (i.e.\ $k=1$, $x_0 = 0$) satisfies the KdV equation $u_t + 6uu_x + u_{xxx} = 0$ at the point $(x,t) = (0,0)$. \emph{Solution.} At $(0,0)$: $u = 2$, $u_x = -2\operatorname{sech}^2\tanh = 0$ (since $\tanh(0)=0$), $u_t = -4u_x = 0$ (by the traveling-wave form $u_t = -4u_x$), and $u_{xxx}$: since $u_x = -4\operatorname{sech}^2\tanh$, at $x=0$ one finds $u_{xx} = -4(-2\operatorname{sech}^2\tanh^2 + \operatorname{sech}^4)$; more directly, $u_{xxx}(0,0) = 0$ by the symmetry of $\operatorname{sech}^2$. Then $u_t + 6uu_x + u_{xxx} = 0 + 6(2)(0) + 0 = 0$. The equation is satisfied.
 
-\item \textbf{Exercise 4. Why is the optical Kerr effect relevant?} It makes refractive index depend on intensity, producing nonlinear phase modulation that can cancel dispersive spreading.
+\item \textbf{Exercise 4.} Suppose two KdV solitons have wave numbers $k_1 = 1$ and $k_2 = 2$. Compute the ratio of their amplitudes and the ratio of their speeds. \emph{Solution.} Amplitude of soliton 1: $2(1)^2 = 2$. Amplitude of soliton 2: $2(2)^2 = 8$. The amplitude ratio is $8/2 = 4$. Speed of soliton 1: $4(1)^2 = 4$. Speed of soliton 2: $4(2)^2 = 16$. The speed ratio is $16/4 = 4$. Both ratios equal $k_2^2/k_1^2 = 4$, confirming that amplitude and speed both scale as $k^2$.
 
-\item \textbf{Exercise 5. Why is a soliton not just any localized wave?} It must also have persistent propagation and robust collision behavior in the ideal model.
+\item \textbf{Exercise 5.} The KdV equation has a conserved quantity $I_1 = \int_{-\infty}^{\infty} u\,dx$. Compute $I_1$ for the single soliton $u(x,t) = 2k^2 \operatorname{sech}^2(k(x - 4k^2 t))$. \emph{Solution.} Using the substitution $\xi = k(x - 4k^2 t)$, $d\xi = k\,dx$: $I_1 = \int_{-\infty}^{\infty} 2k^2 \operatorname{sech}^2(\xi) \frac{d\xi}{k} = 2k \int_{-\infty}^{\infty} \operatorname{sech}^2(\xi)\,d\xi = 2k \cdot [\tanh(\xi)]_{-\infty}^{\infty} = 2k(1 - (-1)) = 4k$. Thus the conserved mass is $4k$, proportional to $k$.
 
 \end{enumerate}
 \section*{8. References}

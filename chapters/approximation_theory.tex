@@ -128,7 +128,31 @@ Approximation theory replaces a difficult function or model by a simpler one whi
 
 \end{description}
 
-\chapterquestions{Approximation theory}{approximants, norms, and approximation error}{approximating $e^x$ near 0 by $1+x+x^2/2$}{the Taylor polynomial has remainder controlled by a bound on the next derivative}{Weierstrass approximation says continuous functions on a closed interval can be uniformly approximated by polynomials}{an approximation outside its error range is unsafe; numerical simulation and signal processing use controlled error}{approximation_theory_ref1}
+\section*{7. Sample Questions}
+\emph{Exercise reference:} \cite{approximation_theory_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
+\begin{enumerate}[leftmargin=*,itemsep=0.9em]
+
+\item \textbf{Exercise 1.} Use the Taylor polynomial of degree 2 for $e^x$ at $x=0$ to approximate $e^{0.1}$. Find the Lagrange remainder and bound the error.
+
+\emph{Solution.} The degree-2 Taylor polynomial is $P_2(x)=1+x+x^2/2$. At $x=0.1$, $P_2(0.1)=1+0.1+0.005=1.105$. The Lagrange remainder is $R_2(x)=e^c\,x^3/3!$ for some $c\in(0,0.1)$. Since $e^c<e^{0.1}<1.106$, we get $|R_2(0.1)|<1.106\cdot(0.1)^3/6\approx 0.000184$. The true value is $e^{0.1}\approx 1.10517$, confirming the bound.
+
+\item \textbf{Exercise 2.} Find the best linear (degree-1) polynomial approximation to $f(x)=x^2$ on $[-1,1]$ in the $L^\infty$ norm. What is the minimax error?
+
+\emph{Solution.} By the equioscillation theorem, the best degree-1 polynomial $p(x)=a+bx$ must have error $f-p$ achieving $\pm E$ at three alternating points. By symmetry the best choice is $p(x)=1/2$, giving error $x^2-1/2$ which achieves $-1/2$ at $x=0$ and $+1/2$ at $x=\pm 1$. The minimax error is $E=1/2$.
+
+\item \textbf{Exercise 3.} Compute the first three Chebyshev coefficients $c_0,c_1,c_2$ of $f(x)=x$ on $[-1,1]$, where $f(x)=\sum c_k T_k(x)$.
+
+\emph{Solution.} Since $T_0(x)=1$, $T_1(x)=x$, and $T_2(x)=2x^2-1$, we have $f(x)=x=0\cdot T_0(x)+1\cdot T_1(x)+0\cdot T_2(x)$. Thus $c_0=0$, $c_1=1$, $c_2=0$. The function is exactly the first Chebyshev polynomial.
+
+\item \textbf{Exercise 4.} How many equioscillation points are needed to certify that a degree-3 polynomial is the best uniform approximation to a continuous function on $[0,1]$?
+
+\emph{Solution.} By the equioscillation theorem, a degree-$N$ best polynomial requires at least $N+2$ alternating extreme points. For $N=3$, this gives at least $5$ points at which the error alternates in sign with equal maximum magnitude.
+
+\item \textbf{Exercise 5.} Estimate the degree $N$ needed for the truncated Chebyshev expansion of $e^x$ on $[-1,1]$ to achieve error less than $10^{-6}$, given that the Chebyshev coefficients satisfy $|c_k|\le 2/(k!\,2^k)$ (ignoring small constants).
+
+\emph{Solution.} The error from truncating after $T_N$ is approximately $|c_{N+1}|+|c_{N+2}|+\cdots$, dominated by the first omitted term. We need $2/((N+1)!\,2^{N+1})<10^{-6}$. Trying $N=7$: $2/(8!\cdot 2^8)=2/(40320\cdot 256)\approx 1.94\times 10^{-7}<10^{-6}$. So $N=7$ suffices, giving a degree-7 polynomial.
+
+\end{enumerate}
 \section*{8. References}
 \begin{thebibliography}{9}
 \bibitem{approximation_theory_ref1} L. N. Trefethen, \emph{Approximation Theory and Approximation Practice}, SIAM, 1999.

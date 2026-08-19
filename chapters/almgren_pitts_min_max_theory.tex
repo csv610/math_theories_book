@@ -132,25 +132,25 @@ Almgren--Pitts min--max theory is useful when topology forces a geometric object
 \emph{Exercise reference:} \cite{almgren_pitts_min_max_theory_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
 \begin{enumerate}[leftmargin=*,itemsep=0.9em]
 
-\item \textbf{Exercise 1.} Why does minimizing the area of a single closed curve on a sphere fail to find a nontrivial geodesic?
+\item \textbf{Exercise 1.} Consider the round $S^2$ with its standard metric. A sweepout by latitude circles parameterized by height $h\in[-1,1]$ has width equal to the length of the longest latitude circle. Compute this width.
 
-\textbf{Solution.} A closed curve can contract to a point, whose length is zero. The absolute minimum is therefore trivial. A nontrivial family or homotopy condition is needed to force a saddle point, as in Birkhoff's min--max method.
+\emph{Solution.} At height $h$, the latitude circle has radius $\sqrt{1-h^2}$ and circumference $2\pi\sqrt{1-h^2}$. The maximum circumference occurs at $h=0$, the equator, giving width $2\pi$. This is the min--max value for the simplest sweepout class.
 
-\item \textbf{Exercise 2.} What does stationary mean for a smooth hypersurface?
+\item \textbf{Exercise 2.} On $S^2$, a different sweepout collapses the sphere by shrinking all latitude circles from the equator toward the north pole. The circles at height $h$ have circumference $2\pi\sqrt{1-h^2}$ for $h\in[0,1]$. What is the width of this sweepout?
 
-\textbf{Solution.} Its first variation of area is zero for every compactly supported deformation. The first variation formula identifies this with zero mean curvature, so the hypersurface is minimal.
+\emph{Solution.} The maximum circumference in this family occurs at $h=0$ (the equator), which has circumference $2\pi$. The width is again $2\pi$. However, this sweepout does not represent a nontrivial homotopy class in the relevant sense because the family can be deformed to avoid large circles.
 
-\item \textbf{Exercise 3.} In the width formula, why is the supremum taken before the infimum?
+\item \textbf{Exercise 3.} Let $\Phi:[0,1]\to\mathcal{Z}_1(S^1;\mathbb{Z}_2)$ be a sweepout of the circle $S^1$ by points (0-cycles), where $\Phi(0)$ and $\Phi(1)$ are the empty cycle. Suppose the mass (length) of $\Phi(t)$ equals $\pi|\sin(\pi t)|$. Compute the width of this sweepout.
 
-\textbf{Solution.} Each sweepout has one worst slice, so its cost is the largest mass in that family. We then choose the family whose worst slice is as small as possible. Reversing the order would allow each parameter value to choose a different family and would destroy the global sweep constraint.
+\emph{Solution.} The width is $\sup_{t\in[0,1]}\pi|\sin(\pi t)|=\pi$, achieved at $t=1/2$. The min--max value over all sweepouts in this class would be at most $\pi$.
 
-\item \textbf{Exercise 4.} What is the role of a varifold?
+\item \textbf{Exercise 4.} For a smooth closed hypersurface $\Sigma^n\subset M^{n+1}$ with $3\le n\le 6$, the Pitts regularity theorem guarantees $\Sigma$ is smooth. If instead $n=8$, what is the maximum possible dimension of the singular set?
 
-\textbf{Solution.} A varifold records the limiting amount and direction of surface without requiring a globally smooth parametrization or an orientation. It gives a compact language for weak limits of surfaces that may fold or develop singularities.
+\emph{Solution.} By the Pitts regularity theorem, the singular set has dimension at most $n-8=8-8=0$. So the singular set is at most a finite collection of points. For $n=9$ it would be at most 1-dimensional, and so on.
 
-\item \textbf{Exercise 5.} Why is the dimension range $3$ through $6$ special?
+\item \textbf{Exercise 5.} By Almgren's isomorphism theorem, $\pi_0(\mathcal{Z}_1(S^2))\cong H_1(S^2)=0$, but $\pi_1(\mathcal{Z}_1(S^2))\cong H_2(S^2)=\mathbb{Z}$. What does $\pi_1(\mathcal{Z}_1(S^2))=\mathbb{Z}$ tell us about sweeping $S^2$ by closed curves?
 
-\textbf{Solution.} In these dimensions the codimension-one min--max hypersurface has no singular points. In higher dimensions singularities can occur, but their dimension is at most $n-8$, so the surface is still smooth on a large open set.
+\emph{Solution.} It says that families of 1-cycles on $S^2$, parameterized by a circle, are classified by an integer. A nonzero integer corresponds to a nontrivial sweepout, guaranteeing that the min--max construction produces a minimal 1-varifold (a closed geodesic) on $S^2$.
 
 \end{enumerate}
 \section*{8. References}

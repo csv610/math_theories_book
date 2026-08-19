@@ -79,25 +79,25 @@ Module theory depends on rings, groups, linear algebra, and exact sequences. It 
 \section*{7. Sample Questions}
 \emph{Exercise reference:} \cite{module_theory_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
 \begin{enumerate}[leftmargin=*,itemsep=0.9em]
-\item \textbf{Exercise 1.} Why is every abelian group a module over $\mathbb Z$?
+\item \textbf{Exercise 1.} Classify all finitely generated abelian groups of order $8$ up to isomorphism.
 
-\emph{Solution.} Define $n g$ as repeated addition for positive $n$, its inverse for negative $n$, and $0g=0$. The module laws follow from group laws.
+\emph{Solution.} By the structure theorem, the groups are: $\mathbb{Z}/8\mathbb{Z}$ (invariant factors $8$), $\mathbb{Z}/4\mathbb{Z}\oplus\mathbb{Z}/2\mathbb{Z}$ (invariant factors $4,2$), and $\mathbb{Z}/2\mathbb{Z}\oplus\mathbb{Z}/2\mathbb{Z}\oplus\mathbb{Z}/2\mathbb{Z}$ (invariant factors $2,2,2$). These are the only partitions of the prime factorization $2^3$: namely $3$, $2+1$, and $1+1+1$.
 
-\item \textbf{Exercise 2.} Is $\mathbb Z/6\mathbb Z$ a free $\mathbb Z$-module?
+\item \textbf{Exercise 2.} Compute $\mathbb{Z}/2\mathbb{Z}\otimes_{\mathbb{Z}}\mathbb{Z}/3\mathbb{Z}$.
 
-\emph{Solution.} No. The nonzero class $1$ is killed by $6$, so it has torsion. A free $\mathbb Z$-module has no nonzero torsion.
+\emph{Solution.} In $\mathbb{Z}/2\mathbb{Z}\otimes\mathbb{Z}/3\mathbb{Z}$, for any $a\otimes b$ we have $a\otimes b=3(a\otimes b)/3=a\otimes(3b/3)$. But $3b\equiv 0\pmod{3}$, so $a\otimes b=a\otimes 0=0$. Hence the tensor product is $\{0\}$, which is isomorphic to $\mathbb{Z}/\gcd(2,3)\mathbb{Z}=\mathbb{Z}/1\mathbb{Z}=0$.
 
-\item \textbf{Exercise 3.} What does a module presentation record?
+\item \textbf{Exercise 3.} Find $\operatorname{Ann}_{\mathbb{Z}}(\bar{1})$ in $\mathbb{Z}/12\mathbb{Z}$, and determine all group homomorphisms $\varphi\colon\mathbb{Z}/12\mathbb{Z}\to\mathbb{Z}/8\mathbb{Z}$.
 
-\emph{Solution.} It records generators and the equations or relations among them. It is a compact description of how the module is built.
+\emph{Solution.} $\operatorname{Ann}(\bar{1})=\{n\in\mathbb{Z}:n\cdot\bar{1}=\bar{0}\}=12\mathbb{Z}$. A homomorphism $\varphi$ is determined by $\varphi(\bar{1})=\bar{g}\in\mathbb{Z}/8\mathbb{Z}$ with $12\bar{g}=\bar{0}$, i.e., $8\mid 12g$, i.e., $2\mid g$. The solutions are $g\in\{0,2,4,6\}$, giving $4$ homomorphisms.
 
-\item \textbf{Exercise 4.} Why are projective modules called vector-bundle-like?
+\item \textbf{Exercise 4.} Compute $\operatorname{Ext}^1_{\mathbb{Z}}(\mathbb{Z}/2\mathbb{Z},\,\mathbb{Z}/4\mathbb{Z})$ using the free resolution $0\to\mathbb{Z}\xrightarrow{\times 2}\mathbb{Z}\to\mathbb{Z}/2\mathbb{Z}\to 0$.
 
-\emph{Solution.} They are direct summands of free modules, just as vector bundles may be embedded as summands of trivial bundles.
+\emph{Solution.} Apply $\operatorname{Hom}(-,\mathbb{Z}/4\mathbb{Z})$: $\operatorname{Hom}(\mathbb{Z},\mathbb{Z}/4\mathbb{Z})\cong\mathbb{Z}/4\mathbb{Z}$ and the induced map is $\times 2\colon\mathbb{Z}/4\mathbb{Z}\to\mathbb{Z}/4\mathbb{Z}$. The image is $\{0,2\}\cong\mathbb{Z}/2\mathbb{Z}$. $\operatorname{Ext}^1$ is the cokernel: $\mathbb{Z}/4\mathbb{Z}/\{0,2\}\cong\mathbb{Z}/2\mathbb{Z}$.
 
-\item \textbf{Exercise 5.} What does localization do to a module?
+\item \textbf{Exercise 5.} Compute $\operatorname{Tor}_1^{\mathbb{Z}}(\mathbb{Z}/2\mathbb{Z},\,\mathbb{Z}/4\mathbb{Z})$ using the same free resolution.
 
-\emph{Solution.} It makes selected ring elements invertible and focuses the module on behavior near a prime or region of the spectrum.
+\emph{Solution.} Tensor the resolution with $\mathbb{Z}/4\mathbb{Z}$: $\mathbb{Z}/4\mathbb{Z}\xrightarrow{\times 2}\mathbb{Z}/4\mathbb{Z}$. The kernel of $\times 2$ on $\mathbb{Z}/4\mathbb{Z}$ is $\{0,2\}\cong\mathbb{Z}/2\mathbb{Z}$. Hence $\operatorname{Tor}_1\cong\mathbb{Z}/2\mathbb{Z}$.
 
 \end{enumerate}
 \section*{8. References}

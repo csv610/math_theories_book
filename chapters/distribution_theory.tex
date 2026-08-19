@@ -151,30 +151,25 @@ In image processing, an edge is close to a derivative of a step and a point feat
 \emph{Exercise reference:} \cite{distribution_theory_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
 \begin{enumerate}[leftmargin=*,itemsep=0.9em]
 
-\item \textbf{Exercise 1.} What is the value of $\langle\delta,\varphi\rangle$?
+\item \textbf{Exercise 1.} Compute the distributional derivative of $f(x)=|x|$.
 
-\emph{Solution.} It is $\varphi(0)$. The delta does not have ordinary pointwise values; it extracts the value of a test function at the origin.
+\emph{Solution.} For $\varphi\in\mathcal D(\mathbb R)$: $\langle f',\varphi\rangle=-\langle f,\varphi'\rangle=-\int_{-\infty}^{\infty}|x|\varphi'(x)\,dx=-\int_{-\infty}^{0}(-x)\varphi'(x)\,dx-\int_{0}^{\infty}x\varphi'(x)\,dx$. Integrating by parts on each piece: $=-[(-x)\varphi(x)]_{-\infty}^0+\int_{-\infty}^0(-1)\varphi(x)\,dx-[x\varphi(x)]_0^{\infty}+\int_0^{\infty}\varphi(x)\,dx$. Since $\varphi$ has compact support: $=-\int_{-\infty}^0\varphi(x)\,dx+\int_0^{\infty}\varphi(x)\,dx=\langle\operatorname{sgn},\varphi\rangle$. So $|x|'=\operatorname{sgn}(x)$, which equals $2H(x)-1$ where $H$ is the Heaviside function.
 
-\item \textbf{Exercise 2.} Show that the derivative of the Heaviside function is $\delta$.
+\item \textbf{Exercise 2.} Evaluate $\langle\delta'',x^2e^{-x^2}\rangle$.
 
-\emph{Solution.} By definition,
-\[
- \langle H',\varphi\rangle=-\langle H,\varphi'\rangle
- =-\int_0^\infty\varphi'(x)\,dx=\varphi(0),
-\]
-because $\varphi$ vanishes at infinity. This equals $\langle\delta,\varphi\rangle$.
+\emph{Solution.} $\langle\delta'',\varphi\rangle=\varphi''(0)$. For $\varphi(x)=x^2e^{-x^2}$: $\varphi'(x)=(2x-2x^3)e^{-x^2}$, $\varphi''(x)=(2-10x^2+4x^4)e^{-x^2}$. So $\varphi''(0)=2$. Hence $\langle\delta'',x^2e^{-x^2}\rangle=2$.
 
-\item \textbf{Exercise 3.} Why is a locally integrable function automatically a distribution?
+\item \textbf{Exercise 3.} Compute the distributional derivative of the Heaviside function $H(x-1)$.
 
-\emph{Solution.} Its integral against a compactly supported smooth function exists. Integration is linear in the test function, and convergence of the test functions with their derivatives makes the integrals converge, giving continuity.
+\emph{Solution.} $\langle H(x-1)',\varphi\rangle=-\langle H(x-1),\varphi'\rangle=-\int_1^{\infty}\varphi'(x)\,dx$. Since $\varphi$ has compact support: $=-[\varphi(x)]_1^{\infty}=-(0-\varphi(1))=\varphi(1)=\langle\delta(x-1),\varphi\rangle$. So $H(x-1)'=\delta(x-1)$.
 
-\item \textbf{Exercise 4.} What does the support of a distribution mean?
+\item \textbf{Exercise 4.} Compute the Fourier transform of the constant function $f(x)=1$ as a tempered distribution.
 
-\emph{Solution.} It is the smallest closed set outside which the distribution acts as zero. It records where the generalized object can influence test functions.
+\emph{Solution.} Using the convention $\hat f(\xi)=\int f(x)e^{-i\xi x}\,dx$: we have $\langle\hat 1,\varphi\rangle=\langle 1,\hat\varphi\rangle=\int_{\mathbb R}\hat\varphi(\xi)\,d\xi=2\pi\varphi(0)=2\pi\langle\delta,\varphi\rangle$ by the Fourier inversion theorem. Hence $\hat 1=2\pi\delta$.
 
-\item \textbf{Exercise 5.} Why is $\delta^2$ not automatically meaningful?
+\item \textbf{Exercise 5.} Let $f(x)=e^{-|x|}$. Compute the distributional derivative $f'$.
 
-\emph{Solution.} The general distribution theory defines addition, derivatives, and multiplication by smooth functions, but singularities can collide in a product. A theorem of Schwartz shows that no universal product can retain every ordinary algebraic and differential rule.
+\emph{Solution.} Away from $x=0$, $f'(x)=-e^{-x}$ for $x>0$ and $f'(x)=e^{x}$ for $x<0$, i.e., $f'(x)=-\operatorname{sgn}(x)e^{-|x|}$. Since $f$ is continuous, the distributional derivative equals the classical derivative: $f'=-\operatorname{sgn}(x)\,e^{-|x|}$. Alternatively, $\langle f',\varphi\rangle=-\int_{-\infty}^{\infty}e^{-|x|}\varphi'(x)\,dx$, which integrates by parts to give the same result.
 
 \end{enumerate}
 \section*{8. References}

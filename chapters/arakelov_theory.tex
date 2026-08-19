@@ -148,25 +148,25 @@ Arakelov theory combines finite-prime information with archimedean geometry. Hei
 \emph{Exercise reference:} \cite{arakelov_theory_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
 \begin{enumerate}[leftmargin=*,itemsep=0.9em]
 
-\item \textbf{Exercise 1.} Verify the product formula for $x=12/5$ over $\mathbb Q$ using the usual normalized absolute values.
+\item \textbf{Exercise 1.} Verify the product formula for $x=6$ over $\mathbb{Q}$, i.e., compute $|6|_v$ for every place $v$ and confirm the product equals 1.
 
-\textbf{Solution.} At infinity, $|x|_\infty=12/5$. At $p=2$, $|x|_2=1/4$; at $p=3$, $|x|_3=1/3$; at $p=5$, $|x|_5=5$; all other finite values are 1. Their product is $(12/5)(1/4)(1/3)(5)=1$.
+\emph{Solution.} The archimedean place gives $|6|_\infty=6$. At $p=2$: $|6|_2=|2^1\cdot 3|_2=2^{-1}=1/2$. At $p=3$: $|6|_3=3^{-1}=1/3$. At all other primes $|6|_p=1$. The product is $6\cdot(1/2)\cdot(1/3)\cdot 1\cdots=1$.
 
-\item \textbf{Exercise 2.} Compute the logarithmic height of $7/3$ in lowest terms.
+\item \textbf{Exercise 2.} Compute the logarithmic Weil height $h(p/q)$ for the rational numbers $5/2$, $7/1$, and $1/12$.
 
-\textbf{Solution.} The height is $\log\max(7,3)=\log 7$. It records the largest numerator or denominator after common factors have been removed.
+\emph{Solution.} By definition $h(p/q)=\log\max(|p|,|q|)$ for $p/q$ in lowest terms. Thus $h(5/2)=\log 5$, $h(7/1)=\log 7$, and $h(1/12)=\log 12$.
 
-\item \textbf{Exercise 3.} Why does Arakelov theory add a metric at complex points?
+\item \textbf{Exercise 3.} Let $K=\mathbb{Q}(i)$. List all places of $K$ and state how many archimedean places $K$ has.
 
-\textbf{Solution.} Prime ideals account for finite places but there is no prime ideal corresponding to the usual absolute value. A Hermitian metric and its Green function supply the missing archimedean contribution, making global degrees and intersections possible.
+\emph{Solution.} The places of $K$ correspond to prime ideals of $\mathbb{Z}[i]$ (the finite places) and embeddings $K\hookrightarrow\mathbb{C}$ up to complex conjugation (the archimedean places). Since $K$ has one complex embedding pair, there is $r_1=0$ real places and $r_2=1$ complex place, giving exactly $1$ archimedean place. The finite places are the prime ideals $(1+i)$, $(3)$, $(2+i)$, $(2-i)$, and so on for each rational prime.
 
-\item \textbf{Exercise 4.} What is an arithmetic cycle?
+\item \textbf{Exercise 4.} Compute the height $h(\alpha)$ for $\alpha=1+\sqrt{5}$ viewed as an element of $\mathbb{Q}(\sqrt{5})$, using both conjugate embeddings $\sigma_1: \sqrt{5}\mapsto\sqrt{5}$ and $\sigma_2:\sqrt{5}\mapsto-\sqrt{5}$.
 
-\textbf{Solution.} It is an algebraic cycle together with a Green current. The first part records finite algebraic data; the second records the analytic correction at infinity.
+\emph{Solution.} The Weil height of an algebraic number is $h(\alpha)=\frac{1}{[K:\mathbb{Q}]}\sum_v n_v\log\max(|\sigma_v(\alpha)|,1)$ summed over all places. The two conjugate values are $1+\sqrt{5}\approx 3.236$ and $1-\sqrt{5}\approx -1.236$. Each archimedean place contributes $\log(1+\sqrt{5})+\log|1-\sqrt{5}|=\log(1+\sqrt{5})+\log(\sqrt{5}-1)=\log((1+\sqrt{5})(\sqrt{5}-1))=\log(5-1)=\log 4$. Dividing by $[K:\mathbb{Q}]=2$: $h(\alpha)=\frac{1}{2}\cdot 2\log 2=\log 2$.
 
-\item \textbf{Exercise 5.} What changes in arithmetic Riemann--Roch?
+\item \textbf{Exercise 5.} The degree of a divisor on an arithmetic surface includes both finite and archimedean contributions. If a divisor $D$ has finite part with degree $3$ at all non-archimedean places and archimedean contribution $-1$, what is the arithmetic degree $\widehat{\deg}(D)$?
 
-\textbf{Solution.} Ordinary Chern and Todd classes are replaced by their metrised arithmetic versions, and an additional characteristic correction involving zeta values appears. This correction accounts for the archimedean geometry.
+\emph{Solution.} The arithmetic degree is the sum of the finite algebraic degree and the archimedean correction. Here $\widehat{\deg}(D)=3+(-1)=2$.
 
 \end{enumerate}
 \section*{8. References}

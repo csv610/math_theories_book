@@ -121,25 +121,25 @@ Computational learning theory depends on probability, combinatorics, linear alge
 \section*{7. Sample Questions}
 \emph{Exercise reference:} \cite{colt_ref2}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
 \begin{enumerate}[leftmargin=*,itemsep=0.9em]
-\item \textbf{Exercise 1.} Define the PAC learning model and explain the roles of $\varepsilon$ and $\delta$.
+\item \textbf{Exercise 1.} Compute the VC dimension of the hypothesis class of intervals $[a,b]$ on $\mathbb{R}$.
 
-\emph{Solution.} In the PAC model, the learner receives $m$ examples of an unknown function drawn from a fixed distribution. It outputs a hypothesis whose error is at most $\varepsilon$ with probability at least $1-\delta$. The parameter $\varepsilon$ controls accuracy and $\delta$ controls confidence.
+\emph{Solution.} The VC dimension is $2$. Given two points $x_1<x_2$, every subset is realized: $\varnothing$ by $[3,4]$ (disjoint from both), $\{x_1\}$ by $[x_1,x_1]$, $\{x_2\}$ by $[x_2,x_2]$, and $\{x_1,x_2\}$ by $[x_1,x_2]$. For three points $x_1<x_2<x_3$, the labeling $(+, -,+)$ cannot be realized: any interval containing both $x_1$ and $x_3$ must contain $x_2$ as well.
 
-\item \textbf{Exercise 2.} What is the VC dimension of intervals on the real line?
+\item \textbf{Exercise 2.} A finite hypothesis class $|\mathcal H|=128$ is PAC-learnable in the realisable setting. How many examples suffice for $\varepsilon=0.05$ and $\delta=0.01$?
 
-\emph{Solution.} The VC dimension is $2$. Two points can be shattered: an interval can include either, both, or neither. Three points cannot always be shattered because the middle point cannot be excluded while including both outer points.
+\emph{Solution.} The sample bound is $m\geq\frac{1}{\varepsilon}(\ln|\mathcal H|+\ln(1/\delta))=\frac{1}{0.05}(\ln 128+\ln 100)=20\,(6.772+4.605)=20\times11.377=227.5$. So $m=228$ examples suffice.
 
-\item \textbf{Exercise 3.} How does the no-free-lunch theorem limit what a learner can guarantee?
+\item \textbf{Exercise 3.} Apply Sauer's lemma to bound the growth function $\Pi_{\mathcal H}(10)$ for a hypothesis class with $\operatorname{VC}(\mathcal H)=3$.
 
-\emph{Solution.} Without assumptions on the target or the distribution, no learner can achieve error below $1/2$ for all possible target functions. Every positive learning result requires some restriction, such as a finite hypothesis class, a bounded VC dimension, or an assumption that the target belongs to the class.
+\emph{Solution.} Sauer's lemma gives $\Pi_{\mathcal H}(m)\leq\sum_{i=0}^{d}\binom{m}{i}$ where $d=\operatorname{VC}(\mathcal H)=3$. For $m=10$: $\Pi_{\mathcal H}(10)\leq\binom{10}{0}+\binom{10}{1}+\binom{10}{2}+\binom{10}{3}=1+10+45+120=176$. So at most $176$ of the $2^{10}=1024$ possible labelings can be realized.
 
-\item \textbf{Exercise 4.} Explain how AdaBoost reduces error by combining weak learners.
+\item \textbf{Exercise 4.} In AdaBoost, five weak learners each have edge $\gamma=0.1$ over random guessing. What is the upper bound on the combined error after five rounds?
 
-\emph{Solution.} AdaBoost trains a sequence of weak learners on reweighted versions of the training set, focusing on previously misclassified examples. The combined hypothesis has error bounded by a product that decreases exponentially with the number of rounds, provided each weak learner has error below $1/2$.
+\emph{Solution.} The error bound is $\prod_{t=1}^{5}2\sqrt{\varepsilon_t(1-\varepsilon_t)}$. With $\varepsilon_t=0.5-0.1=0.4$: each factor is $2\sqrt{0.4\times0.6}=2\sqrt{0.24}\approx0.9798$. After five rounds: $(0.9798)^5\approx0.904$. The combined error is at most $\approx 0.904$, which decreases further with more rounds or larger edge.
 
-\item \textbf{Exercise 5.} Why might Rademacher complexity give tighter generalisation bounds than VC dimension?
+\item \textbf{Exercise 5.} Compute the empirical Rademacher complexity of $\mathcal H=\{h_1,h_2\}$ on the sample $S=(1,2,3,4,5)$ where $h_1(x)=x$ and $h_2(x)=-x$.
 
-\emph{Solution.} VC dimension is a worst-case measure that depends only on the hypothesis class, while Rademacher complexity depends on the specific data distribution through the supremum over random labelings. A class that looks rich in the worst case may fit random noise poorly on a particular dataset, so Rademacher-based bounds can be tighter in practice.
+\emph{Solution.} For each Rademacher vector $\sigma=(\sigma_1,\ldots,\sigma_5)$, compute $\max\bigl|\sum_{i=1}^5\sigma_i h(x_i)\bigr|=\max\bigl|\sum\sigma_i x_i\bigr|,\bigl|-\sum\sigma_i x_i\bigr|\bigr|=\bigl|\sum_{i=1}^5\sigma_i x_i\bigr|$. Since $x_i=i$, the maximum over $\sigma$ of $\bigl|\sum\sigma_i i\bigr|$ is $1+2+3+4+5=15$ (achieved when all $\sigma_i=1$). Averaging over all $2^5=32$ choices of $\sigma$: $\hat{\mathfrak R}_S=\frac{1}{5}\,\mathbb{E}\bigl|\sum\sigma_i i\bigr|$. By symmetry $\mathbb{E}\sum\sigma_i i=0$, but $\mathbb{E}\bigl|\sum\sigma_i i\bigr|>0$; a direct calculation gives $\hat{\mathfrak R}_S=\frac{1}{5}\cdot\frac{15\cdot\binom{4}{2}}{2^4}=\frac{1}{5}\cdot\frac{90}{16}\approx1.125$. (The exact value depends on the distribution of $\sum\sigma_i i$.)
 
 \end{enumerate}
 \section*{8. References}

@@ -124,25 +124,25 @@ The theory is useful when individual trajectories are too complicated but averag
 \emph{Exercise reference:} \cite{ergodic_theory_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
 \begin{enumerate}[leftmargin=*,itemsep=0.9em]
 
-\item \textbf{Exercise 1.} Why is an irrational rotation of the circle ergodic?
+\item \textbf{Exercise 1.} Show that the tent map $T(x)=2\min(x,1-x)$ on $[0,1]$ preserves Lebesgue measure.
 
-\emph{Solution.} Its orbit never repeats and is equidistributed around the circle. An invariant measurable set must therefore contain almost all or almost none of the orbit, giving measure zero or one.
+\emph{Solution.} For an interval $(a,b)\subseteq[0,1]$, the preimage is $T^{-1}((a,b))=(a/2,b/2)\cup(1-b/2,1-a/2)$. The Lebesgue measure of the preimage is $(b-a)/2+(b-a)/2=b-a$, which equals the measure of $(a,b)$. Since the preimage of every interval has the same measure, $T$ preserves Lebesgue measure on $[0,1]$.
 
-\item \textbf{Exercise 2.} What is the difference between a time average and a space average?
+\item \textbf{Exercise 2.} Prove that rotation of the circle by $\theta=\sqrt{2}/2$ (irrational) is ergodic with respect to Lebesgue measure.
 
-\emph{Solution.} A time average follows one orbit and averages the observed values. A space average integrates the observable over all states using the invariant measure. Ergodic theorems state when they agree.
+\emph{Solution.} Let $E$ be invariant under $T(x)=x+\theta\pmod{1}$. Since $\theta$ is irrational, every orbit is dense in $S^1$. If $\mu(E)>0$, then $E$ intersects every open set (by density), so $\overline{E}=S^1$. But $E$ is invariant, so $E=T^{-1}(E)$, and the orbit of any point in $E$ stays in $E$. By density, $E$ must have full measure, $\mu(E)=1$. Hence $\mu(E)\in\{0,1\}$ and $T$ is ergodic.
 
-\item \textbf{Exercise 3.} What does measure preservation mean?
+\item \textbf{Exercise 3.} Compute the space average of $f(x)=2x+1$ on $[0,1]$ with Lebesgue measure.
 
-\emph{Solution.} If a set has measure $\mu(E)$, its inverse image under the transformation has the same measure. The dynamics rearranges mass but does not create or destroy it.
+\emph{Solution.} $\overline f=\int_0^1(2x+1)\,dx=[x^2+x]_0^1=1+1=2$.
 
-\item \textbf{Exercise 4.} Does recurrence mean a point returns exactly to its starting position?
+\item \textbf{Exercise 4.} What is the time average of $f(x)=x$ along the orbit of $x_0=1/\pi$ under rotation by $\theta=1/\pi$ (irrational) on $[0,1]$?
 
-\emph{Solution.} Usually no. It means that the orbit returns arbitrarily close or revisits a measurable neighborhood. Exact return may be impossible in a continuous state space.
+\emph{Solution.} Since $\theta$ is irrational, the rotation is uniquely ergodic with Lebesgue measure as the unique invariant probability measure. By the equidistribution theorem, the time average equals the space average: $\hat f(x_0)=\int_0^1 x\,dx=1/2$.
 
-\item \textbf{Exercise 5.} Why does a conserved quantity obstruct ergodicity?
+\item \textbf{Exercise 5.} Show that the Bernoulli shift on $\{0,1\}^{\mathbb Z}$ with the product measure $(1/2,1/2)^{\mathbb Z}$ is mixing.
 
-\emph{Solution.} A conserved quantity partitions the phase space into level sets. If more than one level set has positive but not full measure, each is an invariant region, contradicting ergodicity.
+\emph{Solution.} For cylinder sets $A=[a_1,\ldots,a_m]$ and $B=[b_1,\ldots,b_k]$, for large enough $n$ the shifted set $T^{-n}A$ depends only on coordinates $1-n,\ldots,m-n$, which are disjoint from the coordinates $1,\ldots,k$ defining $B$. By independence of the product measure, $\mu(T^{-n}A\cap B)=\mu(A)\mu(B)$. Since cylinder sets generate the sigma-algebra, mixing extends to all measurable sets.
 
 \end{enumerate}
 \section*{8. References}

@@ -65,15 +65,15 @@ The results give increasingly strong ways to prove that a number is not algebrai
 \section*{7. Sample Questions}
 \emph{Exercise reference:} \cite{trans_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
 \begin{enumerate}[leftmargin=*,itemsep=0.9em]
-\item \textbf{Exercise 1. Why is every rational number algebraic?} The rational number $p/q$ is a root of $qx-p=0$.
+\item \textbf{Exercise 1.} Prove that $e$ is irrational. \emph{Solution.}$e = \sum_{n=0}^{\infty} \frac{1}{n!}$. Suppose $e = a/b$ with $a, b \in \mathbb{Z}$, $b > 0$. Then $b! \cdot e = a \cdot (b-1)! = \sum_{n=0}^{b} \frac{b!}{n!} + \sum_{n=b+1}^{\infty} \frac{b!}{n!}$. The first sum is an integer. The second sum satisfies $0 < \sum_{n=b+1}^{\infty} \frac{b!}{n!} < \sum_{n=b+1}^{\infty} \frac{1}{(b+1)^{n-b}} = \frac{1}{b} < 1$, which is a contradiction since $b! \cdot e$ must be an integer. Thus $e$ is irrational.
 
-\item \textbf{Exercise 2. Why is $\sqrt2$ algebraic but not rational?} It is a root of $x^2-2$, so algebraic; the parity proof shows no rational number squares to $2$.
+\item \textbf{Exercise 2.} Using the Lindemann--Weierstrass theorem, prove that $\ln 2$ is transcendental. \emph{Solution.}$\ln 2$ is the natural logarithm of the algebraic number $2$. By the Lindemann--Weierstrass theorem (in its contrapositive form): if $\alpha$ is a nonzero algebraic number, then $e^\alpha$ is transcendental. If $\ln 2$ were algebraic, then $e^{\ln 2} = 2$ would be transcendental, but $2$ is algebraic (root of $x - 2 = 0$). This is a contradiction. Therefore $\ln 2$ is transcendental.
 
-\item \textbf{Exercise 3. Why is $\pi$ transcendental?} Lindemann's theorem implies that if a nonzero algebraic number $\alpha$ is used in $e^\alpha$, the result cannot be the required algebraic value of $e^{i\pi}=-1$ when $\alpha=i\pi$ is assumed algebraic.
+\item \textbf{Exercise 3.} By the Gelfond--Schneider theorem, prove that $2^{\sqrt{2}}$ is transcendental. \emph{Solution.}$a = 2$ is algebraic, $a \neq 0$ and $a \neq 1$. $b = \sqrt{2}$ is algebraic and irrational. By the Gelfond--Schneider theorem, $a^b = 2^{\sqrt{2}}$ is transcendental.
 
-\item \textbf{Exercise 4. Why does countability not identify a particular transcendental number?} It proves that almost all reals are transcendental, but a randomly described real may not have a proof attached to its identity.
+\item \textbf{Exercise 4.} Give a specific algebraic number $\alpha$ such that $e^\alpha$ is transcendental, citing the appropriate theorem. \emph{Solution.}$\alpha = 1$ is algebraic (root of $x - 1 = 0$) and nonzero. By the Lindemann--Weierstrass theorem, $e^1 = e$ is transcendental. Alternatively, $\alpha = \pi$ is transcendental, not algebraic, so this does not directly apply. Another example: $\alpha = \sqrt{2}$ is algebraic and nonzero, so $e^{\sqrt{2}}$ is transcendental by Lindemann--Weierstrass.
 
-\item \textbf{Exercise 5. What does algebraic independence mean for two numbers?} It means no nonzero polynomial $P(x,y)$ with coefficients in the base field satisfies $P(\alpha,\beta)=0$.
+\item \textbf{Exercise 5.} Compute the first five convergents of the continued fraction $[1; 2, 2, 2, 2] = 1 + \cfrac{1}{2 + \cfrac{1}{2 + \cfrac{1}{2 + \cfrac{1}{2}}}}$ and show they approximate $\sqrt{2}$. \emph{Solution.}$p_{-1} = 1$, $p_0 = 1$, $q_{-1} = 0$, $q_0 = 1$. Using $p_n = a_n p_{n-1} + p_{n-2}$, $q_n = a_n q_{n-1} + q_{n-2}$: Convergent 0: $\frac{1}{1} = 1$. Convergent 1: $\frac{2 \cdot 1 + 1}{2 \cdot 1 + 0} = \frac{3}{2} = 1.5$. Convergent 2: $\frac{2 \cdot 3 + 1}{2 \cdot 2 + 1} = \frac{7}{5} = 1.4$. Convergent 3: $\frac{2 \cdot 7 + 3}{2 \cdot 5 + 2} = \frac{17}{12} \approx 1.4167$. Convergent 4: $\frac{2 \cdot 17 + 7}{2 \cdot 12 + 5} = \frac{41}{29} \approx 1.4138$. Since $\sqrt{2} \approx 1.41421$, the convergents $1, 1.5, 1.4, 1.4167, 1.4138$ approach $\sqrt{2}$, confirming that $\sqrt{2}$ has the purely periodic continued fraction $[1; \overline{2}]$.
 
 \end{enumerate}
 \section*{8. References}

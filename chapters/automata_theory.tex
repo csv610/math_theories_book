@@ -164,25 +164,25 @@ Automata theory turns repeated rule-based behaviour into a finite state model wh
 \emph{Exercise reference:} \cite{automata_theory_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
 \begin{enumerate}[leftmargin=*,itemsep=0.9em]
 
-\item \textbf{Exercise 1.} Build a DFA over $\{0,1\}$ that accepts exactly the words with an even number of 1s.
+\item \textbf{Exercise 1.} Build a DFA over $\Sigma=\{0,1\}$ that accepts exactly the strings whose integer value (in binary) is divisible by 3. Give the transition table and accept states.
 
-\textbf{Solution.} Use states $E$ and $O$, start at $E$, and accept $E$. On input 0, both states loop. On input 1, use $E\to O$ and $O\to E$. An induction on word length proves that the current state records the parity of the number of 1s.
+\emph{Solution.} States are remainders $\{0,1,2\}$, start at $0$, accept $\{0\}$. Transition: reading bit $b$ from state $r$ goes to state $(2r+b)\bmod 3$. So $\delta(0,0)=0$, $\delta(0,1)=1$, $\delta(1,0)=2$, $\delta(1,1)=0$, $\delta(2,0)=1$, $\delta(2,1)=2$. The string $110_2=6$ is accepted: $0\to^1 1\to^1 0\to^0 0$.
 
-\item \textbf{Exercise 2.} Is $L=\{0^n1^n:n\geq0\}$ regular?
+\item \textbf{Exercise 2.} Prove that the language $L=\{0^n1^n:n\ge 1\}$ is not regular using the Myhill--Nerode theorem.
 
-\textbf{Solution.} No. If $L$ were regular, the pumping lemma would give a pumping length $p$. The word $0^p1^p$ would split as $xyz$ with $|xy|\leq p$ and $|y|>0$, so $y$ consists only of 0s. Pumping $y$ changes the number of 0s but not the number of 1s, producing a word outside $L$, a contradiction.
+\emph{Solution.} Consider prefixes $0^i$ and $0^j$ with $i\ne j$. The continuation $1^i$ is in $L$ after $0^i$ but $1^j$ is in $L$ after $0^j$; since $i\ne j$, exactly one of $1^i,1^j$ is in $L$. Hence $0^i$ and $0^j$ are distinguishable. There are infinitely many equivalence classes, so $L$ is not regular.
 
-\item \textbf{Exercise 3.} Convert the NFA for words ending in 01 into a DFA.
+\item \textbf{Exercise 3.} Convert the NFA with states $\{q_0,q_1,q_2\}$, alphabet $\{a,b\}$, start state $q_0$, accept state $\{q_2\}$, and transitions $\delta(q_0,a)=\{q_0,q_1\}$, $\delta(q_1,b)=\{q_2\}$, $\delta(q_2,b)=\{q_2\}$ (all other transitions empty) into an equivalent DFA.
 
-\textbf{Solution.} Let the NFA remember whether it has seen no useful suffix, a possible final 0, or the final 01; the NFA may also keep its start possibility alive while scanning. The DFA states are the subsets of these NFA states. Remove unreachable subsets, and mark every subset containing the NFA accepting state. This subset construction preserves acceptance because it records exactly all positions at which the NFA could be.
+\emph{Solution.} The subset construction gives DFA states as subsets of NFA states. Starting from $\{q_0\}$: on $a$, $\{q_0,q_1\}$; on $b$, $\emptyset$. From $\{q_0,q_1\}$: on $a$, $\{q_0,q_1\}$; on $b$, $\{q_2\}$. From $\{q_2\}$: on $a$, $\emptyset$; on $b$, $\{q_2\}$. From $\emptyset$: loops on both $a,b$. Accepting states are subsets containing $q_2$: just $\{q_2\}$. The DFA has 4 states.
 
-\item \textbf{Exercise 4.} Explain why a pushdown automaton recognizes balanced parentheses.
+\item \textbf{Exercise 4.} Construct a pushdown automaton that accepts $\{a^nb^n:n\ge 0\}$ by empty stack. Describe the stack behavior on input $aabb$.
 
-\textbf{Solution.} On each opening parenthesis push a marker. On each closing parenthesis pop one marker; reject if the stack is empty. Accept after the input ends only when the stack is empty. The stack records every opening parenthesis not yet matched, so the machine accepts exactly properly nested strings.
+\emph{Solution.} On reading $a$, push symbol $A$; on reading $b$, pop $A$; accept by empty stack at end. On $aabb$: start with empty stack. Read $a$: push $A$ (stack: $A$). Read $a$: push $A$ (stack: $AA$). Read $b$: pop $A$ (stack: $A$). Read $b$: pop $A$ (stack: $\varepsilon$). Stack is empty at end of input, so accept.
 
-\item \textbf{Exercise 5.} What is the difference between recognizing and deciding a language with a Turing machine?
+\item \textbf{Exercise 5.} Show that the language $L=\{w\in\{0,1\}^*: w\text{ has an equal number of 0s and 1s}\}$ is not context-free, using the pumping lemma for context-free languages.
 
-\textbf{Solution.} A recognizer halts and accepts words in the language, but may run forever on words outside it. A decider halts on every word and accepts exactly the words in the language. The halting problem is recognizable in a suitable encoding but not decidable.
+\emph{Solution.} Choose $p$ as the pumping length. Let $s=0^p1^p\in L$ with $|s|=2p\ge p$. By the pumping lemma, $s=uvwxy$ with $|vwx|\le p$, $|vx|\ge 1$, and $uv^iwx^iy\in L$ for all $i$. Since $|vwx|\le p$, the substring $vwx$ lies entirely in the $0$'s, entirely in the $1$'s, or spans the boundary. If it lies in $0$'s, then $vx$ contains only $0$'s and pumping up gives more $0$'s than $1$'s. If in $1$'s, more $1$'s. If spanning the boundary with $|v|\ge 1$ zeros and $|x|\ge 1$ ones, then $v$ and $x$ must have the same count for pumping to preserve balance, but since $|vwx|\le p$ and $|vx|\ge 1$, we can choose $i=0$ (deletion) and break the balance. Hence $L$ is not context-free.
 
 \end{enumerate}
 

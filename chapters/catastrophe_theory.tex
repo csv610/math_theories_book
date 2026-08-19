@@ -164,25 +164,25 @@ Catastrophe theory classifies stable local changes in equilibria as control para
 \emph{Exercise reference:} \cite{catastrophe_theory_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
 \begin{enumerate}[leftmargin=*,itemsep=0.9em]
 
-\item \textbf{Exercise 1.} Find the equilibria of the cusp potential $V=x^4/4+ax^2/2+bx$.
+\item \textbf{Exercise 1.} For the fold potential $V(x)=x^3+ax$, find the equilibria for $a=-3$, $a=0$, and $a=3$, and determine which are stable.
 
-\textbf{Solution.} Set $V_x=x^3+ax+b=0$. The number of real equilibria changes when the cubic has a repeated root, so solve also $V_{xx}=3x^2+a=0$. Eliminating $a$ and $b$ gives the cusp discriminant parametrically by $a=-3x^2$, $b=2x^3$.
+\emph{Solution.} Equilibria satisfy $V'(x)=3x^2+a=0$. For $a=-3$: $3x^2=3$, so $x=\pm 1$. At $x=1$: $V''(1)=6>0$ (stable). At $x=-1$: $V''(-1)=-6<0$ (unstable). For $a=0$: $x=0$ with $V''(0)=0$ (degenerate). For $a=3$: $3x^2+3=0$ has no real solutions (no equilibria).
 
-\item \textbf{Exercise 2.} What happens at a fold catastrophe?
+\item \textbf{Exercise 2.} For the cusp potential $V(x)=\frac{x^4}{4}+\frac{ax^2}{2}+bx$, find the equilibrium curve and determine the number of equilibria at $(a,b)=(-3,0)$, $(a,b)=(-3,2)$, and $(a,b)=(-3,-2)$.
 
-\textbf{Solution.} A stable minimum and an unstable maximum approach, merge into a degenerate equilibrium, and disappear. Following the stable branch then produces a sudden jump to another available state.
+\emph{Solution.} Equilibria satisfy $x^3+ax+b=0$. At $(a,b)=(-3,0)$: $x^3-3x=0$, so $x(x^2-3)=0$, giving three equilibria: $x=0,\pm\sqrt{3}$. At $(a,b)=(-3,2)$: $x^3-3x+2=0$, factoring: $(x-1)^2(x+2)=0$, giving $x=1$ (double) and $x=-2$: two equilibria. At $(a,b)=(-3,-2)$: $x^3-3x-2=0$, factoring: $(x+1)^2(x-2)=0$, giving $x=-1$ (double) and $x=2$: two equilibria.
 
-\item \textbf{Exercise 3.} Why is the potential derivative used for equilibria?
+\item \textbf{Exercise 3.} The cusp discriminant curve is given parametrically by $a=-3t^2$, $b=2t^3$. Find the two points on the discriminant corresponding to $t=1$ and $t=-1$, and verify they lie on $4a^3+27b^2=0$.
 
-\textbf{Solution.} Equilibria are points where $\dot x=0$. Since $\dot x=-V_x$, this means $V_x=0$. Stability is determined by whether the critical point is a local minimum or maximum.
+\emph{Solution.} At $t=1$: $a=-3$, $b=2$. Check: $4(-3)^3+27(2)^2=4(-27)+27(4)=-108+108=0$. At $t=-1$: $a=-3$, $b=-2$. Check: $4(-3)^3+27(-2)^2=-108+108=0$. Both points satisfy the cusp equation $4a^3+27b^2=0$.
 
-\item \textbf{Exercise 4.} Name the three umbilic catastrophes.
+\item \textbf{Exercise 4.} For the swallowtail potential $V(x)=x^5+ax^3+bx^2+cx$, compute $V'(x)$ and $V''(x)$, and find the parameter values at which two equilibria merge along the line $b=0$, $c=0$.
 
-\textbf{Solution.} Hyperbolic umbilic $D_4^+$, elliptic umbilic $D_4^-$, and parabolic umbilic $D_5$. They involve two active state variables.
+\emph{Solution.} $V'(x)=5x^4+3ax^2+2bx+c$ and $V''(x)=20x^3+6ax+2b$. Setting $b=0,c=0$: $V'(x)=x^2(5x^2+3a)$ and $V''(x)=2x(10x^2+3a)$. Equilibria are $x=0$ and $x=\pm\sqrt{-3a/5}$ (for $a<0$). At $x=0$: $V''(0)=0$ always. The degeneracy $V'''(0)=6a$ also vanishes when $a=0$. So at $(a,b,c)=(0,0,0)$, the origin is a swallowtail point with $V'=V''=V'''=0$.
 
-\item \textbf{Exercise 5.} Why are catastrophe models not automatically explanations of social behavior?
+\item \textbf{Exercise 5.} For the hyperbolic umbilic $V(x,y)=x^3+y^3+axy+bx+cy$, find the equilibrium equations by setting $V_x=0$ and $V_y=0$, and determine the number of equilibria at $(a,b,c)=(-3,2,2)$.
 
-\textbf{Solution.} The classification assumes a smooth potential and carefully selected state and control variables. If those assumptions are not supported, the fitted normal form can be a metaphor rather than a predictive model.
+\emph{Solution.} $V_x=3x^2+ay+b=0$ and $V_y=3y^2+ax+c=0$. At $(a,b,c)=(-3,2,2)$: $3x^2-3y+2=0$ and $3y^2-3x+2=0$. Subtracting: $3(x^2-y^2)-3(y-x)=0$, so $3(x-y)(x+y)+3(x-y)=0$, giving $(x-y)(3(x+y)+3)=0$. If $x=y$: $3x^2-3x+2=0$ with discriminant $9-24<0$: no real solutions. If $x+y=-1$: substituting $y=-1-x$ into the first equation: $3x^2+3(1+x)+2=0$, i.e.\ $3x^2+3x+5=0$ with discriminant $9-60<0$: no real solutions. Hence there are no real equilibria at these parameter values.
 
 \end{enumerate}
 \section*{8. References}

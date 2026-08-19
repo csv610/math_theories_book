@@ -79,15 +79,15 @@ the root pattern \cite{equations_ref1,equations_ref2}.
 \section*{7. Sample Questions}
 \emph{Exercise reference:} \cite{equations_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
 \begin{enumerate}[leftmargin=*,itemsep=0.9em]
-\item \textbf{Exercise 1. Solve $x^2-5x+6=0$.} Factor as $(x-2)(x-3)$, so the roots are $2$ and $3$.
+\item \textbf{Exercise 1.} Let $\alpha, \beta, \gamma$ be the roots of $x^3 - 6x^2 + 11x - 6 = 0$. Without finding the roots explicitly, compute $\alpha^2 + \beta^2 + \gamma^2$ using Vieta's formulas. \emph{Solution.}$\alpha + \beta + \gamma = 6$, $\alpha\beta + \beta\gamma + \gamma\alpha = 11$, $\alpha\beta\gamma = 6$. Then $\alpha^2 + \beta^2 + \gamma^2 = (\alpha + \beta + \gamma)^2 - 2(\alpha\beta + \beta\gamma + \gamma\alpha) = 36 - 22 = 14$.
 
-\item \textbf{Exercise 2. What is the discriminant of $x^2+bx+c$?} It is $b^2-4c$. It is zero exactly when the quadratic has a repeated root.
+\item \textbf{Exercise 2.} Compute the discriminant of $x^3 - 3x + 1$. Is it zero? \emph{Solution.}$p = -3$, $q = 1$. Discriminant: $\Delta = -4(-3)^3 - 27(1)^2 = 108 - 27 = 81 > 0$. Since $\Delta \neq 0$, the polynomial has three distinct roots. In fact $\Delta > 0$ for a cubic with real coefficients, confirming three distinct real roots.
 
-\item \textbf{Exercise 3. What is the general quintic have no radical formula?} Its generic Galois group is the nonsolvable group $S_5$. Galois's criterion therefore forbids a formula by radicals.
+\item \textbf{Exercise 3.} Compute the discriminant of $x^4 - 2x^3 + x^2 = x^2(x-1)^2$. \emph{Solution.}$\Delta = 256(-2)^3(-1)^4 - 192(-2)^2(1)^2(-1)^2 + \ldots$ Simpler: since $x^2(x-1)^2$ has repeated roots at $x=0$ and $x=1$ (each of multiplicity 2), the discriminant is $\Delta = 0$, as expected.
 
-\item \textbf{Exercise 4. What does Vieta say for $x^2-5x+6$?} The sum of roots is $5$ and their product is $6$, matching $2+3$ and $2\cdot3$.
+\item \textbf{Exercise 4.} Verify that $x^5 - x - 1$ is irreducible over $\mathbb{F}_2$ by checking it has no roots and no quadratic factors in $\mathbb{F}_2[x]$. \emph{Solution.} Check roots in $\mathbb{F}_2$: $f(0) = -1 = 1 \neq 0$, $f(1) = 1 - 1 - 1 = -1 = 1 \neq 0$. No linear factors. Check quadratic factors: the only irreducible quadratic over $\mathbb{F}_2$ is $x^2 + x + 1$. Dividing: $x^5 - x - 1 = (x^2 + x + 1)(x^3 + x^2) + (x^2 + x + 1) + 1$, so the remainder is nonzero. Since no irreducible quadratic divides $f$ and $f$ has no roots, $f$ is irreducible over $\mathbb{F}_2$, hence over $\mathbb{Z}$ by Gauss's lemma.
 
-\item \textbf{Exercise 5. Why are multiplicities counted in intersections?} A tangent intersection or cusp can contribute more contact than a transverse crossing. Multiplicity makes Bezout's count remain constant under deformation.
+\item \textbf{Exercise 5.} Show that the roots of $x^2 - 2x + 2 = 0$ are complex conjugates, and compute them. \emph{Solution.}$\Delta = 4 - 8 = -4 < 0$, so the roots are complex. By the quadratic formula: $x = \frac{2 \pm \sqrt{-4}}{2} = \frac{2 \pm 2i}{2} = 1 \pm i$. The roots are $1 + i$ and $1 - i$, which are complex conjugates. Their sum is $2$ and product is $(1+i)(1-i) = 1 + 1 = 2$, matching Vieta's formulas.
 
 \end{enumerate}
 \section*{8. References}

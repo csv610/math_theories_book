@@ -79,25 +79,25 @@ The Lie algebra captures local behavior but may not determine global topology. D
 \section*{7. Sample Questions}
 \emph{Exercise reference:} \cite{lie_theory_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
 \begin{enumerate}[leftmargin=*,itemsep=0.9em]
-\item \textbf{Exercise 1.} What is the Lie algebra of a matrix Lie group?
+\item \textbf{Exercise 1.} Compute the Lie bracket $[X,Y]$ for $X=\begin{pmatrix}0&1\\0&0\end{pmatrix}$ and $Y=\begin{pmatrix}0&0\\1&0\end{pmatrix}$ in $\mathfrak{gl}_2(\mathbb{R})$.
 
-\emph{Solution.} It is the tangent space at the identity, equipped with the commutator bracket of infinitesimal matrices.
+\emph{Solution.} $XY=\begin{pmatrix}1&0\\0&0\end{pmatrix}$, $YX=\begin{pmatrix}0&0\\0&1\end{pmatrix}$, so $[X,Y]=XY-YX=\begin{pmatrix}1&0\\0&-1\end{pmatrix}$.
 
-\item \textbf{Exercise 2.} Why do rotations form a Lie group?
+\item \textbf{Exercise 2.} Compute $\exp(X)$ for $X=\begin{pmatrix}0&\theta\\-\theta&0\end{pmatrix}\in\mathfrak{so}(2)$.
 
-\emph{Solution.} Rotations compose and have inverses, and their matrices depend smoothly on the angle. The set of rotations is also a smooth manifold.
+\emph{Solution.} $X^2=-\theta^2 I$, $X^3=-\theta^2 X$, and $X^4=\theta^4 I$. Separating even and odd powers: $\exp(X)=\cos\theta\, I+\frac{\sin\theta}{\theta}\,X=\begin{pmatrix}\cos\theta&\sin\theta\\-\sin\theta&\cos\theta\end{pmatrix}$, the rotation by angle $\theta$.
 
-\item \textbf{Exercise 3.} What does the Lie bracket measure?
+\item \textbf{Exercise 3.} Let $A=\theta\begin{pmatrix}0&0&0\\0&0&-1\\0&1&0\end{pmatrix}\in\mathfrak{so}(3)$. Compute $\exp(A)$ and identify the resulting rotation.
 
-\emph{Solution.} It measures the first-order failure of two infinitesimal transformations to commute.
+\emph{Solution.} Writing $A=\theta L_x$ where $L_x$ is the standard generator for rotations about the $x$-axis, we get $\exp(A)=\begin{pmatrix}1&0&0\\0&\cos\theta&-\sin\theta\\0&\sin\theta&\cos\theta\end{pmatrix}$, a rotation by angle $\theta$ about the $x$-axis.
 
-\item \textbf{Exercise 4.} Why can the same Lie algebra correspond to different global groups?
+\item \textbf{Exercise 4.} Verify the Jacobi identity for the cross-product Lie bracket $[u,v]=u\times v$ on $\mathbb{R}^3$ using $u=e_1$, $v=e_2$, $w=e_1$.
 
-\emph{Solution.} The algebra describes behavior near the identity. Global topology, such as whether loops close or a covering is taken, is extra information.
+\emph{Solution.} $[e_1,[e_2,e_1]]=e_1\times(-e_3)=e_2$. $[e_2,[e_1,e_1]]=0$. $[e_1,[e_1,e_2]]=e_1\times e_3=-e_2$. Sum: $e_2+0+(-e_2)=0$. The Jacobi identity holds.
 
-\item \textbf{Exercise 5.} How does Lie theory help solve differential equations?
+\item \textbf{Exercise 5.} Show that the set of upper-triangular $2\times 2$ matrices $\mathfrak{b}=\left\{\begin{pmatrix}a&b\\0&c\end{pmatrix}\right\}$ is a Lie subalgebra of $\mathfrak{gl}_2(\mathbb{R})$.
 
-\emph{Solution.} A continuous symmetry can reduce the number of variables or produce invariant quantities, turning a difficult equation into a simpler one.
+\emph{Solution.} For $X=\begin{pmatrix}a&b\\0&c\end{pmatrix}$ and $Y=\begin{pmatrix}d&e\\0&f\end{pmatrix}$, we get $[X,Y]=\begin{pmatrix}0&ae-bd\\0&0\end{pmatrix}$, which is upper-triangular. Closure under bracket, bilinearity, antisymmetry, and the Jacobi identity all follow from those of $\mathfrak{gl}_2$.
 
 \end{enumerate}
 \section*{8. References}

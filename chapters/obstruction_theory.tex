@@ -94,15 +94,25 @@ The method is useful whenever a problem is staged by dimension. In topology it t
 \section*{7. Sample Questions}
 \emph{Exercise reference:} \cite{obstruction_theory_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
 \begin{enumerate}[leftmargin=*,itemsep=0.9em]
-\item \textbf{Exercise 1. Why can a degree-one map from a circle to a circle not extend over a disk?} The boundary map has winding number one. Winding number is its class in $\pi_1(S^1)\cong\mathbb Z$, and it is nonzero. Therefore it is the obstruction to filling the circle by a disk map.
+\item \textbf{Exercise 1.} Compute the Stiefel--Whitney classes $w_1$ and $w_2$ of the tangent bundle of the torus $T^2$.
 
-\item \textbf{Exercise 2. What is the obstruction group for extending a map from the boundary of a $4$-simplex into $Y$?} The boundary of a $4$-simplex is a $3$-sphere. Its class lies in $\pi_3(Y)$. For a complex, the corresponding cochain has degree four and usually contributes to $H^4(X;\pi_3(Y))$.
+\emph{Solution.} $T^2=S^1\times S^1$ is a product of orientable manifolds, so $w_1(T^2)=0$. The tangent bundle is trivial ($TT^2\cong T^2\times\mathbb{R}^2$), so all characteristic classes vanish: $w_1(T^2)=0$ and $w_2(T^2)=0$.
 
-\item \textbf{Exercise 3. A section over the $1$-skeleton has obstruction classes $c_\Delta=0$ for every $2$-simplex. What follows?} The obstruction cochain is zero, so the section extends over the $2$-skeleton. This conclusion concerns existence at that stage; later skeletons may have new obstructions.
+\item \textbf{Exercise 2.} The first Stiefel--Whitney class $w_1$ detects non-orientability. Compute $w_1$ of the Klein bottle and use it to show the Klein bottle is non-orientable.
 
-\item \textbf{Exercise 4. Why does changing a partial section alter the obstruction cochain by a coboundary?} The two sections agree on the previous skeleton. Their difference is therefore represented by a cochain on the current cells, and the boundary of that cochain measures the change on the next cells. Hence the obstruction classes represent the same cohomology element.
+\emph{Solution.} The Klein bottle is the non-trivial $S^1$-bundle over $S^1$, which is the mapping torus of the reflection $S^1\to S^1$. Its tangent bundle satisfies $w_1\neq 0$ because the Klein bottle is non-orientable (it contains orientation-reversing loops). Specifically, $w_1$ is the non-zero element of $H^1(K;\mathbb{Z}/2)\cong\mathbb{Z}/2$, detected by the loop that reverses orientation.
 
-\item \textbf{Exercise 5. What is the first test in the high-dimensional surgery pattern?} One first checks the primary topological $K$-theory obstruction to producing a vector bundle and normal map. Only if it vanishes is it meaningful to calculate the secondary obstruction in algebraic $L$-theory.
+\item \textbf{Exercise 3.} Consider the simplicial complex $X$ with vertices $v_0,v_1,v_2$, edges $e_{01},e_{12},e_{02}$, and one triangle $\Delta$. Define a map $f\colon X^{(1)}\to S^1$ with winding number $1$ on each edge. Compute the obstruction cocycle on $\Delta$.
+
+\emph{Solution.} The boundary of $\Delta$ has oriented edges $e_{01}+e_{12}-e_{02}$. The winding numbers sum to $1+1-1=1$. The obstruction to extending $f$ across $\Delta$ is this element of $\pi_1(S^1)\cong\mathbb{Z}$, namely $1$. Since $1\neq 0$, the map cannot be extended to the interior of $\Delta$.
+
+\item \textbf{Exercise 4.} Let $f\colon S^1\to S^1$ be the identity map (winding number $1$). Show that $f$ cannot extend to a continuous map $D^2\to S^1$.
+
+\emph{Solution.} If $F\colon D^2\to S^1$ extended $f$, then $F$ would be a null-homotopic map $S^1\to S^1$ (since $D^2$ is contractible). But the identity map has winding number $1\neq 0$, so it is not null-homotopic. Contradiction.
+
+\item \textbf{Exercise 5.} Every tangent bundle of a compact surface has Euler class $e\in H^2(M;\mathbb{Z})$. For the sphere $S^2$, compute $e(TS^2)$ and interpret it as an obstruction.
+
+\emph{Solution.} The Euler class of $TS^2$ satisfies $\langle e(TS^2),[S^2]\rangle=\chi(S^2)=2$. This means $e(TS^2)=2\in H^2(S^2;\mathbb{Z})\cong\mathbb{Z}$. Since $e\neq 0$, the tangent bundle of $S^2$ has no nowhere-zero section: every continuous vector field on $S^2$ must vanish somewhere (the hairy-ball theorem).
 
 \end{enumerate}
 \section*{8. References}

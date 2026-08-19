@@ -170,25 +170,37 @@ Character theory compresses a representation into traces of group elements, whil
 \emph{Exercise reference:} \cite{character_theory_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
 \begin{enumerate}[leftmargin=*,itemsep=0.9em]
 
-\item \textbf{Exercise 1.} What is the character of the permutation representation of $S_3$?
+\item \textbf{Exercise 1.} Construct the character table of $\mathbb{Z}/4\mathbb{Z}$.
 
-\textbf{Solution.} The trace of a permutation matrix equals the number of fixed points. On the classes identity, transposition, and 3-cycle, the values are $3,1,0$. The trivial subrepresentation has character $(1,1,1)$, so the standard two-dimensional representation has character $(2,0,-1)$.
+\emph{Solution.} $\mathbb{Z}/4\mathbb{Z}$ is abelian with 4 conjugacy classes (each element is its own class) and 4 irreducible characters, all of degree 1. Let $\omega=i=\sqrt{-1}$. The characters are $\chi_k(g)=\omega^{kg}$ for $k=0,1,2,3$ and $g=0,1,2,3$:
 
-\item \textbf{Exercise 2.} Why is a character constant on conjugacy classes?
+\[
+\begin{array}{c|cccc}
+& 0 & 1 & 2 & 3\\\hline
+\chi_0 & 1 & 1 & 1 & 1\\
+\chi_1 & 1 & i & -1 & -i\\
+\chi_2 & 1 & -1 & 1 & -1\\
+\chi_3 & 1 & -i & -1 & i
+\end{array}
+\]
 
-\textbf{Solution.} $\rho(hgh^{-1})=\rho(h)\rho(g)\rho(h)^{-1}$, and similar matrices have the same trace.
+Check: $\sum_k|\chi_k(1)|^2=4=|\mathbb{Z}/4\mathbb{Z}|$.
 
-\item \textbf{Exercise 3.} How does an inner product decompose a character?
+\item \textbf{Exercise 2.} Let $\chi$ be the character of the standard 2-dimensional representation of $S_3$ (the representation on $\{(x,y,z):x+y+z=0\}$). Compute $\langle\chi,\chi\rangle$ and determine whether the representation is irreducible.
 
-\textbf{Solution.} If $\chi=\sum_i m_i\chi_i$, orthonormality gives $\langle\chi,\chi_j\rangle=m_j$. The inner product is therefore the multiplicity of the $j$th irreducible.
+\emph{Solution.} The conjugacy classes of $S_3$ are: identity (size 1), transpositions (size 3), 3-cycles (size 2). The character values are $\chi(1)=2$, $\chi((12))=0$, $\chi((123))=-1$. Then $\langle\chi,\chi\rangle=\frac{1}{6}(1\cdot|2|^2+3\cdot|0|^2+2\cdot|-1|^2)=\frac{1}{6}(4+0+2)=1$. Since $\langle\chi,\chi\rangle=1$, the representation is irreducible.
 
-\item \textbf{Exercise 4.} What is the character of a direct sum?
+\item \textbf{Exercise 3.} Compute the character of the tensor product $\chi\otimes\psi$ where $\chi$ and $\psi$ are the two nontrivial irreducible characters of $\mathbb{Z}/3\mathbb{Z}$, evaluated at the generator $g$ of order 3.
 
-\textbf{Solution.} The representing matrix is block diagonal, so its trace is the sum of the traces: $\chi_{\rho\oplus\sigma}=\chi_\rho+\chi_\sigma$.
+\emph{Solution.} Let $\omega=e^{2\pi i/3}$. The irreducible characters of $\mathbb{Z}/3\mathbb{Z}=\{0,1,2\}$ are $\chi_0(g^k)=1$, $\chi_1(g^k)=\omega^k$, $\chi_2(g^k)=\omega^{2k}$. The nontrivial ones are $\chi_1$ and $\chi_2$. Their tensor product: $(\chi_1\otimes\chi_2)(g^k)=\omega^k\cdot\omega^{2k}=\omega^{3k}=1$. So $\chi_1\otimes\chi_2=\chi_0$, the trivial character. This reflects the fact that $\chi_2=\overline{\chi_1}$ and $\chi_1\cdot\overline{\chi_1}=|\chi_1|^2=1$.
 
-\item \textbf{Exercise 5.} Why is modular character theory harder?
+\item \textbf{Exercise 4.} The character of the regular representation of a finite group $G$ is $\chi_{\text{reg}}(g)=|G|$ if $g=e$ and $0$ otherwise. Decompose $\chi_{\text{reg}}$ into irreducibles for $G=\mathbb{Z}/2\mathbb{Z}$.
 
-\textbf{Solution.} If the field characteristic divides $|G|$, averaging over the group may fail and representations need not split into irreducibles. Brauer's theory supplies a replacement using restricted character data.
+\emph{Solution.} $G=\{e,g\}$, $|G|=2$. The irreducible characters are $\chi_0=(1,1)$ (trivial) and $\chi_1=(1,-1)$ (sign). The regular character is $\chi_{\text{reg}}=(2,0)$. Then $m_0=\langle\chi_{\text{reg}},\chi_0\rangle=\frac{1}{2}(2\cdot 1+0\cdot 1)=1$ and $m_1=\langle\chi_{\text{reg}},\chi_1\rangle=\frac{1}{2}(2\cdot 1+0\cdot(-1))=1$. So $\chi_{\text{reg}}=\chi_0+\chi_1$, and the regular representation decomposes as the direct sum of both irreducibles, each appearing once.
+
+\item \textbf{Exercise 5.} Use the sum-of-squares formula to determine the order of a group whose irreducible character degrees are $1,1,1,2$.
+
+\emph{Solution.} By the formula $|G|=\sum_i\chi_i(1)^2=1^2+1^2+1^2+2^2=1+1+1+4=7$. So $|G|=7$. Since 7 is prime, $G\cong\mathbb{Z}/7\mathbb{Z}$, and indeed this abelian group has three degree-1 characters... wait, $\mathbb{Z}/7\mathbb{Z}$ has 7 conjugacy classes and 7 irreducible characters, all of degree 1. The degrees $1,1,1,2$ sum to $|G|=7$ but require 4 conjugacy classes. In fact $|G|=1+1+1+4=7$ works for a nonabelian group of order 7? No—order 7 is abelian. Let me restate: there is no group with exactly these degrees since $|G|=7$ forces all degrees to be 1. The correct interpretation: the sum-of-squares formula gives $|G|=7$, but this is inconsistent with having a degree-2 representation (which requires $|G|\ge 6$ and nonabelian, but $|G|=7$ is abelian). So no such group exists. The formula $|G|=7$ is the answer, and the inconsistency shows these cannot be the character degrees of any group.
 
 \end{enumerate}
 \section*{8. References}

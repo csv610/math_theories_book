@@ -146,25 +146,25 @@ Class field theory depends on field theory, Galois theory, ideals, prime factori
 \emph{Exercise reference:} \cite{class_field_theory_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
 \begin{enumerate}[leftmargin=*,itemsep=0.9em]
 
-\item \textbf{Exercise 1.} What does the ideal class group measure?
+\item \textbf{Exercise 1.} Compute the ideal class group of $F=\mathbb{Q}(\sqrt{-5})$. Specifically, show that the ideal $(2,1+\sqrt{-5})$ is non-principal.
 
-\emph{Solution.} It measures the failure of unique factorization of ideals into principal ideals. Two ideals have the same class when their quotient is principal. The group is finite for a number field, and its size is the class number.
+\emph{Solution.} The ring of integers is $\mathbb{Z}[\sqrt{-5}]$. The ideal $I=(2,1+\sqrt{-5})$ has norm $N(I)=2$ (since $2$ ramifies: $(2)=(2,1+\sqrt{-5})^2$). If $I$ were principal, say $I=(\alpha)$, then $N(\alpha)=N(I)=2$, so $a^2+5b^2=2$ for $\alpha=a+b\sqrt{-5}$. This has no integer solutions (since $a^2+5b^2\ge 5$ for $|b|\ge 1$ and $a^2\le 2$ gives $a=0,\pm 1$, none yielding $a^2+5b^2=2$). So $I$ is non-principal, and the class number is at least 2. In fact $h(\mathbb{Q}(\sqrt{-5}))=2$.
 
-\item \textbf{Exercise 2.} Why is $\mathbb Q(i)$ an example related to the Kronecker--Weber theorem?
+\item \textbf{Exercise 2.} Use the Kronecker--Weber theorem to show that $\mathbb{Q}(\sqrt{5})$ is contained in a cyclotomic field. Find the smallest such cyclotomic field.
 
-\emph{Solution.} Since $i=\zeta_4$ is a fourth root of unity, $\mathbb Q(i)=\mathbb Q(\zeta_4)$ is itself cyclotomic. The theorem says that every finite abelian extension of $\mathbb Q$, not just this example, is contained in some cyclotomic field.
+\emph{Solution.} By Kronecker--Weber, every abelian extension of $\mathbb{Q}$ is contained in $\mathbb{Q}(\zeta_n)$ for some $n$. We need $\sqrt{5}\in\mathbb{Q}(\zeta_n)$. The discriminant of $\mathbb{Q}(\sqrt{5})$ is $5$, and by class field theory, $\mathbb{Q}(\sqrt{5})\subset\mathbb{Q}(\zeta_5)$ since the quadratic subfield of $\mathbb{Q}(\zeta_5)$ is $\mathbb{Q}(\sqrt{5})$ (the unique quadratic subfield of $\mathbb{Q}(\zeta_p)$ for an odd prime $p$ is $\mathbb{Q}(\sqrt{(-1)^{(p-1)/2}p})$, which for $p=5$ gives $\mathbb{Q}(\sqrt{5})$). The smallest cyclotomic field is $\mathbb{Q}(\zeta_5)$, of degree 4 over $\mathbb{Q}$.
 
-\item \textbf{Exercise 3.} If a prime is unramified in an abelian extension, what arithmetic object describes its action?
+\item \textbf{Exercise 3.} Determine the Frobenius element $\left(\frac{\mathbb{Q}(\sqrt{5})/\mathbb{Q}}{3}\right)$ for the prime $p=3$ in the extension $\mathbb{Q}(\sqrt{5})/\mathbb{Q}$.
 
-\emph{Solution.} The prime ideal determines a Frobenius automorphism in the Galois group. Artin reciprocity identifies this automorphism with the image of the prime's ideal class under the reciprocity map.
+\emph{Solution.} We determine how $3$ splits in $\mathbb{Q}(\sqrt{5})$ by computing the Legendre symbol $\left(\frac{5}{3}\right)$. Since $5\equiv 2\pmod{3}$ and $\left(\frac{2}{3}\right)=-1$, the prime $3$ is inert in $\mathbb{Q}(\sqrt{5})$. The Frobenius element is therefore the nontrivial element of $\operatorname{Gal}(\mathbb{Q}(\sqrt{5})/\mathbb{Q})\cong\mathbb{Z}/2\mathbb{Z}$, i.e., the conjugation $\sqrt{5}\mapsto -\sqrt{5}$.
 
-\item \textbf{Exercise 4.} What is the role of the norm subgroup $N_{L/F}(C_L)$?
+\item \textbf{Exercise 4.} For the extension $\mathbb{Q}(\zeta_7)/\mathbb{Q}$, find the decomposition of the prime $p=2$ by computing the order of $2$ modulo $7$.
 
-\emph{Solution.} It is the subgroup of the base idele class group made from norms of ideles upstairs. The quotient by this subgroup records exactly the abelian Galois symmetries of $L/F$.
+\emph{Solution.} The prime $p=2$ is unramified in $\mathbb{Q}(\zeta_7)/\mathbb{Q}$. Its Frobenius element is determined by $2\bmod 7$, and the order of the Frobenius in $\operatorname{Gal}(\mathbb{Q}(\zeta_7)/\mathbb{Q})\cong(\mathbb{Z}/7\mathbb{Z})^\times$ equals the order of $2$ in $(\mathbb{Z}/7\mathbb{Z})^\times$. Compute: $2^1=2$, $2^2=4$, $2^3=8\equiv 1\pmod 7$. So the order is 3. The prime $2$ splits into $[L:\mathbb{Q}]/3=6/3=2$ primes, each with inertia degree $3$.
 
-\item \textbf{Exercise 5.} Why does class field theory not immediately solve arbitrary nonabelian extension problems?
+\item \textbf{Exercise 5.} Compute the class number of $\mathbb{Q}(\sqrt{-1})=\mathbb{Q}(i)$ by showing every ideal in $\mathbb{Z}[i]$ is principal.
 
-\emph{Solution.} The central arithmetic class groups and reciprocity quotients are abelian, so they naturally describe commuting Galois symmetries. A nonabelian extension contains additional ordering information that is not captured by these quotients. The Langlands program and anabelian geometry seek broader replacements.
+\emph{Solution.} The ring $\mathbb{Z}[i]$ is a Euclidean domain with norm $N(a+bi)=a^2+b^2$: for any $\alpha,\beta\in\mathbb{Z}[i]$ with $\beta\ne 0$, there exist $q,r\in\mathbb{Z}[i]$ with $\alpha=q\beta+r$ and $N(r)<N(\beta)$. This follows from rounding $\alpha/\beta$ to the nearest Gaussian integer. Every Euclidean domain is a PID, and every PID has trivial class group. Therefore $h(\mathbb{Q}(i))=1$.
 
 \end{enumerate}
 \section*{8. References}

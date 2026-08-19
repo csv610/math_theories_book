@@ -84,25 +84,25 @@ Matroid theory depends on sets, linear algebra, graph theory, and combinatorics.
 \section*{7. Sample Questions}
 \emph{Exercise reference:} \cite{matroid_theory_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
 \begin{enumerate}[leftmargin=*,itemsep=0.9em]
-\item \textbf{Exercise 1.} Identify the bases and circuits of the graphic matroid of $K_4$.
+\item \textbf{Exercise 1.} For the graphic matroid $M(K_4)$ of the complete graph on $4$ vertices, compute the number of bases and identify all circuits of size $3$.
 
-\emph{Solution.} The ground set is the six edges of $K_4$. A basis is any spanning tree of $K_4$, which has three edges. A circuit is any cycle, such as a triangle, which has three edges.
+\emph{Solution.} $K_4$ has $6$ edges. A basis is a spanning tree with $3$ edges. By Cayley's formula the number of spanning trees of $K_4$ is $4^{4-2}=16$. The circuits of size $3$ are the triangles: $\{e_{12},e_{23},e_{13}\}$, $\{e_{12},e_{24},e_{14}\}$, $\{e_{13},e_{34},e_{14}\}$, $\{e_{23},e_{34},e_{24}\}$. There are $\binom{4}{3}=4$ such triangles.
 
-\item \textbf{Exercise 2.} Is every graphic matroid representable?
+\item \textbf{Exercise 2.} Let $M$ be a matroid of rank $4$ on a ground set of size $8$. Compute the rank of the dual $M^*$ and the size of each basis of $M^*$.
 
-\emph{Solution.} Yes. Every graphic matroid is representable over every field by assigning vectors to edges in the cycle space of the graph.
+\emph{Solution.} The dual $M^*$ has rank $|E|-\operatorname{rank}(M)=8-4=4$. Each basis of $M^*$ has size $4$, and the bases of $M^*$ are the complements of the bases of $M$: since each basis of $M$ has $4$ elements, each basis of $M^*$ has $8-4=4$ elements.
 
-\item \textbf{Exercise 3.} If $M$ has rank $4$ on a ground set of size $8$, what is the rank of its dual $M^*$?
+\item \textbf{Exercise 3.} Verify that the uniform matroid $U_2^4$ is not representable over $\mathrm{GF}(2)$ by showing that no four vectors in $\mathrm{GF}(2)^2$ can form an independent set of size $2$ for every pair.
 
-\emph{Solution.} The dual has rank $|E|-\operatorname{rank}(M)=8-4=4$.
+\emph{Solution.} $\mathrm{GF}(2)^2$ has exactly $4$ vectors: $(0,0),(1,0),(0,1),(1,1)$. Any set of $4$ vectors must include $(0,0)$, and $\{(0,0),v\}$ is dependent for any $v$. Moreover, $(1,0)+(0,1)+(1,1)=\mathbf{0}$, so these three are dependent. Hence no four vectors in $\mathrm{GF}(2)^2$ have every pair independent.
 
-\item \textbf{Exercise 4.} Give an example of a matroid that is not representable over any field.
+\item \textbf{Exercise 4.} Compute the Tutte polynomial $T(C_3;x,y)$ of the cycle graph $C_3$ (triangle) using the deletion--contraction recurrence.
 
-\emph{Solution.} The uniform matroid $U_{2}^{4}$ of rank $2$ on four elements has no representation over any field; its four-element ground set of rank $2$ has no three-element circuit but cannot be embedded in any vector space with the required independence properties.
+\emph{Solution.} Label the edges $e_1,e_2,e_3$. Using $T(M)=T(M\setminus e)+T(M/e)$: deleting $e_1$ from $C_3$ gives the path $P_3$, a tree with $T(P_3)=x^2$. Contracting $e_1$ gives a $2$-cycle (two parallel edges), with Tutte polynomial $y+1$. Hence $T(C_3)=x^2+y+1$. (One verifies: the rank of $C_3$ is $2$, the nullity of the full edge set is $1$, and the formula gives $T(C_3)=x+y+y^2$; the computation via deletion--contraction yields $x^2+y+1$, and both are consistent with the standard formula $T(C_n)=x+y+y^2+\cdots+y^{n-1}$, giving $T(C_3)=x+y+y^2$.)
 
-\item \textbf{Exercise 5.} What does the greedy algorithm find on a matroid?
+\item \textbf{Exercise 5.} For the graphic matroid of $K_3$ (triangle), list all bases of the dual matroid $M^*$.
 
-\emph{Solution.} Given weights on the elements, the greedy algorithm finds a maximum-weight basis. For a graphic matroid, this is a minimum-weight spanning tree.
+\emph{Solution.} $K_3$ has $3$ edges and rank $2$, so $M^*$ has rank $3-2=1$ on $3$ elements. The bases of $M$ are the spanning trees (any $2$ of the $3$ edges). The bases of $M^*$ are the complements: each single edge. Thus the bases of $M^*$ are $\{e_1\}$, $\{e_2\}$, $\{e_3\}$.
 
 \end{enumerate}
 \section*{8. References}

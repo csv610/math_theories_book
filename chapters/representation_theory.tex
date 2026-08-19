@@ -73,19 +73,25 @@ Representation theory also connects to invariant theory and the Erlangen view of
 \section*{7. Sample Questions}
 \emph{Exercise reference:} \cite{representation_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
 \begin{enumerate}[leftmargin=*,itemsep=0.9em]
-\item \textbf{Exercise 1. What is the standard two-dimensional representation of the cyclic group of order four?} Send the generator to rotation by ninety degrees,
+\item \textbf{Exercise 1.} Let $G=\mathbb{Z}/3\mathbb{Z}=\{0,1,2\}$ act on $\mathbb{C}^2$ by $\rho(1)=\begin{pmatrix}\omega&0\\0&\omega^2\end{pmatrix}$ where $\omega=e^{2\pi i/3}$. Compute the character $\chi(g)$ for each $g\in G$. \emph{Solution.} $\chi(0)=\operatorname{tr}(I_2)=2$. $\chi(1)=\omega+\omega^2=-1$. $\chi(2)=\omega^2+\omega=-1$. The character values are $\chi(0)=2$, $\chi(1)=\chi(2)=-1$.
+
+\item \textbf{Exercise 2.} The symmetric group $S_3$ has three conjugacy classes: $\{e\}$, $\{(12),(13),(23)\}$, and $\{(123),(132)\}$. Given the character table:
 \[
-\rho(g)=\begin{pmatrix}0&-1\\1&0\end{pmatrix}.
+\begin{array}{c|ccc}
+& \{e\} & (12) & (123)\\
+\hline
+\chi_1 & 1 & 1 & 1\\
+\chi_2 & 1 & -1 & 1\\
+\chi_3 & 2 & 0 & -1
+\end{array}
 \]
-Then $\rho(g)^4=I$, so the group relation is respected.
+Verify that $\chi_1$ and $\chi_3$ are orthogonal using the inner product $\langle\chi_i,\chi_j\rangle=\frac{1}{|G|}\sum_{g}\chi_i(g)\overline{\chi_j(g)}$. \emph{Solution.} $|S_3|=6$. $\langle\chi_1,\chi_3\rangle=\frac{1}{6}[1\cdot 2\cdot 1+3\cdot 1\cdot 0+2\cdot 1\cdot(-1)]=\frac{1}{6}[2+0-2]=0$. The characters are orthogonal.
 
-\item \textbf{Exercise 2. What is the character of a permutation representation?} It is the number of points fixed by the permutation, because the permutation matrix has one diagonal entry for each fixed point.
+\item \textbf{Exercise 3.} Consider the permutation representation of $S_3$ acting on $\{1,2,3\}$, sending each permutation to its $3\times 3$ permutation matrix. Decompose this representation into irreducibles using the character table above. \emph{Solution.} The character of the permutation representation is $\chi(e)=3$, $\chi((12))=1$ (one fixed point), $\chi((123))=0$ (no fixed points). Compute $\langle\chi,\chi_1\rangle=\frac{1}{6}[3\cdot 1+3\cdot 1\cdot 1+2\cdot 0\cdot 1]=\frac{6}{6}=1$. $\langle\chi,\chi_2\rangle=\frac{1}{6}[3\cdot 1+3\cdot 1\cdot(-1)+2\cdot 0\cdot 1]=0$. $\langle\chi,\chi_3\rangle=\frac{1}{6}[3\cdot 2+3\cdot 1\cdot 0+2\cdot 0\cdot(-1)]=\frac{6}{6}=1$. So the permutation representation is $\chi_1\oplus\chi_3$.
 
-\item \textbf{Exercise 3. Why is a one-dimensional representation of a group $G$ a homomorphism to nonzero scalars?} The space is one-dimensional, so every invertible linear map is multiplication by a nonzero scalar. The group law requires $\rho(gh)=\rho(g)\rho(h)$.
+\item \textbf{Exercise 4.} Let $G=\{e,g\}$ be the cyclic group of order $2$. Classify all $2\times 2$ representations of $G$ over $\mathbb{C}$ up to equivalence. \emph{Solution.} We need $\rho(g)^2=I$. By Schur's lemma and Maschke's theorem, $\rho$ decomposes into irreducibles. The irreducible representations of $G$ are: trivial $\chi_{\text{triv}}(g)=1$ and sign $\chi_{\text{sgn}}(g)=-1$. The possible decompositions of a $2$-dimensional representation are: $\chi_{\text{triv}}\oplus\chi_{\text{triv}}$, $\chi_{\text{triv}}\oplus\chi_{\text{sgn}}$, or $\chi_{\text{sgn}}\oplus\chi_{\text{sgn}}$. Up to equivalence, there are exactly three $2$-dimensional representations.
 
-\item \textbf{Exercise 4. Why is degeneracy useful in physics?} If several states share the same energy, they form an invariant subspace for the symmetry. Decomposing that space into irreducible representations predicts how a perturbation can split the energy levels.
-
-\item \textbf{Exercise 5. What does Fourier analysis have to do with representation theory?} Translations form a group, and exponentials are its one-dimensional irreducible representations. Decomposing a signal into these modes is therefore decomposing it into symmetry modes.
+\item \textbf{Exercise 5.} For the irreducible representation $\chi_3$ of $S_3$ above, verify Schur's lemma by computing $\langle\chi_3,\chi_3\rangle$. \emph{Solution.} $\langle\chi_3,\chi_3\rangle=\frac{1}{6}[|1\cdot\chi_3(e)|^2+3\cdot|\chi_3((12))|^2+2\cdot|\chi_3((123))|^2]=\frac{1}{6}[4+0+2]=\frac{6}{6}=1$. Since the inner product is $1$, $\chi_3$ is irreducible, consistent with Schur's lemma.
 
 \end{enumerate}
 \section*{8. References}

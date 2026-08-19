@@ -108,25 +108,25 @@ In CAD, elimination detects whether two surfaces intersect or become tangent. In
 \emph{Exercise reference:} \cite{elimination_theory_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
 \begin{enumerate}[leftmargin=*,itemsep=0.9em]
 
-\item \textbf{Exercise 1.} Eliminate $y$ from $x+y=5$ and $x-y=1$.
+\item \textbf{Exercise 1.} Compute the resultant of $f(x)=x^2-2$ and $g(x)=x^2-3$.
 
-\emph{Solution.} Adding the equations gives $2x=6$, so $x=3$. Substitution gives $y=2$. The eliminated equation is $x-3=0$.
+\emph{Solution.} The Sylvester matrix is $\begin{bmatrix}1&0&-2&0\\0&1&0&-2\\1&0&-3&0\\0&1&0&-3\end{bmatrix}$. Expanding: $\det=1\cdot\det\begin{bmatrix}1&0&-2\\0&-3&0\\1&0&-3\end{bmatrix}-(-2)\cdot\det\begin{bmatrix}0&1&-2\\1&0&0\\0&1&0\end{bmatrix}$. First $3\times3$ det: $1(9-0)-0+(-2)(0+3)=9-6=3$. Second $3\times3$ det: $0-1(0-0)+(-2)(1-0)=-2$. Total: $3-4=-1$. Since $\operatorname{Res}(f,g)=-1\neq0$, the polynomials share no common root, consistent with roots $\pm\sqrt{2}$ and $\pm\sqrt{3}$.
 
-\item \textbf{Exercise 2.} What does a resultant tell us?
+\item \textbf{Exercise 2.} Eliminate $y$ from $x+y=3$ and $x^2+y^2=5$.
 
-\emph{Solution.} It is a polynomial in the coefficients of two equations. Its vanishing means the equations have a common value of the variable being eliminated, usually over an algebraic closure.
+\emph{Solution.} From the first equation, $y=3-x$. Substituting: $x^2+(3-x)^2=5$, i.e., $2x^2-6x+4=0$, so $(x-1)(x-2)=0$, giving $x\in\{1,2\}$. Back-substitution yields $y=2$ and $y=1$. The elimination polynomial is $2x^2-6x+4=0$ and the solution set is $\{(1,2),(2,1)\}$.
 
-\item \textbf{Exercise 3.} Why can elimination produce extra candidate solutions?
+\item \textbf{Exercise 3.} Compute the discriminant of $p(x)=x^3-x$.
 
-\emph{Solution.} Multiplying equations, taking closures, or eliminating over the complex numbers can introduce values that satisfy a consequence but not the original system. Every candidate must be substituted back into the original equations and any domain constraints.
+\emph{Solution.} For $x^3+0\cdot x^2-x+0$: $a=1$, $b=0$, $c=-1$, $d=0$. The discriminant is $\Delta=18abcd-4b^3d+b^2c^2-4ac^3-27a^2d^2=0-0+0-4(1)(-1)-0=4$. Since $\Delta=4\neq0$, all three roots are distinct (they are $0,\pm1$).
 
-\item \textbf{Exercise 4.} What is the purpose of an elimination order in a Groebner-basis calculation?
+\item \textbf{Exercise 4.} Find a Gr\"obner basis for $I=\langle x^2+y-1,\;x-y\rangle$ under lexicographic order $x>y$.
 
-\emph{Solution.} It makes the chosen variables more important than the variables to be removed. The basis elements that contain only the retained variables then generate the corresponding elimination ideal.
+\emph{Solution.} From $x-y$, we get $x=y$. Substituting into $x^2+y-1$ gives $y^2+y-1$. The Gr\"obner basis is $\{x-y,\;y^2+y-1\}$. The elimination ideal is $I\cap k[y]=\langle y^2+y-1\rangle$, with roots $y=(-1\pm\sqrt{5})/2$.
 
-\item \textbf{Exercise 5.} How is quantifier elimination related to polynomial elimination?
+\item \textbf{Exercise 5.} Use the Nullstellensatz to determine whether the system $x^2+1=0$, $x^3+1=0$ has a common solution over $\mathbb C$.
 
-\emph{Solution.} A quantified statement such as “there exists $y$ satisfying polynomial conditions” describes a projection of a solution set. Elimination computes an equivalent condition in the remaining variables, so algebraic projection becomes logical removal of the quantifier.
+\emph{Solution.} The ideals are $\langle x^2+1\rangle$ and $\langle x^3+1\rangle$. Compute $I=\langle x^2+1,x^3+1\rangle$: dividing $x^3+1$ by $x^2+1$ gives remainder $-x+1$, so $I$ contains $x-1$. Then $x-1$ and $x^2+1$ are coprime (the gcd is $1$), so $I=\langle1\rangle$. By the Nullstellensatz, $V(I)=\varnothing$---the system has no common solution over $\mathbb C$.
 
 \end{enumerate}
 \section*{8. References}

@@ -96,25 +96,25 @@ Nevanlinna's characteristic $T(r,f)$ measures the growth of a meromorphic functi
 \section*{7. Sample Questions}
 \emph{Exercise reference:} \cite{nevanlinna_theory_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
 \begin{enumerate}[leftmargin=*,itemsep=0.9em]
-\item \textbf{Exercise 1.} What does $N(r,f)$ count?
+\item \textbf{Exercise 1.} For $f(z)=e^z$, compute $N(r,0,f)$ (the counting function for zeros) and use the first fundamental theorem to find $\delta(0,f)$, the defect of the value $0$.
 
-\emph{Solution.} It is an integrated count of poles of $f$ inside the disk of radius $r$, including multiplicity and weighting poles according to their distance from the origin.
+\emph{Solution.} Since $e^z\neq 0$ for all $z$, there are no zeros, so $N(r,0,f)=0$. The first fundamental theorem gives $T(r,f)=N(r,0,f)+m(r,0,f)+O(1)$, so $m(r,0,f)=T(r,f)+O(1)$. The defect is $\delta(0,f)=1-\limsup_{r\to\infty}N(r,0,f)/T(r,f)=1-0=1$. The value $0$ is completely omitted.
 
-\item \textbf{Exercise 2.} What does $T(r,f)$ measure?
+\item \textbf{Exercise 2.} Let $f(z)=1/(z-a)$ with $|a|>1$. Compute $N(r,\infty,f)$ for $r<|a|$ and for $r\geq |a|$.
 
-\emph{Solution.} It measures total growth, combining how often a value is taken with how close the function comes to that value on the boundary.
+\emph{Solution.} $f$ has a simple pole at $z=a$. For $r<|a|$: no poles lie in $|z|\leq r$, so $N(r,\infty,f)=0$. For $r\geq |a|$: one pole of multiplicity $1$ at $z=a$, so $N(r,\infty,f)=\log(r/|a|)$.
 
-\item \textbf{Exercise 3.} How many values can a transcendental entire function omit?
+\item \textbf{Exercise 3.} State Picard's theorem for $f(z)=e^z$ and verify that $e^z$ omits exactly one value.
 
-\emph{Solution.} At most one. This is Picard's theorem; omitting two values is impossible for a nonconstant entire transcendental function.
+\emph{Solution.} Picard's theorem: a transcendental entire function takes every complex value with at most one exception. For $f(z)=e^z$, the range is $\mathbb{C}\setminus\{0\}$, so the omitted value is $0$. This is exactly one exception, consistent with Picard's theorem.
 
-\item \textbf{Exercise 4.} Why are multiplicities sometimes truncated?
+\item \textbf{Exercise 4.} For $f(z)=z$, compute $T(r,f)$ using the first fundamental theorem with $a=0$.
 
-\emph{Solution.} Truncation emphasizes distinct target points rather than allowing one highly repeated solution to dominate the count.
+\emph{Solution.} $f(z)=z$ has no poles, so $N(r,\infty,f)=0$. The proximity function: $m(r,\infty,f)=T(r,f)+O(1)-N(r,\infty,f)=T(r,f)+O(1)$. By direct computation, $T(r,z)=\frac{1}{2\pi}\int_0^{2\pi}\log^+|re^{i\theta}|\,d\theta=\log r$ for $r>1$. Hence $T(r,z)=\log r+O(1)$.
 
-\item \textbf{Exercise 5.} What is a defect?
+\item \textbf{Exercise 5.} Apply the second fundamental theorem to show that $f(z)=\tan z$ cannot omit more than $2$ values.
 
-\emph{Solution.} It measures the fraction of expected value-distribution growth missing at a target value. A completely omitted value has maximal defect.
+\emph{Solution.} The tangent function is meromorphic on $\mathbb{C}$. By the second fundamental theorem, a non-constant meromorphic function satisfies $\sum_{a\in\hat{\mathbb{C}}}\delta(a,f)\leq 2$. Since $\tan z$ takes every value in $\hat{\mathbb{C}}$ infinitely often (it is periodic with poles and covers $\mathbb{C}$), all defects are $0$ and the bound is satisfied. In particular, $\tan z$ omits no values at all (every complex number is taken), consistent with $\sum\delta(a,f)=0\leq 2$.
 
 \end{enumerate}
 \section*{8. References}

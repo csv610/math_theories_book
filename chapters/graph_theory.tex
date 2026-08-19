@@ -81,25 +81,25 @@ Its abstraction is a strength but also a limit: a graph may omit geography, time
 \section*{7. Sample Questions}
 \emph{Exercise reference:} \cite{graph_theory_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
 \begin{enumerate}[leftmargin=*,itemsep=0.9em]
-\item \textbf{Exercise 1.} How many edges does a tree with $20$ vertices have?
+\item \textbf{Exercise 1.} Determine whether the Petersen graph is Eulerian. If not, find its chromatic number.
 
-\emph{Solution.} Every tree with $n$ vertices has $n-1$ edges, so it has $19$ edges.
+\emph{Solution.} The Petersen graph has $10$ vertices, each of degree $3$ (odd). Since Euler's theorem requires all vertices to have even degree for an Euler circuit, it is not Eulerian. The Petersen graph contains an odd cycle (e.g., a 5-cycle), so $\chi\geq 3$. It is $3$-colorable (color the outer 5-cycle alternately and adjust the inner star), so $\chi=3$.
 
-\item \textbf{Exercise 2.} Can a connected graph with exactly two odd-degree vertices have an Euler circuit?
+\item \textbf{Exercise 2.} How many spanning trees does the complete graph $K_4$ have?
 
-\emph{Solution.} No. An Euler circuit requires every vertex to have even degree. Such a graph may have an open Euler trail beginning at one odd vertex and ending at the other.
+\emph{Solution.} By Cayley's formula, the number of spanning trees of $K_n$ is $n^{n-2}$. For $K_4$: $4^{4-2}=4^2=16$ spanning trees.
 
-\item \textbf{Exercise 3.} What does a minimum spanning tree optimize?
+\item \textbf{Exercise 3.} Find a proper $3$-coloring of the cycle $C_5$, or prove that it requires $3$ colors.
 
-\emph{Solution.} It connects every vertex without cycles while minimizing the total weight of selected edges. It does not necessarily minimize the distance between every pair.
+\emph{Solution.} $C_5$ has odd length, so $\chi(C_5)=3$. A proper $3$-coloring: label vertices $v_1,\ldots,v_5$ around the cycle and assign colors $v_1\to 1$, $v_2\to 2$, $v_3\to 3$, $v_4\to 1$, $v_5\to 2$. Adjacent vertices $v_4$ and $v_5$ get colors $1$ and $2$ (different), and $v_5$ and $v_1$ get colors $2$ and $1$ (different). Two colors are insufficient since any 2-coloring of an odd cycle forces two adjacent vertices to share a color.
 
-\item \textbf{Exercise 4.} When does a bipartite graph have a matching covering every worker?
+\item \textbf{Exercise 4.} Apply the handshaking lemma to find the number of edges in a graph with degree sequence $(3,3,3,3,4)$.
 
-\emph{Solution.} Hall's condition must hold: every set of workers must collectively be adjacent to at least as many tasks as there are workers in that set.
+\emph{Solution.} The handshaking lemma states $\sum\deg(v)=2|E|$. Here $3+3+3+3+4=16=2|E|$, so $|E|=8$.
 
-\item \textbf{Exercise 5.} Why can an adjacency list be better than a matrix?
+\item \textbf{Exercise 5.} Does the complete bipartite graph $K_{3,3}$ have a Hamiltonian cycle? If so, exhibit one.
 
-\emph{Solution.} A sparse graph has few edges compared with all possible pairs. A list stores only existing neighbors, while a matrix stores mostly zeros.
+\emph{Solution.} Yes. Label the two parts $A=\{a_1,a_2,a_3\}$ and $B=\{b_1,b_2,b_3\}$. The cycle $a_1\to b_1\to a_2\to b_2\to a_3\to b_3\to a_1$ visits every vertex exactly once and returns to the start. This is a Hamiltonian cycle.
 
 \end{enumerate}
 \section*{8. References}

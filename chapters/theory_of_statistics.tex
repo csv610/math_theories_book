@@ -70,15 +70,15 @@ Regression models describe relationships and prediction. Dimension reduction rep
 \section*{7. Sample Questions}
 \emph{Exercise reference:} \cite{statistics_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
 \begin{enumerate}[leftmargin=*,itemsep=0.9em]
-\item \textbf{Exercise 1. What is the standard error of the mean of $n$ independent observations with variance $\sigma^2$?} The sample mean has variance $\sigma^2/n$, so its standard error is $\sigma/\sqrt n$.
+\item \textbf{Exercise 1.} Let $X_1, \ldots, X_n$ be i.i.d.\ $\mathrm{Bernoulli}(p)$. Compute the maximum likelihood estimator $\hat{p}$ for $p$. \emph{Solution.}$L(p) = \prod_{i=1}^n p^{x_i}(1-p)^{1-x_i} = p^{s}(1-p)^{n-s}$ where $s = \sum x_i$. Then $\ell(p) = s\ln p + (n-s)\ln(1-p)$. Setting $\frac{d\ell}{dp} = \frac{s}{p} - \frac{n-s}{1-p} = 0$ gives $\hat{p} = \frac{s}{n} = \bar{X}$, the sample mean.
 
-\item \textbf{Exercise 2. Why does randomization help an experiment?} It makes treatment assignment independent of uncontrolled characteristics in expectation, allowing differences in outcomes to be attributed to treatment under the design.
+\item \textbf{Exercise 2.} Compute $\mathrm{Var}(\bar{X})$ for i.i.d.\ observations with variance $\sigma^2 = 9$ and sample size $n = 36$. Compare with the variance of a single observation. \emph{Solution.}$\mathrm{Var}(\bar{X}) = \frac{\sigma^2}{n} = \frac{9}{36} = 0.25$. The variance of a single observation is $9$. The standard error is $\sqrt{0.25} = 0.5$, compared to $\sqrt{9} = 3$ for a single observation. Averaging reduces the standard deviation by a factor of $\sqrt{n} = 6$.
 
-\item \textbf{Exercise 3. Compare a confidence interval and a prediction interval?} A confidence interval estimates an unknown population quantity; a prediction interval also includes the random variation of a future observation and is therefore wider.
+\item \textbf{Exercise 3.} For the model $Y = \beta_0 + \beta_1 X + \varepsilon$ with $\varepsilon \sim N(0, \sigma^2)$, the least-squares estimator is $\hat{\beta}_1 = \frac{\sum(X_i - \bar{X})(Y_i - \bar{Y})}{\sum(X_i - \bar{X})^2}$. Show that $\hat{\beta}_1$ is unbiased when $\mathrm{E}[\varepsilon_i] = 0$ and the $X_i$ are fixed. \emph{Solution.}$\mathrm{E}[\hat{\beta}_1] = \frac{\sum(X_i - \bar{X})\mathrm{E}[Y_i - \bar{Y}]}{\sum(X_i - \bar{X})^2}$. Since $\mathrm{E}[Y_i] = \beta_0 + \beta_1 X_i$, we get $\mathrm{E}[Y_i - \bar{Y}] = \beta_1(X_i - \bar{X})$. Then $\mathrm{E}[\hat{\beta}_1] = \frac{\beta_1 \sum(X_i - \bar{X})^2}{\sum(X_i - \bar{X})^2} = \beta_1$. Thus $\hat{\beta}_1$ is an unbiased estimator of $\beta_1$.
 
-\item \textbf{Exercise 4. What does a p-value not mean?} It is not the probability that the null hypothesis is true. It is a probability of data as extreme as observed, calculated assuming the null.
+\item \textbf{Exercise 4.} Suppose $X \sim \mathrm{Poisson}(\lambda)$ with observed value $x = 5$ in a single observation. Find the maximum likelihood estimate of $\lambda$. \emph{Solution.}$L(\lambda) = \frac{\lambda^5 e^{-\lambda}}{5!}$. Then $\ell(\lambda) = 5\ln\lambda - \lambda - \ln(5!)$. Setting $\frac{d\ell}{d\lambda} = \frac{5}{\lambda} - 1 = 0$ gives $\hat{\lambda} = 5$. The MLE is the observed count.
 
-\item \textbf{Exercise 5. Why can a large sample produce a statistically significant but unimportant result?} Standard errors shrink with sample size, so a tiny effect can be detected. Practical importance requires an effect-size and cost or benefit assessment.
+\item \textbf{Exercise 5.} A 95\% confidence interval for a population mean $\mu$ based on $n = 25$ observations with $\bar{x} = 10$ and $s = 4$ is $(\bar{x} - t_{0.025, 24} \cdot s/\sqrt{n},\; \bar{x} + t_{0.025, 24} \cdot s/\sqrt{n})$. Using $t_{0.025, 24} \approx 2.064$, compute the interval. \emph{Solution.}$s/\sqrt{n} = 4/5 = 0.8$. The margin of error is $2.064 \times 0.8 = 1.6512$. The confidence interval is $(10 - 1.6512,\; 10 + 1.6512) = (8.35,\; 11.65)$.
 
 \end{enumerate}
 \section*{8. References}

@@ -135,25 +135,25 @@ It is useful whenever a problem has several possible notions of size. A theorem 
 \emph{Exercise reference:} \cite{dimension_theory_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
 \begin{enumerate}[leftmargin=*,itemsep=0.9em]
 
-\item \textbf{Exercise 1.} What is the Krull dimension of $k[x]$?
+\item \textbf{Exercise 1.} Compute the Krull dimension of $k[x]/(x^2)$.
 
-\emph{Solution.} The prime chain $(0)\subsetneq(x)$ has length one, and no longer chain exists. Hence $\dim k[x]=1$.
+\emph{Solution.} The only prime ideal of $k[x]/(x^2)$ is $(\bar{x})$, since any prime must contain the nilpotent element $\bar{x}$. The longest chain of prime ideals is $(\bar{x})$ alone, of length $0$. Hence $\dim k[x]/(x^2)=0$.
 
-\item \textbf{Exercise 2.} Give a prime chain showing that $k[x,y]$ has dimension at least two.
+\item \textbf{Exercise 2.} Find the Krull dimension of $k[x,y]/(x)$.
 
-\emph{Solution.} The ideals $(0)$, $(x)$, and $(x,y)$ are prime and strictly nested. The chain has length two, so the dimension is at least two; the polynomial-dimension theorem shows it is exactly two.
+\emph{Solution.} The quotient $k[x,y]/(x)\cong k[y]$, a polynomial ring in one variable over a field. Its prime chain is $(0)\subsetneq(\bar{y})$, of length $1$. Hence $\dim k[x,y]/(x)=1$.
 
-\item \textbf{Exercise 3.} What does height measure?
+\item \textbf{Exercise 3.} Determine the height of the maximal ideal $(x,y)$ in $k[x,y]$.
 
-\emph{Solution.} The height of a prime ideal is the maximum number of strict prime inclusions in a chain ending at that ideal. It measures how many algebraic layers lie below the corresponding subspace.
+\emph{Solution.} The longest chain of primes ending at $(x,y)$ is $(0)\subsetneq(x)\subsetneq(x,y)$, of length $2$. No longer chain exists since $(x,y)$ is maximal. The height is $2$, which equals $\dim k[x,y]$.
 
-\item \textbf{Exercise 4.} Why does the crossing $xy=0$ signal a singularity at the origin?
+\item \textbf{Exercise 4.} Prove that $\dim\mathbb Z=1$.
 
-\emph{Solution.} The curve has local dimension one, but its two branches give two independent tangent directions at the origin. The tangent dimension is therefore larger than the local dimension, which is the regularity test for singularity.
+\emph{Solution.} The prime ideals of $\mathbb Z$ are $(0)$ and $(p)$ for primes $p$. The chain $(0)\subsetneq(p)$ has length $1$, and no longer chain exists since every nonzero prime is maximal. Hence $\dim\mathbb Z=1$.
 
-\item \textbf{Exercise 5.} Why are Noetherian hypotheses important?
+\item \textbf{Exercise 5.} Compute the Krull dimension of $k[x,y]/(xy)$.
 
-\emph{Solution.} They ensure finite generation and prevent endlessly increasing chains of ideals. Without them, polynomial dimension formulas, finite-height arguments, and geometric interpretations can fail.
+\emph{Solution.} The minimal primes of $k[x,y]/(xy)$ are $(\bar{x})$ and $(\bar{y})$, corresponding to the two coordinate axes. The longest chain is $(\bar{x})\subsetneq(\bar{x},\bar{y})$, of length $1$ (and symmetrically for $(\bar{y})$). Hence $\dim k[x,y]/(xy)=1$, consistent with the union of two lines.
 
 \end{enumerate}
 \section*{8. References}

@@ -91,15 +91,15 @@ In a router, packets arrive and compete for a finite buffer. If the service rate
 \section*{7. Sample Questions}
 \emph{Exercise reference:} \cite{queue_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
 \begin{enumerate}[leftmargin=*,itemsep=0.9em]
-\item \textbf{Exercise 1. An M/M/1 queue has $\lambda=3$ jobs per hour and $\mu=5$ jobs per hour. Is it stable?} Yes. $\rho=3/5=0.6<1$. The mean number in the system is $L=\rho/(1-\rho)=1.5$.
+\item \textbf{Exercise 1.} An M/M/1 queue has arrival rate $\lambda=4$ jobs per minute and service rate $\mu=5$ jobs per minute. Compute (a) the traffic intensity $\rho$, (b) the mean number in the system $L$, and (c) the probability that the system is empty. \emph{Solution.} (a) $\rho=\lambda/\mu=4/5=0.8$. (b) $L=\rho/(1-\rho)=0.8/0.2=4$. (c) $P(N=0)=1-\rho=0.2$.
 
-\item \textbf{Exercise 2. For the same queue, find the mean time in the system.} $W=1/(\mu-\lambda)=1/2$ hour, or thirty minutes. Little's law confirms $L=\lambda W=3(0.5)=1.5$.
+\item \textbf{Exercise 2.} For an M/M/1 queue with $\lambda=6$ per hour and $\mu=10$ per hour, compute the probability of having exactly $3$ customers in the system in steady state. \emph{Solution.} $\rho=6/10=0.6$. The steady-state probability is $P(N=3)=(1-\rho)\rho^3=0.4\times 0.6^3=0.4\times 0.216=0.0864$.
 
-\item \textbf{Exercise 3. If a system has $L=20$ jobs and throughput $\lambda=4$ jobs per minute, what is $W$?} Little's law gives $W=L/\lambda=20/4=5$ minutes.
+\item \textbf{Exercise 3.} A call center completes $200$ calls per hour, and the average call duration is $4$ minutes. Using Little's law, find the average number of calls in progress simultaneously. \emph{Solution.} Convert to consistent units: $\lambda=200/60=10/3$ calls per minute, $W=4$ minutes. Little's law gives $L=\lambda W=(10/3)\times 4=40/3\approx 13.3$ calls.
 
-\item \textbf{Exercise 4. Why is $\rho=1.1$ unsafe for an unlimited queue?} The server processes only $\mu$ jobs per unit time while arrivals occur at $1.1\mu$. The backlog grows on average, so no finite steady-state mean exists.
+\item \textbf{Exercise 4.} In an M/M/2 queue with $\lambda=8$ per minute and $\mu=5$ per minute per server, compute the traffic intensity per server and determine whether the queue is stable. \emph{Solution.} The offered load is $a=\lambda/\mu=8/5=1.6$. With $c=2$ servers, the per-server utilization is $\rho=a/c=1.6/2=0.8<1$, so the queue is stable.
 
-\item \textbf{Exercise 5. Why does service-time variability increase waiting?} A long service occupies the server while new jobs arrive. The Pollaczek--Khinchin formula contains the second moment of service time, so larger variance raises the mean wait.
+\item \textbf{Exercise 5.} For an M/M/1 queue with $\lambda=3$ per minute and $\mu=4$ per minute, compute the mean waiting time in queue (not including service). \emph{Solution.} $\rho=\lambda/\mu=3/4=0.75$. The mean number waiting is $L_q=\rho^2/(1-\rho)=0.75^2/0.25=0.5625/0.25=2.25$. By Little's law applied to the queue, $W_q=L_q/\lambda=2.25/3=0.75$ minutes, or $45$ seconds. Equivalently, $W_q=\rho/(\mu-\lambda)=0.75/1=0.75$ minutes.
 
 \end{enumerate}
 \section*{8. References}

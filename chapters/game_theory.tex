@@ -82,25 +82,25 @@ Its main limitation is modeling. Real people may not be perfectly rational, may 
 \section*{7. Sample Questions}
 \emph{Exercise reference:} \cite{game_theory_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
 \begin{enumerate}[leftmargin=*,itemsep=0.9em]
-\item \textbf{Exercise 1.} What is the difference between a dominant strategy and a Nash equilibrium?
+\item \textbf{Exercise 1.} Find all pure-strategy Nash equilibria of the following $2\times 2$ zero-sum game: Player I chooses rows, Player II chooses columns, and the payoff matrix (to Player I) is $\begin{pmatrix}3&0\\5&1\end{pmatrix}$.
 
-\emph{Solution.} A dominant strategy is best against every opponent action. A Nash equilibrium is a profile in which the chosen actions are mutual best responses. An equilibrium may use strategies that are not dominant.
+\emph{Solution.} For each cell, check if the row is a best response against that column and vice versa. Against column 1, Player I prefers row 2 ($5>3$). Against column 2, Player I prefers row 2 ($1>0$). So row 2 dominates row 1. Against row 2, Player II prefers column 2 ($1<0$ means II loses less at column 2). The unique pure-strategy Nash equilibrium is (row 2, column 2) with payoff $1$ to Player I.
 
-\item \textbf{Exercise 2.} Why can randomizing be useful in rock-paper-scissors?
+\item \textbf{Exercise 2.} Compute the mixed-strategy Nash equilibrium of the game with payoff matrix $\begin{pmatrix}2&0\\0&3\end{pmatrix}$ (zero-sum, payoffs to Player I).
 
-\emph{Solution.} Any predictable choice can be exploited: if rock is chosen too often, the opponent chooses paper. Choosing each move with probability one third removes a predictable advantage and is the mixed-strategy equilibrium.
+\emph{Solution.} Let Player I play row 1 with probability $p$. Player II is indifferent when the expected payoff of column 1 equals that of column 2: $2p+0(1-p)=0p+3(1-p)$, so $2p=3-3p$ and $p=3/5$. Let Player II play column 1 with probability $q$. Player I is indifferent when $2q=3(1-q)$, giving $q=3/5$. The equilibrium mixed strategies are $(3/5,2/5)$ for each player, with value $6/5$.
 
-\item \textbf{Exercise 3.} Why is a subgame-perfect equilibrium stronger than Nash equilibrium?
+\item \textbf{Exercise 3.} Find the mixed-strategy Nash equilibrium of Matching Pennies: Player I and Player II each choose $H$ or $T$. Player I wins \$1 if the choices match and loses \$1 otherwise (zero-sum).
 
-\emph{Solution.} It requires equilibrium behavior after every possible history, not only along the path that occurs. It removes promises or threats that a player would not carry out when the time came.
+\emph{Solution.} The payoff matrix to Player I is $\begin{pmatrix}1&-1\\-1&1\end{pmatrix}$ where rows are Player I's choices and columns are Player II's. No pure-strategy NE exists (checking all four cells shows each player wants to deviate). Let Player I play $H$ with probability $p$ and Player II play $H$ with probability $q$. Player I is indifferent when $E_I(H)=E_I(T)$: $q(1)+(1-q)(-1)=q(-1)+(1-q)(1)$, giving $2q-1=1-2q$, so $q=1/2$. Player II is indifferent when $E_{II}(H)=E_{II}(T)$: $p(-1)+(1-p)(1)=p(1)+(1-p)(-1)$, giving $1-2p=2p-1$, so $p=1/2$. The unique NE is both players randomize uniformly, with game value $0$.
 
-\item \textbf{Exercise 4.} In Hamilton's rule, what does $r$ represent?
+\item \textbf{Exercise 4.} In the ultimatum game, Player I proposes a split of \$10 in integer amounts: keep $s$ and offer $10-s$ to Player II. Player II accepts or rejects; if rejected, both get \$0. Find the subgame-perfect equilibrium using backward induction.
 
-\emph{Solution.} It is the expected fraction of relevant inherited information shared by the actor and recipient. Helping a close relative has a larger $r$ than helping an unrelated individual.
+\emph{Solution.} Player II accepts any offer $\geq 1$ (since \$1>\$0). Player I, anticipating this, offers the smallest amount Player II accepts: $s=9$, offering Player II \$1. The subgame-perfect equilibrium is: Player I offers \$(9,1); Player II accepts any positive offer. The outcome is Player I gets \$9, Player II gets \$1.
 
-\item \textbf{Exercise 5.} Why might an experiment fail to match a Nash prediction?
+\item \textbf{Exercise 5.} In a coordination game with payoff matrix $\begin{pmatrix}2&0\\0&1\end{pmatrix}$ (both players choose simultaneously, payoffs to both players are the same---a pure coordination game), find all Nash equilibria.
 
-\emph{Solution.} Participants may have bounded reasoning, incomplete understanding, social preferences, or concern for fairness. The mathematical equilibrium remains a consequence of the model, but the model may not describe the experiment fully.
+\emph{Solution.} There are three Nash equilibria: two pure and one mixed. Pure: both choose row 1/column 1 (payoff 2 each) and both choose row 2/column 2 (payoff 1 each). Mixed: Player I plays row 1 with probability $p$ and Player II plays column 1 with probability $q$. Indifference for Player I: $2q=1(1-q)$, so $q=1/3$. By symmetry $p=1/3$. The mixed equilibrium has payoff $2/3$ each. All three are Nash equilibria; the payoff-dominant one is (1,1).
 
 \end{enumerate}
 \section*{8. References}

@@ -71,15 +71,15 @@ These results separate shape from topology. The existence and uniqueness theorem
 \section*{7. Sample Questions}
 \emph{Exercise reference:} \cite{teich_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
 \begin{enumerate}[leftmargin=*,itemsep=0.9em]
-\item \textbf{Exercise 1. How many real parameters describe a genus-$3$ surface?} The dimension is $6g-6=18$ real parameters, or $9$ complex parameters.
+\item \textbf{Exercise 1.} Compute the real dimension of the Teichmüller space $\mathcal{T}(S_g)$ for surfaces of genus $g = 2, 3, 4$. \emph{Solution.} The real dimension is $6g - 6$. For $g = 2$: $6(2) - 6 = 6$. For $g = 3$: $6(3) - 6 = 12$. For $g = 4$: $6(4) - 6 = 18$.
 
-\item \textbf{Exercise 2. What does a marking do?} It identifies the varying Riemann surface with one fixed topological surface, so changes in complex structure can be compared without forgetting topology.
+\item \textbf{Exercise 2.} A quasiconformal map $f\colon \mathbb{C} \to \mathbb{C}$ has dilatation $K = 3$. Using the formula $K = \frac{|f_z| + |f_{\bar{z}}|}{|f_z| - |f_{\bar{z}}|}$, express $|f_{\bar{z}}|$ in terms of $|f_z|$. \emph{Solution.} From $K = 3$, we get $3(|f_z| - |f_{\bar{z}}|) = |f_z| + |f_{\bar{z}}|$, so $3|f_z| - 3|f_{\bar{z}}| = |f_z| + |f_{\bar{z}}|$, giving $2|f_z| = 4|f_{\bar{z}}|$, hence $|f_{\bar{z}}| = \frac{1}{2}|f_z|$. The map stretches angles by a bounded amount: the maximal local stretching factor is $3$, and the ratio of the semi-axes of the infinitesimal ellipse is $K = 3$.
 
-\item \textbf{Exercise 3. What does $K=1$ mean?} The map has no angular distortion and is conformal.
+\item \textbf{Exercise 3.} Find the number of complex parameters needed to describe the conformal structures on a closed surface of genus $5$. \emph{Solution.} The complex dimension of Teichmüller space is $3g - 3 = 3(5) - 3 = 12$. So $12$ complex parameters (or $24$ real parameters) are needed.
 
-\item \textbf{Exercise 4. Why is moduli space a quotient?} Teichmuller space remembers markings. Forgetting them identifies points related by a mapping class, producing the moduli space.
+\item \textbf{Exercise 4.} A Riemann surface of genus $g \geq 2$ has $6g - 6$ real-dimensional Teichmüller space, and the mapping class group $\mathrm{Mod}(S_g)$ acts on it with the quotient being the moduli space $\mathcal{M}_g$. For $g = 2$, verify that $\mathcal{M}_2$ is not a manifold by explaining why the action has fixed points. \emph{Solution.}$\mathrm{Mod}(S_2)$ contains the hyperelliptic involution $\iota$, which fixes the hyperelliptic locus in $\mathcal{T}(S_2)$. Since $\iota$ has a fixed point, the quotient $\mathcal{M}_2 = \mathcal{T}(S_2)/\mathrm{Mod}(S_2)$ has orbifold singularities (cone points) and is not a smooth manifold. Every genus-2 surface is hyperelliptic, so the fixed-point set is an open dense subset, and $\mathcal{M}_2$ is an orbifold throughout.
 
-\item \textbf{Exercise 5. Why are quadratic differentials important?} They describe the horizontal and vertical stretching directions of extremal quasiconformal maps and provide coordinates for the complex structure of Teichmuller space.
+\item \textbf{Exercise 5.} Show that a conformal map (i.e.\ $K = 1$) preserves angles. \emph{Solution.} When $K = 1$, the inequality $\frac{|f_z| + |f_{\bar{z}}|}{|f_z| - |f_{\bar{z}}|} \leq 1$ forces $|f_{\bar{z}}| = 0$ (since $|f_z| \geq |f_{\bar{z}}| \geq 0$ and the numerator $\geq$ the denominator, with equality only when $|f_{\bar{z}}| = 0$). Thus $f_{\bar{z}} = 0$, meaning $f$ is holomorphic. A holomorphic function with nonzero derivative is conformal: it preserves angles between curves at every point where $f'(z) \neq 0$.
 
 \end{enumerate}
 \section*{8. References}

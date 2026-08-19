@@ -119,25 +119,25 @@ The theory is useful whenever the shape is more important than a coordinate form
 \emph{Exercise reference:} \cite{continuum_theory_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
 \begin{enumerate}[leftmargin=*,itemsep=0.9em]
 
-\item \textbf{Exercise 1.} Why is $[0,1]$ a continuum?
+\item \textbf{Exercise 1.} Prove that the topologist's sine curve $X=\{(x,\sin(1/x)):0<x\leq1/\pi\}\cup\{0\}\times[-1,1]$ is connected but not path connected.
 
-\emph{Solution.} It is nonempty, compact in the usual metric, and connected because it cannot be separated into two disjoint nonempty open subsets.
+\emph{Solution.} $X$ is connected because the closure of the sine curve part includes the vertical segment $\{0\}\times[-1,1]$, so $X$ cannot be written as a union of two disjoint nonempty open sets. However, $X$ is not path connected: suppose $\gamma:[0,1]\to X$ is a path from $(0,0)$ to $(1/\pi,0)$. Let $t^*=\sup\{t:\gamma(t)\in\{0\}\times[-1,1]\}$. By continuity $\gamma(t^*)=(0,y_0)$. For $t>t^*$, $\gamma(t)$ lies on the sine curve, but $\sin(1/x)$ oscillates between $-1$ and $1$ as $x\to 0^+$, so $\lim_{t\to t^*+}\gamma(t)$ cannot equal $(0,y_0)$---a contradiction.
 
-\item \textbf{Exercise 2.} Why is the rational interval $\mathbb Q\cap[0,1]$ not a continuum?
+\item \textbf{Exercise 2.} Compute the inverse limit $\varprojlim([0,1],f)$ where each bonding map is $f(x)=x/2$.
 
-\emph{Solution.} It is not compact in the subspace topology: a sequence of rationals can converge to an irrational number in $[0,1]$, whose limit is missing. It is also totally disconnected.
+\emph{Solution.} The inverse limit consists of sequences $(x_1,x_2,\ldots)$ with $x_n\in[0,1]$ and $x_n=x_{n+1}/2$ for all $n$. This means $x_{n+1}=2x_n$, so $x_n=2^{n-1}x_1$. For $x_n\in[0,1]$ we need $2^{n-1}x_1\leq1$ for all $n$, forcing $x_1=0$, hence $x_n=0$ for all $n$. The inverse limit is a single point.
 
-\item \textbf{Exercise 3.} What does homogeneity mean for a continuum?
+\item \textbf{Exercise 3.} Determine the number of path components of $A=\{(x,\sin(1/x)):0<x\leq1\}\cup\{(0,0)\}\subset\mathbb{R}^2$.
 
-\emph{Solution.} Every point can be moved to every other point by a homeomorphism of the entire space. The circle is homogeneous, but an interval is not because an endpoint cannot be mapped to an interior point while preserving local structure.
+\emph{Solution.} The sine curve portion $\{(x,\sin(1/x)):0<x\leq 1\}$ is path connected (it is the continuous image of $(0,1]$). The point $(0,0)$ cannot be connected to any point on the sine curve by a path (as shown in Exercise~1). Therefore $A$ has exactly $2$ path components: the sine curve and the isolated point $(0,0)$.
 
-\item \textbf{Exercise 4.} What is an inverse-limit point?
+\item \textbf{Exercise 4.} Prove that the circle $S^1$ is a homogeneous continuum.
 
-\emph{Solution.} It is a sequence $(x_1,x_2,\ldots)$ with $x_n\in X_n$ such that $f_n(x_{n+1})=x_n$ for every $n$. Each coordinate is a consistent view of the same limiting object.
+\emph{Solution.} For any two points $p,q\in S^1$, the rotation $R_\theta:S^1\to S^1$ defined by $R_\theta(p)=q$ (where $\theta$ is the angle from $p$ to $q$) is a homeomorphism of $S^1$ sending $p$ to $q$. Therefore every point can be mapped to every other point by a global homeomorphism, so $S^1$ is homogeneous.
 
-\item \textbf{Exercise 5.} Why can connectedness fail to provide a path?
+\item \textbf{Exercise 5.} Apply the nested-intersection theorem to show that the Cantor set $C=\bigcap_{n=0}^{\infty}C_n$ (where $C_0=[0,1]$ and $C_{n+1}$ is obtained by removing the open middle third of each interval in $C_n$) is a continuum.
 
-\emph{Solution.} Connectedness only forbids a separation into two open pieces. A path requires a continuous parametrized route between every pair of points. Wild continua can satisfy the first condition but not the second.
+\emph{Solution.} Each $C_n$ is nonempty, compact (closed in $[0,1]$), and connected (an intersection of closed intervals with the finite intersection property). The sets are nested: $C_0\supseteq C_1\supseteq C_2\supseteq\cdots$. By the nested-intersection theorem, $C=\bigcap_{n=0}^{\infty}C_n$ is nonempty, compact, and connected. Since it contains more than one point (e.g., $0$ and $1$), it is a nondegenerate continuum.
 
 \end{enumerate}
 \section*{8. References}

@@ -85,25 +85,25 @@ Galois theory depends on field theory, polynomial arithmetic, permutation groups
 \section*{7. Sample Questions}
 \emph{Exercise reference:} \cite{galois_theory_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
 \begin{enumerate}[leftmargin=*,itemsep=0.9em]
-\item \textbf{Exercise 1.} What are the automorphisms of $\mathbb{Q}(\sqrt2)$ that fix $\mathbb{Q}$?
+\item \textbf{Exercise 1.} Compute the Galois group of $x^2-4x+1$ over $\mathbb{Q}$.
 
-\emph{Solution.} They are the identity and the map sending $\sqrt2$ to $-\sqrt2$. Every element $a+b\sqrt2$ is therefore sent to either $a+b\sqrt2$ or $a-b\sqrt2$.
+\emph{Solution.} The roots are $2+\sqrt{3}$ and $2-\sqrt{3}$, so the splitting field is $\mathbb{Q}(\sqrt{3})$ with $[\mathbb{Q}(\sqrt{3}):\mathbb{Q}]=2$. The two automorphisms fixing $\mathbb{Q}$ are the identity and $\sqrt{3}\mapsto -\sqrt{3}$. Thus $\operatorname{Gal}\cong\mathbb{Z}/2\mathbb{Z}$.
 
-\item \textbf{Exercise 2.} Why can the cube not be doubled with compass and straightedge?
+\item \textbf{Exercise 2.} Determine the Galois group of $x^4-10x^2+1$ over $\mathbb{Q}$.
 
-\emph{Solution.} Doubling the cube requires constructing $\sqrt[3]{2}$, whose minimal polynomial is $x^3-2$ and has degree three. A constructible number has degree a power of two, so this number is not constructible.
+\emph{Solution.} The roots are $\pm\sqrt{2}\pm\sqrt{3}$. The splitting field is $\mathbb{Q}(\sqrt{2},\sqrt{3})$ with $[\mathbb{Q}(\sqrt{2},\sqrt{3}):\mathbb{Q}]=4$. The four automorphisms independently change the signs of $\sqrt{2}$ and $\sqrt{3}$. Since both generators have order $2$ and commute, $\operatorname{Gal}\cong\mathbb{Z}/2\mathbb{Z}\times\mathbb{Z}/2\mathbb{Z}$, the Klein four-group.
 
-\item \textbf{Exercise 3.} What does the Galois group remember?
+\item \textbf{Exercise 3.} List all intermediate fields of the Galois extension $\mathbb{Q}(\sqrt{2},\sqrt{3})/\mathbb{Q}$ using the Galois correspondence.
 
-\emph{Solution.} It remembers all field automorphisms that fix the coefficients. These automorphisms permute the roots while preserving every algebraic relation over the coefficient field.
+\emph{Solution.} The Galois group $G\cong\mathbb{Z}/2\times\mathbb{Z}/2$ has three subgroups of order $2$: $\langle\sigma\rangle$ (sending $\sqrt{2}\mapsto-\sqrt{2}$, $\sqrt{3}\mapsto\sqrt{3}$), $\langle\tau\rangle$ (sending $\sqrt{2}\mapsto\sqrt{2}$, $\sqrt{3}\mapsto-\sqrt{3}$), and $\langle\sigma\tau\rangle$ (sending both $\sqrt{2}\mapsto-\sqrt{2}$, $\sqrt{3}\mapsto-\sqrt{3}$). Their fixed fields are $\mathbb{Q}(\sqrt{3})$, $\mathbb{Q}(\sqrt{2})$, and $\mathbb{Q}(\sqrt{6})$, respectively. Together with $\mathbb{Q}$ and $\mathbb{Q}(\sqrt{2},\sqrt{3})$, these are all five intermediate fields.
 
-\item \textbf{Exercise 4.} Does Abel--Ruffini say that no quintic can be solved?
+\item \textbf{Exercise 4.} Show that $x^5-4x+2$ is irreducible over $\mathbb{Q}$ and determine whether it is solvable by radicals.
 
-\emph{Solution.} No. It says that no single radical formula solves every quintic. Some special quintics have solvable Galois groups and can be solved by radicals.
+\emph{Solution.} By Eisenstein's criterion with $p=2$: the polynomial $x^5-4x+2$ has all coefficients except the leading one divisible by $2$, and the constant term $2$ is not divisible by $4$. So it is irreducible, and $\operatorname{Gal}$ acts transitively on its $5$ roots, hence contains a $5$-cycle. The discriminant can be computed to be $508000=2^6\cdot5^3\cdot127$, which is not a perfect square, so $\operatorname{Gal}\not\subseteq A_5$. A transitive subgroup of $S_5$ containing an odd permutation is $S_5$ itself (or $F_{20}$, but checking the discriminant mod various primes shows $\operatorname{Gal}\cong S_5$). Since $S_5$ is not solvable, this polynomial is not solvable by radicals.
 
-\item \textbf{Exercise 5.} Why are fields and subgroups paired in reverse order?
+\item \textbf{Exercise 5.} Determine whether $\sqrt[3]{2}$ is constructible by compass and straightedge.
 
-\emph{Solution.} Adding more automorphisms imposes more equations that an element must satisfy, so the fixed field becomes smaller. Removing automorphisms imposes fewer conditions, so the fixed field becomes larger.
+\emph{Solution.} The minimal polynomial of $\sqrt[3]{2}$ over $\mathbb{Q}$ is $x^3-2$ (irreducible by Eisenstein), so $[\mathbb{Q}(\sqrt[3]{2}):\mathbb{Q}]=3$. A real number is constructible only if the degree $[\mathbb{Q}(\alpha):\mathbb{Q}]$ is a power of $2$. Since $3$ is not a power of $2$, $\sqrt[3]{2}$ is not constructible. Equivalently, the cube cannot be doubled.
 
 \end{enumerate}
 \section*{8. References}

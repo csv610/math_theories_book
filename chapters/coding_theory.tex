@@ -137,25 +137,25 @@ Coding theory depends on probability, logarithms, linear algebra, finite fields,
 \emph{Exercise reference:} \cite{coding_theory_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
 \begin{enumerate}[leftmargin=*,itemsep=0.9em]
 
-\item \textbf{Exercise 1.} What is the Hamming distance between 101101 and 100001?
+\item \textbf{Exercise 1.} Find the minimum distance of the binary code $C=\{00000,\;11100,\;00111,\;11011\}$.
 
-\emph{Solution.} Compare positions: they differ in the third and fourth positions, and agree elsewhere. The distance is $2$.
+\emph{Solution.} Compute all pairwise Hamming distances: $d(00000,11100)=3$, $d(00000,00111)=3$, $d(00000,11011)=4$, $d(11100,00111)=4$, $d(11100,11011)=3$, $d(00111,11011)=3$. The minimum distance is $d_{\min}=3$, so the code can detect $2$ errors and correct $1$ error.
 
-\item \textbf{Exercise 2.} How many errors can a code with minimum distance $7$ detect and correct?
+\item \textbf{Exercise 2.} Compute the Hamming (sphere-packing) bound for a binary code of length $7$ that corrects $1$ error. How many codewords can such a code have at most?
 
-\emph{Solution.} It can detect up to $6$ errors. It can correct up to $\lfloor(7-1)/2\rfloor=3$ errors by nearest-codeword decoding.
+\emph{Solution.} A single-error-correcting code has $t=1$, so $d_{\min}\geq 3$. The volume of a Hamming ball of radius $1$ in $\{0,1\}^7$ is $\binom{7}{0}+\binom{7}{1}=1+7=8$. The bound gives $|C|\leq 2^7/8=16$. The $[7,4]$ Hamming code achieves this bound exactly with $16$ codewords, making it a perfect code.
 
-\item \textbf{Exercise 3.} Decode 101 using the repetition code $\{000,111\}$.
+\item \textbf{Exercise 3.} The $[7,4]$ Hamming code has parity-check matrix $H$ whose columns are the seven nonzero binary $3$-tuples. Show that its minimum distance is $3$.
 
-\emph{Solution.} The distance from 101 to 000 is two, while its distance from 111 is one. Nearest-codeword decoding therefore returns 111, representing the message bit one.
+\emph{Solution.} A nonzero codeword $c$ satisfies $Hc^T=0$, meaning the columns of $H$ selected by the nonzero positions of $c$ must sum to $\mathbf{0}$ over $\mathbb{F}_2$. No single column is zero, so $d_{\min}\geq 2$. No two columns are equal (all seven nonzero $3$-tuples are distinct), so $d_{\min}\geq 3$. The columns $(1,0,0)^T$, $(0,1,0)^T$, $(1,1,0)^T$ sum to zero, so a weight-$3$ codeword exists. Hence $d_{\min}=3$.
 
-\item \textbf{Exercise 4.} What do the parameters $(n,k,d)$ of a linear block code mean?
+\item \textbf{Exercise 4.} Apply the Singleton bound to a linear code with parameters $[n,k,d]$. For a Reed--Solomon code over $\mathbb{F}_{16}$ with $n=15$ and $k=9$, what is the maximum possible $d$?
 
-\emph{Solution.} The codeword has length $n$, $k$ source symbols are encoded at once, and distinct codewords are at least distance $d$ apart. The rate is $k/n$, while $d$ controls error detection and correction.
+\emph{Solution.} The Singleton bound states $d\leq n-k+1$. For $n=15$, $k=9$: $d\leq 15-9+1=7$. Reed--Solomon codes are maximum-distance separable (MDS), so they achieve $d=n-k+1=7$.
 
-\item \textbf{Exercise 5.} Why can interleaving help a Reed--Solomon code correct a scratch on a disc?
+\item \textbf{Exercise 5.} A binary linear code has parity-check matrix $H=\begin{bmatrix}1&0&1&1\\0&1&1&0\end{bmatrix}$. The received word is $r=(1,1,0,1)$. Compute the syndrome and determine whether $r$ is a valid codeword.
 
-\emph{Solution.} A scratch creates a burst of adjacent errors. Interleaving places adjacent stored symbols in different codewords, turning one burst into many smaller errors. Each codeword then stays within the correction ability of the Reed--Solomon decoder.
+\emph{Solution.} The syndrome is $s=Hr^T=\begin{bmatrix}1\cdot1+0\cdot1+1\cdot0+1\cdot1\\0\cdot1+1\cdot1+1\cdot0+0\cdot1\end{bmatrix}=\begin{bmatrix}0\\1\end{bmatrix}$. Since $s\neq\mathbf{0}$, the received word is not a valid codeword. The syndrome $(0,1)^T$ matches the second column of $H$, indicating an error in the second position. Correcting gives $(1,0,0,1)$.
 
 \end{enumerate}
 \section*{8. References}

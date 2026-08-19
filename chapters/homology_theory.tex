@@ -95,25 +95,25 @@ Homology depends on linear algebra, abelian groups, chain complexes, and topolog
 \section*{7. Sample Questions}
 \emph{Exercise reference:} \cite{homology_theory_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
 \begin{enumerate}[leftmargin=*,itemsep=0.9em]
-\item \textbf{Exercise 1.} What does $H_0(X)$ count for a space with three path components?
+\item \textbf{Exercise 1.} Compute the simplicial homology groups $H_0$ and $H_1$ of the space obtained by identifying the endpoints of three disjoint line segments to a single point (the wedge $S^1\vee S^1\vee S^1$).
 
-\emph{Solution.} It is isomorphic to $\mathbb Z^3$. Each component contributes one independent zero-dimensional class.
+\emph{Solution.} The space is a wedge of three circles. Its simplicial chain complex in low dimensions has $C_1=\mathbb{Z}^3$ (three edges) and $C_0=\mathbb{Z}$ (one vertex). The boundary $\partial_1=0$ since each edge starts and ends at the same vertex. So $H_1=\ker\partial_1/\operatorname{im}\partial_2=\mathbb{Z}^3/0=\mathbb{Z}^3$ and $H_0=C_0/\operatorname{im}\partial_1=\mathbb{Z}/0=\mathbb{Z}$ (since the space is connected). Betti numbers: $b_0=1$, $b_1=3$.
 
-\item \textbf{Exercise 2.} What is $H_1(S^1)$?
+\item \textbf{Exercise 2.} Compute $H_*(S^1\times S^1)$, the homology of the torus $T^2$.
 
-\emph{Solution.} It is $\mathbb Z$. One generator is the loop going once around the circle; going around twice represents twice that generator.
+\emph{Solution.} By the K\"{u}nneth theorem, $H_n(T^2)=\bigoplus_{p+q=n}H_p(S^1)\otimes H_q(S^1)$. Since $H_0(S^1)=\mathbb{Z}$, $H_1(S^1)=\mathbb{Z}$, and $H_k(S^1)=0$ for $k\geq 2$: $H_0(T^2)=\mathbb{Z}$, $H_1(T^2)=\mathbb{Z}\oplus\mathbb{Z}=\mathbb{Z}^2$, $H_2(T^2)=\mathbb{Z}$. The Euler characteristic is $1-2+1=0$.
 
-\item \textbf{Exercise 3.} Why is a boundary always a cycle?
+\item \textbf{Exercise 3.} Let $X$ be a graph (1-complex) with $5$ vertices and $7$ edges, connected. Compute $H_0(X)$ and $H_1(X)$.
 
-\emph{Solution.} Because $\partial^2=0$. If $b=\partial c$, then $\partial b=\partial(\partial c)=0$.
+\emph{Solution.} Since $X$ is connected, $H_0(X)=\mathbb{Z}$. For $H_1$: by Euler's formula for a graph, $\chi(X)=V-E=5-7=-2$. Since $\chi=b_0-b_1$, we get $b_1=b_0-\chi=1-(-2)=3$, so $H_1(X)=\mathbb{Z}^3$.
 
-\item \textbf{Exercise 4.} What does torsion $\mathbb Z_2$ in homology mean geometrically?
+\item \textbf{Exercise 4.} Show that the real projective plane $\mathbb{RP}^2$ has $H_1(\mathbb{RP}^2;\mathbb{Z})\cong\mathbb{Z}/2\mathbb{Z}$.
 
-\emph{Solution.} It means a nonzero class becomes zero after being added to itself twice. The projective plane has an essential loop with exactly this behavior.
+\emph{Solution.} Using the CW structure with one 0-cell, one 1-cell, and one 2-cell, the cellular chain complex is $0\to\mathbb{Z}\xrightarrow{2}\mathbb{Z}\xrightarrow{0}\mathbb{Z}\to 0$ (the attaching map of the 2-cell wraps twice around the 1-cell). So $H_1=\ker(0)/\operatorname{im}(2)=\mathbb{Z}/2\mathbb{Z}$, and $H_0=\mathbb{Z}$, $H_2=0$.
 
-\item \textbf{Exercise 5.} Why can homology fail to distinguish two spaces?
+\item \textbf{Exercise 5.} Use the Mayer--Vietoris sequence to compute $H_1(S^1)$, where $S^1$ is covered by two open arcs $U$ and $V$ overlapping in two disjoint arcs.
 
-\emph{Solution.} Homology records cycles and boundaries but forgets some information about how loops interact. Spaces can share all homology groups while having different fundamental groups or geometric shapes.
+\emph{Solution.} $U$, $V$, and $U\cap V$ are all homotopy equivalent to a point (or disjoint union of two contractible arcs). So $H_0(U)=H_0(V)=\mathbb{Z}$, $H_0(U\cap V)=\mathbb{Z}^2$ (two components), and $H_1(U)=H_1(V)=H_1(U\cap V)=0$. The Mayer--Vietoris sequence gives $\cdots\to H_1(U)\oplus H_1(V)\to H_1(S^1)\to H_0(U\cap V)\xrightarrow{\phi}H_0(U)\oplus H_0(V)\to H_0(S^1)\to 0$. This becomes $0\to H_1(S^1)\to\mathbb{Z}^2\xrightarrow{\phi}\mathbb{Z}^2\to\mathbb{Z}\to 0$. The map $\phi$ sends $(a,b)\mapsto(a+b)-(a+b)=\ldots$ more precisely, the difference map sends a generator of each component of $U\cap V$ to its image in $U$ minus its image in $V$: $\phi(a,b)=(a+b,a+b)$... Actually, $\phi(a,b)=(a+b,-a-b)$, so $\ker\phi\cong\mathbb{Z}$ and $\operatorname{im}\phi\cong\mathbb{Z}$. Therefore $H_1(S^1)\cong\ker\phi\cong\mathbb{Z}$.
 
 \end{enumerate}
 \section*{8. References}

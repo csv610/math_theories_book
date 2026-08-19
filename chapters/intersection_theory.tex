@@ -81,25 +81,25 @@ Nonprojective varieties can lack a well-behaved intersection theory, and singula
 \section*{7. Sample Questions}
 \emph{Exercise reference:} \cite{intersection_theory_ref1}. The cited edition is the source for the exercise set; consult its Exercises section for the official statement and numbering.
 \begin{enumerate}[leftmargin=*,itemsep=0.9em]
-\item \textbf{Exercise 1.} Why does $y=x^2$ meet $y=0$ with multiplicity two at the origin?
+\item \textbf{Exercise 1.} Use Bezout's theorem to find the total intersection number of the circle $x^2+y^2=5$ and the line $y=x+1$ in $\mathbb{P}^2(\mathbb{C})$.
 
-\emph{Solution.} Substitution gives $x^2=0$, which has a root of order two. A small parallel displacement produces two nearby complex intersections.
+\emph{Solution.} The circle has degree $2$ and the line has degree $1$, so by Bezout's theorem they meet in $2\cdot 1=2$ points counted with multiplicity. Substituting $y=x+1$ into $x^2+y^2=5$: $x^2+(x+1)^2=5$ gives $2x^2+2x-4=0$, i.e., $x^2+x-2=0$ with roots $x=1$ and $x=-2$. The intersection points are $(1,2)$ and $(-2,-1)$, each with multiplicity 1. Total: $2$, confirming Bezout.
 
-\item \textbf{Exercise 2.} What is a proper intersection?
+\item \textbf{Exercise 2.} Find the intersection number of the parabola $y=x^2$ and the line $y=mx+b$ at the origin when $b=0$.
 
-\emph{Solution.} It has the expected dimension: the dimensions add and the ambient dimension is subtracted. No component is unexpectedly large.
+\emph{Solution.} Substituting: $x^2=mx$, so $x(x-m)=0$. At the origin ($x=0$), the root $x=0$ has multiplicity $1$ (since $x=0$ is a simple root of $x(x-m)=0$ when $m\neq 0$). The intersection multiplicity at the origin is $1$. When $m=0$ (line $y=0$): $x^2=0$ has a double root, so the intersection multiplicity at the origin is $2$ (the tangent case).
 
-\item \textbf{Exercise 3.} Why move cycles before intersecting?
+\item \textbf{Exercise 3.} Compute the self-intersection number of a line $\ell\cong\mathbb{P}^1$ embedded as a line in $\mathbb{P}^2$.
 
-\emph{Solution.} A bad position can hide the intended count. Rational equivalence allows a harmless movement to proper position while preserving the intersection class.
+\emph{Solution.} The normal bundle of a line in $\mathbb{P}^2$ is $\mathcal{O}_{\mathbb{P}^1}(1)$ (degree 1). The self-intersection $\ell\cdot\ell$ equals the degree of the normal bundle, which is $1$. Equivalently, two distinct lines in $\mathbb{P}^2$ meet at exactly one point, so $\ell\cdot\ell=1$.
 
-\item \textbf{Exercise 4.} What does self-intersection measure?
+\item \textbf{Exercise 4.} Two plane curves of degrees $3$ and $4$ in $\mathbb{P}^2(\mathbb{C})$ have no common component. How many intersection points (counted with multiplicity) do they have?
 
-\emph{Solution.} It measures how a subvariety meets a nearby copy of itself and is controlled by the normal bundle describing how it sits in the ambient space.
+\emph{Solution.} By Bezout's theorem, the total intersection count is $3\cdot 4=12$.
 
-\item \textbf{Exercise 5.} Why is a $(-1)$-curve important?
+\item \textbf{Exercise 5.} In $\mathbb{P}^1\times\mathbb{P}^1$, let $\ell_1=\mathbb{P}^1\times\{p\}$ and $\ell_2=\{q\}\times\mathbb{P}^1$ for distinct points $p,q$. Compute $\ell_1\cdot\ell_1$, $\ell_2\cdot\ell_2$, and $\ell_1\cdot\ell_2$.
 
-\emph{Solution.} It is the exceptional curve created by blowing up a point and can often be contracted, making it a basic step in simplifying a surface.
+\emph{Solution.} $\ell_1$ and a nearby parallel copy $\ell_1'$ (i.e., $\mathbb{P}^1\times\{p'\}$ with $p'\neq p$) are disjoint, so $\ell_1\cdot\ell_1=0$. Similarly $\ell_2\cdot\ell_2=0$. $\ell_1$ and $\ell_2$ meet transversely at the single point $(q,p)$, so $\ell_1\cdot\ell_2=1$.
 
 \end{enumerate}
 \section*{8. References}
