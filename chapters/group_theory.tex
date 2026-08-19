@@ -54,13 +54,13 @@ The classification of a group may be difficult even when its definition is short
 
 \section*{4. Important theorems and results}
 \begin{enumerate}[leftmargin=*,itemsep=0.35em]
-\item \textbf{Lagrange's theorem.} The order of a subgroup of a finite group divides the order of the group.
+\item \textbf{Lagrange's theorem.} The order of a subgroup of a finite group divides the order of the group. \emph{Example.} $S_3$ has order $6$; its subgroups have orders $1,2,3$, and $6$, all divisors of $6$.
 
-\item \textbf{Cayley's theorem.} Every group is isomorphic to a subgroup of a symmetric permutation group.
+\item \textbf{Cayley's theorem.} Every group is isomorphic to a subgroup of a symmetric permutation group. \emph{Example.} The cyclic group $\mathbb{Z}/3\mathbb{Z}$ embeds in $S_3$ by sending the generator $1$ to the 3-cycle $(1\;2\;3)$.
 
-\item \textbf{Orbit-stabilizer theorem.} For a finite group action, group size equals orbit size times stabilizer size.
+\item \textbf{Orbit-stabilizer theorem.} For a finite group action, $|G|=|\operatorname{Orb}(x)|\,|\operatorname{Stab}(x)|$. \emph{Example.} $S_3$ acts on $\{1,2,3\}$. The orbit of $1$ is $\{1,2,3\}$ (size 3). The stabilizer of $1$ is $\{\text{id},(2\;3)\}$ (size 2). Then $|S_3|=3\cdot 2=6$.
 
-\item \textbf{First isomorphism theorem.} A quotient by the kernel of a homomorphism is isomorphic to its image.
+\item \textbf{First isomorphism theorem.} A quotient by the kernel of a homomorphism is isomorphic to its image. \emph{Example.} The map $\varphi:\mathbb{Z}\to\mathbb{Z}/6\mathbb{Z}$ has kernel $6\mathbb{Z}$, so $\mathbb{Z}/6\mathbb{Z}\cong\mathbb{Z}/6\mathbb{Z}$, confirming the theorem.
 
 \item \textbf{Classification of finite simple groups.} Every finite simple group belongs to the cyclic, alternating, Lie-type, or sporadic families \cite{group_theory_ref2}.
 
@@ -111,7 +111,7 @@ These results move from local structure to classification. Lagrange and orbit--s
 
 \item \textbf{Exercise 5.} Determine whether the subgroup $\{(1),(1\;2)(3\;4),(1\;3)(2\;4),(1\;4)(2\;3)\}$ of $S_4$ is normal.
 
-\emph{Solution.} This subgroup $V\cong\mathbb{Z}/2\times\mathbb{Z}/2$ (the Klein four-group) is the kernel of the sign homomorphism $\operatorname{sgn}:S_4\to\{+1,-1\}$ composed with the quotient map... More directly, conjugation by any $\sigma\in S_4$ sends a product of two disjoint transpositions to another product of two disjoint transpositions (conjugation relabels elements), so $\sigma V\sigma^{-1}\subseteq V$. Since $|V|$ is fixed, $\sigma V\sigma^{-1}=V$. Thus $V$ is normal in $S_4$.
+\emph{Solution.} This subgroup $V\cong\mathbb{Z}/2\times\mathbb{Z}/2$ (the Klein four-group) is normal in $S_4$. To see why, observe that $V$ consists of the identity and all products of two disjoint transpositions. Conjugation by any $\sigma\in S_4$ sends a product of two disjoint transpositions to another product of two disjoint transpositions (it simply relabels the elements), so $\sigma V\sigma^{-1}\subseteq V$. Since $|V|$ is fixed and conjugation is a bijection, $\sigma V\sigma^{-1}=V$ for every $\sigma\in S_4$.
 
 \end{enumerate}
 \section*{8. References}

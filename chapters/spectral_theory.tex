@@ -14,11 +14,11 @@ For an operator $T$, the spectrum $\sigma(T)$ is the set of complex numbers $\la
 On a Hilbert space, self-adjoint operators have real spectrum. Their spectrum may contain discrete eigenvalues or a continuous part. The multiplication operator $(Tf)(x)=xf(x)$ on square-integrable functions has every point in an interval in its spectrum even though no nonzero function is concentrated at one point \cite{spectral_ref3}.
 
 \paragraph{The spectral theorem}
-The finite-dimensional spectral theorem says a Hermitian matrix is unitarily diagonalizable. In an infinite-dimensional Hilbert space, a self-adjoint or normal operator is represented by a spectral measure:
+The finite-dimensional spectral theorem says a Hermitian matrix is unitarily diagonalizable: $U^*DU=\operatorname{diag}(\lambda_1,\ldots,\lambda_n)$. In infinite dimensions, eigenvalues may be replaced by a continuum of ``generalized eigenvalues,'' and a sum becomes an integral. A spectral measure $E$ is a map that assigns, to every Borel subset of $\mathbb{C}$, a projection operator on the Hilbert space. Think of $E(\Delta)$ as the projection onto the part of the space where the operator's ``values'' lie in the set $\Delta$. The operator is then reconstructed as
 \[
-T=\int_{\sigma(T)}\lambda\,dE(\lambda).
+ T=\int_{\sigma(T)}\lambda\,dE(\lambda),
 \]
-Functions of $T$ are defined by the same calculus, so expressions such as $e^{tT}$ and square roots can be constructed from the spectrum.
+an infinite-dimensional analogue of $T=\sum\lambda_i P_i$. Functions of $T$ are defined by the same calculus, so expressions such as $e^{tT}$ and square roots can be constructed from the spectrum \cite{spectral_ref3}.
 
 For compact self-adjoint operators, the nonzero spectrum consists of eigenvalues with finite multiplicity that can accumulate only at zero. Their eigenvectors form an orthonormal basis of the relevant closure. This generalizes principal-axis decomposition and explains why integral equations can be solved by modes \cite{spectral_ref1}.
 

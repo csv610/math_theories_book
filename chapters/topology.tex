@@ -19,13 +19,13 @@ General topology studies open sets and convergence. Algebraic topology studies i
 
 \section*{4. Important theorems and results}
 \begin{enumerate}[leftmargin=*,itemsep=0.35em]
-\item \textbf{Euler characteristic.} For a finite cell decomposition, $\chi=V-E+F$ is independent of the chosen decomposition.
+\item \textbf{Euler characteristic.} For a finite cell decomposition, $\chi=V-E+F$ is independent of the chosen decomposition. \emph{Example.} A cube has $V=8$, $E=12$, $F=6$, giving $\chi=8-12+6=2$, matching the sphere.
 
-\item \textbf{Intermediate value theorem.} A continuous real function taking values on both sides of a number takes that value somewhere between.
+\item \textbf{Intermediate value theorem.} A continuous real function taking values on both sides of a number takes that value somewhere between. \emph{Example.} If $f(0)=-1$ and $f(2)=3$, then $f(c)=0$ for some $c\in(0,2)$.
 
-\item \textbf{Heine--Borel theorem.} A subset of Euclidean space is compact exactly when it is closed and bounded.
+\item \textbf{Heine--Borel theorem.} A subset of Euclidean space is compact exactly when it is closed and bounded. \emph{Example.} $[0,1]$ is compact; $(0,1)$ is not (it is not closed); $[0,\infty)$ is not (it is not bounded).
 
-\item \textbf{Brouwer fixed-point theorem.} Every continuous map from a closed disk to itself has a fixed point.
+\item \textbf{Brouwer fixed-point theorem.} Every continuous map from a closed disk to itself has a fixed point. \emph{Example.} Stirring coffee in a circular cup and waiting: some point ends up exactly where it started.
 
 \item \textbf{Jordan curve theorem.} A simple closed curve in the plane separates the plane into an inside and an outside.
 
@@ -63,13 +63,13 @@ General topology studies open sets and convergence. Algebraic topology studies i
 \begin{enumerate}[leftmargin=*,itemsep=0.9em]
 \item \textbf{Exercise 1.} Compute the Euler characteristic of the torus $T^2$ using a cell decomposition with one 0-cell, two 1-cells, and one 2-cell. \emph{Solution.}$V = 1$, $E = 2$, $F = 1$. Then $\chi(T^2) = V - E + F = 1 - 2 + 1 = 0$.
 
-\item \textbf{Exercise 2.} Determine whether $\mathbb{R}^2$ and $\mathbb{R}^3$ are homeomorphic. \emph{Solution.}$\mathbb{R}^2$ and $\mathbb{R}^3$ are not homeomorphic. Removing a point from $\mathbb{R}^2$ gives a connected space (the punctured plane), while removing a point from $\mathbb{R}^3$ gives a connected space as well (punctured $\mathbb{R}^3$ is connected). Instead: removing a line from $\mathbb{R}^3$ disconnects it, but removing a line from $\mathbb{R}^2$ leaves a connected space. Since connectedness is a topological invariant, they are not homeomorphic. Equivalently, $\pi_1(\mathbb{R}^2 \setminus \{0\}) = \mathbb{Z}$ while $\pi_1(\mathbb{R}^3 \setminus \{0\}) = 0$.
+\item \textbf{Exercise 2.} Determine whether $\mathbb{R}^2$ and $\mathbb{R}^3$ are homeomorphic. \emph{Solution.} They are not. Remove a point from $\mathbb{R}^2$: the result $\mathbb{R}^2\setminus\{0\}$ has fundamental group $\pi_1=\mathbb{Z}$ (a loop around the puncture cannot be contracted). Remove a point from $\mathbb{R}^3$: the result $\mathbb{R}^3\setminus\{0\}$ is simply connected ($\pi_1=0$), since any loop can slip around the missing point in the extra dimension. Since homeomorphisms preserve fundamental groups, $\mathbb{R}^2\not\cong\mathbb{R}^3$.
 
-\item \textbf{Exercise 3.} Show that $[0,1)$ and $(0,1)$ are not homeomorphic. \emph{Solution.}$[0,1)$ is connected, and $(0,1)$ is connected. However, $[0,1)$ is compact if and only if it is closed and bounded, and it is not closed in $\mathbb{R}$. A better approach: removing $0$ from $[0,1)$ leaves $(0,1)$, which is connected. Removing any point $p \in (0,1)$ from $(0,1)$ disconnects it into $(0,p)$ and $(p,1)$. Since the number of points whose removal disconnects the space is a topological invariant, and $[0,1)$ has no such point (removing $0$ leaves a connected set, and removing any other point from $(0,1)$ does disconnect), while every point of $(0,1)$ disconnects, they are not homeomorphic.
+\item \textbf{Exercise 3.} Show that $[0,1)$ and $(0,1)$ are not homeomorphic. \emph{Solution.} Remove the endpoint $0$ from $[0,1)$: the remainder $(0,1)$ is connected. Now remove any interior point $p\in(0,1)$ from $(0,1)$: it splits into two pieces $(0,p)\cup(p,1)$, so $(0,1)\setminus\{p\}$ is disconnected. Thus no point of $[0,1)$ is a ``disconnecting point,'' but every point of $(0,1)$ is. Since homeomorphisms preserve which points disconnect the space, $[0,1)\not\cong(0,1)$.
 
 \item \textbf{Exercise 4.} Find the fundamental group $\pi_1(S^1 \times S^1)$ of the torus. \emph{Solution.} By the theorem for products, $\pi_1(X \times Y) \cong \pi_1(X) \times \pi_1(Y)$. Since $\pi_1(S^1) \cong \mathbb{Z}$, we get $\pi_1(S^1 \times S^1) \cong \mathbb{Z} \times \mathbb{Z}$. The two generators are the two standard loops around the torus, corresponding to the two independent directions.
 
-\item \textbf{Exercise 5.} Prove that a continuous bijection from a compact space to a Hausdorff space is a homeomorphism. \emph{Solution.}$\pi_1(T^2) \cong \pi_1(S^1) \times \pi_1(S^1) \cong \mathbb{Z} \times \mathbb{Z}$. Let $f\colon X \to Y$ be a continuous bijection with $X$ compact and $Y$ Hausdorff. We show $f^{-1}$ is continuous. Let $C \subseteq X$ be closed. Since $X$ is compact, $C$ is compact. Since $f$ is continuous, $f(C)$ is compact in $Y$. Since $Y$ is Hausdorff, $f(C)$ is closed. Thus $(f^{-1})^{-1}(C) = f(C)$ is closed, proving $f^{-1}$ is continuous.
+\item \textbf{Exercise 5.} Prove that a continuous bijection from a compact space to a Hausdorff space is a homeomorphism. \emph{Solution.} Let $f\colon X \to Y$ be a continuous bijection with $X$ compact and $Y$ Hausdorff. We must show $f^{-1}$ is continuous, equivalently that $f$ is a closed map. Let $C\subseteq X$ be closed. Since $X$ is compact, $C$ is compact. Since $f$ is continuous, $f(C)$ is compact in $Y$. Since $Y$ is Hausdorff, every compact subset is closed, so $f(C)$ is closed. Thus $f$ sends closed sets to closed sets, proving $f^{-1}$ is continuous.
 
 \end{enumerate}
 \section*{8. References}
